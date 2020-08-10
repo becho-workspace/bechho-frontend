@@ -1,0 +1,29 @@
+.dropdown,
+.dropleft,
+.dropright,
+.dropup {
+  display: none !important;
+}
+
+.th-location-btn {
+  padding: 5px 10px !important;
+  border-radius: 4px;
+  background-color: #ffa000;
+}
+.th-font {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #332a7c;
+}
+
+.th-searchbar {
+  background: #dfdfdf !important;
+  height: auto !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  border: none !important;
+  transition: none !important;
+}

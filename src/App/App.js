@@ -4,7 +4,7 @@ import Loadable from "react-loadable";
 
 import Loader from "./Loader/index";
 import routes from "../routes";
-// import Navbar from "./Layout/Navbar/index";
+import Navbar from "./Layouts/Header/index";
 // import Footer from "./Layout/Footer/index";
 
 const Home = Loadable({
@@ -28,7 +28,7 @@ class App extends Component {
 
     return (
       <div>
-        {/* <Navbar /> */}
+        <Navbar />
         <Suspense fallback={<Loader />}>
           <Switch>
             {menu}
