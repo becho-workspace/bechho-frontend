@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
+import "../../Assets/css/layouts/header.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -12,60 +13,74 @@ import Person from "../../Assets/Images/Header/person.png";
 import TV from "../../Assets/Images/Header/tv.png";
 import Search from "../../Assets/Images/Header/search.png";
 import Location from "../../Assets/Images/Header/location.png";
-import "../../Assets/css/header.css";
 
 class Header extends Component {
+  state = {
+    show: false,
+    target: null,
+  };
+
+  handleBuy = (e) => {
+    this.setState({
+      show: !this.state.show,
+      target: e.target,
+    });
+  };
+
+  handleSell = (e) => {
+    this.setState({
+      show: !this.state.show,
+      target: e.target,
+    });
+  };
+
   render() {
     return (
       <div>
         <Navbar expand="lg" className="shadow th-font">
-          <Navbar.Collapse id="responsive-navbar-nav" className="mr-5 ml-5">
-            <Nav.Item className="ml-5 mr-5">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            className="mr-lg-5 ml-lg-5"
+          >
+            <Nav.Item className="ml-lg-5 mr-lg-5">
               <img src={Logo} alt="Logo" style={{ width: "180px" }} />
             </Nav.Item>
-            <Nav.Item className="mr-4">
-              Buy
-              <span className="ml-1">
-                <img src={Arrow} alt="" />
-              </span>
-            </Nav.Item>
-            <NavDropdown>
-              <NavDropdown.Item>Action</NavDropdown.Item>
-              <NavDropdown.Item>Another action</NavDropdown.Item>
-              <NavDropdown.Item>Something</NavDropdown.Item>
+            <Nav.Item>Buy</Nav.Item>
+            <NavDropdown className="mr-lg-4 " as="div ">
+              <NavDropdown.Item>Buy Item 1</NavDropdown.Item>
+              <NavDropdown.Item>But Itam 2</NavDropdown.Item>
+              <NavDropdown.Item>Buy Item 3</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item>Separated link</NavDropdown.Item>
+              <NavDropdown.Item>Buy Item 4</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Item className="mr-4">
-              Sell
-              <span className="ml-1">
-                <img src={Arrow} alt="" />
-              </span>
-            </Nav.Item>
-            <NavDropdown>
-              <NavDropdown.Item>Action</NavDropdown.Item>
-              <NavDropdown.Item>Another action</NavDropdown.Item>
-              <NavDropdown.Item>Something</NavDropdown.Item>
+
+            <Nav.Item>Sell</Nav.Item>
+            <NavDropdown className="mr-lg-4">
+              <NavDropdown.Item>Sell Item 1</NavDropdown.Item>
+              <NavDropdown.Item>Sell Item 2</NavDropdown.Item>
+              <NavDropdown.Item>Sell Item 3</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item>Separated link</NavDropdown.Item>
+              <NavDropdown.Item>Sell Item 4</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Item className="d-flex align-items-center mr-4">
+
+            <Nav.Item className="d-flex align-items-center mr-lg-4">
               Bechho Tales{" "}
-              <span className="ml-1 mb-1">
+              <span className="ml-lg-1 mb-2">
                 <img src={TV} alt="" />
               </span>
             </Nav.Item>
-            <Nav.Item className="d-flex align-items-center mr-5 ml-2 th-location-btn">
+            <Nav.Item className="d-flex align-items-center mr-lg-4 ml-lg-2 th-location-btn">
               Delhi
-              <span className="ml-4 mb-1">
+              <span className="ml-lg-4">
                 <img src={Location} alt="" />
               </span>
             </Nav.Item>
-            <Form className="ml-3">
+            <Form className="ml-lg-3">
               <FormControl
                 type="text"
                 placeholder="Search"
-                className="mr-sm-2 th-searchbar"
+                className="mr-lg-sm-2 th-searchbar"
               />
             </Form>
             <InputGroup.Append>
@@ -75,15 +90,15 @@ class Header extends Component {
             </InputGroup.Append>
           </Navbar.Collapse>
           <Navbar.Collapse>
-            <Nav.Item className="d-flex align-items-center mr-5 ml-5">
+            <Nav.Item className="d-flex align-items-center mr-lg-5 ml-lg-5">
               Profile
-              <span className="ml-1 mb-1 ">
+              <span className="ml-lg-1 mb-1 ">
                 <img src={Person} alt="" />
               </span>
             </Nav.Item>
-            <Nav.Item className="d-flex align-items-center mr-5">
+            <Nav.Item className="d-flex align-items-center mr-lg-5">
               Cart
-              <span className="ml-1 mb-1">
+              <span className="ml-lg-1 mb-1">
                 <img src={Cart} alt="" />
               </span>
             </Nav.Item>

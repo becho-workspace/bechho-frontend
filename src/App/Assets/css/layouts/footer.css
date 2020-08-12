@@ -1,0 +1,33 @@
+.th-footer-container {
+  background: #332a7c;
+}
+
+.th-footer-col {
+  color: #fff;
+}
+
+.th-footer-list-title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffa000;
+}
+
+.th-footer-list,
+.th-beccho-about {
+  list-style: none !important;
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 1200px) {
+  .th-footer-border-right {
+    border-right: 1px solid #ffa000 !important;
+  }
+}
