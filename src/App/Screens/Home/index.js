@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Home from "../../Components/Home/Home";
+import "../../Assets/css/Home.css";
+import GridItems from "../../Components/Home/GridItems";
 
 class HomeMain extends Component {
   render() {
     return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Home></Home>
+      <div>
+        <GridItems />
       </div>
     );
   }

@@ -47,7 +47,7 @@ class Header extends Component {
               <img src={Logo} alt="Logo" style={{ width: "180px" }} />
             </Nav.Item>
             <Nav.Item>Buy</Nav.Item>
-            <NavDropdown className="mr-lg-4 " as="div ">
+            <NavDropdown className="mr-lg-4" as="div">
               <NavDropdown.Item>Buy Item 1</NavDropdown.Item>
               <NavDropdown.Item>But Itam 2</NavDropdown.Item>
               <NavDropdown.Item>Buy Item 3</NavDropdown.Item>

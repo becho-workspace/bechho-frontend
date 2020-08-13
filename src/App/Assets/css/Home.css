@@ -1,0 +1,47 @@
+.th-grid-items-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 45px;
+  color: #332a7c;
+}
+
+@media only screen and (min-width: 1120px) {
+  .th-grid-items-header {
+    font-size: 30px;
+  }
+
+  .th-promote-slider-container {
+    min-width: 448px !important;
+  }
+
+  .th-category-card {
+    width: calc(16%);
+    display: flex;
+    justify-content: center;
+  }
+  .th-category-small-img {
+    height: 10rem;
+    width: 11rem;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .th-category-small-img {
+    height: 10rem;
+    width: 10rem;
+  }
+  .th-grid-items-header {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .th-category-small-img {
+    height: 7.5rem;
+    width: 7.5rem;
+  }
+  .th-grid-items-header {
+    font-size: 20px;
+  }
+}
