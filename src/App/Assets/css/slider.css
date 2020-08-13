@@ -1,0 +1,29 @@
+.slick-next::before {
+  content: unset !important;
+  color: #fff !important;
+}
+.slick-prev:before {
+  content: unset !important;
+  color: #fff !important;
+}
+.th-arrow-slider-right,
+.th-arrow-slider-left {
+  line-height: 15px !important;
+  background-color: #fff !important;
+  height: 50px !important;
+  width: 50px !important;
+  border-radius: 50% !important;
+  z-index: 1000;
+}
+.th-arrow-slider-right {
+  margin-right: 15px !important;
+}
+.th-arrow-slider-left {
+  margin-left: 5px !important;
+}
+.th-arrow-slider-right img,
+.th-arrow-slider-left img {
+  height: 14px;
+  width: 14px;
+  color: #332a7c;
+}

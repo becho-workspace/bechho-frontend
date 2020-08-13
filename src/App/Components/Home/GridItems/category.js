@@ -45,12 +45,12 @@ class Category extends Component {
         <div className="th-grid-items-header mb-1 mt-2">Select a Category</div>
         {this.state.width > 768 ? (
           <div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-end">
               {data.slice(0, 3).map((item) => {
                 return <CategoryCard src={item.src} brand={item.brand} />;
               })}
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-end">
               {data.slice(3, 6).map((item) => {
                 return <CategoryCard src={item.src} brand={item.brand} />;
               })}
@@ -58,17 +58,17 @@ class Category extends Component {
           </div>
         ) : (
           <div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-end">
               {data.slice(0, 2).map((item) => {
                 return <CategoryCard src={item.src} brand={item.brand} />;
               })}
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-end">
               {data.slice(2, 4).map((item) => {
                 return <CategoryCard src={item.src} brand={item.brand} />;
               })}
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-end">
               {data.slice(4, 6).map((item) => {
                 return <CategoryCard src={item.src} brand={item.brand} />;
               })}

@@ -6,6 +6,57 @@
   color: #332a7c;
 }
 
+.th-brand-header,
+.th-new-product-header,
+.th-old-product-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 45px;
+  color: #332a7c;
+}
+
+.th-brand-all-btn,
+.th-new-product-all-btn,
+.th-old-product-all-btn {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #332a7c;
+  /*  */
+  padding: 0 1.5rem;
+  border: 1px solid #ffa000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+.th-brand-all-btn:hover {
+  background-color: #ffa000;
+  color: #fff;
+}
+
+/* card withs for MDPI scrrens */
+@media only screen and (min-width: 1284px) {
+  .th-brands-card,
+  .th-products-card {
+    width: 290px;
+  }
+}
+
+@media only screen and (min-width: 1120px) and (max-width: 1282px) {
+  .th-brands-card,
+  .th-products-card {
+    width: 280px;
+  }
+}
+
 @media only screen and (min-width: 1120px) {
   .th-grid-items-header {
     font-size: 30px;
@@ -22,7 +73,7 @@
   }
   .th-category-small-img {
     height: 10rem;
-    width: 11rem;
+    width: 13.25rem;
   }
 }
 
