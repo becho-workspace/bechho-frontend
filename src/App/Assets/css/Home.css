@@ -1,3 +1,8 @@
+.th-card-box {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
 .th-grid-items-header {
   font-family: Poppins;
   font-style: normal;
@@ -42,6 +47,42 @@
   color: #fff;
 }
 
+.th-prods-title,
+.th-brands-title {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  /* identical to box height */
+  color: #332a7c;
+}
+
+.th-prods-description,
+.th-brands-description {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 25px;
+  color: #332a7c;
+}
+
+.th-prods-location,
+.th-prods-price {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #f52036;
+}
+
+.th-prods-location {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
 /* card withs for MDPI scrrens */
 @media only screen and (min-width: 1284px) {
   .th-brands-card,
@@ -74,6 +115,10 @@
   .th-category-small-img {
     height: 10rem;
     width: 13.25rem;
+  }
+  .th-brands-card-image,
+  .th-prods-card-image {
+    height: 260px;
   }
 }
 
