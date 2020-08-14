@@ -4,12 +4,11 @@ import BrandsCard from "../Cards/brandsCard";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
 import Data from "../Data/brands";
-
 const settings = {
   slidesToShow: 3.5,
   slidesToScroll: 2,
   autoplay: false,
-  autoplaySpeed: 3500,
+  autoplaySpeed: 4000,
   dots: false,
   arrows: true,
   infinite: false,
@@ -19,7 +18,7 @@ const settings = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 4,
+        slidesToShow: 3.2,
         slidesToScroll: 2,
         infinite: true,
         dots: true,
@@ -41,7 +40,7 @@ class Brands extends Component {
   render() {
     return (
       <div className="mb-md-5">
-        <div className="d-flex justify-content-between mb-md-2 mt-md-4">
+        <div className="d-flex justify-content-between mb-md-2 mt-md-3">
           <span className="pl-md-1 th-brand-header">Brands</span>
           <span className="th-brand-all-btn">See All</span>
         </div>

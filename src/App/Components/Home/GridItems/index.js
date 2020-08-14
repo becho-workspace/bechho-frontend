@@ -9,7 +9,7 @@ import PromotedItems from "./PromotedItems";
 export class GridComponents extends Component {
   render() {
     return (
-      <div className="mt-md-4 mt-sm-2 mb-md-4 mb-sm-2">
+      <div className="mt-md-4 mt-sm-2 mb-md-5 mb-sm-2">
         <Row className="text-center">
           <Col md={5}>
             <PromotedItems />
