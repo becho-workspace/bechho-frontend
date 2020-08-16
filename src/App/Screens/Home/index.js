@@ -16,7 +16,7 @@ class HomeMain extends Component {
   render() {
     return (
       <div>
-        {/* <Locations /> */}
+        <Locations />
         <Container className="th-container">
           <GridItems />
           <Brands />

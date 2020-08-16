@@ -37,7 +37,7 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <Navbar expand="lg" className="shadow th-font">
+        <Navbar expand="lg" className="th-font">
           <Navbar.Collapse className="mr-lg-5 ml-lg-5">
             <Nav.Item className="ml-lg-5 mr-lg-5">
               <img src={Logo} alt="Logo" style={{ width: "180px" }} />

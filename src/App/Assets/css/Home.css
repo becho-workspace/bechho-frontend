@@ -32,6 +32,26 @@
   line-height: 33px;
   color: #332a7c;
 }
+
+@media only screen and (max-width: 768px) {
+  .th-location-mob-container {
+    display: flex;
+    justify-content: space-around;
+    background: #ffbe51;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  .th-mob-location-title,
+  .th-mob-location-city {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #332a7c;
+  }
+}
+
 /* location section ends */
 
 /* Grid section */
@@ -90,7 +110,7 @@
 @media only screen and (min-width: 350px) and (max-width: 380px) {
   .th-category-small-img {
     height: 6rem;
-    width: 6.5rem;
+    width: 6.2rem;
   }
 }
 
