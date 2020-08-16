@@ -1,3 +1,4 @@
+/* header for web version */
 .dropdown a,
 .dropleft a,
 .dropright a,
@@ -29,4 +30,36 @@
   padding-bottom: 5px !important;
   border: none !important;
   transition: none !important;
+}
+
+/* header for mobile version */
+/* backdrop */
+.th-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+/* side drawer */
+.th-side_drawer {
+  font-weight: 500;
+  padding-top: 10px;
+  height: 100%;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 350px;
+  z-index: 101;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-out;
+}
+
+.th-side_drawer.open {
+  transform: translateX(0);
 }
