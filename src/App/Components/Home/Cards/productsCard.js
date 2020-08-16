@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 
 class ProductsCard extends Component {
+  state = {
+    width: window.innerWidth,
+  };
+
   render() {
     return (
       <div>
@@ -11,17 +15,23 @@ class ProductsCard extends Component {
             src="https://circleofcricket.com/post_image/post_image_f2b3264.jpg"
             className="th-prods-card-image"
           />
-          <div className="pt-2 pb-2 pr-3 pl-3 th-card-box">
-            <Card.Text className="mb-0 th-prods-title">
+          <div className="pt-2 th-card-box">
+            <Card.Text className="mb-md-1 th-prods-title">
               {this.props.title}
             </Card.Text>
-            <Card.Text className="mb-0 th-prods-description">
+            <Card.Text className="mb-md-1 th-prods-description">
               {this.props.description}
             </Card.Text>
-            <div className="d-flex justify-content-between">
-              <span className="th-prods-location">{this.props.location} </span>
-              <span className="th-prods-price">{this.props.price} </span>
-            </div>
+
+            {/* location and price only visible for screen > 780px */}
+            {this.state.width > 780 ? (
+              <div className="d-flex justify-content-between">
+                <span className="th-prods-location">
+                  {this.props.location}{" "}
+                </span>
+                <span className="th-prods-price">{this.props.price} </span>
+              </div>
+            ) : null}
           </div>
         </Card>
       </div>

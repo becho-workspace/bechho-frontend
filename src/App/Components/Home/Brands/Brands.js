@@ -25,12 +25,12 @@ const settings = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         arrows: false,
-        dots: true,
+        dots: false,
       },
     },
   ],
@@ -39,8 +39,8 @@ const settings = {
 class Brands extends Component {
   render() {
     return (
-      <div className="mb-md-5">
-        <div className="d-flex justify-content-between mb-md-2 mt-md-3">
+      <div className="mb-5">
+        <div className="d-flex justify-content-between mb-2 mt-3">
           <span className="pl-md-1 th-brand-header">Brands</span>
           <span className="th-brand-all-btn">See All</span>
         </div>

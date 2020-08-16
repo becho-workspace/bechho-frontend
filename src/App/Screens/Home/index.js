@@ -9,20 +9,28 @@ import Locations from "../../Components/Home/Location/Locations";
 import BechoTales from "../../Components/Home/Tales/BechoTale";
 import Adds from "../../Components/Home/Adds/Adds";
 class HomeMain extends Component {
+  state = {
+    width: window.innerWidth,
+  };
+
   render() {
     return (
       <div>
-        <Locations />
+        {/* <Locations /> */}
         <Container className="th-container">
           <GridItems />
           <Brands />
           <NewProducts />
           <OldProducts />
         </Container>
-        <BechoTales />
-        <Container className="th-container">
-          <Adds />
-        </Container>
+        {this.state.width > 992 ? (
+          <div>
+            <BechoTales />
+            <Container className="th-container">
+              <Adds />
+            </Container>
+          </div>
+        ) : null}
       </div>
     );
   }

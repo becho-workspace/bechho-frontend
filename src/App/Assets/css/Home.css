@@ -21,7 +21,6 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
-  /* identical to box height */
   color: #332a7c;
 }
 
@@ -33,54 +32,9 @@
   line-height: 33px;
   color: #332a7c;
 }
-/*  */
+/* location section ends */
 
-/* becho tales */
-.th-becho-tales-container {
-  background: #ffa000;
-  opacity: 0.2;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  padding: 100px;
-  display: flex;
-  justify-content: center;
-}
-.th-tales-header {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 64px;
-  line-height: 96px;
-  color: #000000;
-}
-/*  */
-
-/* becho adds */
-.th-home-adds-container {
-  border: 5px solid #63afff;
-  box-sizing: border-box;
-  border-radius: 10px;
-  padding: 60px;
-  display: flex;
-  justify-content: center;
-}
-
-.th-home-adds-header {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 64px;
-  line-height: 96px;
-  color: #000000;
-}
-
-/*  */
-
-.th-card-box {
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-}
-
+/* Grid section */
 .th-grid-items-header {
   font-family: Poppins;
   font-style: normal;
@@ -88,6 +42,88 @@
   line-height: 45px;
   color: #332a7c;
 }
+
+.th-category-name {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 600;
+  color: #332a7c;
+  padding-top: 2px;
+}
+
+@media only screen and (min-width: 1120px) {
+  .th-grid-items-header {
+    font-size: 30px;
+  }
+
+  .th-category-name {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .th-promote-slider-container {
+    min-width: 448px !important;
+  }
+
+  .th-category-card {
+    width: calc(16%);
+    display: flex;
+    justify-content: center;
+  }
+  .th-category-small-img {
+    height: 10rem;
+    width: 13.25rem;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .th-category-name {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .th-grid-items-header {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 380px) {
+  .th-category-small-img {
+    height: 6rem;
+    width: 6.5rem;
+  }
+}
+
+@media only screen and (min-width: 380px) and (max-width: 400px) {
+  .th-category-small-img {
+    height: 6rem;
+    width: 6.8rem;
+  }
+}
+
+@media only screen and (min-width: 405px) and (max-width: 450px) {
+  .th-category-small-img {
+    height: 6rem;
+    width: 7.25rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .th-category-small-img {
+    height: 4rem;
+    width: 5.25rem;
+  }
+  .th-grid-items-header {
+    font-size: 16px;
+  }
+  .th-category-name {
+    font-size: 12px;
+  }
+}
+
+/* Grid section ends  */
+
+/*  Brands and Products Section */
 
 .th-brand-header,
 .th-new-product-header,
@@ -109,14 +145,12 @@
   font-size: 18px;
   line-height: 25px;
   color: #332a7c;
-  /*  */
   padding: 0 1.5rem;
   border: 1px solid #ffa000;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  /* margin-right: 14px; */
   cursor: pointer;
 }
 
@@ -132,7 +166,6 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
-  /* identical to box height */
   color: #332a7c;
 }
 
@@ -153,7 +186,7 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 27px;
-  color: #f52036;
+  color: #000;
 }
 
 .th-prods-location {
@@ -161,7 +194,6 @@
   cursor: pointer;
 }
 
-/* card withs for MDPI scrrens */
 @media only screen and (min-width: 1284px) {
   .th-brands-card,
   .th-products-card {
@@ -169,6 +201,7 @@
   }
 }
 
+/* card withs for MDPI scrrens */
 @media only screen and (min-width: 1120px) and (max-width: 1282px) {
   .th-brands-card,
   .th-products-card {
@@ -177,45 +210,104 @@
 }
 
 @media only screen and (min-width: 1120px) {
-  .th-grid-items-header {
-    font-size: 30px;
+  .th-card-box {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
-  .th-promote-slider-container {
-    min-width: 448px !important;
-  }
-
-  .th-category-card {
-    width: calc(16%);
-    display: flex;
-    justify-content: center;
-  }
-  .th-category-small-img {
-    height: 10rem;
-    width: 13.25rem;
-  }
   .th-brands-card-image,
   .th-prods-card-image {
     height: 260px;
   }
 }
 
-@media only screen and (max-width: 780px) {
-  .th-category-small-img {
-    height: 10rem;
-    width: 10rem;
+@media only screen and (max-width: 768px) {
+  .th-brands-card,
+  .th-products-card {
+    width: 44vw;
   }
-  .th-grid-items-header {
-    font-size: 26px;
+
+  .th-card-box {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
+
+  .th-brand-header,
+  .th-new-product-header,
+  .th-old-product-header {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .th-brand-all-btn,
+  .th-new-product-all-btn,
+  .th-old-product-all-btn {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0.25rem 1.25rem;
+    margin-right: 10px !important;
+  }
+
+  .th-brands-card-image,
+  .th-prods-card-image {
+    height: 164px;
+  }
+
+  .th-prods-title,
+  .th-brands-title {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 5px;
+  }
+
+  .th-prods-description,
+  .th-brands-description {
+    font-size: 10px;
+    line-height: 14px;
   }
 }
 
-@media only screen and (max-width: 320px) {
-  .th-category-small-img {
-    height: 7.5rem;
-    width: 7.5rem;
-  }
-  .th-grid-items-header {
-    font-size: 20px;
-  }
+/* Brands an products  section ends  */
+
+/* becho tales */
+.th-becho-tales-container {
+  background: #ffa000;
+  opacity: 0.2;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
 }
+.th-tales-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 96px;
+  color: #000000;
+}
+/* becho tales ends */
+
+/* becho adds */
+.th-home-adds-container {
+  border: 5px solid #63afff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.th-home-adds-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 96px;
+  color: #000000;
+}
+
+/* bechho adds ends */

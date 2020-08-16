@@ -38,11 +38,7 @@ class Header extends Component {
     return (
       <div>
         <Navbar expand="lg" className="shadow th-font">
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse
-            id="responsive-navbar-nav"
-            className="mr-lg-5 ml-lg-5"
-          >
+          <Navbar.Collapse className="mr-lg-5 ml-lg-5">
             <Nav.Item className="ml-lg-5 mr-lg-5">
               <img src={Logo} alt="Logo" style={{ width: "180px" }} />
             </Nav.Item>

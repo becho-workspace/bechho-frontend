@@ -58,7 +58,12 @@ class PromotedItems extends Component {
   render() {
     return (
       <div>
-        <div className="th-grid-items-header mb-1 mt-2">Promoted Items</div>
+        {/* displays only for > 768px */}
+        {this.state.width > 780 ? (
+          <div className="th-grid-items-header mb-1 mt-2">Promoted Items</div>
+        ) : (
+          <div className="mb-1 mt-4"></div>
+        )}
         <div className="mb-4">
           <Slider {...Settings} className="th-promote-slider-container">
             {data.map((item, index) => {
@@ -68,9 +73,9 @@ class PromotedItems extends Component {
                     variant="top"
                     src={item.src}
                     style={{
-                      height: this.state.width < 768 ? "16rem" : "21rem",
+                      height: this.state.width < 768 ? "16rem" : "22.75rem",
                     }}
-                    className="rounded th-promoted-items-image"
+                    className="rounded"
                   />
                 </Card>
               );

@@ -11,11 +11,11 @@ class BrandsCard extends Component {
             src="https://circleofcricket.com/post_image/post_image_f2b3264.jpg"
             className="th-brands-card-image"
           />
-          <div className="pt-2 pb-2 pr-3 pl-3 th-card-box">
-            <Card.Text className="mb-0 th-brands-title ">
+          <div className="pt-2 pb-2 th-card-box">
+            <Card.Text className="mb-md-1 th-brands-title ">
               {this.props.title}
             </Card.Text>
-            <Card.Text className="mb-0 th-brands-description">
+            <Card.Text className="mb-md-1 th-brands-description">
               {this.props.description}
             </Card.Text>
           </div>
