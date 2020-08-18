@@ -1,0 +1,17 @@
+.th-links-list-item {
+  font-family: "Nunito sans";
+  color: #332a7c;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  font-weight: 600;
+  list-style: none;
+}
+
+.th-links-list-item:hover {
+  color: #332a7c;
+}
+
+.th-links-list-item > p {
+  margin-bottom: 8px;
+}

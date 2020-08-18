@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../Assets/css/layouts/footer.css";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -56,14 +56,34 @@ export class Footer extends Component {
                   className="th-footer-col th-footer-border-right pr-lg-4 pl-lg-4"
                 >
                   <div className="th-footer-list-title mt-lg-2">Know More</div>
-                  <div className="th-footer-list mt-lg-2">
-                    <li>About Us </li>
-                    <li>Blogs</li>
-                    <li>Faq's</li>
-                    <li>Carrers</li>
-                    <li>Privacy Poliicy</li>
-                    <li>Return Poliicy</li>
-                    <li>Terms and Conditionss</li>
+                  <div className="mt-lg-2">
+                    <Link className="th-footer-list" to="/about-us">
+                      <li>About Us </li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/blogs">
+                      <li>Blogs</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/faq">
+                      <li>Faq's</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/carrer">
+                      <li>Carrers</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/privacy-policy">
+                      <li>Privacy Poliicy</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/return-policy">
+                      <li>Return Poliicy</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/terms">
+                      <li>Terms and Conditionss</li>
+                    </Link>
                   </div>
                 </Col>
                 <Col lg={3} className="th-footer-col">
@@ -71,12 +91,29 @@ export class Footer extends Component {
                     Make money with us
                   </div>
                   <div className="th-footer-list mt-lg-2">
-                    <li>Buyer terms </li>
-                    <li>Seller terms</li>
-                    <li>Sell with Bechho</li>
-                    <li>Become an affiliate</li>
-                    <li>Advertise with us</li>
-                    <li>Become a partner</li>
+                    <Link className="th-footer-list" to="/buyer-terms">
+                      <li>Buyer terms </li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/seller-term">
+                      <li>Seller terms</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/sell">
+                      <li>Sell with Bechho</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/affiliate">
+                      <li>Become an affiliate</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/advertise">
+                      <li>Advertise with us</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/become-partner">
+                      <li>Become a partner</li>
+                    </Link>
                   </div>
                 </Col>
               </Row>
@@ -109,13 +146,33 @@ export class Footer extends Component {
                   <Col className="">
                     <div className="th-footer-list-title mt-2">Know More</div>
                     <div className="th-footer-list mt-2">
-                      <li>About Us </li>
-                      <li>Blogs</li>
-                      <li>Faq's</li>
-                      <li>Carrers</li>
-                      <li>Privacy Poliicy</li>
-                      <li>Return Poliicy</li>
-                      <li>Terms and Conditionss</li>
+                      <Link className="th-footer-list" to="/about-us">
+                        <li>About Us </li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/blogs">
+                        <li>Blogs</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/faq">
+                        <li>Faq's</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/carrer">
+                        <li>Carrers</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/privacy-policy">
+                        <li>Privacy Poliicy</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/return-policy">
+                        <li>Return Poliicy</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/terms">
+                        <li>Terms and Conditionss</li>
+                      </Link>
                     </div>
                   </Col>
                   <Col className="text-align-left">
@@ -123,12 +180,29 @@ export class Footer extends Component {
                       Make money with us
                     </div>
                     <div className="th-footer-list mt-2">
-                      <li>Buyer terms </li>
-                      <li>Seller terms</li>
-                      <li>Sell with Bechho</li>
-                      <li>Become an affiliate</li>
-                      <li>Advertise with us</li>
-                      <li>Become a partner</li>
+                      <Link className="th-footer-list" to="/buyer-terms">
+                        <li>Buyer terms </li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/seller-term">
+                        <li>Seller terms</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/sell">
+                        <li>Sell with Bechho</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/affiliate">
+                        <li>Become an affiliate</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/advertise">
+                        <li>Advertise with us</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/become-partner">
+                        <li>Become a partner</li>
+                      </Link>
                     </div>
                   </Col>
                 </Row>

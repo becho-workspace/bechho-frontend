@@ -5,8 +5,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./App/Assets/css/layouts/footer.css";
+import "./App/Assets/css/layouts/header.css";
 import "./App/Assets/css/slider.css";
-import "./App/Assets/css/general.css";
+import "./App/Assets/css/Home.css";
+import "./App/Assets/css/footer-links.css";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../Assets/css/layouts/header.css";
 import HeaderWeb from "./headerWeb";
 import HeaderMobile from "./headerMob";
 

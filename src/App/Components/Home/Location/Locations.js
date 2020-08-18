@@ -37,7 +37,7 @@ class Locations extends Component {
             </div>
           </div>
         ) : (
-          <div className="mr-3 ml-3">
+          <div className="mr-3 ml-3 mt-5">
             <div className="th-location-mob-container">
               <div className="th-mob-location-title">Preferred Location</div>
               <div className="d-flex align-items-center">

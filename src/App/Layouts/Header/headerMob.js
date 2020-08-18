@@ -39,7 +39,7 @@ class HeaderMobile extends Component {
       <div>
         <div
           className="d-flex justify-content-between align-items-center 
-                     pr-3 pl-3 pt-3 pb-3 shadow-sm mb-5"
+                     pr-3 pl-3 pt-3 pb-3 shadow-sm"
         >
           <div>
             <img
