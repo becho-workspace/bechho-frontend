@@ -1,16 +1,12 @@
 import React, { Component, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-import Loadable from "react-loadable";
 
 import Loader from "./Loader/index";
 import routes from "../routes";
 import Navbar from "./Layouts/Header/index";
 import Footer from "./Layouts/Footer/index";
 
-const Home = Loadable({
-  loader: () => import("./Screens/Home/index"),
-  loading: Loader,
-});
+const Home = React.lazy(() => import("./Screens/Home/index"));
 
 class App extends Component {
   render() {
