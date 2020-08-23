@@ -12,7 +12,7 @@ class ProductsCard extends Component {
         <Card className="th-brands-card border-0">
           <Card.Img
             variant="top"
-            src="https://circleofcricket.com/post_image/post_image_f2b3264.jpg"
+            src={this.props.src}
             className="th-prods-card-image"
           />
           <div className="pt-2 th-card-box">
