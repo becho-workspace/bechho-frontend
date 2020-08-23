@@ -29,6 +29,8 @@ const Sell = React.lazy(() => import("./App/Screens/MakeMoney/SellWithBechho"));
 
 const AuthCards = React.lazy(() => import("./App/Components/Auth/index"));
 
+const Products = React.lazy(() => import("./App/Screens/Products/index"));
+
 const routes = [
   {
     path: "/faq",
@@ -113,6 +115,13 @@ const routes = [
     exact: true,
     name: "auth",
     component: AuthCards,
+  },
+  // products
+  {
+    path: "/products",
+    exact: true,
+    name: "products",
+    component: Products,
   },
 ];
 export default routes;

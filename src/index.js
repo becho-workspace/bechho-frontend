@@ -11,6 +11,7 @@ import "./App/Assets/css/slider.css";
 import "./App/Assets/css/Home.css";
 import "./App/Assets/css/footer-links.css";
 import "./App/Assets/css/auth.css";
+import "./App/Assets/css/products.css";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
