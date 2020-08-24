@@ -1,12 +1,28 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Location from "../../../Assets/Images/Header/location.png";
+import PopUp from "../Popup/popup";
 
 class ProductTop extends Component {
   state = {
     width: window.innerWidth,
+    show: false,
+  };
+
+  handleShowModal = () => {
+    this.setState({
+      show: !this.state.show,
+    });
+  };
+
+  handleCloseModal = () => {
+    this.setState({
+      show: !this.state.show,
+    });
   };
 
   render() {
@@ -63,9 +79,13 @@ class ProductTop extends Component {
                       <div className="th-location"> Delhi</div>
                     </div>
                   </div>
+                  {/* for mobile screen */}
                   {this.state.width < 780 ? (
-                    <div className="th-offer text-center">Make an offer</div>
+                    <Link to={"/products-offer"}>
+                      <div className="th-offer text-center">Make an offer</div>
+                    </Link>
                   ) : null}
+                  {/*  */}
                 </div>
                 <div className="th-description">
                   <span className="mr-2">
@@ -78,16 +98,30 @@ class ProductTop extends Component {
                     See More
                   </span>
                 </div>
+                {/* for laptop/tabs */}
                 {this.state.width > 780 ? (
                   <div className="d-flex justify-content-center mt-5">
-                    <div className="th-offer text-center">Make an offer</div>
+                    <div
+                      className="th-offer text-center"
+                      onClick={this.handleShowModal}
+                    >
+                      Make an offer
+                    </div>
                   </div>
                 ) : null}
+                {/*  */}
               </div>
             </Col>
           </Row>
         </Container>
         {this.state.width < 780 ? <hr className="th-hr-line" /> : null}
+        {/* Modal */}
+        <Modal show={this.state.show} size="lg" onHide={this.handleCloseModal}>
+          <Modal.Body className="shadow bg-white p-0 rounded">
+            <PopUp show={this.state.show} closed={this.handleCloseModal} />
+          </Modal.Body>
+        </Modal>
+        {/*  */}
       </div>
     );
   }

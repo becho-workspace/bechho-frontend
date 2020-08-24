@@ -31,6 +31,10 @@ const AuthCards = React.lazy(() => import("./App/Components/Auth/index"));
 
 const Products = React.lazy(() => import("./App/Screens/Products/index"));
 
+const ProductsOffer = React.lazy(() =>
+  import("./App/Components/Products/Popup/popup")
+);
+
 const routes = [
   {
     path: "/faq",
@@ -122,6 +126,12 @@ const routes = [
     exact: true,
     name: "products",
     component: Products,
+  },
+  {
+    path: "/products-offer",
+    exact: true,
+    name: "products",
+    component: ProductsOffer,
   },
 ];
 export default routes;
