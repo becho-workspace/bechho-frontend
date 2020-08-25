@@ -240,8 +240,8 @@
 .th-range-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 0x;
+  height: 0px;
   border-radius: 50%;
   background: #5c5596;
   cursor: pointer;
@@ -286,6 +286,7 @@
     margin-right: auto;
     margin-left: auto;
   }
+
   .th-prod-content-box {
     padding: 0px !important;
   }

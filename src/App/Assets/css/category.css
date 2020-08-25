@@ -1,0 +1,39 @@
+.th-category-title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 45px;
+  color: #332a7c;
+}
+
+.th-other-category-img {
+  width: 10rem;
+  height: 8rem;
+  border-radius: 10px;
+}
+
+.th-other-category {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+
+  color: #332a7c;
+}
+
+@media only screen and (max-width: 768px) {
+  .th-category-title {
+    font-size: 20px;
+  }
+
+  .th-other-category-img {
+    width: 6.5rem;
+    height: 5rem;
+  }
+  .th-other-category {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

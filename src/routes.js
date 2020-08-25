@@ -35,6 +35,8 @@ const ProductsOffer = React.lazy(() =>
   import("./App/Components/Products/Popup/popup")
 );
 
+const Category = React.lazy(() => import("./App/Screens/Category/index"));
+
 const routes = [
   {
     path: "/faq",
@@ -132,6 +134,13 @@ const routes = [
     exact: true,
     name: "products",
     component: ProductsOffer,
+  },
+  // categories
+  {
+    path: "/category",
+    exact: true,
+    name: "Category",
+    component: Category,
   },
 ];
 export default routes;

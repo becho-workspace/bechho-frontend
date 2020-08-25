@@ -36,6 +36,12 @@ class SignupMail extends Component {
 
   render() {
     const { formData } = this.state;
+
+    const enabled =
+      formData.name.length > 0 &&
+      formData.email.length > 0 &&
+      formData.password.length > 0;
+
     return (
       <div className="mt-5 mb-5">
         <div className="d-flex justify-content-center container">
@@ -82,7 +88,7 @@ class SignupMail extends Component {
                   value={formData.password}
                   onChange={this.handleChange}
                 />
-                <button className="btn submit" type="submit">
+                <button className="btn submit" type="submit" disabled={enabled}>
                   Continue
                 </button>
               </form>

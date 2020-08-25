@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 
-class BrandsCard extends Component {
+class CategoryCard extends Component {
   render() {
     return (
-      <div className="">
+      <div>
         <div className="th-brands-card border-0 ">
           <Card.Img
             variant="top"
@@ -12,6 +12,12 @@ class BrandsCard extends Component {
             className="th-brands-card-image"
           />
           <div className="pt-2 pb-2 th-card-box">
+            <div className="d-flex justify-content-between mb-md-1">
+              <Card.Text className="mb-md-1 th-brands-title">2999</Card.Text>
+              <Card.Text className="mb-md-1 th-brands-title">
+                <span></span> <span>Delhi</span>
+              </Card.Text>
+            </div>
             <Card.Text className="mb-md-1 th-brands-title ">
               {this.props.title}
             </Card.Text>
@@ -25,4 +31,4 @@ class BrandsCard extends Component {
   }
 }
 
-export default BrandsCard;
+export default CategoryCard;
