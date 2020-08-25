@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import CategoryCard from "../Cards/CategoryCard";
 
 const data = [
@@ -64,59 +66,20 @@ class CategoryTop extends Component {
     return (
       <div className="container mt-5 mb-4">
         <div className="th-category-title ">Category</div>
-        <div>
-          {this.state.width > 780 ? (
-            <div className="mt-4">
-              <div className="d-flex justify-content-between mb-4">
-                {data.slice(0, 3).map((item, index) => {
-                  return (
-                    <CategoryCard
-                      src={item.src}
-                      title={item.title}
-                      description={item.description}
-                    />
-                  );
-                })}
-              </div>
-              <div className="d-flex justify-content-between mb-4">
-                {data.slice(3, 6).map((item, index) => {
-                  return (
-                    <CategoryCard
-                      src={item.src}
-                      title={item.title}
-                      description={item.description}
-                      index={index}
-                    />
-                  );
-                })}
-              </div>
+        <div className="mt-lg-3">
+          <div class="row">
+            <div class="col-12 d-flex flex-wrap justify-content-between">
+              {data.map((item, index) => {
+                return (
+                  <CategoryCard
+                    src={item.src}
+                    title={item.title}
+                    description={item.description}
+                  />
+                );
+              })}
             </div>
-          ) : (
-            <div className="">
-              <div className="d-flex justify-content-between mb-4">
-                {data.slice(0, 2).map((item, index) => {
-                  return (
-                    <CategoryCard
-                      src={item.src}
-                      title={item.title}
-                      description={item.description}
-                    />
-                  );
-                })}
-              </div>
-              <div className="d-flex justify-content-between mb-4">
-                {data.slice(2, 4).map((item, index) => {
-                  return (
-                    <CategoryCard
-                      src={item.src}
-                      title={item.title}
-                      description={item.description}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     );
