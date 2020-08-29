@@ -1,0 +1,170 @@
+/* my bids */
+.th-mybids-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 45px;
+  color: #332a7c;
+}
+
+.th-mybids-card {
+  width: 540px;
+  margin-bottom: 28px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.th-mybids-card-image {
+  width: 220px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+}
+
+.th-mybids-card-box {
+  width: 320px;
+  padding: 20px 20px;
+}
+
+.th-mybids-title {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 33px;
+  color: #332a7c;
+}
+
+.th-ask-price,
+.th-offered-price,
+.th-bid-status {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  color: #332a7c;
+  margin-right: 10px;
+}
+
+.th-mybids-price,
+.th-mybids-status {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.th-mybids-price {
+  font-weight: 600;
+  color: #332a7c;
+}
+
+.th-mybids-status {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.th-mybid-status-chk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.th-paynow-btn {
+  background: #ffbe51;
+  border-radius: 4px;
+  padding: 0px 8px 2px 8px;
+  cursor: pointer;
+}
+
+.th-paynow {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #332a7c;
+}
+
+@media only screen and (min-width: 1120px) {
+  .th-mybids-card-image {
+    height: 200px;
+  }
+}
+
+/* for coloumn in my-bids file*/
+@media only screen and (max-width: 760) {
+  .th-mybids-col {
+    justify-content: center !important;
+  }
+}
+/*  */
+
+@media only screen and (max-width: 780px) {
+  .th-mybids-card {
+    flex-wrap: wrap !important;
+    width: 330px;
+    justify-content: center;
+  }
+  .th-mybids-card-image,
+  .th-mybids-card-box {
+    width: 330px;
+  }
+  .th-mybids-card-image {
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0;
+  }
+
+  .th-mybids-title,
+  .th-ask-price,
+  .th-offered-price,
+  .th-bid-status,
+  .th-mybids-price,
+  .th-mybids-status,
+  .th-paynow {
+    font-size: 15px;
+  }
+  .th-mybids-header {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (min-width: 410px) and (max-width: 420px) {
+  .th-mybids-header {
+    margin-left: 25px;
+  }
+}
+
+@media only screen and (min-width: 430px) and (max-width: 460px) {
+  .th-mybids-header {
+    margin-left: 42.5px;
+  }
+}
+
+@media only screen and (min-width: 380px) and (max-width: 400px) {
+  .th-mybids-header {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 365px) and (max-width: 380px) {
+  .th-mybids-header {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .th-mybids-card,
+  .th-mybids-card-image,
+  .th-mybids-card-box {
+    width: 280px;
+  }
+  .th-mybids-header {
+    font-size: 24px;
+  }
+}

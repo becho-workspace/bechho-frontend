@@ -37,6 +37,11 @@ const ProductsOffer = React.lazy(() =>
 
 const Category = React.lazy(() => import("./App/Screens/Category/index"));
 
+// my account items
+
+const MyBids = React.lazy(() => import("./App/Layouts/MyAccount/MyBids"));
+const MyItems = React.lazy(() => import("./App/Layouts/MyAccount/MyItems"));
+
 const routes = [
   {
     path: "/faq",
@@ -141,6 +146,19 @@ const routes = [
     exact: true,
     name: "Category",
     component: Category,
+  },
+  // my account items
+  {
+    path: "/my-bids",
+    exact: true,
+    name: "My Bids",
+    component: MyBids,
+  },
+  {
+    path: "/my-items",
+    exact: true,
+    name: "My Items",
+    component: MyItems,
   },
 ];
 export default routes;
