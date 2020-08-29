@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CategoryCard from "./card";
+import MyBidsCard from "./card";
 
 const data = [
   {
@@ -59,7 +59,7 @@ class MyBids extends Component {
             <div className="col-12 d-flex flex-wrap justify-content-md-between th-mybids-col">
               {data.map((item, index) => {
                 return (
-                  <CategoryCard
+                  <MyBidsCard
                     src={item.src}
                     title={item.title}
                     askPrice={item.askPrice}
