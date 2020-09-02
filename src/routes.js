@@ -25,7 +25,9 @@ const BuyerTerms = React.lazy(() =>
 const SellerTerms = React.lazy(() =>
   import("./App/Screens/MakeMoney/SellerTerms")
 );
-const Sell = React.lazy(() => import("./App/Screens/MakeMoney/SellWithBechho"));
+const SellWithBecho = React.lazy(() =>
+  import("./App/Screens/MakeMoney/SellWithBechho")
+);
 
 const AuthCards = React.lazy(() => import("./App/Components/Auth/index"));
 
@@ -38,9 +40,17 @@ const ProductsOffer = React.lazy(() =>
 const Category = React.lazy(() => import("./App/Screens/Category/index"));
 
 // my account items
-
 const MyBids = React.lazy(() => import("./App/Layouts/MyAccount/MyBids"));
 const MyItems = React.lazy(() => import("./App/Layouts/MyAccount/MyItems"));
+
+// sell page
+
+const StepOne = React.lazy(() =>
+  import("./App/Layouts/MyAccount/Sell/Step1/StepOne")
+);
+const StepTwo = React.lazy(() =>
+  import("./App/Layouts/MyAccount/Sell/Step2/StepTwo")
+);
 
 const routes = [
   {
@@ -116,10 +126,10 @@ const routes = [
     component: BecomePartner,
   },
   {
-    path: "/sell",
+    path: "/sell-with-becho",
     exact: true,
-    name: "Sell",
-    component: Sell,
+    name: "SellWithBecho",
+    component: SellWithBecho,
   },
   {
     path: "/auth",
@@ -159,6 +169,19 @@ const routes = [
     exact: true,
     name: "My Items",
     component: MyItems,
+  },
+  // sell pages
+  {
+    path: "/step1",
+    exact: true,
+    name: "step1",
+    component: StepOne,
+  },
+  {
+    path: "/step2",
+    exact: true,
+    name: "step2",
+    component: StepTwo,
   },
 ];
 export default routes;
