@@ -15,29 +15,40 @@ class StepTwo extends Component {
             {QnA.map((item, index) => {
               return (
                 <div className="mt-lg-3 mb-lg-3">
-                  <div className="mb-lg-2 th-sell-form-qna-ques">
+                  <div
+                    className="mb-lg-2 th-sell-form-qna-ques"
+                    name="question"
+                  >
                     Q) {item.question}
                   </div>
-                  <div className="ml-4 ">
+                  <div className="ml-4">
                     <Form.Check
                       inline
                       label={item.opt1}
                       className="mr-5 th-sell-form-qna-ans"
+                      id="option1"
+                      onChange={this.props.handleChange}
                     />
                     <Form.Check
                       inline
                       label={item.opt2}
                       className="mr-5 th-sell-form-qna-ans"
+                      id="option2"
+                      onChange={this.props.handleChange}
                     />
                     <Form.Check
                       inline
                       label={item.opt3}
                       className="mr-5 th-sell-form-qna-ans"
+                      id="option3"
+                      onChange={this.props.handleChange}
                     />
                     <Form.Check
                       inline
                       label={item.opt4}
                       className="mr-5 th-sell-form-qna-ans"
+                      id="option4"
+                      onChange={this.props.handleChange}
                     />
                   </div>
                 </div>
@@ -55,6 +66,9 @@ class StepTwo extends Component {
                 type="text"
                 placeholder="₹"
                 className="th-sell-form-input-price"
+                onChange={this.props.handleChange}
+                name="price"
+                value={this.props.price}
               />
             </Form.Group>
           </div>

@@ -1,10 +1,42 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
+
+const categories = [
+  { option: "Mobiles", id: "1" },
+  { option: "Shoes", id: "2" },
+  { option: "Jeans", id: "3" },
+  { option: "Sports", id: "4" },
+  { option: "Diary", id: "5" },
+  { option: "Laptops", id: "6" },
+  { option: "Hand Bands", id: "7" },
+  { option: "Ladies", id: "8" },
+];
+
+const products = [
+  { option: "Mobiles", id: "1" },
+  { option: "Shoes", id: "2" },
+  { option: "Jeans", id: "3" },
+  { option: "Sports", id: "4" },
+  { option: "Diary", id: "5" },
+  { option: "Laptops", id: "6" },
+  { option: "Hand Bands", id: "7" },
+  { option: "Ladies", id: "8" },
+];
+
 class StepOne extends Component {
   render() {
     if (this.props.currentStep !== 1) {
       return null;
     }
+
+    const categorylist = categories.map((item, index) => {
+      return <option id={index}>{item.option}</option>;
+    });
+
+    const productslist = products.map((item, index) => {
+      return <option id={index}>{item.option}</option>;
+    });
+
     return (
       <div>
         <div className="th-sell-form-item-wraper">
@@ -12,22 +44,24 @@ class StepOne extends Component {
           <div className="d-lg-flex justify-content-between mt-4">
             <Form.Group className="d-flex align-items-center">
               <span className="th-sell-form-input-label mr-4">Category</span>
-              <Form.Control as="select" className="th-sell-form-input">
-                <option>Mobile and Laptops</option>
-                <option>Shoes</option>
-                <option>Jeans</option>
-                <option>Sports</option>
-                <option>Diary</option>
+              <Form.Control
+                as="select"
+                className="th-sell-form-input"
+                onChange={this.props.handleChange}
+                required
+              >
+                {categorylist}
               </Form.Control>
             </Form.Group>
             <Form.Group className="d-flex align-items-center">
               <span className="th-sell-form-input-label mr-4">Product</span>
-              <Form.Control as="select" className="th-sell-form-input">
-                <option>Mobile and Laptops</option>
-                <option>Shoes</option>
-                <option>Jeans</option>
-                <option>Sports</option>
-                <option>Diary</option>
+              <Form.Control
+                as="select"
+                className="th-sell-form-input"
+                onChange={this.props.handleChange}
+                required
+              >
+                {productslist}
               </Form.Control>
             </Form.Group>
           </div>
@@ -39,7 +73,7 @@ class StepOne extends Component {
             <div className="th-sell-form-image-box mr-4"></div>
             <div className="th-sell-from-img-upload-btn">
               <span className="th-sell-from-img-upload-circle"> + </span>
-              <Form.File lang="en" custom />
+              <Form.File lang="en" custom required />
             </div>
           </div>
         </div>
@@ -53,16 +87,14 @@ class StepOne extends Component {
                 rows="4"
                 className="th-sell-form-textarea"
                 placeholder="Start typing..."
+                onChange={this.props.handleChange}
+                required
+                name="description"
+                value={this.props.description}
               />
             </Form.Group>
           </div>
         </div>
-        {/* <hr /> */}
-        {/* <div className="d-flex justify-content-center">
-          <button type="submit" className="th-sell-form-continue">
-            Continue
-          </button>
-        </div> */}
       </div>
     );
   }

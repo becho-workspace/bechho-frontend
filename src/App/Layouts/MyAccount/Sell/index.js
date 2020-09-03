@@ -8,10 +8,20 @@ class SellHome extends Component {
     super(props);
     this.state = {
       currentStep: 1,
+      category: "",
+      product: "",
+      image: "",
+      description: "",
+      qna: [],
+      price: "",
     };
   }
 
-  handleChange = (event) => {};
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -101,10 +111,16 @@ class SellHome extends Component {
           <StepOne
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
+            category={this.state.category}
+            product={this.state.product}
+            image={this.state.image}
+            description={this.state.description}
           />
           <StepTwo
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
+            qna={this.state.qna}
+            price={this.state.price}
           />
           {this.continueButton()}
         </Form>
