@@ -44,13 +44,7 @@ const MyBids = React.lazy(() => import("./App/Layouts/MyAccount/MyBids"));
 const MyItems = React.lazy(() => import("./App/Layouts/MyAccount/MyItems"));
 
 // sell page
-
-const StepOne = React.lazy(() =>
-  import("./App/Layouts/MyAccount/Sell/Step1/StepOne")
-);
-const StepTwo = React.lazy(() =>
-  import("./App/Layouts/MyAccount/Sell/Step2/StepTwo")
-);
+const SellHome = React.lazy(() => import("./App/Layouts/MyAccount/Sell"));
 
 const routes = [
   {
@@ -172,16 +166,10 @@ const routes = [
   },
   // sell pages
   {
-    path: "/step1",
+    path: "/sell",
     exact: true,
-    name: "step1",
-    component: StepOne,
-  },
-  {
-    path: "/step2",
-    exact: true,
-    name: "step2",
-    component: StepTwo,
+    name: "sell",
+    component: SellHome,
   },
 ];
 export default routes;

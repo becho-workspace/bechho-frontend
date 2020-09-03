@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 class StepOne extends Component {
   render() {
+    if (this.props.currentStep !== 1) {
+      return null;
+    }
     return (
-      <div className="container">
+      <div>
         <div className="th-sell-form-item-wraper">
           <div className="th-sell-form-item-header">Select a Product</div>
           <div className="d-lg-flex justify-content-between mt-4">
@@ -55,11 +58,11 @@ class StepOne extends Component {
           </div>
         </div>
         {/* <hr /> */}
-        <div className="d-flex justify-content-center">
-          <button type="submit" className="th-sell-from-continue">
+        {/* <div className="d-flex justify-content-center">
+          <button type="submit" className="th-sell-form-continue">
             Continue
           </button>
-        </div>
+        </div> */}
       </div>
     );
   }

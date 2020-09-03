@@ -289,11 +289,10 @@
     margin-bottom: 8px;
   }
 }
-
 /* my items only ends */
 
-/* sell step 1 page */
-
+/* sell page */
+/* step 1 */
 .th-sell-form-item-wraper {
   background: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -314,7 +313,8 @@
   color: #332a7c;
 }
 
-.th-sell-form-input {
+.th-sell-form-input,
+.th-sell-form-input-price {
   background: #ebeaf2 !important;
   border: none !important;
   border-radius: 10px !important;
@@ -378,9 +378,10 @@
   color: #332a7c;
 }
 
-.th-sell-from-continue {
+.th-sell-form-continue,
+.th-sell-form-post {
   background: #ffa000;
-  padding: 10px 60px;
+  padding: 8px 48px;
   font-size: 20px;
   color: #332a7c;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -390,7 +391,91 @@
   font-style: normal;
   font-weight: 600;
   text-align: center;
+  cursor: pointer;
 }
+
+.th-sell-form-back-btn {
+  cursor: pointer;
+  color: #332a7c;
+  font-size: 20px;
+  font-family: Poppins;
+  font-style: normal;
+  padding: 4px 16px;
+  font-size: 20px;
+  color: #332a7c;
+  border-radius: 10px;
+  border: 1.5px solid #ffa000 !important;
+}
+
+.th-sell-form-back-btn:hover {
+  border-color: #ffffff;
+  color: #332a7c;
+  background: #ffa000;
+}
+
+/* step 2 */
+@media only screen and (min-width: 1020px) {
+  .th-sell-form-qna-list {
+    padding: 10px 120px;
+  }
+}
+
+.th-sell-form-qna-list {
+  overflow-y: scroll;
+  max-height: 320px;
+  -ms-overflow-style: none;
+}
+
+.th-sell-form-qna-list::-webkit-scrollbar {
+  display: none;
+}
+
+.th-sell-form-qna-ans,
+.th-sell-form-qna-ques {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 33px;
+  color: #332a7c;
+}
+
+.th-sell-form-qna-ans {
+  font-weight: 600 !important;
+}
+
+input[type="input"]:focus,
+button:focus {
+  outline: none !important;
+}
+
+/* step circle part*/
+.th-sell-form-step-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ebeaf2;
+  border: 4px solid;
+  box-sizing: border-box;
+}
+
+.th-sell-form-step-line {
+  border: 2px solid;
+  height: 0;
+  width: 60px;
+}
+
+.th-sell-form-step {
+  position: relative;
+  top: 32px;
+  left: 20px;
+  font-family: Nunito Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #332a7c;
+}
+/*  */
 
 @media only screen and (max-width: 768px) {
   .th-sell-form-item-wraper {
@@ -402,20 +487,68 @@
     width: 100% !important;
     padding: 12px !important;
   }
+  .th-sell-form-input-price {
+    width: 200px !important;
+    padding: 8px !important;
+  }
   .th-sell-form-image-box {
     width: 160px !important;
     height: 120px !important;
   }
   .th-sell-form-item-header {
-    font-size: 22px;
+    font-size: 18px;
   }
   .th-sell-form-input-label,
-  .th-sell-form-input {
+  .th-sell-form-input,
+  .th-sell-form-qna-ans,
+  .th-sell-form-qna-ques {
+    font-size: 14.5px;
+  }
+  .th-sell-form-continue,
+  .th-sell-form-post {
+    padding: 6px 36px !important;
     font-size: 16px;
+  }
+  .th-sell-form-back-btn {
+    padding: 2px 12px !important;
+    font-size: 12px;
+  }
+  /* step circle part */
+  .th-sell-form-step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ebeaf2;
+    border: 2.5px solid;
+  }
+
+  .th-sell-form-step-line {
+    border: 1.5px solid;
+  }
+
+  .th-sell-form-step {
+    position: relative;
+    top: 24px;
+    left: 12px;
+    font-size: 18px;
+  }
+  /*  */
+}
+
+@media only screen and (max-width: 320px) {
+  .th-sell-form-item-header {
+    font-size: 16px;
+  }
+  .th-sell-form-input-label,
+  .th-sell-form-input,
+  .th-sell-form-qna-ans,
+  .th-sell-form-qna-ques {
+    font-size: 13px;
+  }
+  .th-sell-form-input-price {
+    padding: 5px !important;
+    width: 160px !important;
   }
 }
 
-.th-sell-form-input:focus,
-button:focus {
-  outline: none;
-}
+/* sell page ends */
