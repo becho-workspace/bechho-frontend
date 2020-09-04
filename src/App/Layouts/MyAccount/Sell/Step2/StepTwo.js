@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-import QnA from "./data";
 
 class StepTwo extends Component {
   render() {
@@ -12,43 +11,36 @@ class StepTwo extends Component {
         <div className="th-sell-form-item-wraper">
           <div className="th-sell-form-item-header">Product Description</div>
           <div className="th-sell-form-qna-list">
-            {QnA.map((item, index) => {
+            {this.props.QnA.map((item, index) => {
               return (
                 <div className="mt-lg-3 mb-lg-3">
-                  <div
-                    className="mb-lg-2 th-sell-form-qna-ques"
-                    name="question"
-                  >
+                  <div className="mb-lg-2 th-sell-form-qna-ques" id={index}>
                     Q) {item.question}
                   </div>
                   <div className="ml-4">
                     <Form.Check
+                      type="radio"
                       inline
                       label={item.opt1}
                       className="mr-5 th-sell-form-qna-ans"
-                      id="option1"
-                      onChange={this.props.handleChange}
                     />
                     <Form.Check
+                      type="radio"
                       inline
                       label={item.opt2}
                       className="mr-5 th-sell-form-qna-ans"
-                      id="option2"
-                      onChange={this.props.handleChange}
                     />
                     <Form.Check
+                      type="radio"
                       inline
                       label={item.opt3}
                       className="mr-5 th-sell-form-qna-ans"
-                      id="option3"
-                      onChange={this.props.handleChange}
                     />
                     <Form.Check
+                      type="radio"
                       inline
                       label={item.opt4}
                       className="mr-5 th-sell-form-qna-ans"
-                      id="option4"
-                      onChange={this.props.handleChange}
                     />
                   </div>
                 </div>

@@ -30,11 +30,19 @@ class StepOne extends Component {
     }
 
     const categorylist = categories.map((item, index) => {
-      return <option id={index}>{item.option}</option>;
+      return (
+        <option id={index} required>
+          {item.option}
+        </option>
+      );
     });
 
     const productslist = products.map((item, index) => {
-      return <option id={index}>{item.option}</option>;
+      return (
+        <option id={index} required>
+          {item.option}
+        </option>
+      );
     });
 
     return (
@@ -47,8 +55,8 @@ class StepOne extends Component {
               <Form.Control
                 as="select"
                 className="th-sell-form-input"
+                name="category"
                 onChange={this.props.handleChange}
-                required
               >
                 {categorylist}
               </Form.Control>
@@ -58,8 +66,8 @@ class StepOne extends Component {
               <Form.Control
                 as="select"
                 className="th-sell-form-input"
+                name="product"
                 onChange={this.props.handleChange}
-                required
               >
                 {productslist}
               </Form.Control>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import StepOne from "./Step1/StepOne";
 import StepTwo from "./Step2/StepTwo";
+import QnA from "./data/data";
 
 class SellHome extends Component {
   constructor(props) {
@@ -12,10 +13,18 @@ class SellHome extends Component {
       product: "",
       image: "",
       description: "",
-      qna: [],
+      question: "",
+      answer: "",
       price: "",
+      radio: "",
     };
   }
+
+  toggleRadio = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -25,6 +34,8 @@ class SellHome extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const { description, price, product, category, radio } = this.state;
+    console.log(description, price, product, category, radio);
   };
 
   _next = () => {
@@ -119,8 +130,10 @@ class SellHome extends Component {
           <StepTwo
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            qna={this.state.qna}
+            toggleRadio={this.toggleRadio}
             price={this.state.price}
+            radio={this.state.radio}
+            QnA={QnA}
           />
           {this.continueButton()}
         </Form>
