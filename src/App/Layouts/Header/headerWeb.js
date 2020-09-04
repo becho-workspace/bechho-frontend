@@ -12,28 +12,42 @@ import Person from "../../Assets/Images/Header/person.png";
 import TV from "../../Assets/Images/Header/tv.png";
 import Search from "../../Assets/Images/Header/search.png";
 import Location from "../../Assets/Images/Header/location.png";
+import { Link } from "react-router-dom";
+
+const cities = [
+  { city: "Jaipur" },
+  { city: "Noida" },
+  { city: "Bangalore" },
+  { city: "gurugram" },
+];
 
 class Header extends Component {
-  state = {
-    show: false,
-    target: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: "Jaipur",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  handleBuy = (e) => {
+  handleChange = (e) => {
     this.setState({
-      show: !this.state.show,
-      target: e.target,
+      [e.target.name]: e.target.value,
     });
   };
 
-  handleSell = (e) => {
-    this.setState({
-      show: !this.state.show,
-      target: e.target,
-    });
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { city } = this.state;
+    console.log("city is: " + city);
   };
 
   render() {
+    const city_list = cities.map((item, index) => {
+      return <option id={index}>{item.city}</option>;
+    });
+
     return (
       <div>
         <Navbar expand="lg" className="th-font shadow">
@@ -41,48 +55,48 @@ class Header extends Component {
             <Nav.Item className="ml-lg-5 mr-lg-5">
               <img src={Logo} alt="Logo" style={{ width: "180px" }} />
             </Nav.Item>
-            <Nav.Item>Buy</Nav.Item>
-            <NavDropdown className="mr-lg-4" as="div">
-              <NavDropdown.Item>Buy Item 1</NavDropdown.Item>
-              <NavDropdown.Item>But Itam 2</NavDropdown.Item>
-              <NavDropdown.Item>Buy Item 3</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item>Buy Item 4</NavDropdown.Item>
-            </NavDropdown>
+            <Link to="/" style={{ color: "#332a7c" }}>
+              <Nav.Item className="mr-lg-5">Buy</Nav.Item>
+            </Link>
 
-            <Nav.Item>Sell</Nav.Item>
-            <NavDropdown className="mr-lg-4">
-              <NavDropdown.Item>Sell Item 1</NavDropdown.Item>
-              <NavDropdown.Item>Sell Item 2</NavDropdown.Item>
-              <NavDropdown.Item>Sell Item 3</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item>Sell Item 4</NavDropdown.Item>
-            </NavDropdown>
+            <Link to="/sell" to="/" style={{ color: "#332a7c" }}>
+              <Nav.Item className="mr-lg-5">Sell</Nav.Item>
+            </Link>
 
-            <Nav.Item className="d-flex align-items-center mr-lg-4">
+            {/* <Nav.Item className="d-flex align-items-center mr-lg-4">
               Bechho Tales{" "}
               <span className="ml-lg-1 mb-2">
                 <img src={TV} alt="" />
               </span>
-            </Nav.Item>
-            <Nav.Item className="d-flex align-items-center mr-lg-4 ml-lg-2 th-location-btn">
-              Delhi
-              <span className="ml-lg-4">
+            </Nav.Item> */}
+            <Nav.Item className="d-flex align-items-center ml-lg-2 th-location-btn">
+              {this.state.city}
+              <span className="ml-lg-3">
                 <img src={Location} alt="" />
               </span>
             </Nav.Item>
-            <Form className="ml-lg-3">
-              <FormControl
-                type="text"
-                placeholder="Search"
+            {/* search location  */}
+            <Form
+              className="ml-lg-5 d-flex align-items-center"
+              onSubmit={this.handleSubmit}
+            >
+              <span className="mr-2">Select a City</span>
+              <Form.Control
+                as="select"
+                name="city"
+                onChange={this.handleChange}
                 className="mr-lg-sm-2 th-searchbar"
-              />
+                style={{ width: "200px" }}
+              >
+                {city_list}
+              </Form.Control>
             </Form>
-            <InputGroup.Append>
+            {/* <InputGroup.Append>
               <span style={{ left: "-135%", position: "relative" }}>
                 <img src={Search} alt="" />
               </span>
-            </InputGroup.Append>
+            </InputGroup.Append> */}
+            {/* search location ends */}
           </Navbar.Collapse>
           <Navbar.Collapse>
             <Nav.Item className="d-flex align-items-center mr-lg-5 ml-lg-5">
@@ -91,12 +105,12 @@ class Header extends Component {
                 <img src={Person} alt="" />
               </span>
             </Nav.Item>
-            <Nav.Item className="d-flex align-items-center mr-lg-5">
+            {/* <Nav.Item className="d-flex align-items-center mr-lg-5">
               Cart
               <span className="ml-lg-1 mb-1">
                 <img src={Cart} alt="" />
               </span>
-            </Nav.Item>
+            </Nav.Item> */}
           </Navbar.Collapse>
         </Navbar>
       </div>
