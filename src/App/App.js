@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-
 import Loader from "./Loader/index";
 import routes from "../routes";
 import Navbar from "./Layouts/Header/index";

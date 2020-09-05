@@ -6,6 +6,7 @@ class HeaderMain extends Component {
   state = {
     width: window.innerWidth,
   };
+
   render() {
     return (
       <div>{this.state.width > 768 ? <HeaderWeb /> : <HeaderMobile />}</div>

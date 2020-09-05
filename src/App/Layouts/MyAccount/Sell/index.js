@@ -100,12 +100,7 @@ class SellHome extends Component {
             </div>
             <div
               className="th-sell-form-step-line"
-              style={{
-                borderColor:
-                  this.state.currentStep === 1 || this.state.currentStep === 2
-                    ? "#ffb02c"
-                    : "",
-              }}
+              style={{ backgroundColor: "#ffb02c" }}
             ></div>
             <div
               className="th-sell-form-step-circle"

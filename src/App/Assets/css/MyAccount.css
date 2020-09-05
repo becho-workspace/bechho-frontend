@@ -460,8 +460,8 @@ button:focus {
 }
 
 .th-sell-form-step-line {
-  border: 2px solid;
-  height: 0;
+  border: 2px solid #ffb02c;
+  height: 0 !important;
   width: 60px;
 }
 

@@ -50,7 +50,7 @@ class Header extends Component {
 
     return (
       <div>
-        <Navbar expand="lg" className="th-font shadow">
+        <Navbar className="shadow">
           <Navbar.Collapse className="mr-lg-5 ml-lg-5">
             <Nav.Item className="ml-lg-5 mr-lg-5">
               <img src={Logo} alt="Logo" style={{ width: "180px" }} />
@@ -59,16 +59,16 @@ class Header extends Component {
               <Nav.Item className="mr-lg-5">Buy</Nav.Item>
             </Link>
 
-            <Link to="/sell" to="/" style={{ color: "#332a7c" }}>
+            <Link to="/sell" style={{ color: "#332a7c" }}>
               <Nav.Item className="mr-lg-5">Sell</Nav.Item>
             </Link>
 
-            {/* <Nav.Item className="d-flex align-items-center mr-lg-4">
+            <Nav.Item className="d-flex align-items-center mr-lg-4">
               Bechho Tales{" "}
               <span className="ml-lg-1 mb-2">
                 <img src={TV} alt="" />
               </span>
-            </Nav.Item> */}
+            </Nav.Item>
             <Nav.Item className="d-flex align-items-center ml-lg-2 th-location-btn">
               {this.state.city}
               <span className="ml-lg-3">

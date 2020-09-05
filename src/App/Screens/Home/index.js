@@ -21,16 +21,15 @@ class HomeMain extends Component {
           <Brands />
           <NewProducts />
           <OldProducts />
-          <Adds />
         </Container>
-        {/* {this.state.width > 992 ? (
+        {this.state.width > 992 ? (
           <div>
             <BechoTales />
             <Container className="th-container">
               <Adds />
             </Container>
           </div>
-        ) : null} */}
+        ) : null}
       </div>
     );
   }

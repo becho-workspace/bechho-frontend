@@ -39,37 +39,35 @@ class HeaderMobile extends Component {
       <div>
         <div
           className="d-flex justify-content-between align-items-center 
-                     pr-3 pl-3 pt-3 pb-3 shadow-sm"
+                     pr-3 pl-3 pt-3 pb-3 shadow-sm "
         >
+          <img
+            src={Menu}
+            alt="menu"
+            style={{ width: "28px" }}
+            className="mr-4"
+            onClick={this.drawerToggleClickHandler}
+          />
+          <img src={Logo} alt="logo" style={{ width: "100px" }} />
           <div>
-            <img
-              src={Menu}
-              alt="menu"
-              style={{ width: "28px" }}
-              className="mr-4"
-              onClick={this.drawerToggleClickHandler}
-            />
-            <img src={Logo} alt="logo" style={{ width: "100px" }} />
-          </div>
-          <div>
-            <img
+            {/* <img
               style={{ width: "24px" }}
               src={Search}
               alt="search"
               className="mr-3"
-            />
+            /> */}
             <img
               style={{ width: "24px" }}
               src={Person}
               alt="person"
               className="mr-3"
             />
-            <img
+            {/* <img
               style={{ width: "24px" }}
               src={Cart}
               alt="cart"
               className="mr-3"
-            />
+            /> */}
           </div>
         </div>
         <SideDrawer show={this.state.sideDrawerOpen} />

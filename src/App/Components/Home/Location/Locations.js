@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 import Location from "../../../Assets/Images/Header/location.png";
+import Delhi from "../../../Assets/Images/Home/Delhi.png";
+import Noida from "../../../Assets/Images/Home/Noida.png";
+import Gurgaon from "../../../Assets/Images/Home/Gurgaon.png";
+import Bangalore from "../../../Assets/Images/Home/Bangalore.png";
+import Pune from "../../../Assets/Images/Home/Pune.png";
+import Kolkata from "../../../Assets/Images/Home/Kolkata.png";
+import LocationMob from "./LocationMob";
+
 class Locations extends Component {
   state = {
     width: window.innerWidth,
@@ -12,40 +20,32 @@ class Locations extends Component {
           <div className="th-locations-container d-flex justify-content-around align-items-center mt-md-5 mb-md-5">
             <div className="th-locations-header">Preferred Locations</div>
             <div className=" text-center">
-              <div className="th-locations-circle"></div>
-              <p className="mt-md-2 th-location-city">Kolkata</p>
+              <img src={Delhi} alt="" className="th-locations-circle" />
+              <p className="mt-md-2 th-location-city">Delhi</p>
             </div>
             <div className=" text-center">
-              <div className="th-locations-circle"></div>
-              <p className="mt-md-2 th-location-city">Kolkata</p>
+              <img src={Noida} alt="" className="th-locations-circle" />
+              <p className="mt-md-2 th-location-city">Noida</p>
             </div>
             <div className=" text-center">
-              <div className="th-locations-circle"></div>
-              <p className="mt-md-2 th-location-city">Kolkata</p>
+              <img src={Gurgaon} alt="" className="th-locations-circle" />
+              <p className="mt-md-2 th-location-city">Gurgaon</p>
             </div>
             <div className=" text-center">
-              <div className="th-locations-circle"></div>
-              <p className="mt-md-2 th-location-city">Kolkata</p>
+              <img src={Bangalore} alt="" className="th-locations-circle" />
+              <p className="mt-md-2 th-location-city">Bangalore</p>
             </div>
             <div className=" text-center">
-              <div className="th-locations-circle"></div>
-              <p className="mt-md-2 th-location-city">Kolkata</p>
+              <img src={Pune} alt="" className="th-locations-circle" />
+              <p className="mt-md-2 th-location-city">Pune</p>
             </div>
             <div className=" text-center">
-              <div className="th-locations-circle"></div>
+              <img src={Kolkata} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Kolkata</p>
             </div>
           </div>
         ) : (
-          <div className="mr-3 ml-3 mt-5">
-            <div className="th-location-mob-container">
-              <div className="th-mob-location-title">Preferred Location</div>
-              <div className="d-flex align-items-center">
-                <span className="th-mob-location-city mr-2">Delhi</span>
-                <img src={Location} alt="location" />
-              </div>
-            </div>
-          </div>
+          <LocationMob />
         )}
       </div>
     );

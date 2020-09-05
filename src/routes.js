@@ -1,175 +1,120 @@
-import React from "react";
-
-const Faq = React.lazy(() => import("./App/Screens/KnowMore/Faq"));
-const AboutUs = React.lazy(() => import("./App/Screens/KnowMore/aboutUs"));
-
-const Blogs = React.lazy(() => import("./App/Screens/KnowMore/blogs"));
-const Carrer = React.lazy(() => import("./App/Screens/KnowMore/carrer"));
-const PrivacyPolicy = React.lazy(() =>
-  import("./App/Screens/KnowMore/privacyPolicy")
-);
-const ReturnPolicy = React.lazy(() =>
-  import("./App/Screens/KnowMore/returnPolicy")
-);
-const Terms = React.lazy(() =>
-  import("./App/Screens/KnowMore/TermsAndConditions")
-);
-const Advertise = React.lazy(() => import("./App/Screens/MakeMoney/Advertise"));
-const Affiliate = React.lazy(() => import("./App/Screens/MakeMoney/Affiliate"));
-const BecomePartner = React.lazy(() =>
-  import("./App/Screens/MakeMoney/BecomePartner")
-);
-const BuyerTerms = React.lazy(() =>
-  import("./App/Screens/MakeMoney/BuyerTerms")
-);
-const SellerTerms = React.lazy(() =>
-  import("./App/Screens/MakeMoney/SellerTerms")
-);
-const SellWithBecho = React.lazy(() =>
-  import("./App/Screens/MakeMoney/SellWithBechho")
-);
-
-const AuthCards = React.lazy(() => import("./App/Components/Auth/index"));
-
-const Products = React.lazy(() => import("./App/Screens/Products/index"));
-
-const ProductsOffer = React.lazy(() =>
-  import("./App/Components/Products/Popup/popup")
-);
-
-const Category = React.lazy(() => import("./App/Screens/Category/index"));
-
-// my account items
-const MyBids = React.lazy(() => import("./App/Layouts/MyAccount/MyBids"));
-const MyItems = React.lazy(() => import("./App/Layouts/MyAccount/MyItems"));
-
-// sell page
-const SellHome = React.lazy(() => import("./App/Layouts/MyAccount/Sell"));
+import React, { lazy } from "react";
 
 const routes = [
   {
     path: "/faq",
     exact: true,
     name: "Faq",
-    component: Faq,
+    component: lazy(() => import("./App/Screens/KnowMore/Faq")),
   },
   {
     path: "/about-us",
     exact: true,
     name: "About Us",
-    component: AboutUs,
+    component: lazy(() => import("./App/Screens/KnowMore/aboutUs")),
   },
   {
     path: "/blogs",
     exact: true,
     name: "Blogs",
-    component: Blogs,
+    component: lazy(() => import("./App/Screens/KnowMore/blogs")),
   },
   {
     path: "/carrer",
     exact: true,
     name: "Carrer",
-    component: Carrer,
+    component: lazy(() => import("./App/Screens/KnowMore/carrer")),
   },
   {
     path: "/privacy-policy",
     exact: true,
     name: "Privacy Policy",
-    component: PrivacyPolicy,
+    component: lazy(() => import("./App/Screens/KnowMore/privacyPolicy")),
   },
   {
     path: "/return-policy",
     exact: true,
     name: "Return Policy",
-    component: ReturnPolicy,
+    component: lazy(() => import("./App/Screens/KnowMore/returnPolicy")),
   },
   {
     path: "/terms",
     exact: true,
     name: "Terms and Condition",
-    component: Terms,
+    component: lazy(() => import("./App/Screens/KnowMore/TermsAndConditions")),
   },
   {
     path: "/buyer-terms",
     exact: true,
     name: "Buyer terms",
-    component: BuyerTerms,
+    component: lazy(() => import("./App/Screens/MakeMoney/BuyerTerms")),
   },
   {
     path: "/seller-term",
     exact: true,
     name: "Seller Terms",
-    component: SellerTerms,
+    component: lazy(() => import("./App/Screens/MakeMoney/SellerTerms")),
   },
   {
     path: "/advertise",
     exact: true,
     name: "Advertise",
-    component: Advertise,
+    component: lazy(() => import("./App/Screens/MakeMoney/Advertise")),
   },
   {
     path: "/affiliate",
     exact: true,
     name: "Affiliate",
-    component: Affiliate,
+    component: lazy(() => import("./App/Screens/MakeMoney/Affiliate")),
   },
   {
     path: "/become-partner",
     exact: true,
     name: "Become Partner",
-    component: BecomePartner,
+    component: lazy(() => import("./App/Screens/MakeMoney/BecomePartner")),
   },
   {
     path: "/sell-with-becho",
     exact: true,
     name: "SellWithBecho",
-    component: SellWithBecho,
+    component: lazy(() => import("./App/Screens/MakeMoney/SellWithBechho")),
   },
-  {
-    path: "/auth",
-    exact: true,
-    name: "auth",
-    component: AuthCards,
-  },
+
   // products
   {
     path: "/products",
     exact: true,
     name: "products",
-    component: Products,
+    component: lazy(() => import("./App/Screens/Products/index")),
   },
-  {
-    path: "/products-offer",
-    exact: true,
-    name: "products",
-    component: ProductsOffer,
-  },
+
   // categories
   {
     path: "/category",
     exact: true,
     name: "Category",
-    component: Category,
+    component: lazy(() => import("./App/Screens/Category/index")),
   },
   // my account items
   {
     path: "/my-bids",
     exact: true,
     name: "My Bids",
-    component: MyBids,
+    component: lazy(() => import("./App/Layouts/MyAccount/MyBids")),
   },
   {
     path: "/my-items",
     exact: true,
     name: "My Items",
-    component: MyItems,
+    component: lazy(() => import("./App/Layouts/MyAccount/MyItems")),
   },
   // sell pages
   {
     path: "/sell",
     exact: true,
     name: "sell",
-    component: SellHome,
+    component: lazy(() => import("./App/Layouts/MyAccount/Sell")),
   },
 ];
+
 export default routes;
