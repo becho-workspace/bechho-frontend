@@ -1,39 +1,89 @@
 const data = [
   {
-    question: " What is the condition of the phone screen? ",
-    opt1: "good",
-    opt2: "scratch",
-    opt3: "broken",
-    opt4: "display not woring",
+    _id: "5f547d73d372ff4270712f66",
+    name: "furniture",
+    subCategory: [
+      {
+        mcq: [
+          {
+            options: ["good", "better", "best", "bad"],
+            _id: "5f547d73d372ff4270712f68",
+            question: "condition of your furniture",
+          },
+          {
+            options: ["2", "2.5", "3", "4"],
+            _id: "5f547d73d372ff4270712f69",
+            question: "Rate your furniture",
+          },
+        ],
+        _id: "5f547d73d372ff4270712f67",
+        name: "sofa",
+        __v: 0,
+      },
+      {
+        mcq: [
+          {
+            options: ["yes", "no", "dont known", "none"],
+            _id: "5f547ec42f5bf711b8b46d5c",
+            question: "is there is crack on your table",
+          },
+          {
+            options: ["yes", "no", "dont known", "none"],
+            _id: "5f547ec42f5bf711b8b46d5d",
+            question: "is there is crack on your table",
+          },
+        ],
+        _id: "5f547ec42f5bf711b8b46d5b",
+        name: "table",
+        __v: 0,
+      },
+    ],
+    createdAt: "2020-09-06T06:10:59.896Z",
+    updatedAt: "2020-09-06T06:16:36.256Z",
+    __v: 2,
   },
   {
-    question: " What is the condition of the battery life? ",
-    opt1: "decreased upto 25%",
-    opt2: "decreased by 25% to 50%",
-    opt3: "decreased by 50% to 70%",
-    opt4: "decreased by more than 70%",
-  },
-  {
-    question: " What is the condition of the camera? ",
-    opt1: "good",
-    opt2: "have scratch",
-    opt3: "not working properly",
-    opt4: "focus is damage",
-  },
-  {
-    question: " How old your phone is? ",
-    opt1: "3 months or less",
-    opt2: "6 months",
-    opt3: "1 year",
-    opt4: "2 year or more",
-  },
-
-  {
-    question: " Whats the contion of the charger? ",
-    opt1: "wire is damaged",
-    opt2: "good",
-    opt3: "adapter gets heated up",
-    opt4: "not working",
+    _id: "5f547f332f5bf711b8b46d61",
+    name: "electronics",
+    subCategory: [
+      {
+        mcq: [
+          {
+            options: ["13", "14", "15", "16"],
+            _id: "5f547f332f5bf711b8b46d63",
+            question: "size of your screen",
+          },
+          {
+            options: ["13", "14", "15", "16"],
+            _id: "5f547f332f5bf711b8b46d64",
+            question: "size of your screen",
+          },
+        ],
+        _id: "5f547f332f5bf711b8b46d62",
+        name: "mobile",
+        __v: 0,
+      },
+      {
+        mcq: [
+          {
+            options: ["2", "3", "4", "5"],
+            _id: "5f547f6a2f5bf711b8b46d69",
+            question: "rate your earphone",
+          },
+          {
+            options: ["2", "3", "4", "5"],
+            _id: "5f547f6a2f5bf711b8b46d6a",
+            question: "rate your earphone",
+          },
+        ],
+        _id: "5f547f6a2f5bf711b8b46d68",
+        name: "earphone",
+        __v: 0,
+      },
+    ],
+    createdAt: "2020-09-06T06:18:27.096Z",
+    updatedAt: "2020-09-06T06:19:22.869Z",
+    __v: 2,
   },
 ];
 

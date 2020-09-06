@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import StepOne from "./Step1/StepOne";
 import StepTwo from "./Step2/StepTwo";
-import QnA from "./data/data";
+import data from "./data/data";
 
 class SellHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStep: 1,
+      currentStep: 2,
       category: "",
       product: "",
       image: "",
-      description: "",
+      description: {},
       question: "",
       answer: "",
       price: "",
@@ -32,11 +32,11 @@ class SellHome extends Component {
     });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { description, price, product, category, radio } = this.state;
-    console.log(description, price, product, category, radio);
-  };
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { description, price, product, category, radio } = this.state;
+  //   console.log(description, price, product, category, radio);
+  // };
 
   _next = () => {
     let currentStep = this.state.currentStep;
@@ -83,7 +83,7 @@ class SellHome extends Component {
   render() {
     return (
       <div className="container mt-4 mt-lg-5 mb-5 th-sell-mob-div">
-        <Form onSubmit={this.handleSubmit}>
+        <Form>
           {/* button to go back in fisrt step */}
           <div className="mb-lg-4 ml-lg-3">{this.backButton()}</div>
           {/*  */}
@@ -124,11 +124,8 @@ class SellHome extends Component {
           />
           <StepTwo
             currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            toggleRadio={this.toggleRadio}
             price={this.state.price}
             radio={this.state.radio}
-            QnA={QnA}
           />
           {this.continueButton()}
         </Form>

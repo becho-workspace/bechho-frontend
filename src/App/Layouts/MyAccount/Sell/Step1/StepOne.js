@@ -1,27 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-
-const categories = [
-  { option: "Mobiles", id: "1" },
-  { option: "Shoes", id: "2" },
-  { option: "Jeans", id: "3" },
-  { option: "Sports", id: "4" },
-  { option: "Diary", id: "5" },
-  { option: "Laptops", id: "6" },
-  { option: "Hand Bands", id: "7" },
-  { option: "Ladies", id: "8" },
-];
-
-const products = [
-  { option: "Mobiles", id: "1" },
-  { option: "Shoes", id: "2" },
-  { option: "Jeans", id: "3" },
-  { option: "Sports", id: "4" },
-  { option: "Diary", id: "5" },
-  { option: "Laptops", id: "6" },
-  { option: "Hand Bands", id: "7" },
-  { option: "Ladies", id: "8" },
-];
+import data from "../data/data";
 
 class StepOne extends Component {
   render() {
@@ -29,18 +8,18 @@ class StepOne extends Component {
       return null;
     }
 
-    const categorylist = categories.map((item, index) => {
+    const categorylist = data.map((item, index) => {
       return (
-        <option id={index} required>
-          {item.option}
+        <option id={item.id} required>
+          {item.name}
         </option>
       );
     });
 
-    const productslist = products.map((item, index) => {
+    const productslist = data[0].subCategory.map((item, index) => {
       return (
-        <option id={index} required>
-          {item.option}
+        <option id={item.id} required>
+          {item.name}
         </option>
       );
     });
