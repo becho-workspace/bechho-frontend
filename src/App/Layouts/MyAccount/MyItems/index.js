@@ -6,7 +6,7 @@ import Bids from "./bidsData";
 class MyItems extends Component {
   render() {
     return (
-      <div className="container mt-4">
+      <div className="container mt-4 th-my-items-mob">
         <div>breadcrumbs</div>
         <div>
           <p className="th-myitems-header">My Items</p>

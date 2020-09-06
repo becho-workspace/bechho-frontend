@@ -5,7 +5,7 @@ import Other from "../../Components/Category/OtherCategory/OtherCategories";
 class CategoryHome extends Component {
   render() {
     return (
-      <div>
+      <div className="container mt-lg-4 mb-4 mt-5">
         <CategoryTop />
         <Other />
       </div>

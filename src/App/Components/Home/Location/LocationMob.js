@@ -4,7 +4,7 @@ export class LocationMob extends Component {
   render() {
     return (
       <div>
-        <div className="mr-3 ml-3 mt-3">
+        <div className="mr-3 ml-3">
           <div className="th-location-mob-container d-flex justify-content-between">
             <div className="d-flex align-items-center">
               <img src={Location} alt="location" />

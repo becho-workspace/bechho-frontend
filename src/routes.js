@@ -73,12 +73,12 @@ const routes = [
     name: "Become Partner",
     component: lazy(() => import("./App/Screens/MakeMoney/BecomePartner")),
   },
-  {
-    path: "/sell-with-becho",
-    exact: true,
-    name: "SellWithBecho",
-    component: lazy(() => import("./App/Screens/MakeMoney/SellWithBechho")),
-  },
+  // {
+  //   path: "/sell-with-bechho",
+  //   exact: true,
+  //   name: "SellWithBecho",
+  //   component: lazy(() => import("./App/Screens/MakeMoney/SellWithBechho")),
+  // },
 
   // products
   {
@@ -86,6 +86,13 @@ const routes = [
     exact: true,
     name: "products",
     component: lazy(() => import("./App/Screens/Products/index")),
+  },
+
+  {
+    path: "/products-offer",
+    exact: true,
+    name: "products",
+    component: lazy(() => import("./App/Components/Products/Popup/popup")),
   },
 
   // categories

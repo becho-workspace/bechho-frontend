@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 class FooterLinkSidebar extends Component {
   render() {
     return (
-      <div>
+      <div className="mt-md-5 mb-md-5">
         <h2>Contents</h2>
         <div className="th-links-list-box">
           <div className="pl-3">

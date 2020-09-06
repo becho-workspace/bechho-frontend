@@ -119,6 +119,10 @@
 }
 
 @media only screen and (max-width: 760px) {
+  .th-my-mids-mob,
+  .th-my-items-mob {
+    margin-top: 4rem !important;
+  }
   /* for coloumn in my-bids file*/
   .th-mybids-col {
     justify-content: center !important;
@@ -478,6 +482,9 @@ button:focus {
 /*  */
 
 @media only screen and (max-width: 768px) {
+  .th-sell-mob-div {
+    margin-top: 4rem !important;
+  }
   .th-sell-form-item-wraper {
     box-shadow: none !important;
     padding: 12px !important;
@@ -523,7 +530,7 @@ button:focus {
   }
 
   .th-sell-form-step-line {
-    border: 1.5px solid;
+    border: 1.5px solid #ffb02c;
   }
 
   .th-sell-form-step {

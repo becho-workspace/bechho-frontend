@@ -82,7 +82,7 @@ class SellHome extends Component {
 
   render() {
     return (
-      <div className="container mt-4 mt-lg-5 mb-5">
+      <div className="container mt-4 mt-lg-5 mb-5 th-sell-mob-div">
         <Form onSubmit={this.handleSubmit}>
           {/* button to go back in fisrt step */}
           <div className="mb-lg-4 ml-lg-3">{this.backButton()}</div>

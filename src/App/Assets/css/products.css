@@ -63,6 +63,9 @@
 }
 
 @media only screen and (max-width: 780px) {
+  .th-products-container {
+    margin-top: 4.5rem;
+  }
   .th-right-img {
     width: 100% !important;
     height: 280px !important;
@@ -278,8 +281,8 @@
 
 @media only screen and (max-width: 780px) {
   .th-prod-popup-box {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 3.5rem;
+    margin-bottom: 7rem;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;

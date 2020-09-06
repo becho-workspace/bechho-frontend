@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Advertise extends Component {
   render() {
     return (
-      <div>
+      <div className="mt-lg-5 mb-lg-5 th-advertise-container">
         <h2 className="text-center">Advertise page</h2>
         <div>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita

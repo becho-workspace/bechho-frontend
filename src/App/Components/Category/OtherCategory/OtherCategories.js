@@ -41,7 +41,7 @@ class OtherCategories extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <div className="th-category-title">Other Categories </div>
         <div className="mt-lg-4">
           <div class="row">

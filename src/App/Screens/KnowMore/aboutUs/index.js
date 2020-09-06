@@ -10,7 +10,7 @@ class AboutUsHome extends Component {
   };
   render() {
     return (
-      <div className="mt-md-4 mb-md-5 mt-3 mb-3">
+      <div>
         {this.state.width > 800 ? (
           <Container>
             <Row>

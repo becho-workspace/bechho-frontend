@@ -5,7 +5,7 @@ import SimilarProduct from "../../Components/Products/SimilarProduts/SimilarProd
 class ProductHome extends Component {
   render() {
     return (
-      <div className="mt-4 mb-5">
+      <div className="mt-lg-5 mb-5 th-products-container">
         <ProductTop />
         <Description />
         <SimilarProduct />

@@ -39,7 +39,7 @@ class HeaderMobile extends Component {
       <div>
         <div
           className="d-flex justify-content-between align-items-center 
-                     pr-3 pl-3 pt-3 pb-3 shadow-sm "
+                     pr-3 pl-3 pt-2 pb-2 shadow-sm th-mob-header"
         >
           <img
             src={Menu}

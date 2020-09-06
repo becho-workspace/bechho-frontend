@@ -118,7 +118,7 @@ export class Footer extends Component {
                 </Col>
               </Row>
             ) : (
-              <div>
+              <div className="mb-5">
                 <Row className="pt-2 th-footer-mob-col">
                   <div className="th-footer-col mt-2" sm={3}>
                     <img src={Logo} alt="" className="th-footer-logo" />

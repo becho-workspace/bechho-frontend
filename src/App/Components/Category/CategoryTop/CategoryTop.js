@@ -62,7 +62,7 @@ class CategoryTop extends Component {
 
   render() {
     return (
-      <div className="container mt-5 mb-4">
+      <div>
         <div className="th-category-title ">Category</div>
         <div className="mt-lg-3">
           <div class="row">

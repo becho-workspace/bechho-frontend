@@ -4,6 +4,7 @@ import Loader from "./Loader/index";
 import routes from "../routes";
 import Navbar from "./Layouts/Header/index";
 import Footer from "./Layouts/Footer/index";
+import BottomNav from "./Layouts/BottomNav/BottomNav";
 
 const Home = React.lazy(() => import("./Screens/Home/index"));
 
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <Navbar />
+        <BottomNav />
         <Suspense fallback={<Loader />}>
           <Switch>
             {menu}

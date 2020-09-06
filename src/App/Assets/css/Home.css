@@ -70,6 +70,7 @@
     background: #ffbe51;
     padding: 4px 10px;
     border-radius: 4px;
+    margin-top: 4rem !important;
   }
   .th-mob-location-title,
   .th-mob-location-city {
