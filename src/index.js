@@ -14,6 +14,7 @@ import "./App/Assets/css/auth.css";
 import "./App/Assets/css/products.css";
 import "./App/Assets/css/category.css";
 import "./App/Assets/css/MyAccount.css";
+import "./App/Assets/css/testimonials.css";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 

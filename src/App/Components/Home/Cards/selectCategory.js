@@ -5,14 +5,12 @@ class CategoryCard extends Component {
   render() {
     return (
       <div>
-        <Card className="border-0 mr-3 mb-3 ">
-          <Card.Img
-            variant="top"
-            src={this.props.src}
-            className="rounded  th-category-small-img"
-          />
-          <p className="mb-0 th-category-name">{this.props.brand}</p>
-        </Card>
+        <div className="border-0 mr-3 mb-3 ">
+          <div className="th-category-small-img">
+            <img src={this.props.src} alt="" />
+          </div>
+          <p className="mb-0 mt-2 th-category-name">{this.props.brand}</p>
+        </div>
       </div>
     );
   }

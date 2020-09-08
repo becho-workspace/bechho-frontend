@@ -1,36 +1,36 @@
 import React, { Component } from "react";
 import CategoryCard from "../Cards/selectCategory";
+import Mobile from "../../../Assets/Images/Home/category/Mobile.png";
+import Tablets from "../../../Assets/Images/Home/category/Tablet.png";
+import Laptop from "../../../Assets/Images/Home/category/Laptop.png";
+import Furniture from "../../../Assets/Images/Home/category/Furniture.png";
+import HomeAppliance from "../../../Assets/Images/Home/category/HomeAppliance.png";
+import Accesories from "../../../Assets/Images/Home/category/Accesories.png";
 
 const data = [
   {
-    src:
-      "https://www.nextbigbrand.in/wp-content/uploads/2019/03/Screen-Shot-2019-03-22-at-2.25.31-PM.png",
-    brand: "Levi's",
+    src: Mobile,
+    brand: "Mobiles",
   },
   {
-    src:
-      "https://i.pinimg.com/originals/6d/3b/3b/6d3b3be4d1add6129c4209821be4b1e3.jpg",
-    brand: "Allen Solly",
+    src: Tablets,
+    brand: "Tablets",
   },
   {
-    src:
-      "https://www.youthpagelive.com/wp-content/uploads/2017/08/page_1_thumb_large.jpg",
-    brand: "van housen",
+    src: Laptop,
+    brand: "Laptops",
   },
   {
-    src:
-      "https://seeklogo.com/images/P/peter-england-logo-CAA89E9287-seeklogo.com.png",
-    brand: "Peter England",
+    src: Furniture,
+    brand: "Furniture",
   },
   {
-    src:
-      "https://sgp1.digitaloceanspaces.com/quickcompany/trademark/241ff7027292ebd0.jpg",
-    brand: "park avenue",
+    src: HomeAppliance,
+    brand: "Home Appliances",
   },
   {
-    src:
-      "https://images.squarespace-cdn.com/content/v1/57c95f912994ca33e8410394/1473433215876-VACPQ3VCSJIN1GLV47ON/ke17ZwdGBToddI8pDm48kLauA-DAtZa8rxFxHR1_m00UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcM4ZZh_i2MpC47xJm_VRgldATpLxWP2zT5Q5sgWR5cEsfR5ESeekW32GRF7hoFOLh/logo-lee-cooper1.jpg",
-    brand: "Lee copper",
+    src: Accesories,
+    brand: "Accesories",
   },
 ];
 

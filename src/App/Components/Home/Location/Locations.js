@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Location from "../../../Assets/Images/Header/location.png";
 import Delhi from "../../../Assets/Images/Home/Delhi.png";
 import Noida from "../../../Assets/Images/Home/Noida.png";
 import Gurgaon from "../../../Assets/Images/Home/Gurgaon.png";

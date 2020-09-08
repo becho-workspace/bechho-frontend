@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Location from "../../../Assets/Images/Header/location.png";
-export class LocationMob extends Component {
+import { MapPin } from "react-feather";
+class LocationMob extends Component {
   render() {
     return (
       <div>
         <div className="mr-3 ml-3">
           <div className="th-location-mob-container d-flex justify-content-between">
             <div className="d-flex align-items-center">
-              <img src={Location} alt="location" />
+              <MapPin size={20} color="#332a7c" />
               <span className="th-mob-location-title ml-1">
                 Preferred Location
               </span>

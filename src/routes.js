@@ -122,6 +122,13 @@ const routes = [
     name: "sell",
     component: lazy(() => import("./App/Layouts/MyAccount/Sell")),
   },
+  // testimonials
+  {
+    path: "/testimonials",
+    exact: true,
+    name: "testimonials",
+    component: lazy(() => import("./App/Components/Testimonial/Testimonial")),
+  },
 ];
 
 export default routes;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Tv, Home, ShoppingCart, List } from "react-feather";
+import { Tv, Home, ShoppingBag, List } from "react-feather";
 import { Link } from "react-router-dom";
 
 class BottomNav extends React.Component {
@@ -27,13 +27,13 @@ class BottomNav extends React.Component {
             <div className="col-3 py-2 text-center">
               <Link className="th-link" to={`/sell`}>
                 <p className="th-link mb-0">
-                  <ShoppingCart size={20} />
+                  <ShoppingBag size={20} />
                 </p>
                 <p className="mb-0 th-link-title">Sell</p>
               </Link>
             </div>
             <div className="col-3 py-2 text-center">
-              <Link className="th-link" to={`/my-bids`}>
+              <Link className="th-link" to={`/testimonials`}>
                 <p className="mb-0">
                   <Tv size={20} />
                 </p>

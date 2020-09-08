@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Location from "../../../Assets/Images/Header/location.png";
+import { MapPin } from "react-feather";
 import PopUp from "../Popup/popup";
 
 class ProductTop extends Component {
@@ -75,7 +75,7 @@ class ProductTop extends Component {
                   <div className="d-flex align-items-center">
                     <div className="mr-3 th-price">2999</div>
                     <div className="d-flex align-items-center">
-                      <img src={Location} alt="location" className="mr-2" />{" "}
+                      <MapPin className="mr-2" size={20} color="#332a7c" />
                       <div className="th-location"> Delhi</div>
                     </div>
                   </div>

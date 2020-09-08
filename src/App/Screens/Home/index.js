@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
+import HomeTop from "../../Components/Home/HomeTop/HomeTop";
 import GridItems from "../../Components/Home/GridItems";
 import Brands from "../../Components/Home/Brands/Brands";
 import NewProducts from "../../Components/Home/Products/NewProducts";
 import OldProducts from "../../Components/Home/Products/OldProducts";
 import Locations from "../../Components/Home/Location/Locations";
-import BechoTales from "../../Components/Home/Tales/BechoTale";
+// import BechoTales from "../../Components/Home/Tales/BechoTale";
 import Adds from "../../Components/Home/Adds/Adds";
 class HomeMain extends Component {
   state = {
@@ -15,6 +16,7 @@ class HomeMain extends Component {
   render() {
     return (
       <div>
+        <HomeTop />
         <Locations />
         <Container className="th-container">
           <GridItems />
@@ -24,7 +26,7 @@ class HomeMain extends Component {
         </Container>
         {this.state.width > 992 ? (
           <div>
-            <BechoTales />
+            {/* <BechoTales /> */}
             <Container className="th-container">
               <Adds />
             </Container>

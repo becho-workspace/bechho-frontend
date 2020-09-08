@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import Menu from "../../Assets/Images/Header/menu.png";
 import Logo from "../../Assets/Images/Header/Logo.png";
-import Cart from "../../Assets/Images/Header/cart.png";
-import Person from "../../Assets/Images/Header/person.png";
-import Search from "../../Assets/Images/Header/search.png";
+import { Menu, User } from "react-feather";
 import SideDrawer from "../Sidedrawer/Sidedrawer";
 import BackDrop from "../Sidedrawer/Backdrop";
 
@@ -41,33 +38,14 @@ class HeaderMobile extends Component {
           className="d-flex justify-content-between align-items-center 
                      pr-3 pl-3 pt-2 pb-2 shadow-sm th-mob-header"
         >
-          <img
-            src={Menu}
-            alt="menu"
-            style={{ width: "28px" }}
+          <Menu
+            size={28}
             className="mr-4"
             onClick={this.drawerToggleClickHandler}
           />
           <img src={Logo} alt="logo" style={{ width: "100px" }} />
           <div>
-            {/* <img
-              style={{ width: "24px" }}
-              src={Search}
-              alt="search"
-              className="mr-3"
-            /> */}
-            <img
-              style={{ width: "24px" }}
-              src={Person}
-              alt="person"
-              className="mr-3"
-            />
-            {/* <img
-              style={{ width: "24px" }}
-              src={Cart}
-              alt="cart"
-              className="mr-3"
-            /> */}
+            <User size={24} className="mr-3" />
           </div>
         </div>
         <SideDrawer show={this.state.sideDrawerOpen} />

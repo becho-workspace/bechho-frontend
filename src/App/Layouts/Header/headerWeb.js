@@ -6,12 +6,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import Logo from "../../Assets/Images/Header/Logo.png";
-import Arrow from "../../Assets/Images/Header/arrow-down.png";
-import Cart from "../../Assets/Images/Header/cart.png";
-import Person from "../../Assets/Images/Header/person.png";
-import TV from "../../Assets/Images/Header/tv.png";
-import Search from "../../Assets/Images/Header/search.png";
-import Location from "../../Assets/Images/Header/location.png";
+import { MapPin, User, Tv } from "react-feather";
 import { Link } from "react-router-dom";
 
 const cities = [
@@ -62,17 +57,18 @@ class Header extends Component {
             <Link to="/sell" style={{ color: "#332a7c" }}>
               <Nav.Item className="mr-lg-5">Sell</Nav.Item>
             </Link>
-
-            <Nav.Item className="d-flex align-items-center mr-lg-4">
-              Bechho Tales{" "}
-              <span className="ml-lg-1 mb-2">
-                <img src={TV} alt="" />
-              </span>
-            </Nav.Item>
+            <Link to="/testimonials" style={{ color: "#332a7c" }}>
+              <Nav.Item className="d-flex align-items-center mr-lg-4">
+                Bechho Tales{" "}
+                <span className="ml-lg-1 mb-2">
+                  <Tv size={20} />
+                </span>
+              </Nav.Item>
+            </Link>
             <Nav.Item className="d-flex align-items-center ml-lg-2 th-location-btn">
               {this.state.city}
               <span className="ml-lg-3">
-                <img src={Location} alt="" />
+                <MapPin size={20} color="#332a7c" />
               </span>
             </Nav.Item>
             {/* search location  */}
@@ -102,7 +98,7 @@ class Header extends Component {
             <Nav.Item className="d-flex align-items-center mr-lg-5 ml-lg-5">
               Profile
               <span className="ml-lg-1 mb-1 ">
-                <img src={Person} alt="" />
+                <User size={20} color="#332a7c" />
               </span>
             </Nav.Item>
             {/* <Nav.Item className="d-flex align-items-center mr-lg-5">
