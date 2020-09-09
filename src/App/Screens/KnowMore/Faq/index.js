@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import FAQ from "../../../Components/KnowMore/Faq/faq";
+import FAQ from "../../../Components/KnowMore/Faq/index";
 import LinksSidebar from "../../../Components/FooterLinkSidebar/FooterLinkSidebar";
 
 class FAQHome extends Component {

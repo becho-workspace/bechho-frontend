@@ -4,12 +4,14 @@ class ReturnPolicy extends Component {
   render() {
     return (
       <div className="mt-lg-5 mb-lg-5 th-return-container">
-        <h2 className="text-center">Return Policy page</h2>
+        <h2 className="text-center">Return Policy</h2>
         <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita
-          doloribus quos animi. Eum laudantium magnam praesentium culpa maiores
-          ipsa totam mollitia ratione, hic commodi adipisci minima eius aliquam
-          officia sequi.
+          In case the item description provided by users may not match with the
+          exact item condition of devices, our buying partners may opt for
+          return of item. In that case transportation charges will have to be
+          borne by the user and the return process will commence within 2-3
+          working days. Partial/Complete refund will have to be done by the user
+          and must be initiated and completed within 2-3 business days.
         </div>
       </div>
     );

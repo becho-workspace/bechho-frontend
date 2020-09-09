@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import StepOne from "./Step1/StepOne";
 import StepTwo from "./Step2/StepTwo";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 import data from "./data/data";
 
 class SellHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStep: 2,
+      currentStep: 1,
       category: "",
       product: "",
       image: "",
@@ -87,7 +88,6 @@ class SellHome extends Component {
           {/* button to go back in fisrt step */}
           <div className="mb-lg-4 ml-lg-3">{this.backButton()}</div>
           {/*  */}
-          <div>breadcrumbs</div>
           <div className="d-flex justify-content-center align-items-center mb-lg-4">
             <div
               className="th-sell-form-step-circle"

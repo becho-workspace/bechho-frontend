@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+
 class FooterLinkSidebar extends Component {
   render() {
     return (
@@ -7,15 +8,15 @@ class FooterLinkSidebar extends Component {
         <h2>Contents</h2>
         <div className="th-links-list-box">
           <div className="pl-3">
-            <NavLink className="th-links-list-item" to="/about-us">
+            <NavLink className="th-links-list-item " to="/about-us">
               <p>About Us</p>
             </NavLink>
 
-            <NavLink className="th-links-list-item" to="/blogs">
-              <p> Blogs</p>
+            <NavLink className="th-links-list-item " to="/blogs">
+              <p>Blogs</p>
             </NavLink>
 
-            <NavLink className="th-links-list-item" to="/carrer">
+            <NavLink className="th-links-list-item " to="/carrer">
               <p>Carrers</p>
             </NavLink>
 

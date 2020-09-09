@@ -26,7 +26,7 @@ class BottomNav extends React.Component {
             </div>
             <div className="col-3 py-2 text-center">
               <Link className="th-link" to={`/sell`}>
-                <p className="th-link mb-0">
+                <p className=" mb-0">
                   <ShoppingBag size={20} />
                 </p>
                 <p className="mb-0 th-link-title">Sell</p>
