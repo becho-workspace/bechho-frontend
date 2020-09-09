@@ -48,7 +48,10 @@ class HeaderMobile extends Component {
             <User size={24} className="mr-3" />
           </div>
         </div>
-        <SideDrawer show={this.state.sideDrawerOpen} />
+        <SideDrawer
+          show={this.state.sideDrawerOpen}
+          clicked={this.drawerToggleClickHandler}
+        />
         {backdrop}
       </div>
     );
