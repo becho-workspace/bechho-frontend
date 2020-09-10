@@ -116,3 +116,95 @@
   }
 }
 /* FAQ ends */
+
+/* Blogs  */
+.th-blogweb-img-card-top,
+.th-blogweb-img-card-bottom {
+  width: 32.5% !important;
+}
+.th-blogweb-img-card-mid {
+  width: 49% !important;
+}
+.th-blogweb-img-card-top,
+.th-blogweb-img-card-bottom,
+.th-blogweb-img-card-mid {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.th-blog-img {
+  width: 100%;
+  height: 260px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: #696464;
+  opacity: 0.9;
+}
+
+.eth-blogs-effect-img-card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.th-blogs-title {
+  font-size: 20px;
+  font-family: "Nunito sans";
+  opacity: 0.9;
+  color: #fff;
+}
+
+.th-blog-img:hover,
+.th-blogs-title:hover {
+  opacity: 1;
+}
+
+.th-blog-page-img {
+  width: 100%;
+  /* height: 460px; */
+}
+
+@media only screen and (min-width: 1020px) {
+  .th-blogs-img-caption {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    top: auto;
+    height: 4em;
+    text-transform: capitalize;
+    backface-visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .th-blogmob-img-card {
+    width: 49%;
+  }
+  .th-blog-img {
+    height: 160px;
+  }
+  .th-blogs-title {
+    font-size: 15px;
+    padding: 0;
+    margin-bottom: 6px;
+    margin-top: 2px;
+    text-align: center;
+    color: #332a7c;
+  }
+  .th-blog-page-mob-container {
+    margin-top: 4.5rem !important;
+  }
+  .th-blog-page-img {
+    height: 280px;
+  }
+}
+
+/* Blogs end */

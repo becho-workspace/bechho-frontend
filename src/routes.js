@@ -129,6 +129,39 @@ const routes = [
     name: "testimonials",
     component: lazy(() => import("./App/Components/Testimonial/Testimonial")),
   },
+  // Blog pages
+  {
+    path: "/blogs/ecommerce",
+    exact: true,
+    name: "ecommerce",
+    component: lazy(() =>
+      import("./App/Components/KnowMore/blogs/blogpages/e-commerce")
+    ),
+  },
+  {
+    path: "/blogs/recommerce",
+    exact: true,
+    name: "recommerce",
+    component: lazy(() =>
+      import("./App/Components/KnowMore/blogs/blogpages/re-commerce")
+    ),
+  },
+  {
+    path: "/blogs/earnfromhome",
+    exact: true,
+    name: "earnfromhome",
+    component: lazy(() =>
+      import("./App/Components/KnowMore/blogs/blogpages/eran-from-home")
+    ),
+  },
+  {
+    path: "/blogs/lockdownandincome",
+    exact: true,
+    name: "lockdownandincome",
+    component: lazy(() =>
+      import("./App/Components/KnowMore/blogs/blogpages/lockdown-and-income")
+    ),
+  },
 ];
 
 export default routes;

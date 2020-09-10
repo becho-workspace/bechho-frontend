@@ -1,16 +1,19 @@
 import React, { Component } from "react";
+import BlogWeb from "./blogweb";
+import BlogMobile from "./blogmob";
 
 class Blogs extends Component {
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth,
+    };
+  }
   render() {
     return (
       <div className="mt-lg-5 mb-lg-5 th-blogs-container">
-        <h2 className="text-center">Blogs </h2>
-        <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita
-          doloribus quos animi. Eum laudantium magnam praesentium culpa maiores
-          ipsa totam mollitia ratione, hic commodi adipisci minima eius aliquam
-          officia sequi.
-        </div>
+        <h2 className="text-center">Blogs</h2>
+        {this.state.width > 780 ? <BlogWeb /> : <BlogMobile />}
       </div>
     );
   }
