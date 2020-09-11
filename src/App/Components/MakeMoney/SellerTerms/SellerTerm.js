@@ -4,9 +4,9 @@ class SellerTerms extends Component {
   render() {
     return (
       <div className="mt-lg-5 mb-lg-5 th-seller-term-container">
-        <h2 className="text-center">Seller Terms </h2>
+        <h2 className="text-center th-seller-term-header">Seller Terms </h2>
         <div>
-          <ul>
+          <ul className="th-seller-term-list">
             <li>
               We charge a fee directly tied to the sale of items through Our
               marketplace Service. Additional fees may be charged by third

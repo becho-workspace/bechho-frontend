@@ -151,7 +151,7 @@ const routes = [
     exact: true,
     name: "earnfromhome",
     component: lazy(() =>
-      import("./App/Components/KnowMore/blogs/blogpages/eran-from-home")
+      import("./App/Components/KnowMore/blogs/blogpages/earn-from-home")
     ),
   },
   {

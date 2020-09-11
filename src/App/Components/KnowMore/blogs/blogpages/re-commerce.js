@@ -5,7 +5,9 @@ class ReCommerce extends Component {
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
-          <h2 className="text-center mb-3">Re-commerce in India</h2>
+          <h2 className="text-center mb-3 th-blog-page-header">
+            Re-commerce in India
+          </h2>
           <img
             src="https://images.unsplash.com/photo-1599703285040-dc2e37260fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
             className="th-blog-page-img mb-3"
@@ -13,7 +15,7 @@ class ReCommerce extends Component {
           />
         </div>
         <div>
-          <p>
+          <p className="th-blog-page-content">
             We know a lot of concepts but don’t know what they are actually
             called and one of them is Recommerce. The ability to sell and buy
             used merchandise and commodities online is the easiest definition of
@@ -22,25 +24,25 @@ class ReCommerce extends Component {
             products and bought smoothly, specially by millennials and
             Generation Z.
           </p>
-          <p>
+          <p className="th-blog-page-content">
             One of the misconceptions about Recommerce is it being a new concept
             which is not completely true, this concept was commercialised a long
             time ago but not on a global level. But now, merchants in Recommerce
             industry is growing 20 times faster than retail market.
           </p>
-          <p>
+          <p className="th-blog-page-content">
             But, it hasn’t been easy to sell used items in the beginning. In
             2013, there was a 69% fail rate for selling items through online
             auctions. A similar failure rate occurred when individuals were
             selling items directly from a vehicle or their home.
           </p>
           <div>
-            <label>
+            <label className="th-blog-page-content">
               But now, the things have completely changed. In fact, some
               statistics show some winsome figures of current online Recommerce
               industry.
             </label>
-            <ul>
+            <ul className="th-blog-page-list">
               <li>
                 Recommerce has been outperforming traditional retail for the
                 past six years, with a forecast revenue of $20 billion for 2019.
@@ -58,11 +60,11 @@ class ReCommerce extends Component {
           </div>
 
           <div>
-            <label>
+            <label className="th-blog-page-content">
               If you are a nature loving enthusiast, here are some facts which
               might blow you:
             </label>
-            <ul>
+            <ul className="th-blog-page-list">
               <li>
                 Nearly 100 percent of textiles and clothing are recyclable and
                 reusable.
@@ -79,12 +81,12 @@ class ReCommerce extends Component {
               </li>
             </ul>
           </div>
-          <p>
+          <p className="th-blog-page-content">
             All these facts and figures may give you an indirect hint about how
             much Recommerce can be significant in saving the environment we live
             in.
           </p>
-          <p>
+          <p className="th-blog-page-content">
             One of the other helpful features of Recommerce is space saving.
             There are so many things at our homes taking up a lot of space in
             our closets and store rooms but at the same time don’t want to throw
@@ -92,7 +94,7 @@ class ReCommerce extends Component {
             of junk sitting in our house in near future, why not to make it a
             way of earning.
           </p>
-          <p>
+          <p className="th-blog-page-content">
             If this blog has convinced you to resell things online but don’t
             know how to do it, we’ll help you in that too! First of all, choose
             the things you can actually sell really fast and click appealing
@@ -104,7 +106,7 @@ class ReCommerce extends Component {
             and make the trade happen in less time. Upload the pictures on that
             website and wait for the genuine buyers to contact you.
           </p>
-          <p>
+          <p className="th-blog-page-content">
             It’s not a new trend but need of the hour. Recommerce is not just a
             voluntary service but a way to earn money as well. It’s the best way
             towards consumerism with a much healthier approach.

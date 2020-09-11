@@ -11,7 +11,7 @@ class FAQ extends Component {
     return (
       <div className="mt-lg-5 mb-lg-5 th-faq-container">
         <div>
-          <h4 className="text-center mb-4">FAQ's</h4>
+          <h2 className="text-center mb-4 th-faq-header">FAQ's</h2>
         </div>
         <div className="th-faq-box-wraper">{FaqList}</div>
       </div>

@@ -4,9 +4,9 @@ class BuyerTerms extends Component {
   render() {
     return (
       <div className="mt-lg-5 mb-lg-5 th-buyer-term-container">
-        <h2 className="text-center">Buyer Terms</h2>
+        <h2 className="text-center th-buyer-term-header">Buyer Terms</h2>
         <div>
-          <ul>
+          <ul className="th-buyer-term-list">
             <li>
               Buyers will review and agree to the “Seller Terms” (as described
               below) before placing an order. If the Seller Terms are in an

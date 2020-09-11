@@ -5,7 +5,9 @@ class Ecommerce extends Component {
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
-          <h2 className="text-center mb-3">Ecommerce in India</h2>
+          <h2 className="text-center mb-3 th-blog-page-header">
+            Ecommerce in India
+          </h2>
           <img
             src="https://images.unsplash.com/photo-1599721765049-d7f0e0f727a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1887&q=80"
             className="th-blog-page-img mb-3"
@@ -13,7 +15,7 @@ class Ecommerce extends Component {
           />
         </div>
         <div>
-          <p>
+          <p className="th-blog-page-content">
             From teenagers to gold-agers, everyone is on the internet now and
             always tends to make their lives easier through the internet. While
             at home, sitting on the sofa and ordering something online has
@@ -26,12 +28,12 @@ class Ecommerce extends Component {
             found being sold online.
           </p>
           <div>
-            <label>
+            <label className="th-blog-page-content">
               You might think what else is there to be known about ecommerce,
               actually there is! People don’t know how big this industry in
               India is. Let’s see some statistics proving it.
             </label>
-            <ul>
+            <ul className="th-blog-page-list">
               <li>
                 India’s internet economy is expected to double from US$ 125
                 billion as of April 2017 to US$ 250 billion by 2020, backed
@@ -45,11 +47,11 @@ class Ecommerce extends Component {
             </ul>
           </div>
           <div>
-            <label>
+            <label className="th-blog-page-content">
               Now as we have seen how big it is, let’s talk about how it can be
               important to any financially average person in India.
             </label>
-            <ul>
+            <ul className="th-blog-page-list">
               <li>
                 If you are somebody who has a startup idea about selling an
                 innovated product, the best way to expand your startup into a
@@ -70,7 +72,7 @@ class Ecommerce extends Component {
                 items.
               </li>
             </ul>
-            <label>
+            <label className="th-blog-page-content">
               So, you might understand that ecommerce is not some high level
               business gibberish but something you come across everyday in your
               life. Its not some complicated trend for youth but a highly useful

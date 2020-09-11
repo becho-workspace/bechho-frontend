@@ -5,21 +5,23 @@ export class EarnFromHome extends Component {
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
-          <h2 className="text-center mb-3">Earn from home</h2>
+          <h2 className="text-center mb-3 th-blog-page-header">
+            Earn from home
+          </h2>
           <img
             src="https://images.unsplash.com/photo-1599709845872-81560dab036b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
             className="th-blog-page-img mb-3"
             alt=""
           />
         </div>
-        <p>
+        <p className="th-blog-page-content">
           The modern world is all about smartwork and not hard work. If you
           can’t do smartwork then you are not considered an asset anywhere. One
           thing that always knocks the door of our mind while thinking about
           smartwork is how to make easy money. But always brush it off thinking
           what can be done anyway.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           Few things can actually be done, thanks to Internet. There are so many
           things that we can do online. From grasping new information to
           studying for school, from buying to selling and from communication to
@@ -27,7 +29,7 @@ export class EarnFromHome extends Component {
           sitting at home. Then why not to use it to get some easy cash without
           stepping out anywhere.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           Let’s first make you determined about smart earning while sitting at
           your sofa. First step is to understand the concept. Many times it is
           confused with work from home. They are quite similar but not exactly
@@ -38,19 +40,19 @@ export class EarnFromHome extends Component {
           home, you can still take advantage of earning few extra bucks from
           home.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           There are many ways to earn money while pursuing your career at the
           same time like freelancing, content writing, blogging, vlogging and
           many more. But the problem with all these ways is they need skills,
           time and most importantly passion.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           If you have the right amount of time, passion and resources then go
           for it. But if you are already having a hectic schedule with your work
           and your family and friends, you might not get time and even strength
           to start doing anything else than relaxing in the break time.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           So what to do now? One of the best techniques to be a smart worker is
           to sell things from home. But what can you sell while sitting at home?
           Maybe you can learn cooking or baking and sell food items in your
@@ -59,7 +61,7 @@ export class EarnFromHome extends Component {
           back to square one. The problem is you can’t invest resources to earn
           extra from home.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           The real question is what to sell while sitting at home and don’t have
           to invest your time into it at the same time. What if you get to know
           a way to sell something without investing something? Then why not to
@@ -69,7 +71,7 @@ export class EarnFromHome extends Component {
           things that you don’t need or use anymore and might actually get you
           some fair cash for them.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           So it’s clear now that you can earn extra money while sitting on the
           sofa by selling the things that might become a pile of junk and get
           thrown away for nothing after a while or may go to your store room for
@@ -77,7 +79,7 @@ export class EarnFromHome extends Component {
           they might not even be useful for anyone. Cash them out when you
           really can!
         </p>
-        <p>
+        <p className="th-blog-page-content">
           The next step towards earning easy money to sell these things now.
           Where to sell it? Is online better or offline? If you think offline,
           going to nearby stores, pondering over their biddings for the whole
@@ -86,7 +88,7 @@ export class EarnFromHome extends Component {
           online is better than good where you can find so many websites which
           deal with second hand merchandise and items.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           Choose the best re-commerce website which deals in all the second hand
           stuff in your city and find you buyers living near you or in your
           region. Buyers might be a store or a person, it won’t matter if they
@@ -94,7 +96,7 @@ export class EarnFromHome extends Component {
           pictures on the website, choose the best bidding and make the trade
           happen maybe in just 24 hours.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           So, be a smart person and sell the things you don’t want anymore and
           get some fair cash out of it which you might use right there or save
           for future purposes.

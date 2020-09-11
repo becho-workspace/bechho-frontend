@@ -4,13 +4,13 @@ class TermsAndConditions extends Component {
   render() {
     return (
       <div className="mt-lg-5 mb-lg-5 th-terms-container">
-        <h2 className="text-center">Terms & Conditions</h2>
+        <h2 className="text-center th-terms-header">Terms & Conditions</h2>
         <div>
-          <p>
+          <p className="th-terms-content">
             If you continue to browse and use this website, you are bound to
             follow the terms and conditions bellow:
           </p>
-          <ul>
+          <ul className="th-terms-list">
             <li>
               The content of the pages of this website is for your general
               information and use only. It is subject to change without notice.

@@ -5,7 +5,9 @@ class LockdownAndIncome extends Component {
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
-          <h2 className="text-center mb-3">Lockdown and Income</h2>
+          <h2 className="text-center mb-3 th-blog-page-header">
+            Lockdown and Income
+          </h2>
           <img
             src="https://images.unsplash.com/photo-1599713201276-6733c471d85a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
             className="th-blog-page-img mb-3"
@@ -17,7 +19,7 @@ class LockdownAndIncome extends Component {
             sustainable, resilient and inclusive.”
           </i>
         </div>
-        <p>
+        <p className="th-blog-page-content mt-2">
           While celebrating new year eve’s party, no one would have thought the
           year 2020 will become such a curse for us in every aspect of our
           lives. Be it globally or locally, COVID-19 has weaken us financially,
@@ -27,7 +29,7 @@ class LockdownAndIncome extends Component {
           going out for emergencies has made us feel caged in the beginning but
           now we are trying to accept the ‘new normal’.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           While people are on the two sides discussing whether the lockdown has
           been successful or not especially in India, the main thing to think
           about is how to make our lives economically stable now. You may think
@@ -36,11 +38,11 @@ class LockdownAndIncome extends Component {
           doesn’t mean it impacted no one.
         </p>
         <div>
-          <label htmlFor="">
+          <label className="th-blog-page-content">
             Here are some facts proving the damaging after effects of COVID-19
             and ultimately the lockdown:
           </label>
-          <ul>
+          <ul className="th-blog-page-list">
             <li>
               Unemployment went up to 24 percent on May 17, 2020. Furthermore,
               this caused a GVA loss of more than nine percent for the Indian
@@ -72,14 +74,14 @@ class LockdownAndIncome extends Component {
             </li>
           </ul>
         </div>
-        <p>
+        <p className="th-blog-page-content">
           You can see how much the COVID-19 has impacted directly and
           indirectly. So, you need to make sure if you are unemployed or prone
           to it, how to have a stable income while sitting at home. It might not
           be a huge amount but as you know
           <i> something is better than nothing.</i>
         </p>
-        <p>
+        <p className="th-blog-page-content">
           First, you need to decide what you want to do and if you want to
           pursue it as a long term job for yourself or you want to make it short
           term. You can continue doing what you used to do at your workplace but
@@ -88,7 +90,7 @@ class LockdownAndIncome extends Component {
           working as a freelancer, if you are in marketing and advertisements
           you can take small projects from new businesses while sitting at home.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           The other way to have continuous income in this pandemic is to pursue
           an untouched passion and try to make it economical. If you are a
           sketch artist you can take paid orders from people, same thing can be
@@ -96,7 +98,7 @@ class LockdownAndIncome extends Component {
           of Internet. Content creating is the modern art these days, be it
           vlogging, blogging, educational videos, etc.
         </p>
-        <p>
+        <p className="th-blog-page-content">
           One way to make easy one time money is to sell things from home. There
           would be so many things around you don’t need anymore but may turn out
           to be really handy for other people in your neighbourhood or in your
