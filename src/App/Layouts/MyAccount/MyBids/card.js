@@ -44,7 +44,7 @@ class MyBidsCard extends Component {
               </div>
               {this.props.status ? (
                 <div className="th-paynow-btn">
-                  <span className="th-paynow">Pay Now</span>
+                  <span className="th-paynow">Done</span>
                 </div>
               ) : null}
             </div>

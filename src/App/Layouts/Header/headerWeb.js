@@ -13,7 +13,7 @@ const cities = [
   { city: "Jaipur" },
   { city: "Noida" },
   { city: "Bangalore" },
-  { city: "gurugram" },
+  { city: "Gurugram" },
 ];
 
 class Header extends Component {

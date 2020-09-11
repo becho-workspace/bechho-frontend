@@ -3,7 +3,7 @@ import ProdsCard from "../Cards/productsCard";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
-import Data from "../Data/newProducts";
+import Data from "../Data/products";
 
 const settings = {
   slidesToShow: 3.5,
@@ -43,11 +43,11 @@ class NewProducts extends Component {
     return (
       <div className="mb-5">
         <div className="d-flex justify-content-between mb-2 mt-4">
-          <span className="pl-md-1 th-new-product-header">New Products</span>
+          <span className="pl-md-1 th-new-product-header">Latest Products</span>
           <span className="th-new-product-all-btn">See All</span>
         </div>
         <Slider {...settings} className="px-0 th-slider-margin">
-          {Data.map((item, index) => {
+          {Data.slice(0, 10).map((item, index) => {
             return (
               <ProdsCard
                 src={item.src}

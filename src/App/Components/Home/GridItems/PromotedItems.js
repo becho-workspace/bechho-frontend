@@ -28,23 +28,50 @@ const Settings = {
 
 const data = [
   {
+    id: 1,
     src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
   },
   {
+    id: 2,
     src: "https://circleofcricket.com/post_image/post_image_511ff50.jpg",
   },
   {
+    id: 3,
     src:
       "https://www.mykhel.com/img/2020/04/rohit-sharma-ipl-trophy-1587290453.jpg",
   },
   {
+    id: 4,
     src:
       "https://www.cricket.com.au/~/media/News/2016/08/9SmithMace.ashx?la=en&hash=EED44718B6445AB6EDCE51CD8791564E17B08844",
   },
+  { id: 5, src: "https://images.financialexpress.com/2019/12/1-95.jpg" },
   {
-    src: "https://images.financialexpress.com/2019/12/1-95.jpg",
+    id: 6,
+    src:
+      "https://staticg.sportskeeda.com/editor/2020/02/0fbb8-15814056665281-800.jpg",
   },
   {
+    id: 7,
+    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
+  },
+  {
+    id: 8,
+    src: "https://circleofcricket.com/post_image/post_image_511ff50.jpg",
+  },
+  {
+    id: 9,
+    src:
+      "https://www.mykhel.com/img/2020/04/rohit-sharma-ipl-trophy-1587290453.jpg",
+  },
+  {
+    id: 10,
+    src:
+      "https://www.cricket.com.au/~/media/News/2016/08/9SmithMace.ashx?la=en&hash=EED44718B6445AB6EDCE51CD8791564E17B08844",
+  },
+  { id: 11, src: "https://images.financialexpress.com/2019/12/1-95.jpg" },
+  {
+    id: 12,
     src:
       "https://staticg.sportskeeda.com/editor/2020/02/0fbb8-15814056665281-800.jpg",
   },
@@ -56,6 +83,9 @@ class PromotedItems extends Component {
   };
 
   render() {
+    let start, end;
+    start = data.length - 6;
+    end = data.length;
     return (
       <div>
         {/* displays only for > 768px */}
@@ -66,7 +96,7 @@ class PromotedItems extends Component {
         )}
         <div className="mb-4">
           <Slider {...Settings} className="th-promote-slider-container">
-            {data.map((item, index) => {
+            {data.slice(start, end).map((item, index) => {
               return (
                 <Card className="border-0">
                   <Card.Img
@@ -77,6 +107,7 @@ class PromotedItems extends Component {
                     }}
                     className="rounded"
                   />
+                  {/* <p>{item.id}</p> */}
                 </Card>
               );
             })}

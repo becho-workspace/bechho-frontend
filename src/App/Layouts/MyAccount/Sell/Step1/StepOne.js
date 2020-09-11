@@ -30,7 +30,9 @@ class StepOne extends Component {
           <div className="th-sell-form-item-header">Select a Product</div>
           <div className="d-lg-flex justify-content-between mt-4">
             <Form.Group className="d-flex align-items-center">
-              <span className="th-sell-form-input-label mr-4">Category</span>
+              <span className="th-sell-form-input-label mr-3 mr-lg-4">
+                Category
+              </span>
               <Form.Control
                 as="select"
                 className="th-sell-form-input"

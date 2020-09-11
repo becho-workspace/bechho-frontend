@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 class MyItemsCard extends Component {
@@ -47,11 +46,9 @@ class MyItemsCard extends Component {
                       <p className="th-myitems-bidder mr-md-2 ml-md-2 mb-0">
                         {item.bidder}
                       </p>
-                      <Link to="">
-                        <p className="th-myitems-bid-details ml-md-2 mb-0">
-                          View details
-                        </p>
-                      </Link>
+                      <p className="th-myitems-bid-details ml-md-2 mb-0">
+                        View details
+                      </p>
                     </div>
                     <div
                       className="d-flex"

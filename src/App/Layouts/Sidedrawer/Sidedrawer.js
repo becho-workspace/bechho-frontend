@@ -8,6 +8,7 @@ import {
   Twitter,
   Linkedin,
   Facebook,
+  User,
 } from "react-feather";
 import { Link } from "react-router-dom";
 
@@ -40,13 +41,22 @@ class SideDrawer extends Component {
               onClick={this.props.clicked}
             />
           </div>
-          <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
+          {/* <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
             <Power size={this.state.width > 320 ? 24 : 16} />
             <Link>
               <span className="ml-3" style={{ color: "#333" }}>
                 Signup/Login
               </span>
             </Link>
+          </div>
+          <hr className="th-sidebar-hr" /> */}
+          <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
+            <User size={this.state.width > 320 ? 24 : 16} />
+            {/* <Link> */}
+            <span className="ml-3" style={{ color: "#333" }}>
+              My Account
+            </span>
+            {/* </Link> */}
           </div>
           <hr className="th-sidebar-hr" />
           <div className="pt-0 pb-0 pl-5 pr-5">
@@ -93,12 +103,14 @@ class SideDrawer extends Component {
             <Link to="/sell" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Sell a product</p>
             </Link>
-            <Link to="#" onClick={this.props.clicked}>
+            {/* show only if user is authenticated */}
+            <Link to="my-bids" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">My Bids</p>
             </Link>
-            <Link to="#" onClick={this.props.clicked}>
+            <Link to="my-items" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">My Items</p>
             </Link>
+            {/* show only if user is authenticated */}
             <Link to="/carrers" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Carrers</p>
             </Link>

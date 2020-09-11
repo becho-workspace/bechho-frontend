@@ -4,11 +4,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Logo from "../../Assets/Images/Footer/Logo.png";
-import Facebook from "../../Assets/Images/Footer/facebook.png";
-import Twitter from "../../Assets/Images/Footer/twitter.png";
-import LinkedIn from "../../Assets/Images/Footer/linkedin.png";
+import { Facebook, Linkedin, Instagram } from "react-feather";
 
-export class Footer extends Component {
+class Footer extends Component {
   state = {
     width: window.innerWidth,
   };
@@ -24,9 +22,9 @@ export class Footer extends Component {
                   lg={3}
                   className="th-footer-col th-footer-border-right pr-lg-5"
                 >
-                  <div>
+                  <Link to="/">
                     <img src={Logo} alt="" />
-                  </div>
+                  </Link>
 
                   <p className="mt-lg-2 th-beccho-about">
                     Lorem ipsum dolor sit amet, consecteturstas nulla sapien
@@ -41,13 +39,23 @@ export class Footer extends Component {
                   <div className="th-footer-list-title mt-lg-2">Contact Us</div>
                   <div className="d-flex justify-content-around mt-lg-2">
                     <span>
-                      <img src={Twitter} alt="" style={{ width: "20px" }} />{" "}
+                      <a
+                        href="https://www.instagram.com/bechho.in/"
+                        target="_blank"
+                      >
+                        <Instagram size={26} color="#fff" />
+                      </a>
                     </span>
                     <span>
-                      <img src={LinkedIn} alt="" style={{ width: "20px" }} />{" "}
+                      <a
+                        href="https://www.linkedin.com/company/bechho/"
+                        target="_blank"
+                      >
+                        <Linkedin size={26} color="#fff" />
+                      </a>
                     </span>
                     <span>
-                      <img src={Facebook} alt="" style={{ width: "20px" }} />{" "}
+                      <Facebook size={26} color="#fff" />
                     </span>
                   </div>
                 </Col>
@@ -121,19 +129,31 @@ export class Footer extends Component {
               <div className="mb-5">
                 <Row className="pt-2 th-footer-mob-col">
                   <div className="th-footer-col mt-2" sm={3}>
-                    <img src={Logo} alt="" className="th-footer-logo" />
+                    <Link to="/">
+                      <img src={Logo} alt="" className="th-footer-logo" />
+                    </Link>
                   </div>
                   <div className="th-footer-col " sm={9}>
                     <div className=" mt-2">
                       <span className="th-footer-list-title"> Contact Us</span>
                       <span className="mr-1 ml-3">
-                        <img src={Twitter} alt="" style={{ width: "16px" }} />{" "}
+                        <a
+                          href="https://www.instagram.com/bechho.in/"
+                          target="_blank"
+                        >
+                          <Instagram size={20} color="#fff" />
+                        </a>
                       </span>
                       <span className="mr-1 ml-1">
-                        <img src={LinkedIn} alt="" style={{ width: "16px" }} />{" "}
+                        <a
+                          href="https://www.linkedin.com/company/bechho/"
+                          target="_blank"
+                        >
+                          <Linkedin size={20} color="#fff" />
+                        </a>
                       </span>
                       <span className="mr-1 ml-1">
-                        <img src={Facebook} alt="" style={{ width: "16px" }} />{" "}
+                        <Facebook size={20} color="#fff" />
                       </span>
                     </div>
                   </div>

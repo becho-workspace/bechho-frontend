@@ -5,7 +5,6 @@ import Gurgaon from "../../../Assets/Images/Home/Gurgaon.png";
 import Bangalore from "../../../Assets/Images/Home/Bangalore.png";
 import Pune from "../../../Assets/Images/Home/Pune.png";
 import Kolkata from "../../../Assets/Images/Home/Kolkata.png";
-import LocationMob from "./LocationMob";
 
 class Locations extends Component {
   state = {
@@ -34,18 +33,16 @@ class Locations extends Component {
               <img src={Bangalore} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Bangalore</p>
             </div>
-            <div className=" text-center">
+            {/* <div className=" text-center">
               <img src={Pune} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Pune</p>
             </div>
             <div className=" text-center">
               <img src={Kolkata} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Kolkata</p>
-            </div>
+            </div> */}
           </div>
-        ) : (
-          <LocationMob />
-        )}
+        ) : null}
       </div>
     );
   }
