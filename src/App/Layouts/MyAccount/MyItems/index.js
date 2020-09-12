@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import MyItemsCard from "./card";
 import data from "./itemsData";
-import Bids from "./bidsData";
 
 class MyItems extends Component {
   render() {
@@ -18,7 +17,7 @@ class MyItems extends Component {
                     src={item.src}
                     title={item.title}
                     askPrice={item.askPrice}
-                    BidList={Bids}
+                    BidList={item.bids}
                   />
                 );
               })}

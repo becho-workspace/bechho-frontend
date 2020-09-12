@@ -99,9 +99,39 @@
   color: #332a7c;
 }
 
+.th-bids-offered-price-title,
+.th-bids-sell-price-title,
+.th-bids-sCharge-title {
+  font-family: "Nunito sans";
+  font-size: 24px;
+  color: #999999;
+}
+
+.th-bids-offered-price,
+.th-bids-s-charge,
+.th-bids-sell-price {
+  font-family: "Lato";
+  font-size: 24px;
+}
+.th-bids-offered-price {
+  color: #332a7c;
+}
+
+.th-bids-s-charge {
+  color: #ca4646;
+}
+
+.th-bids-sell-price {
+  color: #39ac45;
+}
+
 @media only screen and (min-width: 1120px) {
   .th-mybids-card-image {
     height: 200px;
+  }
+  .th-bids-modal-hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 }
 
@@ -159,6 +189,18 @@
   .th-myitems-header {
     font-size: 26px;
   }
+
+  .th-bids-offered-price-title,
+  .th-bids-sell-price-title,
+  .th-bids-sCharge-title,
+  .th-bids-offered-price,
+  .th-bids-s-charge,
+  .th-bids-sell-price {
+    font-size: 15px;
+  }
+  .th-bids-modal-hr {
+    margin: 0 !important;
+  }
 }
 
 @media only screen and (max-width: 320px) {
@@ -169,6 +211,14 @@
   }
   .th-mybids-header {
     font-size: 24px;
+  }
+  .th-bids-offered-price-title,
+  .th-bids-sell-price-title,
+  .th-bids-sCharge-title,
+  .th-bids-offered-price,
+  .th-bids-s-charge,
+  .th-bids-sell-price {
+    font-size: 12.5px;
   }
 }
 
