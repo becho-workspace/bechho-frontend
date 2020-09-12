@@ -158,7 +158,7 @@ class MyItemsCard extends Component {
               <hr color="#ffa000" className="th-bids-modal-hr" />
               <div className="d-flex justify-content-between">
                 <p className="mt-2 mb-2 th-bids-sell-price-title">
-                  Ammount will be paid{" "}
+                  Amount will be paid{" "}
                 </p>
                 <p className="mt-2 mb-2 th-bids-sell-price">
                   ₹ {this.state.sell_price}{" "}
