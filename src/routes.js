@@ -120,7 +120,7 @@ const routes = [
     path: "/sell",
     exact: true,
     name: "sell",
-    component: lazy(() => import("./App/Layouts/MyAccount/Sell")),
+    component: lazy(() => import("./App/Layouts/MyAccount/sellBeta")),
   },
   // testimonials
   {
