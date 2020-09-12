@@ -83,7 +83,13 @@
     background: #eae9ff;
     padding: 4px 10px;
     border-radius: 4px;
-    margin-top: 4rem !important;
+  }
+
+  .th-location-mob-circle {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, #322c7a 0%, #8ed0e4 100%);
   }
   .th-mob-location-title,
   .th-mob-location-city {
