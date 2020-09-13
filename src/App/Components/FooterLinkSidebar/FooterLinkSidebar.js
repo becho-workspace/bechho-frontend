@@ -16,8 +16,8 @@ class FooterLinkSidebar extends Component {
               <p>Blogs</p>
             </NavLink>
 
-            <NavLink className="th-links-list-item " to="/carrer">
-              <p>Carrers</p>
+            <NavLink className="th-links-list-item " to="/career">
+              <p>Careers</p>
             </NavLink>
 
             <NavLink className="th-links-list-item" to="/faq">

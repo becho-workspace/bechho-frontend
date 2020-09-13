@@ -8,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Logo from "../../Assets/Images/Header/Logo.png";
 import { MapPin, User, Tv } from "react-feather";
 import { Link } from "react-router-dom";
-
+import { history } from "../../../helpers/index";
 const cities = [
   { city: "Jaipur" },
   { city: "Noida" },

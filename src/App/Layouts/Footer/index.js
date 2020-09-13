@@ -77,8 +77,8 @@ class Footer extends Component {
                       <li>Faq's</li>
                     </Link>
 
-                    <Link className="th-footer-list" to="/carrer">
-                      <li>Carrers</li>
+                    <Link className="th-footer-list" to="/career">
+                      <li>Careers</li>
                     </Link>
 
                     <Link className="th-footer-list" to="/privacy-policy">
@@ -178,8 +178,8 @@ class Footer extends Component {
                         <li>Faq's</li>
                       </Link>
 
-                      <Link className="th-footer-list" to="/carrer">
-                        <li>Carrers</li>
+                      <Link className="th-footer-list" to="/career">
+                        <li>Careers</li>
                       </Link>
 
                       <Link className="th-footer-list" to="/privacy-policy">

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App/App";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -15,15 +14,25 @@ import "./App/Assets/css/products.css";
 import "./App/Assets/css/category.css";
 import "./App/Assets/css/MyAccount.css";
 import "./App/Assets/css/testimonials.css";
-import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
+import { Provider } from "react-redux";
+import { store } from "./helpers/index";
+import App from "./routes/App";
+
+import axios from "axios";
+axios.defaults.baseURL = "https://bechho-release-first.herokuapp.com";
+axios.defaults.headers.common["Authorization"] = `JWT ${localStorage.getItem(
+  "token"
+)}`;
+
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </BrowserRouter>,
+  </Provider>,
   document.getElementById("root")
 );
 
