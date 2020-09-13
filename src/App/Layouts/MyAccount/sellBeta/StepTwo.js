@@ -37,7 +37,6 @@ class StepTwo extends Component {
       sub_category,
       product_name,
       description,
-      description,
       city,
     } = this.props;
 
