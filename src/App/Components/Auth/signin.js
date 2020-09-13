@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { userActions } from "../../../redux/actions/index";
 import Cross from "../../Assets/Images/Auth/cross.png";
 
 class Signin extends Component {
@@ -18,6 +19,7 @@ class Signin extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+    // console.log(this.state.email);
   };
 
   handleSubmit = (e) => {
@@ -30,8 +32,8 @@ class Signin extends Component {
   };
 
   render() {
-    const enabled =
-      this.state.email.length > 0 && this.state.password.length > 0;
+    // const enabled =
+    //   this.state.email.length > 0 && this.state.password.length > 0;
 
     return (
       <div className="mt-5 mb-5">
@@ -66,7 +68,11 @@ class Signin extends Component {
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-                <button className="btn submit" type="submit" disabled={enabled}>
+                <button
+                  className="btn submit"
+                  type="submit"
+                  // disabled={enabled}
+                >
                   Continue
                 </button>
               </form>

@@ -15,15 +15,17 @@ function login(email, password) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
   };
-  return axios
-    .post("https://bechho-release-first.herokuapp.com/signin", requestOptions)
+  return fetch(
+    "https://bechho-release-first.herokuapp.com/user",
+    requestOptions
+  )
     .then(handleResponse)
     .then((data) => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       setAuthToken(data.token);
       return data.user;
-      console.log(data.user);
+      // console.log(data.user);
     });
 }
 
