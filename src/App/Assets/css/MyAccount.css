@@ -474,6 +474,15 @@
   }
 }
 
+.th-sell-form-item-list {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 32px;
+  color: #332a7c;
+}
+
 .th-sell-form-qna-list {
   overflow-y: scroll;
   max-height: 320px;
@@ -537,8 +546,8 @@ button:focus {
   }
   .th-sell-form-item-wraper {
     box-shadow: none !important;
-    padding: 12px !important;
-    margin-bottom: 1rem !important;
+    padding: 4px 12px !important;
+    margin-bottom: 0 !important;
   }
   .th-sell-form-input {
     width: 100% !important;
@@ -558,7 +567,8 @@ button:focus {
   .th-sell-form-input-label,
   .th-sell-form-input,
   .th-sell-form-qna-ans,
-  .th-sell-form-qna-ques {
+  .th-sell-form-qna-ques,
+  .th-sell-form-item-list {
     font-size: 14.5px;
   }
   .th-sell-form-continue,
@@ -589,6 +599,7 @@ button:focus {
     left: 12px;
     font-size: 18px;
   }
+
   /*  */
 }
 
@@ -599,7 +610,8 @@ button:focus {
   .th-sell-form-input-label,
   .th-sell-form-input,
   .th-sell-form-qna-ans,
-  .th-sell-form-qna-ques {
+  .th-sell-form-qna-ques,
+  .th-sell-form-item-list {
     font-size: 13px;
   }
   .th-sell-form-input-price {

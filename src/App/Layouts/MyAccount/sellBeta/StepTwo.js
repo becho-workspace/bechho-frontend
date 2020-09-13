@@ -31,11 +31,21 @@ class StepTwo extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { questionValue, price, faults } = this.state;
-    let form_data = new FormData();
-    form_data.append("mcq", questionValue);
-    form_data.append("price", price);
-    form_data.append("faults", faults);
-    // console.log(form_data);
+    const {
+      currentStep,
+      category,
+      sub_category,
+      product_name,
+      description,
+      description,
+      city,
+    } = this.props;
+
+    // let form_data = new FormData();
+    // form_data.append("mcq", questionValue);
+    // form_data.append("price", price);
+    // form_data.append("faults", faults);
+    // // console.log(form_data);
   };
 
   render() {
@@ -43,8 +53,18 @@ class StepTwo extends Component {
       return null;
     }
 
+    console.log(
+      this.props.currentStep,
+      this.props.category,
+      this.props.sub_category,
+      this.props.product_name,
+      this.props.description,
+      this.props.description,
+      this.props.city
+    );
+
     return (
-      <div>
+      <form onSubmit={this.handleSubmit}>
         <div className="th-sell-form-item-wraper">
           <div className="th-sell-form-item-header">Product Description</div>
           {/* mcq starts */}
@@ -457,7 +477,7 @@ class StepTwo extends Component {
 
         <div className="th-sell-form-item-wraper">
           <div className="th-sell-form-item-header">Faults</div>
-          <ul>
+          <ul className="th-sell-form-item-list">
             <li>Front Camera Faulty.</li>
             <li>Back Camera Faulty.</li>
             <li>Speaker Faulty.</li>
@@ -470,7 +490,7 @@ class StepTwo extends Component {
             <li>Battery Faulty.</li>
             <li>Buttons Faulty.</li>
           </ul>
-          <div className="mt-3">
+          <div className="mt-lg-3">
             <Form.Group className="d-flex">
               <Form.Control
                 as="textarea"
@@ -486,8 +506,19 @@ class StepTwo extends Component {
         </div>
 
         <div className="th-sell-form-item-wraper">
+          <div className="th-sell-form-item-header">Upload Product Images</div>
+          <div className="d-flex align-items-center mt-lg-4">
+            <div className="th-sell-form-image-box mr-4"></div>
+            <div className="th-sell-from-img-upload-btn">
+              <span className="th-sell-from-img-upload-circle"> + </span>
+              <Form.File lang="en" custom required />
+            </div>
+          </div>
+        </div>
+
+        <div className="th-sell-form-item-wraper">
           <div className="th-sell-form-item-header">Asked Price</div>
-          <div className="mt-3">
+          <div className="mt-lg-3 mt-2">
             <Form.Group className="d-flex">
               <span className="th-sell-form-input-label mr-4">Enter Price</span>
               <Form.Control
@@ -501,16 +532,16 @@ class StepTwo extends Component {
             </Form.Group>
           </div>
         </div>
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center mb-4">
           <button
-            // type="submit"
+            type="submit"
             className="th-sell-form-post"
             onClick={this.handleSubmit}
           >
             Post
           </button>
         </div>
-      </div>
+      </form>
     );
   }
 }
