@@ -1,18 +1,14 @@
-import React, { lazy } from "react";
+import React, { Component } from "react";
 import Navbar from "../App/Layouts/Header/index";
 import Footer from "../App/Layouts/Footer/index";
 import BottomNav from "../App/Layouts/BottomNav/BottomNav";
-import {
-  BrowserRouter,
-  Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { history } from "../helpers/index";
-import { alertActions } from "../redux/actions/index";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "../utils/setAuthToken";
+import { setCurrentUser } from "../redux/actions/authActions";
 import PrivateRoute from "./PrivateRoute";
+import store from "../store";
 
 import Home from "../App/Screens/Home/index";
 import FAQ from "../App/Screens/KnowMore/Faq";
@@ -46,21 +42,27 @@ import ReCommerce from "../App/Components/KnowMore/blogs/blogpages/re-commerce";
 import EarnFromHome from "../App/Components/KnowMore/blogs/blogpages/earn-from-home";
 import LockdownAndIncome from "../App/Components/KnowMore/blogs/blogpages/lockdown-and-income";
 import Signin from "../App/Components/Auth/signin";
+import Signup from "../App/Components/Auth/signup";
 
-class App extends React.Component {
+// Check for token to keep user logged in
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+}
+
+class App extends Component {
   constructor(props) {
     super(props);
-
-    history.listen((location, action) => {
-      // clear alert on location change
-      this.props.clearAlerts();
-    });
   }
 
   render() {
     return (
       <div>
-        {alert.message && <div className="">{alert.message}</div>}
         <BrowserRouter>
           <Navbar />
           <BottomNav />
@@ -78,12 +80,12 @@ class App extends React.Component {
             <Route exact path="/advertise" component={Advertise} />
             <Route exact path="/affiliate" component={Affiliate} />
             <Route exact path="/become-partner" component={BecomePartner} />
-            <Route exact path="/sell" component={Sell} />
+            <PrivateRoute exact path="/sell" component={Sell} />
             <Route exact path="/products" component={Products} />
             <Route exact path="products-offer" component={ProductOffer} />
             <Route exact path="/category" component={Category} />
-            <Route exact path="/my-bids" component={MyBids} />
-            <Route exact path="/my-items" component={MyItems} />
+            <PrivateRoute exact path="/my-bids" component={MyBids} />
+            <PrivateRoute exact path="/my-items" component={MyItems} />
             <Route exact path="/testimonials" component={Testimonial} />
             <Route exact path="/blogs/ecommerce" component={Ecommerce} />
             <Route exact path="/blogs/recommerce" component={ReCommerce} />
@@ -94,6 +96,7 @@ class App extends React.Component {
               component={LockdownAndIncome}
             />
             <Route exact path="/signin" component={Signin} />
+            <Route exact path="/signup" component={Signup} />
           </Switch>
           <Footer />
         </BrowserRouter>
@@ -102,13 +105,4 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { alert } = state;
-  return { alert };
-}
-
-const actionCreators = {
-  clearAlerts: alertActions.clear,
-};
-
-export default connect(mapStateToProps, actionCreators)(App);
+export default App;

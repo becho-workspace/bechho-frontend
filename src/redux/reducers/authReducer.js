@@ -1,26 +1,25 @@
-import { userConstants } from "../constants/index";
+import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
+const isEmpty = require("is-empty");
 
-let user = JSON.parse(localStorage.getItem("user"));
-const initialState = user ? { loggedIn: true, user } : {};
+const initialState = {
+  isAuthenticated: false,
+  user: {},
+  loading: false,
+};
 
-//const initialState = { loggedIn: true, user };
-
-export function authentication(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
-    case userConstants.LOGIN_REQUEST:
+    case SET_CURRENT_USER:
       return {
-        loggingIn: true,
-        user: action.user,
+        ...state,
+        isAuthenticated: !isEmpty(action.payload),
+        user: action.payload,
       };
-    case userConstants.LOGIN_SUCCESS:
+    case USER_LOADING:
       return {
-        loggedIn: true,
-        user: action.user,
+        ...state,
+        loading: true,
       };
-    case userConstants.LOGIN_FAILURE:
-      return {};
-    case userConstants.LOGOUT:
-      return {};
     default:
       return state;
   }

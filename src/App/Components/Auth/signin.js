@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { userActions } from "../../../redux/actions/index";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { loginUser } from "../../../redux/actions/authActions";
 import Cross from "../../Assets/Images/Auth/cross.png";
 
 class Signin extends Component {
   constructor(props) {
     super(props);
-    this.props.logout();
     this.state = {
       email: "",
       password: "",
+      errors: {},
       submitted: false,
       width: window.innerWidth,
     };
@@ -17,23 +19,42 @@ class Signin extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to hmoe
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/"); // push user to Home page when they login
+    }
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
+    }
+  }
+
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-    // console.log(this.state.email);
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ submitted: true });
-    const { email, password } = this.state;
-    if (email && password) {
-      this.props.login(email, password);
-    }
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    this.props.loginUser(userData); // since we handle the redirect within our component,
+    //we don't need to pass in this.props.history as a parameter
   };
 
   render() {
-    // const enabled =
-    //   this.state.email.length > 0 && this.state.password.length > 0;
+    const enabled =
+      this.state.email.length > 0 && this.state.password.length > 0;
+    const { errors } = this.state;
 
     return (
       <div className="mt-5 mb-5">
@@ -56,6 +77,7 @@ class Signin extends Component {
                   type="email"
                   maxLength={36}
                   placeholder="Email"
+                  errors={errors.email}
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}
@@ -64,15 +86,12 @@ class Signin extends Component {
                   className="input-item mb-4"
                   type="password"
                   placeholder="Password"
+                  errors={errors.password}
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-                <button
-                  className="btn submit"
-                  type="submit"
-                  // disabled={enabled}
-                >
+                <button className="btn submit" type="submit" disabled={enabled}>
                   Continue
                 </button>
               </form>
@@ -85,14 +104,27 @@ class Signin extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { loggingIn } = state.authentication;
-  return { loggingIn };
-}
-
-const actionCreators = {
-  login: userActions.login,
-  logout: userActions.logout,
+Signin.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps, actionCreators)(Signin);
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { loginUser })(Signin);
+
+// function mapStateToProps(state) {
+//   const { loggingIn } = state.authentication;
+//   return { loggingIn };
+// }
+
+// const actionCreators = {
+//   login: userActions.login,
+//   logout: userActions.logout,
+// };
+
+// export default connect(mapStateToProps, actionCreators)(Signin);

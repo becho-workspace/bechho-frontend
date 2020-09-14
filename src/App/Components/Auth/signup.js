@@ -1,46 +1,74 @@
 import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerUser } from "../../../redux/actions/authActions";
+
 import Cross from "../../Assets/Images/Auth/cross.png";
 import Google from "../../Assets/Images/Auth/google.png";
 import Facebook from "../../Assets/Images/Auth/facebook.png";
 
-class SignupMail extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {
-        name: "",
-        email: "",
-        password: "",
-      },
+      fname: "",
+      lname: "",
+      contact: "",
+      city: "",
+      email: "",
+      password: "",
+      errors: {},
+
       width: window.innerWidth,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to home
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
+    }
+  }
+
   handleChange = (event) => {
-    const { formData } = this.state;
-    formData[event.target.name] = event.target.value;
-    this.setState({ formData });
-    // console.log(formData);
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // let form_data = new FormData();
-    // form_data.append("name", this.state.formData.name);
-    // form_data.append("contact", this.state.formData.contact);
-    // form_data.append("password", this.state.formData.password);
-    console.log(this.state.formData);
+    const newUser = {
+      lname: this.state.lname,
+      fname: this.state.fname,
+      city: this.state.city,
+      conatct: this.state.contact,
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    this.props.registerUser(newUser, this.props.history);
   };
 
   render() {
-    const { formData } = this.state;
+    const { fname, lname, contact, city, email, password, errors } = this.state;
 
     const enabled =
-      formData.name.length > 0 &&
-      formData.email.length > 0 &&
-      formData.password.length > 0;
+      fname.length > 0 &&
+      lname.length > 0 &&
+      contact.length > 0 &&
+      city.length > 0 &&
+      email.length > 0 &&
+      password.length > 0;
 
     return (
       <div className="mt-5 mb-5">
@@ -63,29 +91,58 @@ class SignupMail extends Component {
                 <input
                   className="input-item mb-4"
                   type="text"
-                  placeholder="Your Name"
-                  name="name"
-                  value={formData.name}
+                  placeholder="Your First Name"
+                  error={errors.fname}
+                  name="fname"
+                  value={fname}
                   onChange={this.handleChange}
                 />
                 <input
-                  className="input-item"
+                  className="input-item mb-4"
+                  type="text"
+                  placeholder="Your Last Name"
+                  error={errors.lname}
+                  name="lname"
+                  value={lname}
+                  onChange={this.handleChange}
+                />
+                <input
+                  className="input-item mb-4"
+                  type="text"
+                  maxLength={10}
+                  placeholder="Contact"
+                  error={errors.contact}
+                  name="contact"
+                  value={contact}
+                  onChange={this.handleChange}
+                />
+                <input
+                  className="input-item mb-4"
+                  type="text"
+                  maxLength={16}
+                  placeholder="City"
+                  error={errors.city}
+                  name="city"
+                  value={city}
+                  onChange={this.handleChange}
+                />
+                <input
+                  className="input-item mb-4"
                   type="email"
                   maxLength={36}
                   placeholder="Email"
+                  error={errors.email}
                   name="email"
-                  value={formData.email}
+                  value={email}
                   onChange={this.handleChange}
                 />
-                <span className="text-right mb-2 change-method">
-                  Sign up with Phone Number
-                </span>
                 <input
                   className="input-item mb-4"
                   type="password"
                   placeholder="Password"
+                  error={errors.password}
                   name="password"
-                  value={formData.password}
+                  value={password}
                   onChange={this.handleChange}
                 />
                 <button className="btn submit" type="submit" disabled={enabled}>
@@ -96,9 +153,11 @@ class SignupMail extends Component {
               <div>
                 <div className="d-flex justify-content-center mt-3 mb-3">
                   <span className="query">Have an account?</span>{" "}
-                  <span className="login ml-1">Log in</span>
+                  <Link to="/signin">
+                    <span className="login ml-1">Log in</span>
+                  </Link>
                 </div>
-                <p className="text-center signup-option">Or Sign up with</p>
+                {/* <p className="text-center signup-option">Or Sign up with</p>
                 <div className="d-flex justify-content-around btn-wraper">
                   <div className="d-flex align-items-center btn-box">
                     <img className="mr-3" src={Google} alt="google" />{" "}
@@ -108,7 +167,7 @@ class SignupMail extends Component {
                     <img className="mr-3" src={Facebook} alt="facebook" />{" "}
                     <span className="facebook">Facebook</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -118,4 +177,15 @@ class SignupMail extends Component {
   }
 }
 
-export default SignupMail;
+Signup.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { registerUser })(withRouter(Signup));
