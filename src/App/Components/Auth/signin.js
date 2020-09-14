@@ -3,6 +3,16 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loginUser } from "../../../redux/actions/authActions";
+// import axios from "axios";
+// import setAuthToken from "../../../utils/setAuthToken";
+// import jwt_decode from "jwt-decode";
+// import {
+//   GET_ERRORS,
+//   SET_CURRENT_USER,
+//   USER_LOADING,
+// } from "../../../redux/actions/types";
+// import { setCurrentUser } from "../../../redux/actions/authActions";
+
 import Cross from "../../Assets/Images/Auth/cross.png";
 
 class Signin extends Component {
@@ -13,6 +23,7 @@ class Signin extends Component {
       password: "",
       errors: {},
       submitted: false,
+      loading: false,
       width: window.innerWidth,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -47,15 +58,40 @@ class Signin extends Component {
       email: this.state.email,
       password: this.state.password,
     };
+    console.log(userData);
     this.props.loginUser(userData); // since we handle the redirect within our component,
     //we don't need to pass in this.props.history as a parameter
+
+    // this.setState({
+    //   loading: true,
+    // });
+
+    // axios
+    //   .post("https://bechho-release-first.herokuapp.com/api/signin", userData)
+    //   .then((res) => {
+    //     // Save to localStorage
+    //     // Set token to localStorage
+    //     const { token } = res.data;
+    //     localStorage.setItem("jwtToken", token);
+    //     // Set token to Auth header
+    //     setAuthToken(token);
+    //     // Decode token to get user data
+    //     const decoded = jwt_decode(token);
+    //     // Set current user
+    //     console.log(res.data);
+    //     dispatch(setCurrentUser(decoded));
+    //     this.setState({ loading: false });
+    //   })
+    //   .catch((err) =>
+    //     dispatch({
+    //       type: GET_ERRORS,
+    //       payload: err.response.data,
+    //     })
+    //   );
   };
 
   render() {
-    const enabled =
-      this.state.email.length > 0 && this.state.password.length > 0;
     const { errors } = this.state;
-
     return (
       <div className="mt-5 mb-5">
         <div className="d-flex justify-content-center container">
@@ -91,7 +127,7 @@ class Signin extends Component {
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-                <button className="btn submit" type="submit" disabled={enabled}>
+                <button className="btn submit" type="submit">
                   Continue
                 </button>
               </form>
@@ -116,15 +152,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { loginUser })(Signin);
-
-// function mapStateToProps(state) {
-//   const { loggingIn } = state.authentication;
-//   return { loggingIn };
-// }
-
-// const actionCreators = {
-//   login: userActions.login,
-//   logout: userActions.logout,
-// };
-
-// export default connect(mapStateToProps, actionCreators)(Signin);

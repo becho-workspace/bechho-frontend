@@ -256,7 +256,7 @@
   font-size: 20px;
   font-family: "Nunito sans";
   opacity: 0.9;
-  color: #fff;
+  color: #332a7c;
 }
 
 .th-blog-img:hover,
@@ -294,7 +294,7 @@
     width: 100%;
     bottom: 0;
     top: auto;
-    height: 4em;
+    height: 3em;
     text-transform: capitalize;
     backface-visibility: hidden;
   }

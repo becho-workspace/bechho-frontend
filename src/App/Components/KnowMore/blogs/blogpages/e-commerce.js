@@ -1,18 +1,25 @@
 import React, { Component } from "react";
+import EcommerceWeb from "../../../../Assets/Images/Blogs/main/ecom-in-india.png";
+import EcommerceMob from "../../../../Assets/Images/Blogs/grid/ecom-in-india.png";
 
 class Ecommerce extends Component {
+  state = {
+    width: window.innerWidth,
+  };
   render() {
+    let img_url = null;
+    if (this.state.width > 780) {
+      img_url = EcommerceWeb;
+    } else if (this.state.width < 780) {
+      img_url = EcommerceMob;
+    }
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
           <h2 className="text-center mb-3 th-blog-page-header">
             Ecommerce in India
           </h2>
-          <img
-            src="https://images.unsplash.com/photo-1599721765049-d7f0e0f727a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1887&q=80"
-            className="th-blog-page-img mb-3"
-            alt=""
-          />
+          <img src={img_url} className="th-blog-page-img mb-3" alt="" />
         </div>
         <div>
           <p className="th-blog-page-content">

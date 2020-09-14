@@ -1,18 +1,25 @@
 import React, { Component } from "react";
+import EarnFromHomeWeb from "../../../../Assets/Images/Blogs/main/earn-from-home.png";
+import EarnFromHomeMob from "../../../../Assets/Images/Blogs/grid/earn-from-home.png";
 
 export class EarnFromHome extends Component {
+  state = {
+    width: window.innerWidth,
+  };
   render() {
+    let img_url = null;
+    if (this.state.width > 780) {
+      img_url = EarnFromHomeWeb;
+    } else if (this.state.width < 780) {
+      img_url = EarnFromHomeMob;
+    }
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
           <h2 className="text-center mb-3 th-blog-page-header">
             Earn from home
           </h2>
-          <img
-            src="https://images.unsplash.com/photo-1599709845872-81560dab036b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-            className="th-blog-page-img mb-3"
-            alt=""
-          />
+          <img src={img_url} className="th-blog-page-img mb-3" alt="" />
         </div>
         <p className="th-blog-page-content">
           The modern world is all about smartwork and not hard work. If you

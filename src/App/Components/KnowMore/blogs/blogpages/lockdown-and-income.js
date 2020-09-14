@@ -1,18 +1,25 @@
 import React, { Component } from "react";
+import LockdownAndIncomeWeb from "../../../../Assets/Images/Blogs/main/lockdown-and-income.png";
+import LockdownAndIncomeMob from "../../../../Assets/Images/Blogs/grid/lockdown-and-income.png";
 
 class LockdownAndIncome extends Component {
+  state = {
+    width: window.innerWidth,
+  };
   render() {
+    let img_url = null;
+    if (this.state.width > 780) {
+      img_url = LockdownAndIncomeWeb;
+    } else if (this.state.width < 780) {
+      img_url = LockdownAndIncomeMob;
+    }
     return (
       <div className="container mt-5 mb-5 th-blog-page-mob-container">
         <div>
           <h2 className="text-center mb-3 th-blog-page-header">
             Lockdown and Income
           </h2>
-          <img
-            src="https://images.unsplash.com/photo-1599713201276-6733c471d85a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            className="th-blog-page-img mb-3"
-            alt=""
-          />
+          <img src={img_url} className="th-blog-page-img mb-3" alt="" />
           <i>
             “We now have a unique opportunity to use this crisis to do things
             differently and build back better economies that are more

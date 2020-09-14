@@ -12,8 +12,7 @@ class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fname: "",
-      lname: "",
+      name: "",
       contact: "",
       city: "",
       email: "",
@@ -48,8 +47,7 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
-      lname: this.state.lname,
-      fname: this.state.fname,
+      name: this.state.name,
       city: this.state.city,
       conatct: this.state.contact,
       email: this.state.email,
@@ -60,15 +58,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { fname, lname, contact, city, email, password, errors } = this.state;
-
-    const enabled =
-      fname.length > 0 &&
-      lname.length > 0 &&
-      contact.length > 0 &&
-      city.length > 0 &&
-      email.length > 0 &&
-      password.length > 0;
+    const { name, contact, city, email, password, errors } = this.state;
 
     return (
       <div className="mt-5 mb-5">
@@ -91,19 +81,10 @@ class Signup extends Component {
                 <input
                   className="input-item mb-4"
                   type="text"
-                  placeholder="Your First Name"
-                  error={errors.fname}
-                  name="fname"
-                  value={fname}
-                  onChange={this.handleChange}
-                />
-                <input
-                  className="input-item mb-4"
-                  type="text"
-                  placeholder="Your Last Name"
-                  error={errors.lname}
-                  name="lname"
-                  value={lname}
+                  placeholder="Your Name"
+                  error={errors.name}
+                  name="name"
+                  value={name}
                   onChange={this.handleChange}
                 />
                 <input
@@ -145,7 +126,7 @@ class Signup extends Component {
                   value={password}
                   onChange={this.handleChange}
                 />
-                <button className="btn submit" type="submit" disabled={enabled}>
+                <button className="btn submit" type="submit">
                   Continue
                 </button>
               </form>
