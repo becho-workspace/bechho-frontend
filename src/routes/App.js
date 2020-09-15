@@ -37,6 +37,7 @@ import ProductOffer from "../App/Components/Products/Popup/popup";
 
 // categories
 import Category from "../App/Screens/Category/index";
+import CategoryListMobile from "../App/Components/Category/MobCategories";
 // my account items
 import MyBids from "../App/Layouts/MyAccount/MyBids";
 import MyItems from "../App/Layouts/MyAccount/MyItems";
@@ -85,6 +86,7 @@ class App extends Component {
             <Route exact path="/products" component={Products} />
             <Route exact path="products-offer" component={ProductOffer} />
             <Route exact path="/category" component={Category} />
+            <Route exact path="/categorylist" component={CategoryListMobile} />
             <PrivateRoute exact path="/my-bids" component={MyBids} />
             <PrivateRoute exact path="/my-items" component={MyItems} />
             <Route exact path="/testimonials" component={Testimonial} />

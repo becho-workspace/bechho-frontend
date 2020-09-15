@@ -17,7 +17,7 @@ class BottomNav extends React.Component {
               </Link>
             </div>
             <div className="col-3 py-2 text-center">
-              <Link className="th-link" to={``}>
+              <Link className="th-link" to={`/categorylist`}>
                 <p className="mb-0">
                   <List size={20} />
                 </p>

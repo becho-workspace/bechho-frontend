@@ -37,3 +37,42 @@
     line-height: 20px;
   }
 }
+
+/* Mobile category list */
+.th-mob-category-list {
+  margin-top: 4.5rem;
+  margin-bottom: 4rem;
+}
+
+.th-mob-category-list-header {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #332a7c;
+}
+
+/* .th-mob-category-list-wraper {
+  background: #332a7c;
+  opacity: 0.5;
+} */
+
+.th-subcategory-name,
+.th-mob-category-list-item {
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: normal;
+
+  color: #332a7c;
+}
+
+.th-subcategory-name {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.th-mob-category-list-item {
+  font-size: 18px;
+  line-height: 22px;
+}
