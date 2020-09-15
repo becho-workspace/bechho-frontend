@@ -30,15 +30,15 @@ class StepTwo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { questionValue, price, faults } = this.state;
-    const {
-      currentStep,
-      category,
-      sub_category,
-      product_name,
-      description,
-      city,
-    } = this.props;
+    // const { questionValue, price, faults } = this.state;
+    // const {
+    //   currentStep,
+    //   category,
+    //   sub_category,
+    //   product_name,
+    //   description,
+    //   city,
+    // } = this.props;
 
     // let form_data = new FormData();
     // form_data.append("mcq", questionValue);

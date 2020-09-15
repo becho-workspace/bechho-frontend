@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import Navbar from "../App/Layouts/Header/index";
 import Footer from "../App/Layouts/Footer/index";
 import BottomNav from "../App/Layouts/BottomNav/BottomNav";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  //  Redirect
+} from "react-router-dom";
+// import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../redux/actions/authActions";
@@ -56,10 +61,6 @@ if (localStorage.jwtToken) {
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>

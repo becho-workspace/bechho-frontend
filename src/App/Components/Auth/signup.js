@@ -3,10 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../../redux/actions/authActions";
-
 import Cross from "../../Assets/Images/Auth/cross.png";
-import Google from "../../Assets/Images/Auth/google.png";
-import Facebook from "../../Assets/Images/Auth/facebook.png";
 
 class Signup extends Component {
   constructor(props) {
@@ -132,23 +129,15 @@ class Signup extends Component {
               </form>
               {/* form ends */}
               <div>
-                <div className="d-flex justify-content-center mt-3 mb-3">
+                <div
+                  className="d-flex justify-content-center mt-3 mb-3"
+                  style={{ alignItems: "baseline" }}
+                >
                   <span className="query">Have an account?</span>{" "}
                   <Link to="/signin">
-                    <span className="login ml-1">Log in</span>
+                    <span className="login ml-1">Signin</span>
                   </Link>
                 </div>
-                {/* <p className="text-center signup-option">Or Sign up with</p>
-                <div className="d-flex justify-content-around btn-wraper">
-                  <div className="d-flex align-items-center btn-box">
-                    <img className="mr-3" src={Google} alt="google" />{" "}
-                    <span className="google">Google</span>
-                  </div>
-                  <div className="d-flex align-items-center btn-box">
-                    <img className="mr-3" src={Facebook} alt="facebook" />{" "}
-                    <span className="facebook">Facebook</span>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

@@ -42,6 +42,7 @@ class Footer extends Component {
                       <a
                         href="https://www.instagram.com/bechho.in/"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <Instagram size={26} color="#fff" />
                       </a>
@@ -50,6 +51,7 @@ class Footer extends Component {
                       <a
                         href="https://www.linkedin.com/company/bechho/"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <Linkedin size={26} color="#fff" />
                       </a>
@@ -140,6 +142,7 @@ class Footer extends Component {
                         <a
                           href="https://www.instagram.com/bechho.in/"
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <Instagram size={20} color="#fff" />
                         </a>
@@ -148,6 +151,7 @@ class Footer extends Component {
                         <a
                           href="https://www.linkedin.com/company/bechho/"
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <Linkedin size={20} color="#fff" />
                         </a>

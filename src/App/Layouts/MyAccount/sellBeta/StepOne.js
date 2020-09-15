@@ -163,7 +163,6 @@ class StepOne extends Component {
                     className="th-sell-form-textarea"
                     placeholder="Start typing..."
                     onChange={this.handleChange}
-                    required
                     name="description"
                     value={this.state.description}
                     required
@@ -181,7 +180,6 @@ class StepOne extends Component {
                     className="th-sell-form-textarea"
                     placeholder="Start typing..."
                     onChange={this.handleChange}
-                    required
                     name="address"
                     value={this.state.address}
                     required

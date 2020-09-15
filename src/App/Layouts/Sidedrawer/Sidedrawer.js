@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Logo from "../../Assets/Images/Header/bechho-logo.png";
 import {
   X,
-  Power,
+  // Power,
   ArrowDownCircle,
   ArrowUpCircle,
   Twitter,
@@ -41,15 +41,7 @@ class SideDrawer extends Component {
               onClick={this.props.clicked}
             />
           </div>
-          {/* <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
-            <Power size={this.state.width > 320 ? 24 : 16} />
-            <Link>
-              <span className="ml-3" style={{ color: "#333" }}>
-                Signup/Login
-              </span>
-            </Link>
-          </div>
-          <hr className="th-sidebar-hr" /> */}
+
           <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
             <User size={this.state.width > 320 ? 24 : 16} />
             {/* <Link> */}

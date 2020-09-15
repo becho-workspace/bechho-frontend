@@ -18,7 +18,7 @@ class BlogMob extends Component {
             <div className="th-blogmob-img-card">
               <Link to="/blogs/ecommerce">
                 <div className="th-blogs-effect-img-card">
-                  <img src={Ecommerce} className="th-blog-img" />
+                  <img src={Ecommerce} className="th-blog-img" alt="" />
                   <p className="th-blogs-title">Ecommerce in India</p>
                 </div>
               </Link>

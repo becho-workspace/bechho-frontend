@@ -8,6 +8,6 @@ export default ({ className, to, onClick }) => (
     className={`btn slick-next shadow-sm th-arrow-slider-left ${className}`}
     aria-label={to}
   >
-    <img src={LeftArrow} />
+    <img src={LeftArrow} alt="" />
   </button>
 );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Logo from "../../Assets/Images/Header/Logo.png";
-import { Menu, User, MapPin } from "react-feather";
+import { Menu, MapPin } from "react-feather";
 import SideDrawer from "../Sidedrawer/Sidedrawer";
 import BackDrop from "../Sidedrawer/Backdrop";
 import Location from "../../Components/Home/Location/LocationMob";

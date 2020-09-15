@@ -3,16 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loginUser } from "../../../redux/actions/authActions";
-// import axios from "axios";
-// import setAuthToken from "../../../utils/setAuthToken";
-// import jwt_decode from "jwt-decode";
-// import {
-//   GET_ERRORS,
-//   SET_CURRENT_USER,
-//   USER_LOADING,
-// } from "../../../redux/actions/types";
-// import { setCurrentUser } from "../../../redux/actions/authActions";
-
 import Cross from "../../Assets/Images/Auth/cross.png";
 
 class Signin extends Component {
@@ -61,33 +51,6 @@ class Signin extends Component {
     console.log(userData);
     this.props.loginUser(userData); // since we handle the redirect within our component,
     //we don't need to pass in this.props.history as a parameter
-
-    // this.setState({
-    //   loading: true,
-    // });
-
-    // axios
-    //   .post("https://bechho-release-first.herokuapp.com/api/signin", userData)
-    //   .then((res) => {
-    //     // Save to localStorage
-    //     // Set token to localStorage
-    //     const { token } = res.data;
-    //     localStorage.setItem("jwtToken", token);
-    //     // Set token to Auth header
-    //     setAuthToken(token);
-    //     // Decode token to get user data
-    //     const decoded = jwt_decode(token);
-    //     // Set current user
-    //     console.log(res.data);
-    //     dispatch(setCurrentUser(decoded));
-    //     this.setState({ loading: false });
-    //   })
-    //   .catch((err) =>
-    //     dispatch({
-    //       type: GET_ERRORS,
-    //       payload: err.response.data,
-    //     })
-    //   );
   };
 
   render() {
@@ -132,6 +95,15 @@ class Signin extends Component {
                 </button>
               </form>
               {/* form ends */}
+              <div
+                className="d-flex justify-content-center mt-3 mb-3"
+                style={{ alignItems: "baseline" }}
+              >
+                <span className="query">Don't have an account?</span>{" "}
+                <Link to="/signup">
+                  <span className="login ml-1">Signup</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
