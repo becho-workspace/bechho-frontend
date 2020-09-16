@@ -27,10 +27,13 @@ class Signin extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/"); // push user to Home page when they login
     }
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors,
@@ -80,6 +83,7 @@ class Signin extends Component {
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}
+                  required
                 />
                 <input
                   className="input-item mb-4"
@@ -89,6 +93,7 @@ class Signin extends Component {
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
+                  required
                 />
                 <button className="btn submit" type="submit">
                   Continue

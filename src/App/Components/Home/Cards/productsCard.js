@@ -9,7 +9,7 @@ class ProductsCard extends Component {
   render() {
     return (
       <div>
-        <Card className="th-brands-card border-0">
+        <Card className="th-brands-card border-0" key={this.props.key}>
           <Card.Img
             variant="top"
             src={this.props.src}

@@ -59,6 +59,7 @@ class OldProducts extends Component {
                 description={item.description}
                 location={item.location}
                 price={item.price}
+                key={index}
               />
             );
           })}

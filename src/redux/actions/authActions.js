@@ -6,8 +6,8 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("https://bechho-release-first.herokuapp.com/api/signup", userData)
-    .then((res) => history.push("/login")) // re-direct to login on successful register
+    .post("https://bechho-beta.herokuapp.com/api/signup", userData)
+    .then((res) => history.push("/signin")) // re-direct to login on successful register
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post("https://bechho-release-first.herokuapp.com/api/signin", userData)
+    .post("https://bechho-beta.herokuapp.com/api/signin", userData)
     .then((res) => {
       // Save to localStorage
       // Set token to localStorage
@@ -65,5 +65,3 @@ export const logoutUser = () => (dispatch) => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
-
-// export const setLoading = () => () => {};

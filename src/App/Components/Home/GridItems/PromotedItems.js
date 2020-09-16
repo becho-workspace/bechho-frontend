@@ -98,7 +98,7 @@ class PromotedItems extends Component {
           <Slider {...Settings} className="th-promote-slider-container">
             {data.slice(start, end).map((item, index) => {
               return (
-                <Card className="border-0">
+                <Card className="border-0" key={index}>
                   <Card.Img
                     variant="top"
                     src={item.src}

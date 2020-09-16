@@ -48,11 +48,15 @@ class Header extends Component {
 
   render() {
     const city_list = cities.map((item, index) => {
-      return <option id={index}>{item.city}</option>;
+      return (
+        <option id={index} key={index}>
+          {item.city}
+        </option>
+      );
     });
     // calling user from store
     const { user } = this.props.auth;
-    console.log(user._id);
+    // console.log(user._id);
 
     return (
       <div>

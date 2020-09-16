@@ -29,7 +29,7 @@ class Signup extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors,
@@ -45,10 +45,10 @@ class Signup extends Component {
     e.preventDefault();
     const newUser = {
       name: this.state.name,
-      city: this.state.city,
-      conatct: this.state.contact,
       email: this.state.email,
       password: this.state.password,
+      contact: this.state.contact,
+      city: this.state.city,
     };
 
     this.props.registerUser(newUser, this.props.history);
