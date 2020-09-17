@@ -1,13 +1,21 @@
 import React from "react";
+import "./loader.css";
+import { connect } from "react-redux";
 
-const loader = () => {
+const Loader = ({ isLoading }) => {
   return (
-    <div className="loader-bg">
-      <div className="loader-track">
-        <div className="loader-fill" />
-      </div>
+    <div>
+      {isLoading ? (
+        <div className="th-loader-fade">
+          <div className="th-default-spinner spinner-border "></div>
+        </div>
+      ) : null}
     </div>
   );
 };
 
-export default loader;
+const mapStateToProps = (state) => ({
+  isLoading: state.auth.loading,
+});
+
+export default connect(mapStateToProps)(Loader);

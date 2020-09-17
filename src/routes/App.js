@@ -50,6 +50,8 @@ import LockdownAndIncome from "../App/Components/KnowMore/blogs/blogpages/lockdo
 import Signin from "../App/Components/Auth/signin";
 import Signup from "../App/Components/Auth/signup";
 
+import Loader from "../App/Loader/index";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -66,6 +68,7 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
+          <Loader />
           <Navbar />
           <BottomNav />
           <Switch>

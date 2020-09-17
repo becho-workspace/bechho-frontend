@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { loginUser } from "../../../redux/actions/authActions";
+import { loginUser, setUserLoading } from "../../../redux/actions/authActions";
 import Cross from "../../Assets/Images/Auth/cross.png";
 
 class Signin extends Component {
@@ -13,7 +13,7 @@ class Signin extends Component {
       password: "",
       errors: {},
       submitted: false,
-      loading: false,
+      // loading: false,
       width: window.innerWidth,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +21,7 @@ class Signin extends Component {
   }
 
   componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to hmoe
+    // If logged in and user navigates to Register page, should redirect them to home
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/");
     }
@@ -54,10 +54,13 @@ class Signin extends Component {
     console.log(userData);
     this.props.loginUser(userData); // since we handle the redirect within our component,
     //we don't need to pass in this.props.history as a parameter
+    // settting loading true to display the loader
+    this.props.setUserLoading();
   };
 
   render() {
     const { errors } = this.state;
+    console.log(this.props.auth.loading);
     return (
       <div className="mt-5 mb-5">
         <div className="d-flex justify-content-center container">
@@ -118,6 +121,7 @@ class Signin extends Component {
 }
 
 Signin.propTypes = {
+  setUserLoading: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
@@ -128,4 +132,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps, { loginUser })(Signin);
+export default connect(mapStateToProps, { loginUser, setUserLoading })(Signin);

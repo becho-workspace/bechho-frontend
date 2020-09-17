@@ -16,22 +16,24 @@ class HomeMain extends Component {
   render() {
     return (
       <div>
-        <HomeTop />
-        <Locations />
-        <Container className="th-container">
-          <GridItems />
-          {/* <Brands /> */}
-          <NewProducts />
-          <OldProducts />
-        </Container>
-        {this.state.width > 992 ? (
-          <div>
-            {/* <BechoTales /> */}
-            <Container className="th-container">
-              <Adds />
-            </Container>
-          </div>
-        ) : null}
+        <div>
+          <HomeTop />
+          <Locations />
+          <Container className="th-container">
+            <GridItems />
+            {/* <Brands /> */}
+            <NewProducts />
+            <OldProducts />
+          </Container>
+          {this.state.width > 992 ? (
+            <div>
+              {/* <BechoTales /> */}
+              <Container className="th-container">
+                <Adds />
+              </Container>
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }

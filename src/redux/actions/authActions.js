@@ -1,7 +1,12 @@
 import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
+import {
+  GET_ERRORS,
+  SET_CURRENT_USER,
+  USER_LOADING,
+  USER_LOADED,
+} from "./types";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
@@ -32,12 +37,17 @@ export const loginUser = (userData) => (dispatch) => {
       // Set current user
       console.log(res.data);
       dispatch(setCurrentUser(decoded));
+      // set loading to false
+      dispatch(setUserLoaded());
     })
-    .catch((err) =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data,
-      })
+    .catch(
+      (err) =>
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data,
+        }),
+      // set loading to false
+      dispatch(setUserLoaded())
     );
 };
 
@@ -53,6 +63,13 @@ export const setCurrentUser = (decoded) => {
 export const setUserLoading = () => {
   return {
     type: USER_LOADING,
+  };
+};
+
+// User loading
+export const setUserLoaded = () => {
+  return {
+    type: USER_LOADED,
   };
 };
 
