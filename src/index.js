@@ -18,14 +18,6 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
 import App from "./routes/App";
-import axios from "axios";
-
-// axios.defaults.baseURL = "https://bechho-beta.herokuapp.com";
-// axios.defaults.headers.common["Authorization"] = `JWT ${localStorage.getItem(
-//   "token"
-// )}`;
-// axios.defaults.headers.post["Content-Type"] = "application/json";
-console.log(process.env);
 
 ReactDOM.render(
   <Provider store={store}>
