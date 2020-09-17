@@ -7,7 +7,10 @@ const Loader = ({ isLoading }) => {
     <div>
       {isLoading ? (
         <div className="th-loader-fade">
-          <div className="th-default-spinner spinner-border "></div>
+          <div
+            className="th-default-spinner spinner-border spinner-border text-info"
+            role="status"
+          ></div>
         </div>
       ) : null}
     </div>

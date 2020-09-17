@@ -26,6 +26,7 @@ export const loginUser = (userData) => (dispatch) => {
   axios
     .post("https://bechho-beta.herokuapp.com/api/signin", userData)
     .then((res) => {
+      console.log(res.data);
       // Save to localStorage
       // Set token to localStorage
       const { token } = res.data;
@@ -34,8 +35,8 @@ export const loginUser = (userData) => (dispatch) => {
       setAuthToken(token);
       // Decode token to get user data
       const decoded = jwt_decode(token);
+      console.log(decoded);
       // Set current user
-      console.log(res.data);
       dispatch(setCurrentUser(decoded));
       // set loading to false
       dispatch(setUserLoaded());

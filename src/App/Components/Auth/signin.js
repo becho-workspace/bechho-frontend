@@ -62,7 +62,7 @@ class Signin extends Component {
     const { errors } = this.state;
     console.log(this.props.auth.loading);
     return (
-      <div className="mt-5 mb-5">
+      <div className="mt-5 mb-5 th-mob-signin">
         <div className="d-flex justify-content-center container">
           <div className="left-box">
             <p className="text-center mt-2 left-box-header">Welcome</p>

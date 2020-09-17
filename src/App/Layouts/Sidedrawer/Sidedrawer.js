@@ -2,20 +2,27 @@ import React, { Component } from "react";
 import Logo from "../../Assets/Images/Header/bechho-logo.png";
 import {
   X,
-  // Power,
   ArrowDownCircle,
   ArrowUpCircle,
   Twitter,
   Linkedin,
   Facebook,
   User,
+  LogIn,
+  LogOut,
+  Edit,
 } from "react-feather";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../../redux/actions/authActions";
+import Axios from "axios";
 
 class SideDrawer extends Component {
   state = {
     shown: false,
     width: window.innerWidth,
+    // user_name: "",
   };
 
   handleShow = () => {
@@ -24,7 +31,30 @@ class SideDrawer extends Component {
     });
   };
 
+  // componentWillMount = () => {
+  //   this.fetchUser();
+  // };
+
+  // fetchUser = () => {
+  //   Axios.get(
+  //     `https://bechho-beta.herokuapp.com/user/id=${this.props.auth._id}`
+  //   ).then((res) => {
+  //     console.log(res.data);
+  //     this.setState({
+  //       user_name: res.data,
+  //     });
+  //   });
+  // };
+
+  handleLogout = (e) => {
+    e.preventDefault();
+    this.props.logoutUser();
+    this.props.clicked();
+  };
+
   render() {
+    console.log(this.props.auth.isAuthenticated);
+    // console.log(this.props.user._id, this.props.user.name);
     let drawerClasses = "th-side_drawer";
     if (this.props.show) {
       drawerClasses = "th-side_drawer open";
@@ -41,15 +71,68 @@ class SideDrawer extends Component {
               onClick={this.props.clicked}
             />
           </div>
-
-          <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
-            <User size={this.state.width > 320 ? 24 : 16} />
-            {/* <Link> */}
-            <span className="ml-3" style={{ color: "#333" }}>
-              My Account
-            </span>
-            {/* </Link> */}
-          </div>
+          {/* login/register part */}
+          {this.props.auth.isAuthenticated ? (
+            <div>
+              <div className="d-flex justify-content-center align-items-center mt-3 mb-2">
+                <p className="m-0 th-sidebar-list-item">Welcome Back</p>
+              </div>
+              <div
+                className="d-flex justify-content-center align-items-center mb-3"
+                onClick={this.handleLogout}
+              >
+                <LogOut size={this.state.width > 320 ? 24 : 16} color="#333" />
+                <p
+                  className="ml-2 mb-0 th-sidebar-list-item"
+                  style={{ color: "#333" }}
+                >
+                  Logout
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="d-flex justify-content-center align-items-center mt-3 mb-2">
+                <p className="m-0 th-sidebar-list-item">New to Bechho?</p>
+              </div>
+              <div className="d-flex justify-content-center align-items-center mb-2">
+                <Edit
+                  size={this.state.width > 320 ? 24 : 16}
+                  color="#333"
+                  onClick={this.props.clicked}
+                />
+                <Link to="/signup" onClick={this.props.clicked}>
+                  <span
+                    className="ml-3 th-sidebar-list-item"
+                    style={{ color: "#333" }}
+                  >
+                    Signup
+                  </span>
+                </Link>
+              </div>
+              <div className="d-flex justify-content-center align-items-center mb-1">
+                <p className="m-0 th-sidebar-list-item">
+                  Already have an Account?
+                </p>
+              </div>
+              <div className="d-flex justify-content-center align-items-center mb-3">
+                <LogIn
+                  size={this.state.width > 320 ? 24 : 16}
+                  color="#333"
+                  onClick={this.props.clicked}
+                />
+                <Link to="/signin" onClick={this.props.clicked}>
+                  <span
+                    className="ml-3 th-sidebar-list-item"
+                    style={{ color: "#333" }}
+                  >
+                    Signin
+                  </span>
+                </Link>
+              </div>
+            </div>
+          )}
+          {/* login part ends */}
           <hr className="th-sidebar-hr" />
           <div className="pt-0 pb-0 pl-5 pr-5">
             <div>
@@ -75,6 +158,9 @@ class SideDrawer extends Component {
                     <p className="th-sidebar-list-item">Fashion</p>
                   </Link>
                   <Link to="#" onClick={this.props.clicked}>
+                    <p className="th-sidebar-list-item">Electronics</p>
+                  </Link>
+                  <Link to="#" onClick={this.props.clicked}>
                     <p className="th-sidebar-list-item">Shoes</p>
                   </Link>
                   <Link to="#" onClick={this.props.clicked}>
@@ -92,10 +178,10 @@ class SideDrawer extends Component {
                 </div>
               ) : null}
             </div>
+            {/* show only if user is authenticated */}
             <Link to="/sell" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Sell a product</p>
             </Link>
-            {/* show only if user is authenticated */}
             <Link to="my-bids" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">My Bids</p>
             </Link>
@@ -143,4 +229,15 @@ class SideDrawer extends Component {
   }
 }
 
-export default SideDrawer;
+SideDrawer.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps, { logoutUser })(SideDrawer);
