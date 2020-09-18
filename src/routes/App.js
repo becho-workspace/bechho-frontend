@@ -2,12 +2,8 @@ import React, { Component } from "react";
 import Navbar from "../App/Layouts/Header/index";
 import Footer from "../App/Layouts/Footer/index";
 import BottomNav from "../App/Layouts/BottomNav/BottomNav";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  //  Redirect
-} from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 // import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../utils/setAuthToken";
@@ -49,8 +45,22 @@ import EarnFromHome from "../App/Components/KnowMore/blogs/blogpages/earn-from-h
 import LockdownAndIncome from "../App/Components/KnowMore/blogs/blogpages/lockdown-and-income";
 import Signin from "../App/Components/Auth/signin/index";
 import Signup from "../App/Components/Auth/signup/index";
-
 import Loader from "../App/Loader/index";
+import PageNotFound from "../App/Components/404/404";
+
+const Page404 = ({ location }) => (
+  <Modal size="lg" show="true" centered style={{ background: "#808080" }}>
+    <div style={{ textAlign: "center", color: "#319788", fontSize: "1em" }}>
+      <PageNotFound />
+      <h2 className="mt-2" style={{ fontSize: "24px" }}>
+        No match found for <code>{location.pathname}</code>
+      </h2>
+      <Link to="/">
+        <span className="mb-2"> Go back</span>
+      </Link>
+    </div>
+  </Modal>
+);
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -103,6 +113,8 @@ class App extends Component {
             />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
+            {/* last route */}
+            <Route component={Page404} />
           </Switch>
           <Footer />
         </BrowserRouter>

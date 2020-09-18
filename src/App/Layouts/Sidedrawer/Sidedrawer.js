@@ -136,7 +136,7 @@ class SideDrawer extends Component {
               <p className="th-sidebar-list-item">My Items</p>
             </Link>
             {/* show only if user is authenticated */}
-            <Link to="/carrers" onClick={this.props.clicked}>
+            <Link to="/career" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Carrers</p>
             </Link>
             <Link to="/blogs" onClick={this.props.clicked}>

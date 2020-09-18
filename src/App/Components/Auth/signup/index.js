@@ -73,6 +73,7 @@ class Signup extends Component {
           show={this.state.show_modal}
           centered
           onHide={this.handleCloseModal}
+          className="th-auth-modal-background"
         >
           <Modal.Body className="p-0">
             {/* signup starts */}

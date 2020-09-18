@@ -97,7 +97,7 @@
   opacity: 0.8;
 }
 
-@media only screen and (min-width: 320px) {
+@media only screen and (max-width: 320px) {
   .th-sidebar-list-item {
     font-size: 14px;
     margin-bottom: 5px;
@@ -112,16 +112,15 @@
     background: #cccccc;
   }
 }
-
 /* side drawer ends */
 
 /* Bottom-Nav */
 .th-bottomNav {
   width: 100%;
-  background: bisque;
+  background: #fafafa;
   z-index: 1000;
   position: fixed;
-  bottom: -2px;
+  bottom: -4px;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
@@ -147,7 +146,7 @@
     display: none !important;
   }
 }
-@media only screen and (min-width: 320px) {
+@media only screen and (max-width: 320px) {
   .th-link-title {
     font-size: 8px;
   }

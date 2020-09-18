@@ -1,9 +1,3 @@
-@media only screen and (min-width: 1000px) {
-  .th-auth-container {
-    height: 500px;
-  }
-}
-
 .left-box {
   background: #332a7c;
   width: 300px;
@@ -20,7 +14,6 @@
 
 .wraper {
   padding: 3.5rem 6rem;
-  margin-top: 0.5rem;
 }
 
 .right-box {
@@ -161,4 +154,9 @@ button:focus {
     padding: 16px 10px !important;
     margin-top: 0 !important;
   }
+}
+
+.th-auth-modal-background {
+  /* background-color: #aaa9ad; */
+  background-color: #d4d5e6;
 }
