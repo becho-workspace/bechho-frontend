@@ -22,7 +22,7 @@
 
 - Run The follwing commands
   - npm start
-  - npm insatall
+  - npm install
   - npm runserver
 
 * Formatting and Whitespace
