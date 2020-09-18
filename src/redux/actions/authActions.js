@@ -1,3 +1,4 @@
+import { API } from "../../backend";
 import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -11,7 +12,7 @@ import {
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("https://bechho-beta.herokuapp.com/api/signup", userData)
+    .post(`${API}/signup`, userData)
     .then((res) => history.push("/signin")) // re-direct to login on successful register
     .catch((err) =>
       dispatch({
@@ -24,7 +25,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post("https://bechho-beta.herokuapp.com/api/signin", userData)
+    .post(`${API}/signin`, userData)
     .then((res) => {
       console.log(res.data);
       // Save to localStorage
