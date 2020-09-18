@@ -11,34 +11,36 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../redux/actions/authActions";
+import {
+  setCurrentCityFromUserAuth,
+  setCurrentCityByUser,
+} from "../../../redux/actions/locationActions";
+import { API } from "../../../backend";
+import axios from "axios";
 
 const cities = [
-  { city: "Jaipur" },
-  { city: "Noida" },
-  { city: "Bangalore" },
-  { city: "Gurugram" },
+  { city: "DELHI" },
+  { city: "NOIDA" },
+  { city: "BANGALORE" },
+  { city: "GURUGRAM" },
 ];
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "Jaipur",
+      city: "DELHI",
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { city } = this.state;
-    console.log("city is: " + city);
+    // setting city name based on user input in the store whether logged in or not
+    this.props.setCurrentCityByUser(e.target.value);
+    console.log(e.target.value);
   };
 
   handleLogout = (e) => {
@@ -46,17 +48,45 @@ class Header extends Component {
     this.props.logoutUser();
   };
 
+  componentDidMount() {
+    this.fetchUser();
+  }
+
+  fetchUser = () => {
+    // fetching this data only if user is logged in
+    // setting city name based on user input in the store
+    if (this.props.auth.user._id) {
+      axios
+        .get(`${API}/user/${this.props.auth.user._id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `${localStorage.getItem("jwtToken")}`,
+          },
+        })
+        .then((res) => {
+          this.setState({
+            city: res.data.city,
+          });
+          console.log(res.data.city);
+          this.props.setCurrentCityFromUserAuth(res.data.city.toUpperCase());
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   render() {
+    // calling user from store
+    const { user } = this.props.auth;
+
     const city_list = cities.map((item, index) => {
       return (
-        <option id={index} key={index}>
+        <option key={index} value={item.city}>
           {item.city}
         </option>
       );
     });
-    // calling user from store
-    const { user } = this.props.auth;
-    // console.log(user._id);
 
     return (
       <div>
@@ -81,7 +111,11 @@ class Header extends Component {
               </Nav.Item>
             </Link>
             <Nav.Item className="d-flex align-items-center ml-lg-2 th-location-btn">
-              {this.state.city}
+              {this.props.auth.user._id ? (
+                <span>{this.props.city}</span>
+              ) : (
+                <span>{this.state.city}</span>
+              )}
               <span className="ml-lg-3">
                 <MapPin size={20} color="#332a7c" />
               </span>
@@ -155,11 +189,18 @@ class Header extends Component {
 
 Header.propTypes = {
   logoutUser: PropTypes.func.isRequired,
+  setCurrentCityFromUserAuth: PropTypes.func.isRequired,
+  setCurrentCityByUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  city: state.location.city,
 });
 
-export default connect(mapStateToProps, { logoutUser })(Header);
+export default connect(mapStateToProps, {
+  logoutUser,
+  setCurrentCityFromUserAuth,
+  setCurrentCityByUser,
+})(Header);

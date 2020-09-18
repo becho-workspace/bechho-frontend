@@ -30,9 +30,6 @@ class Popup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    // form_data.append("price", this.state.price);
-    // form_data.append("checked", this.state.checked);
     console.log(this.state.price);
     console.log(this.state.checked);
   };
@@ -40,7 +37,7 @@ class Popup extends Component {
   render() {
     return (
       <div className="th-prod-popup-box">
-        <div className="d-flex justify-content-around align-items-center th-header-box">
+        <div className="d-flex justify-content-around align-items-center th-prod-header-box">
           <div className="th-prod-popup-header">Enter offer price</div>
           {this.state.width > 780 ? (
             <div className="d-flex align-items-center">
@@ -60,7 +57,7 @@ class Popup extends Component {
               <Form.Control
                 type="text"
                 placeholder="Your offer price"
-                className="th-offer-price"
+                className="th-prod-offer-price"
                 onChange={this.handleChange}
                 id="price"
                 value={this.state.price}
@@ -72,21 +69,21 @@ class Popup extends Component {
                 min="1"
                 max="10"
                 value="10"
-                class="th-range-slider"
+                class="th-prod-range-slider"
               />
               <div className="d-flex justify-content-between mt-3 mb-md-5">
                 <div>
-                  <p className="m-0 th-min-price">₹ 599</p>
-                  <p className="ml-3 th-min-price-tag">MIN</p>
+                  <p className="m-0 th-prod-min-price">₹ 599</p>
+                  <p className="ml-3 th-prod-min-price-tag">MIN</p>
                 </div>
                 <div>
-                  <p className="m-0 th-max-price">₹ 5999</p>
-                  <p className="ml-3 th-max-price-tag">MAX</p>
+                  <p className="m-0 th-prod-max-price">₹ 5999</p>
+                  <p className="ml-3 th-prod-max-price-tag">MAX</p>
                 </div>
               </div>
             </div>
 
-            <Form.Group className="d-flex mb-md-5 th-mob-checkbox">
+            <Form.Group className="d-flex mb-md-5 th-prod-mob-checkbox">
               <Form.Check
                 type="checkbox"
                 className="mr-2"
@@ -94,13 +91,13 @@ class Popup extends Component {
                 id="checked"
                 value={this.state.checked}
               />
-              <div className="th-check-terms">
+              <div className="th-prod-check-terms">
                 <p className="m-0"> By clicking the button, you agree to our</p>
                 <p className="m-0"> Terms & Conditions and Privacy Policy.</p>
               </div>
             </Form.Group>
             <div className="d-flex justify-content-center">
-              <button className="th-offer" type="submit">
+              <button className="th-prod-offer" type="submit">
                 Make an offer
               </button>
             </div>

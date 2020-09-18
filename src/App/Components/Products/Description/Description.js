@@ -42,7 +42,7 @@ class Description extends Component {
       <div>
         <div className="container mt-5 mb-4">
           <p className="th-prod-description-title">Product Description</p>
-          <div className="th-description-box">
+          <div className="th-prod-description-box">
             {data.map((item, index) => {
               return (
                 <ul className="th-description-list">
