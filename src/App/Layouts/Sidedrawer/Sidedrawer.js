@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import Logo from "../../Assets/Images/Header/bechho-logo.png";
 import {
   X,
-  ArrowDownCircle,
-  ArrowUpCircle,
   Twitter,
   Linkedin,
   Facebook,
-  User,
   LogIn,
   LogOut,
   Edit,
@@ -16,19 +13,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../redux/actions/authActions";
-import Axios from "axios";
+// import Axios from "axios";
 
 class SideDrawer extends Component {
   state = {
-    shown: false,
     width: window.innerWidth,
     // user_name: "",
-  };
-
-  handleShow = () => {
-    this.setState({
-      shown: !this.state.shown,
-    });
   };
 
   // componentWillMount = () => {
@@ -37,7 +27,7 @@ class SideDrawer extends Component {
 
   // fetchUser = () => {
   //   Axios.get(
-  //     `https://bechho-beta.herokuapp.com/user/id=${this.props.auth._id}`
+  //     `https://bechho-beta.herokuapp.com/user/${this.props.auth._id}`
   //   ).then((res) => {
   //     console.log(res.data);
   //     this.setState({
@@ -135,49 +125,6 @@ class SideDrawer extends Component {
           {/* login part ends */}
           <hr className="th-sidebar-hr" />
           <div className="pt-0 pb-0 pl-5 pr-5">
-            <div>
-              <div className="d-flex justify-content-between">
-                <p className="th-sidebar-list-item">Categories</p>
-                {this.state.shown ? (
-                  <ArrowUpCircle
-                    size={this.state.width > 320 ? 24 : 16}
-                    onClick={this.handleShow}
-                    className="th-sidebar-arrow"
-                  />
-                ) : (
-                  <ArrowDownCircle
-                    size={this.state.width > 320 ? 24 : 16}
-                    onClick={this.handleShow}
-                    className="th-sidebar-arrow"
-                  />
-                )}
-              </div>
-              {this.state.shown ? (
-                <div className="pl-3">
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Fashion</p>
-                  </Link>
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Electronics</p>
-                  </Link>
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Shoes</p>
-                  </Link>
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Gifts</p>
-                  </Link>
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Eateries</p>
-                  </Link>
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Bags</p>
-                  </Link>
-                  <Link to="#" onClick={this.props.clicked}>
-                    <p className="th-sidebar-list-item">Accesories</p>
-                  </Link>
-                </div>
-              ) : null}
-            </div>
             {/* show only if user is authenticated */}
             <Link to="/sell" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Sell a product</p>
@@ -194,6 +141,12 @@ class SideDrawer extends Component {
             </Link>
             <Link to="/blogs" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Blogs</p>
+            </Link>
+            <Link to="/testimonials" onClick={this.props.clicked}>
+              <p className="th-sidebar-list-item">Testimonials</p>
+            </Link>
+            <Link to="/faq" onClick={this.props.clicked}>
+              <p className="th-sidebar-list-item">Faq</p>
             </Link>
           </div>
           <hr className="th-sidebar-hr" />

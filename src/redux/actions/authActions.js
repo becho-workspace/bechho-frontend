@@ -42,14 +42,11 @@ export const loginUser = (userData) => (dispatch) => {
       // set loading to false
       dispatch(setUserLoaded());
     })
-    .catch(
-      (err) =>
-        dispatch({
-          type: GET_ERRORS,
-          payload: err.response.data,
-        }),
-      // set loading to false
-      dispatch(setUserLoaded())
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
     );
 };
 

@@ -47,8 +47,8 @@ import Ecommerce from "../App/Components/KnowMore/blogs/blogpages/e-commerce";
 import ReCommerce from "../App/Components/KnowMore/blogs/blogpages/re-commerce";
 import EarnFromHome from "../App/Components/KnowMore/blogs/blogpages/earn-from-home";
 import LockdownAndIncome from "../App/Components/KnowMore/blogs/blogpages/lockdown-and-income";
-import Signin from "../App/Components/Auth/signin";
-import Signup from "../App/Components/Auth/signup";
+import Signin from "../App/Components/Auth/signin/index";
+import Signup from "../App/Components/Auth/signup/index";
 
 import Loader from "../App/Loader/index";
 

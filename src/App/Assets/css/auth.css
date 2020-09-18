@@ -1,7 +1,12 @@
+@media only screen and (min-width: 1000px) {
+  .th-auth-container {
+    height: 500px;
+  }
+}
+
 .left-box {
   background: #332a7c;
-  border-radius: 10px 0 0 10px;
-  width: 180px;
+  width: 300px;
 }
 
 .left-box-header {
@@ -9,20 +14,17 @@
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
-  line-height: 54px;
+  line-height: 55px;
   color: #ffffff;
 }
 
 .wraper {
-  padding: 1.5rem;
+  padding: 3.5rem 6rem;
   margin-top: 0.5rem;
 }
 
 .right-box {
-  width: 400px;
-  border: 1px solid #999;
-  border-radius: 0 10px 10px 0;
-  padding: 5px 10px 0 0;
+  width: 750px;
 }
 
 .right-box-header {
@@ -32,7 +34,6 @@
   font-size: 28px;
   line-height: 38px;
   text-align: center;
-
   color: #000000;
 }
 
@@ -113,25 +114,27 @@ button:focus {
 }
 
 @media only screen and (max-width: 780px) {
-  .container {
+  .th-auth-container {
     flex-wrap: wrap;
-  }
-
-  .left-box {
     width: 100%;
-    margin-bottom: 10px;
-    border-radius: 10px !important;
   }
 
+  .wraper {
+    padding: 16px 10px !important;
+    margin-top: 0 !important;
+  }
+
+  .left-box,
   .right-box {
-    border-radius: 10px !important;
+    width: 100%;
   }
 
   .btn-wraper {
     justify-content: space-between !important;
   }
 
-  .right-box-header {
+  .right-box-header,
+  .left-box-header {
     font-size: 24px;
   }
 
@@ -144,15 +147,18 @@ button:focus {
   .facebook {
     font-size: 18px;
   }
-
-  .th-mob-signin,
-  .th-mob-signup {
-    margin-top: 5rem !important;
+  .th-auth-modal-back {
+    border: 1px solid #ff6f00;
+    padding: 1px 8px;
+    border-radius: 8px;
+    background: #fff;
+    color: #ff6f00;
   }
 }
 
 @media only screen and (min-width: 360px) and (max-width: 370px) {
   .wraper {
     padding: 16px 10px !important;
+    margin-top: 0 !important;
   }
 }
