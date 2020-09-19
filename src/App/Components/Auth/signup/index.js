@@ -15,8 +15,6 @@ class Signup extends Component {
       city: "",
       email: "",
       password: "",
-      errors: {},
-
       show_modal: true,
       width: window.innerWidth,
     };
@@ -38,14 +36,6 @@ class Signup extends Component {
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors,
-      });
-    }
-  }
-
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -64,7 +54,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { name, contact, city, email, password, errors } = this.state;
+    const { name, contact, city, email, password } = this.state;
 
     return (
       <div>
@@ -107,7 +97,6 @@ class Signup extends Component {
                       className="input-item mb-4"
                       type="text"
                       placeholder="Your Name"
-                      error={errors.name}
                       name="name"
                       value={name}
                       onChange={this.handleChange}
@@ -117,7 +106,6 @@ class Signup extends Component {
                       type="text"
                       maxLength={10}
                       placeholder="Contact"
-                      error={errors.contact}
                       name="contact"
                       value={contact}
                       onChange={this.handleChange}
@@ -127,7 +115,6 @@ class Signup extends Component {
                       type="text"
                       maxLength={16}
                       placeholder="City"
-                      error={errors.city}
                       name="city"
                       value={city}
                       onChange={this.handleChange}
@@ -137,7 +124,6 @@ class Signup extends Component {
                       type="email"
                       maxLength={36}
                       placeholder="Email"
-                      error={errors.email}
                       name="email"
                       value={email}
                       onChange={this.handleChange}
@@ -146,7 +132,6 @@ class Signup extends Component {
                       className="input-item mb-4"
                       type="password"
                       placeholder="Password"
-                      error={errors.password}
                       name="password"
                       value={password}
                       onChange={this.handleChange}
@@ -189,12 +174,10 @@ class Signup extends Component {
 Signup.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors,
 });
 
 export default connect(mapStateToProps, { registerUser })(withRouter(Signup));

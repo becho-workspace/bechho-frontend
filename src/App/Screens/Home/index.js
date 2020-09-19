@@ -7,7 +7,7 @@ import NewProducts from "../../Components/Home/Products/NewProducts";
 import OldProducts from "../../Components/Home/Products/OldProducts";
 import Locations from "../../Components/Home/Location/Locations";
 // import BechoTales from "../../Components/Home/Tales/BechoTale";
-import Adds from "../../Components/Home/Adds/Adds";
+// import Adds from "../../Components/Home/Adds/Adds";
 class HomeMain extends Component {
   state = {
     width: window.innerWidth,
@@ -25,14 +25,14 @@ class HomeMain extends Component {
             <NewProducts />
             <OldProducts />
           </Container>
-          {this.state.width > 992 ? (
+          {/* {this.state.width > 992 ? (
             <div>
-              {/* <BechoTales /> */}
+              <BechoTales />
               <Container className="th-container">
                 <Adds />
               </Container>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     );

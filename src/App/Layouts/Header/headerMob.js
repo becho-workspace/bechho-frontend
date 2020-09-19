@@ -33,25 +33,27 @@ class HeaderMobile extends Component {
   };
 
   fetchUser = () => {
-    axios
-      .get(`${API}/user/${this.props.user._id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `${localStorage.getItem("jwtToken")}`,
-        },
-      })
-      .then((res) => {
-        this.setState({
-          user_name:
-            res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
+    if (this.props.user._id) {
+      axios
+        .get(`${API}/user/${this.props.user._id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `${localStorage.getItem("jwtToken")}`,
+          },
+        })
+        .then((res) => {
+          this.setState({
+            user_name:
+              res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
+          });
+          console.log(
+            res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)
+          );
+        })
+        .catch((err) => {
+          console.log(err);
         });
-        console.log(
-          res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }
   };
 
   drawerToggleClickHandler = () => {
@@ -104,7 +106,10 @@ class HeaderMobile extends Component {
               onClick={this.drawerToggleClickHandler}
             />
             <img src={Logo} alt="logo" style={{ width: "100px" }} />
-            <div>
+            <div className="d-flex align-items-center">
+              <span className="mr-2" style={{ color: "#332c7a" }}>
+                {this.props.city}
+              </span>
               <MapPin
                 size={24}
                 className="mr-3"

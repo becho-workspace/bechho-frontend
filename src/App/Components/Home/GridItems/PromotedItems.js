@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
+import axios from "axios";
+import { API } from "../../../../backend";
 
 const Settings = {
   dots: true,
@@ -80,6 +82,22 @@ const data = [
 class PromotedItems extends Component {
   state = {
     width: window.innerWidth,
+    data: [],
+  };
+
+  componentDidMount() {
+    this.fetch_products();
+  }
+
+  fetch_products = () => {
+    axios
+      .get(`${API}/products`, {})
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   render() {

@@ -15,9 +15,6 @@ class Signin extends Component {
     this.state = {
       email: "",
       password: "",
-      errors: {},
-      submitted: false,
-      // loading: false,
       width: window.innerWidth,
       show_modal: true,
     };
@@ -45,14 +42,6 @@ class Signin extends Component {
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors,
-      });
-    }
-  }
-
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -71,8 +60,8 @@ class Signin extends Component {
   };
 
   render() {
-    const { errors } = this.state;
     console.log(this.props.auth.loading);
+
     return (
       <div className="">
         <Modal
@@ -113,17 +102,17 @@ class Signin extends Component {
                       type="email"
                       maxLength={36}
                       placeholder="Email"
-                      errors={errors.email}
                       name="email"
                       value={this.state.email}
                       onChange={this.handleChange}
                       required
                     />
+                    {/* {this.props.errors.error &&
+                      toast(errors.error, { type: "error" })} */}
                     <input
                       className="input-item mb-4"
                       type="password"
                       placeholder="Password"
-                      errors={errors.password}
                       name="password"
                       value={this.state.password}
                       onChange={this.handleChange}
@@ -166,12 +155,10 @@ Signin.propTypes = {
   setUserLoading: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors,
 });
 
 export default connect(mapStateToProps, { loginUser, setUserLoading })(Signin);
