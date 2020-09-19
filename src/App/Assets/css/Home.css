@@ -148,6 +148,10 @@
   padding: 20px;
 }
 
+.th-home-category-link:hover {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 780px) {
   .th-category-small-img {
     padding: 0;

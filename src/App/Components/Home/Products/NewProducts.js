@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
 import Data from "../Data/products";
+import axios from "axios";
+import { API } from "../../../../backend";
 
 const settings = {
   slidesToShow: 3.5,
@@ -39,6 +41,29 @@ const settings = {
 };
 
 class NewProducts extends Component {
+  // state = {
+  //   data: [],
+  //   Image: [],
+  // };
+
+  // componentDidMount() {
+  //   this.fetch_products();
+  // }
+
+  // fetch_products = () => {
+  //   axios
+  //     .get(`${API}/products`)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       this.setState({
+  //         data: res.data,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   render() {
     return (
       <div className="mb-5">

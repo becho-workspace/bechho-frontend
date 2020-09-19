@@ -3,13 +3,13 @@ import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import {
-  GET_ERRORS,
+  // GET_ERRORS,
   SET_CURRENT_USER,
   USER_LOADING,
   USER_LOADED,
 } from "./types";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 

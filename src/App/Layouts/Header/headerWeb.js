@@ -111,10 +111,10 @@ class Header extends Component {
               </Nav.Item>
             </Link>
             <Nav.Item className="d-flex align-items-center ml-lg-2 th-location-btn">
-              {this.props.auth.user._id ? (
+              {this.props.city ? (
                 <span>{this.props.city}</span>
               ) : (
-                <span>{this.state.city}</span>
+                <span>{this.state.city} </span>
               )}
               <span className="ml-lg-3">
                 <MapPin size={20} color="#332a7c" />

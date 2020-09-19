@@ -46,6 +46,7 @@ import LockdownAndIncome from "../App/Components/KnowMore/blogs/blogpages/lockdo
 import Signin from "../App/Components/Auth/signin/index";
 import Signup from "../App/Components/Auth/signup/index";
 import Loader from "../App/Loader/index";
+import ComingSoon from "../App/Components/ComingSoon/index";
 import PageNotFound from "../App/Components/404/404";
 
 const Page404 = ({ location }) => (
@@ -113,6 +114,7 @@ class App extends Component {
             />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/comingsoon" component={ComingSoon} />
             {/* last route */}
             <Route component={Page404} />
           </Switch>

@@ -14,7 +14,9 @@ class Card extends Component {
         </div>
 
         <div className="text-center">
-          <p className="th-testimonial-followContent">{this.props.content}</p>
+          <p className="th-testimonial-followContent mt-2 mb-0">
+            {this.props.content}
+          </p>
           <span class="th-testimonial-dots"></span>
           <span class="th-testimonial-dots"></span>
           <span class="th-testimonial-dots"></span>

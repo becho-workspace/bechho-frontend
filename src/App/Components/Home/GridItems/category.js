@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Mobile from "../../../Assets/Images/Home/category/Mobile.png";
 import Tablets from "../../../Assets/Images/Home/category/Tablet.png";
 import Laptop from "../../../Assets/Images/Home/category/Laptop.png";
@@ -17,7 +18,10 @@ class Category extends Component {
         <div className="th-grid-items-header mb-1 mt-2">Select a Category</div>
         <div>
           <div className="d-flex justify-content-md-end">
-            <div className="border-0 mr-3 mb-3 ">
+            <Link
+              to="/category"
+              className="border-0 mr-3 mb-3 th-home-category-link"
+            >
               <div className="th-category-small-img">
                 <img
                   src={Mobile}
@@ -29,8 +33,11 @@ class Category extends Component {
                 />
               </div>
               <p className="mb-0 mt-2 th-category-name">Mobiles</p>
-            </div>
-            <div className="border-0 mr-3 mb-3 ">
+            </Link>
+            <Link
+              to="/category"
+              className="border-0 mr-3 mb-3 th-home-category-link"
+            >
               <div className="th-category-small-img">
                 <img
                   src={Tablets}
@@ -41,8 +48,11 @@ class Category extends Component {
                 />
               </div>
               <p className="mb-0 mt-2 th-category-name">Tablets</p>
-            </div>
-            <div className="border-0 mr-3 mb-3 ">
+            </Link>
+            <Link
+              to="/comingsoon"
+              className="border-0 mr-3 mb-3 th-home-category-link"
+            >
               <div className="th-category-small-img">
                 <img
                   src={Laptop}
@@ -53,10 +63,13 @@ class Category extends Component {
                 />
               </div>
               <p className="mb-0 mt-2 th-category-name">Laptops</p>
-            </div>
+            </Link>
           </div>
           <div className="d-flex justify-content-md-end">
-            <div className="border-0 mr-3 mb-3 ">
+            <Link
+              to="/comingsoon"
+              className="border-0 mr-3 mb-3 th-home-category-link "
+            >
               <div className="th-category-small-img">
                 <img
                   src={Furniture}
@@ -67,8 +80,11 @@ class Category extends Component {
                 />
               </div>
               <p className="mb-0 mt-2 th-category-name">Furniture</p>
-            </div>
-            <div className="border-0 mr-3 mb-3 ">
+            </Link>
+            <Link
+              to="/comingsoon"
+              className="border-0 mr-3 mb-3 th-home-category-link"
+            >
               <div className="th-category-small-img">
                 <img
                   src={HomeAppliance}
@@ -79,8 +95,11 @@ class Category extends Component {
                 />
               </div>
               <p className="mb-0 mt-2 th-category-name">Home Appliances</p>
-            </div>
-            <div className="border-0 mr-3 mb-3 ">
+            </Link>
+            <Link
+              to="/comingsoon"
+              className="border-0 mr-3 mb-3 th-home-category-link"
+            >
               <div className="th-category-small-img">
                 <img
                   src={Accesories}
@@ -92,7 +111,7 @@ class Category extends Component {
                 />
               </div>
               <p className="mb-0 mt-2 th-category-name">Accesories</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

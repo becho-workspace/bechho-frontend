@@ -1,28 +1,57 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import TestimonialsCard from "./card";
+import Akshat from "../../Assets/Images/team/Akshat.jpg";
+import Mayuresh from "../../Assets/Images/team/Mayuresh.jpg";
+import Prajwal from "../../Assets/Images/team/Prajwal.jpg";
+import Pranish from "../../Assets/Images/team/Pranish.jpg";
+import Shakti from "../../Assets/Images/team/shakti.JPG";
+import Tanish from "../../Assets/Images/team/tanish.jpg";
+import Siddharth from "../../Assets/Images/team/Siddharth.jpeg";
 
 const data = [
   {
-    src:
-      "https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    src: Shakti,
     content:
-      "Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc.",
-    author: "author",
+      "Highly professional brand design and implementation, a perfect example of a strategic and engaging website.",
+    author: "Shakti",
   },
   {
-    src:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+    src: Akshat,
     content:
-      "Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc.",
-    author: "author",
+      "Collaboration with Beccho enables us to connect to more people virtually and is positively impacting our business.",
+    author: "Akshat",
   },
   {
-    src:
-      "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    src: Mayuresh,
     content:
-      "Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc.",
-    author: "author",
+      "It is extremely easy to search a particular product on the website giving phenomenal results as it has a user friendly environment.",
+    author: "Mayuresh",
+  },
+  //
+  {
+    src: Prajwal,
+    content:
+      "Bechho’s innovative strategy of campaigning helps reach new users efficiently.",
+    author: "Prajwal",
+  },
+  {
+    src: Pranish,
+    content:
+      "I highly recommend to visit the website at least once because of the innovative idea on which Bechho is based.",
+    author: "Pranish",
+  },
+  {
+    src: Tanish,
+    content:
+      "I highly recommend to use the website to sell your stuff as they provide fair bids and you can actually sell your thing in just 36 hours.",
+    author: "Tanish",
+  },
+  {
+    src: Siddharth,
+    content:
+      "Easy to use from the very start and great service, far less complex than other websites.",
+    author: "Siddharth",
   },
 ];
 

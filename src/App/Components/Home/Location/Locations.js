@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setCurrentCityByUser } from "../../../../redux/actions/locationActions";
+import PropTypes from "prop-types";
 import Delhi from "../../../Assets/Images/Home/Delhi.png";
 import Noida from "../../../Assets/Images/Home/Noida.png";
 import Gurgaon from "../../../Assets/Images/Home/Gurgaon.png";
@@ -11,25 +14,43 @@ class Locations extends Component {
     width: window.innerWidth,
   };
 
+  handleLocation = (city) => {
+    console.log(city);
+    this.props.setCurrentCityByUser(city.toUpperCase());
+  };
+
   render() {
+    console.log(this.props.city);
     return (
       <div>
         {this.state.width > 768 ? (
           <div className="th-locations-container d-flex justify-content-around align-items-center mt-md-5 mb-md-5">
             <div className="th-locations-header">Preferred Locations</div>
-            <div className=" text-center">
+            <div
+              className=" text-center"
+              onClick={() => this.handleLocation("Delhi")}
+            >
               <img src={Delhi} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Delhi</p>
             </div>
-            <div className=" text-center">
+            <div
+              className=" text-center"
+              onClick={() => this.handleLocation("Noida")}
+            >
               <img src={Noida} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Noida</p>
             </div>
-            <div className=" text-center">
+            <div
+              className=" text-center"
+              onClick={() => this.handleLocation("Gurugram")}
+            >
               <img src={Gurgaon} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Gurgaon</p>
             </div>
-            <div className=" text-center">
+            <div
+              className=" text-center"
+              onClick={() => this.handleLocation("Bangalore")}
+            >
               <img src={Bangalore} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Bangalore</p>
             </div>
@@ -48,4 +69,16 @@ class Locations extends Component {
   }
 }
 
-export default Locations;
+Locations.propTypes = {
+  setCurrentCityByUser: PropTypes.func.isRequired,
+  city: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  city: state.location.city,
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps, {
+  setCurrentCityByUser,
+})(Locations);

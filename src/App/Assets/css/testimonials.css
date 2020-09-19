@@ -48,7 +48,7 @@
 .th-testimonial-followContent {
   text-align: center;
   color: #444444;
-  font-size: 17px;
+  font-size: 22px;
   font-style: italic;
 }
 
@@ -64,7 +64,7 @@
     padding-top: 2rem !important;
   }
   .th-testimonial-followContent {
-    font-size: 15px;
+    font-size: 16px;
     padding: 0 20px !important;
   }
   .th-testimonial-followHeader {

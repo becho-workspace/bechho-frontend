@@ -63,7 +63,7 @@ class CategoryTop extends Component {
   render() {
     return (
       <div>
-        <div className="th-category-title ">Category</div>
+        <div className="th-category-title">Mobile and Laptops</div>
         <div className="mt-lg-3">
           <div class="row">
             <div class="col-12 d-flex flex-wrap justify-content-between">

@@ -211,6 +211,7 @@ class HeaderMobile extends Component {
 HeaderMobile.propTypes = {
   setCurrentCityByUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
+  city: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -83,27 +83,38 @@ class PromotedItems extends Component {
   state = {
     width: window.innerWidth,
     data: [],
+    Image: [],
   };
 
-  componentDidMount() {
-    this.fetch_products();
-  }
+  // componentDidMount() {
+  //   this.fetch_products();
+  // }
 
-  fetch_products = () => {
-    axios
-      .get(`${API}/products`, {})
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // fetch_products = () => {
+  //   axios
+  //     .get(`${API}/products`)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       this.setState({
+  //         data: res.data,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   render() {
     let start, end;
+    // if (this.state.data.length > 0) {
+    //   start = this.state.data.length - 6;
+    //   end = this.state.data.length;
+    // } else {
+    //   start = end = 6;
+    // }
     start = data.length - 6;
     end = data.length;
+
     return (
       <div>
         {/* displays only for > 768px */}
@@ -125,7 +136,7 @@ class PromotedItems extends Component {
                     }}
                     className="rounded"
                   />
-                  {/* <p>{item.id}</p> */}
+                  {/* <p>{item.name}</p> */}
                 </Card>
               );
             })}
