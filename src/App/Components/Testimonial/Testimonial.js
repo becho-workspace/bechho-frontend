@@ -6,7 +6,7 @@ import Mayuresh from "../../Assets/Images/team/Mayuresh.jpg";
 import Prajwal from "../../Assets/Images/team/Prajwal.jpg";
 import Pranish from "../../Assets/Images/team/Pranish.jpg";
 import Shakti from "../../Assets/Images/team/shakti.JPG";
-import Tanish from "../../Assets/Images/team/tanish.jpg";
+import Shreya from "../../Assets/Images/team/Shreya.jpg";
 import Siddharth from "../../Assets/Images/team/Siddharth.jpeg";
 
 const data = [
@@ -42,10 +42,10 @@ const data = [
     author: "Pranish",
   },
   {
-    src: Tanish,
+    src: Shreya,
     content:
       "I highly recommend to use the website to sell your stuff as they provide fair bids and you can actually sell your thing in just 36 hours.",
-    author: "Tanish",
+    author: "Shreya",
   },
   {
     src: Siddharth,

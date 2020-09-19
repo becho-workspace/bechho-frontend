@@ -7,7 +7,7 @@ import LockdownAndIncome from "../../../Assets/Images/Blogs/grid/lockdown-and-in
 import RecomSectorAnalysis from "../../../Assets/Images/Blogs/grid/recomerce-sector-analysis.png";
 import TechAndTrade from "../../../Assets/Images/Blogs/grid/tech-and-trade.png";
 import MarketingAndEcom from "../../../Assets/Images/Blogs/grid/marketing-and-ecommerce.png";
-import DisruptingSecondThought from "../../../Assets/Images/Blogs/grid/disrupting-secon.png";
+import DisruptingSecondHandRetail from "../../../Assets/Images/Blogs/grid/disrupting-secon.png";
 
 class BlogMob extends Component {
   render() {
@@ -44,7 +44,7 @@ class BlogMob extends Component {
               </Link>
             </div>
             <div className="th-blogmob-img-card">
-              <Link to="/">
+              <Link to="/blogs/recom-sector">
                 <div className="th-blogs-effect-img-card">
                   <img
                     src={RecomSectorAnalysis}
@@ -68,7 +68,7 @@ class BlogMob extends Component {
             </div>
 
             <div className="th-blogmob-img-card">
-              <Link to="/">
+              <Link to="/blogs/techntrade">
                 <div className="th-blogs-effect-img-card">
                   <img src={TechAndTrade} className="th-blog-img" alt="" />
                   <p className="th-blogs-title">Technolgy & Trade</p>
@@ -79,11 +79,11 @@ class BlogMob extends Component {
 
           <div className="d-flex justify-content-between">
             <div className="th-blogmob-img-card">
-              <Link to="/">
+              <Link to="/blogs/marketing-in-ecom">
                 <div className="th-blogs-effect-img-card">
                   <img src={MarketingAndEcom} className="th-blog-img" alt="" />
 
-                  <p className="th-blogs-title">Marketing & Ecom </p>
+                  <p className="th-blogs-title">Marketing in Ecom </p>
                 </div>
               </Link>
             </div>
@@ -92,11 +92,13 @@ class BlogMob extends Component {
               <Link to="/">
                 <div className="th-blogs-effect-img-card">
                   <img
-                    src={DisruptingSecondThought}
+                    src={DisruptingSecondHandRetail}
                     className="th-blog-img"
                     alt=""
                   />
-                  <p className="th-blogs-title">Disrupting Second Thought</p>
+                  <p className="th-blogs-title">
+                    Disrupting Second Hand Retail
+                  </p>
                 </div>
               </Link>
             </div>

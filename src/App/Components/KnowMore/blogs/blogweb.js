@@ -7,7 +7,7 @@ import LockdownAndIncome from "../../../Assets/Images/Blogs/grid/lockdown-and-in
 import RecomSectorAnalysis from "../../../Assets/Images/Blogs/grid/recomerce-sector-analysis.png";
 import TechAndTrade from "../../../Assets/Images/Blogs/grid/tech-and-trade.png";
 import MarketingAndEcom from "../../../Assets/Images/Blogs/grid/marketing-and-ecommerce.png";
-import DisruptingSecondThought from "../../../Assets/Images/Blogs/grid/disrupting-secon.png";
+import DisruptingSecondHandRetail from "../../../Assets/Images/Blogs/grid/disrupting-secon.png";
 
 class BlogWeb extends Component {
   render() {
@@ -56,7 +56,7 @@ class BlogWeb extends Component {
 
           <div className="d-flex justify-content-between">
             <div className="th-blogweb-img-card-mid">
-              <Link to="/">
+              <Link to="/blogs/recom-sector">
                 <figure className="th-blogs-effect-img-card">
                   <img
                     src={RecomSectorAnalysis}
@@ -73,7 +73,7 @@ class BlogWeb extends Component {
             </div>
 
             <div className="th-blogweb-img-card-mid">
-              <Link to="/">
+              <Link to="/blogs/techntrade">
                 <figure className="th-blogs-effect-img-card">
                   <img src={TechAndTrade} className="th-blog-img" alt="" />
                   <figcaption className="th-blogs-img-caption">
@@ -101,12 +101,12 @@ class BlogWeb extends Component {
             </div>
 
             <div className="th-blogweb-img-card-bottom">
-              <Link to="/">
+              <Link to="/blogs/marketing-in-ecom">
                 <figure className="th-blogs-effect-img-card">
                   <img src={MarketingAndEcom} className="th-blog-img" alt="" />
                   <figcaption className="th-blogs-img-caption">
                     <label className="th-blogs-title">
-                      Marketing & Ecommerce
+                      Marketing in Ecommerce
                     </label>
                   </figcaption>
                 </figure>
@@ -114,10 +114,10 @@ class BlogWeb extends Component {
             </div>
 
             <div className="th-blogweb-img-card-bottom">
-              <Link to="/">
+              <Link to="#">
                 <figure className="th-blogs-effect-img-card">
                   <img
-                    src={DisruptingSecondThought}
+                    src={DisruptingSecondHandRetail}
                     className="th-blog-img"
                     alt=""
                   />
@@ -126,7 +126,7 @@ class BlogWeb extends Component {
                     style={{ borderBottomRightRadius: "12px " }}
                   >
                     <label className="th-blogs-title">
-                      Disrupting Second Thought
+                      Disrupting Second Hand Retail
                     </label>
                   </figcaption>
                 </figure>

@@ -151,3 +151,13 @@
     font-size: 8px;
   }
 }
+
+/* for profile dropdown */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item:focus {
+  background: #fff;
+}
+/* profile dropdown ends */

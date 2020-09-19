@@ -35,14 +35,19 @@ import ProductOffer from "../App/Components/Products/Popup/popup";
 import Category from "../App/Screens/Category/index";
 import CategoryListMobile from "../App/Components/Category/MobCategories";
 // my account items
+import MyProfile from "../App/Layouts/MyAccount/MyProfile";
 import MyBids from "../App/Layouts/MyAccount/MyBids";
 import MyItems from "../App/Layouts/MyAccount/MyItems";
 import Sell from "../App/Layouts/MyAccount/sellBeta/StepOne";
+// my account items ends
 import Testimonial from "../App/Components/Testimonial/Testimonial";
 import Ecommerce from "../App/Components/KnowMore/blogs/blogpages/e-commerce";
 import ReCommerce from "../App/Components/KnowMore/blogs/blogpages/re-commerce";
 import EarnFromHome from "../App/Components/KnowMore/blogs/blogpages/earn-from-home";
 import LockdownAndIncome from "../App/Components/KnowMore/blogs/blogpages/lockdown-and-income";
+import TechAndtrade from "../App/Components/KnowMore/blogs/blogpages/tech-n-trade";
+import RecomSectorAnalysis from "../App/Components/KnowMore/blogs/blogpages/recom-sector";
+import MarketingInEcom from "../App/Components/KnowMore/blogs/blogpages/marketinginecom";
 import Signin from "../App/Components/Auth/signin/index";
 import Signup from "../App/Components/Auth/signup/index";
 import Loader from "../App/Loader/index";
@@ -96,22 +101,37 @@ class App extends Component {
             <Route exact path="/advertise" component={Advertise} />
             <Route exact path="/affiliate" component={Affiliate} />
             <Route exact path="/become-partner" component={BecomePartner} />
-            <PrivateRoute exact path="/sell" component={Sell} />
             <Route exact path="/products" component={Products} />
             <Route exact path="products-offer" component={ProductOffer} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/categorylist" component={CategoryListMobile} />
+            {/* private routes */}
+            <PrivateRoute exact path="/sell" component={Sell} />
             <PrivateRoute exact path="/my-bids" component={MyBids} />
             <PrivateRoute exact path="/my-items" component={MyItems} />
+            <PrivateRoute exact path="/my-profile" component={MyProfile} />
+            {/*  */}
             <Route exact path="/testimonials" component={Testimonial} />
             <Route exact path="/blogs/ecommerce" component={Ecommerce} />
             <Route exact path="/blogs/recommerce" component={ReCommerce} />
             <Route exact path="/blogs/earnfromhome" component={EarnFromHome} />
+            <Route exact path="/blogs/techntrade" component={TechAndtrade} />
+            <Route
+              exact
+              path="/blogs/recom-sector"
+              component={RecomSectorAnalysis}
+            />
+            <Route
+              exact
+              path="/blogs/marketing-in-ecom"
+              component={MarketingInEcom}
+            />
             <Route
               exact
               path="/blogs/lockdownandincome"
               component={LockdownAndIncome}
             />
+
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/comingsoon" component={ComingSoon} />

@@ -149,13 +149,28 @@ class Header extends Component {
           {/* based on user authnetication display changes */}
           {user._id ? (
             <Navbar.Collapse>
-              <Nav.Item
-                className="d-flex align-items-center mr-lg-4 ml-lg-4"
-                style={{ color: "#332a7c", cursor: "pointer" }}
-              >
-                <span className="mr-lg-2">Profile</span>
-                <User size={20} />
-              </Nav.Item>
+              <div className="dropdown">
+                <Nav.Item
+                  className="d-flex align-items-center mr-lg-4 ml-lg-4"
+                  style={{ color: "#332a7c", cursor: "pointer" }}
+                >
+                  <span className="mr-lg-2">Profile</span>
+                  <User size={20} />
+                </Nav.Item>
+                {/* dropdown elements */}
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <Link class="dropdown-item" to="">
+                    My Address
+                  </Link>
+                  <Link class="dropdown-item" to="/my-items">
+                    My Items
+                  </Link>
+                  <Link class="dropdown-item" to="/my-bids">
+                    My Bids
+                  </Link>
+                </div>
+                {/* dropdown ends */}
+              </div>
               <Nav.Item
                 className="d-flex align-items-center mr-lg-4 ml-lg-4"
                 onClick={this.handleLogout}

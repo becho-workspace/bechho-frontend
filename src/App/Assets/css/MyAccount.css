@@ -153,6 +153,7 @@
   .th-my-items-mob {
     margin-top: 4rem !important;
   }
+
   /* for coloumn in my-bids file*/
   .th-mybids-col {
     justify-content: center !important;
@@ -621,3 +622,24 @@ button:focus {
 }
 
 /* sell page ends */
+
+/* my-profile */
+.th-myprofile-card-image {
+  width: 200px;
+  height: 200px;
+  border: 8px solid #332c5d;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 780px) {
+  .th-my-profile-mob {
+    margin-top: 6rem !important;
+  }
+
+  .th-myprofile-card-image {
+    width: 120px;
+    height: 120px;
+    border: 4px solid #332c5d;
+    border-radius: 50%;
+  }
+}
+/* my-profile */
