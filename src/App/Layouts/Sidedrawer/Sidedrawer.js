@@ -13,28 +13,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../redux/actions/authActions";
-// import Axios from "axios";
 
 class SideDrawer extends Component {
   state = {
     width: window.innerWidth,
-    // user_name: "",
   };
-
-  // componentWillMount = () => {
-  //   this.fetchUser();
-  // };
-
-  // fetchUser = () => {
-  //   Axios.get(
-  //     `https://bechho-beta.herokuapp.com/user/${this.props.auth._id}`
-  //   ).then((res) => {
-  //     console.log(res.data);
-  //     this.setState({
-  //       user_name: res.data,
-  //     });
-  //   });
-  // };
 
   handleLogout = (e) => {
     e.preventDefault();
@@ -49,6 +32,7 @@ class SideDrawer extends Component {
     if (this.props.show) {
       drawerClasses = "th-side_drawer open";
     }
+    console.log(this.props.user_name);
     return (
       <div>
         <nav className={drawerClasses}>
@@ -65,7 +49,9 @@ class SideDrawer extends Component {
           {this.props.auth.isAuthenticated ? (
             <div>
               <div className="d-flex justify-content-center align-items-center mt-3 mb-2">
-                <p className="m-0 th-sidebar-list-item">Welcome Back</p>
+                <p className="m-0 th-sidebar-list-item">
+                  Welcome Back {this.props.user_name}
+                </p>
               </div>
               <div
                 className="d-flex justify-content-center align-items-center mb-3"
@@ -185,12 +171,10 @@ class SideDrawer extends Component {
 SideDrawer.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  user: state.auth.user,
 });
 
 export default connect(mapStateToProps, { logoutUser })(SideDrawer);
