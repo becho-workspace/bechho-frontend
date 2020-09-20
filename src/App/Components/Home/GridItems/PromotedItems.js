@@ -28,93 +28,38 @@ const Settings = {
   ],
 };
 
-const data = [
-  {
-    id: 1,
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-  },
-  {
-    id: 2,
-    src: "https://circleofcricket.com/post_image/post_image_511ff50.jpg",
-  },
-  {
-    id: 3,
-    src:
-      "https://www.mykhel.com/img/2020/04/rohit-sharma-ipl-trophy-1587290453.jpg",
-  },
-  {
-    id: 4,
-    src:
-      "https://www.cricket.com.au/~/media/News/2016/08/9SmithMace.ashx?la=en&hash=EED44718B6445AB6EDCE51CD8791564E17B08844",
-  },
-  { id: 5, src: "https://images.financialexpress.com/2019/12/1-95.jpg" },
-  {
-    id: 6,
-    src:
-      "https://staticg.sportskeeda.com/editor/2020/02/0fbb8-15814056665281-800.jpg",
-  },
-  {
-    id: 7,
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-  },
-  {
-    id: 8,
-    src: "https://circleofcricket.com/post_image/post_image_511ff50.jpg",
-  },
-  {
-    id: 9,
-    src:
-      "https://www.mykhel.com/img/2020/04/rohit-sharma-ipl-trophy-1587290453.jpg",
-  },
-  {
-    id: 10,
-    src:
-      "https://www.cricket.com.au/~/media/News/2016/08/9SmithMace.ashx?la=en&hash=EED44718B6445AB6EDCE51CD8791564E17B08844",
-  },
-  { id: 11, src: "https://images.financialexpress.com/2019/12/1-95.jpg" },
-  {
-    id: 12,
-    src:
-      "https://staticg.sportskeeda.com/editor/2020/02/0fbb8-15814056665281-800.jpg",
-  },
-];
-
 class PromotedItems extends Component {
   state = {
     width: window.innerWidth,
     data: [],
-    Image: [],
   };
 
-  // componentDidMount() {
-  //   this.fetch_products();
-  // }
+  componentDidMount() {
+    this.fetch_products();
+  }
 
-  // fetch_products = () => {
-  //   axios
-  //     .get(`${API}/products`)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       this.setState({
-  //         data: res.data,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  fetch_products = () => {
+    axios
+      .get(`${API}/products`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          data: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     let start, end;
-    // if (this.state.data.length > 0) {
-    //   start = this.state.data.length - 6;
-    //   end = this.state.data.length;
-    // } else {
-    //   start = end = 6;
-    // }
-    start = data.length - 6;
-    end = data.length;
-
+    if (this.state.data.length > 0) {
+      start = this.state.data.length - 6;
+      end = this.state.data.length;
+    } else {
+      start = end = 6;
+    }
     return (
       <div>
         {/* displays only for > 768px */}
@@ -125,12 +70,12 @@ class PromotedItems extends Component {
         )}
         <div className="mb-4">
           <Slider {...Settings} className="th-promote-slider-container">
-            {data.slice(start, end).map((item, index) => {
+            {this.state.data.slice(start, end).map((item, index) => {
               return (
                 <Card className="border-0" key={index}>
                   <Card.Img
                     variant="top"
-                    src={item.src}
+                    src={item.photo.path}
                     style={{
                       height: this.state.width < 768 ? "16rem" : "22.75rem",
                     }}

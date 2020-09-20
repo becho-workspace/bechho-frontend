@@ -3,7 +3,8 @@ import ProdsCard from "../Cards/productsCard";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
-import Data from "../Data/products";
+import axios from "axios";
+import { API } from "../../../../backend";
 
 const settings = {
   slidesToShow: 3.5,
@@ -31,7 +32,7 @@ const settings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        arrows: false,
+        arrows: true,
         dots: false,
       },
     },
@@ -39,9 +40,45 @@ const settings = {
 };
 
 class OldProducts extends Component {
+  state = {
+    data: [],
+    total: null,
+  };
+
+  componentDidMount() {
+    this.fetch_products();
+  }
+
+  fetch_products = () => {
+    axios
+      .get(`${API}/products/`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          data: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
-    let start = Data.length - 10;
-    let end = Data.length;
+    let start, end;
+
+    if (this.state.data.length >= 25) {
+      end = this.state.data.length;
+      start = this.state.data.length - 15;
+    } else if (this.state.data.length < 20 && this.state.data.length >= 10) {
+      end = this.state.data.length;
+      start = this.state.length - 10;
+    } else if (this.state.data.length < 10 && this.state.data.length >= 4) {
+      end = this.state.length;
+      start = this.state.data.length - 4;
+    } else {
+      start = end = this.state.data.length;
+    }
+
     return (
       <div className="mb-5">
         <div className="d-flex justify-content-between mb-2 mt-4">
@@ -51,13 +88,15 @@ class OldProducts extends Component {
           <span className="th-old-product-all-btn">See All</span>
         </div>
         <Slider {...settings} className="px-0 th-slider-margin">
-          {Data.slice(start, end).map((item, index) => {
+          {this.state.data.slice(start, end).map((item, index) => {
             return (
               <ProdsCard
-                src={item.src}
-                title={item.title}
+                src={item.photo.path}
+                title={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
                 description={item.description}
-                location={item.location}
+                location={
+                  item.city.charAt(0).toUpperCase() + item.city.slice(1)
+                }
                 price={item.price}
                 key={index}
               />

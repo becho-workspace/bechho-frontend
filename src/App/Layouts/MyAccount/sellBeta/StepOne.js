@@ -14,7 +14,6 @@ class StepOne extends Component {
       description: "",
       address: "",
       city: "",
-      // formData: {},
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -23,31 +22,6 @@ class StepOne extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-
-    // const {
-    //   category,
-    //   sub_category,
-    //   product_name,
-    //   description,
-    //   address,
-    //   city,
-    // } = this.state;
-
-    // let form_data = new FormData();
-    // form_data.append("category", category);
-    // form_data.append("subCategory", sub_category);
-    // form_data.append("productName", product_name);
-    // form_data.append("description", description);
-    // form_data.append("address", address);
-    // form_data.append("city", city);
-
-    // if (form_data) {
-    //   this.setState({
-    //     currentStep: currentStep,
-    //     formData: form_data,
-    //   });
-    //   console.log(form_data);
-    // }
   };
 
   _next = () => {

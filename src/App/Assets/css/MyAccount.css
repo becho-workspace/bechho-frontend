@@ -391,9 +391,9 @@
 }
 
 .th-sell-form-image-box {
-  width: 220px;
-  height: 160px;
-  padding: 20px;
+  /* width: 220px;
+  height: 160px; */
+  padding: 10px 8px;
   border: 2px solid rgba(51, 42, 124, 0.5);
   box-sizing: border-box;
   border-radius: 10px;
@@ -558,10 +558,10 @@ button:focus {
     width: 200px !important;
     padding: 8px !important;
   }
-  .th-sell-form-image-box {
+  /* .th-sell-form-image-box {
     width: 160px !important;
     height: 120px !important;
-  }
+  } */
   .th-sell-form-item-header {
     font-size: 18px;
   }

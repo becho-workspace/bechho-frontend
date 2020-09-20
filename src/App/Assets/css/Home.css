@@ -303,10 +303,10 @@
     padding-right: 1rem !important;
   }
 
-  .th-brands-card-image,
+  /* .th-brands-card-image,
   .th-prods-card-image {
     height: 260px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 768px) {
@@ -336,10 +336,10 @@
     margin-right: 10px !important;
   }
 
-  .th-brands-card-image,
+  /* .th-brands-card-image,
   .th-prods-card-image {
     height: 164px;
-  }
+  } */
 
   .th-prods-title,
   .th-brands-title {

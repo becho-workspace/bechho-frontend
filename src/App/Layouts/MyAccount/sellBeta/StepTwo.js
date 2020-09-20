@@ -1,24 +1,37 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { API } from "../../../../backend";
 
 class StepTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questionValue: [],
+      ans1: "",
+      ans2: "",
+      ans3: "",
+      ans4: "",
+      ans5: "",
+      ans6: "",
+      ans7: "",
+      ans8: "",
+      ans9: "",
+      ans10: "",
+      ans11: "",
+      photo: null,
       price: null,
-      faults: "",
+      width: window.innerWidth,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.onFileChange = this.onFileChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggleChange = (e) => {
-    const { questionValue } = this.state;
     this.setState({
-      questionValue: [
-        ...questionValue,
-        { index: Math.random(), question: e.target.id, answer: e.target.value },
-      ],
+      [e.target.id]: e.target.value,
     });
   };
 
@@ -28,23 +41,62 @@ class StepTwo extends Component {
     });
   };
 
+  onFileChange = (e) => {
+    // Update the state
+    this.setState({ photo: e.target.files[0] });
+
+    // for showing the image
+    var input = e.target;
+    var reader = new FileReader();
+    reader.onload = () => {
+      var dataURL = reader.result;
+      var output = document.getElementById("output");
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    // const { questionValue, price, faults } = this.state;
-    // const {
-    //   currentStep,
-    //   category,
-    //   sub_category,
-    //   product_name,
-    //   description,
-    //   city,
-    // } = this.props;
+    let formData = new FormData();
 
-    // let form_data = new FormData();
-    // form_data.append("mcq", questionValue);
-    // form_data.append("price", price);
-    // form_data.append("faults", faults);
-    // // console.log(form_data);
+    formData.append("category", this.props.category);
+    formData.append("subCategoryName", this.props.sub_category);
+    formData.append("name", this.props.product_name);
+    formData.append("description", this.props.description);
+    formData.append("address", this.props.address);
+    formData.append("city", this.props.city);
+    formData.append("ans1", this.state.ans1);
+    formData.append("ans2", this.state.ans2);
+    formData.append("ans3", this.state.ans3);
+    formData.append("ans4", this.state.ans4);
+    formData.append("ans5", this.state.ans5);
+    formData.append("ans6", this.state.ans6);
+    formData.append("ans7", this.state.ans7);
+    formData.append("ans8", this.state.ans8);
+    formData.append("ans9", this.state.ans9);
+    formData.append("ans10", this.state.ans10);
+    formData.append("ans11", this.state.ans11);
+    formData.append("photo", this.state.photo);
+    formData.append("price", this.state.price);
+
+    if (formData) {
+      axios
+        .post(`${API}/product/create/${this.props.user._id}`, formData, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+        .then((response) => {
+          if (response.status === 201) {
+            console.log("Successfully Submited");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   render() {
@@ -52,15 +104,7 @@ class StepTwo extends Component {
       return null;
     }
 
-    console.log(
-      this.props.currentStep,
-      this.props.category,
-      this.props.sub_category,
-      this.props.product_name,
-      this.props.description,
-      this.props.description,
-      this.props.city
-    );
+    console.log(this.props.user._id);
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -79,16 +123,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-1"
                     required
-                    id="Does your device switch on"
+                    id="ans1"
                     value="on"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label "
-                    for="inlineRadio1"
-                  >
-                    On
-                  </label>
+                  <label class="mb-0 th-sell-form-input-label ">On</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
@@ -96,16 +135,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-1"
                     required
-                    id="Does your device switch on"
+                    id="ans1"
                     value="off"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
-                    Off
-                  </label>
+                  <label class="mb-0 th-sell-form-input-label mr-1">Off</label>
                 </div>
               </div>
             </div>
@@ -121,16 +155,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-2"
                     required
-                    id="Display and touch screen status"
+                    id="ans2"
                     value="Flawless"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class=" mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
-                    Flawless
-                  </label>
+                  <label class=" mb-0 th-sell-form-input-label">Flawless</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
@@ -138,14 +167,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-2"
                     required
-                    id="Display and touch screen status"
+                    id="ans2"
                     value="Moinor scratches"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Moinor scratches
                   </label>
                 </div>
@@ -155,14 +181,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-2"
                     required
-                    id="Display and touch screen status"
+                    id="ans2"
                     value="Shaded / white dots"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
+                  <label class="mb-0 th-sell-form-input-label">
                     Shaded / white dots
                   </label>
                 </div>
@@ -172,14 +195,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-2"
                     required
-                    id="Display and touch screen status"
+                    id="ans2"
                     value="Broken dead or does not work properly"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Broken dead or does not work properly
                   </label>
                 </div>
@@ -197,16 +217,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-3"
                     required
-                    id=" Device Body (Back Panel / Cover) status"
+                    id="ans3"
                     value="	Flawless"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
-                    Flawless
-                  </label>
+                  <label class="mb-0 th-sell-form-input-label">Flawless</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
@@ -214,14 +229,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-3"
                     required
-                    id=" Device Body (Back Panel / Cover) status"
+                    id="ans3"
                     value="Scratched"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Scratched
                   </label>
                 </div>
@@ -231,14 +243,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-3"
                     required
-                    id="Does your device switch on"
+                    id="ans3"
                     value="Cracked"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Cracked
                   </label>
                 </div>
@@ -248,14 +257,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-3"
                     required
-                    id="Does your device switch on"
+                    id="ans3"
                     value="Broken"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Broken
                   </label>
                 </div>
@@ -273,16 +279,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-4"
                     required
-                    id="Main Camera (Camera Glass) status"
+                    id="ans4"
                     value="Flawless"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
-                    Flawless
-                  </label>
+                  <label class="mb-0 th-sell-form-input-label">Flawless</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
@@ -290,14 +291,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-4"
                     required
-                    id="Main Camera (Camera Glass) status"
+                    id="ans4"
                     value="Scratched"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Scratched
                   </label>
                   <input
@@ -305,16 +303,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-4"
                     required
-                    id="Main Camera (Camera Glass) status"
+                    id="ans4"
                     value="Blur"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
-                    Blur
-                  </label>
+                  <label class="mb-0 th-sell-form-input-label">Blur</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
@@ -322,14 +315,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-4"
                     required
-                    id="Main Camera (Camera Glass) status"
+                    id="ans4"
                     value="Cracked"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Cracked Broken
                   </label>
                 </div>
@@ -339,14 +329,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-4"
                     required
-                    id="Main Camera (Camera Glass) status"
+                    id="ans4"
                     value="Broken"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     Broken
                   </label>
                 </div>
@@ -364,14 +351,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-5"
                     required
-                    id="Age of the phone "
+                    id="ans5"
                     value="0-3 months"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio1"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     0-3 months
                   </label>
                 </div>
@@ -381,14 +365,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-5"
                     required
-                    id="Age of the phone "
+                    id="ans5"
                     value="3-6 months"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     3-6 months
                   </label>
                 </div>
@@ -398,14 +379,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-5"
                     required
-                    id="Age of the phone (in months)"
+                    id="ans5"
                     value="6-9 months"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
+                  <label class="mb-0 th-sell-form-input-label">
                     6-9 months
                   </label>
                 </div>
@@ -415,14 +393,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-5"
                     required
-                    id="Age of the phone (in months)"
+                    id="ans5"
                     value="9-12 months or more"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
+                  <label class="mb-0 th-sell-form-input-label mr-1">
                     9-12 months or more
                   </label>
                 </div>
@@ -440,16 +415,11 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-6"
                     required
-                    id=" Device has undergone repairs"
+                    id="ans6"
                     value="Yes"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label"
-                    for="inlineRadio1"
-                  >
-                    Yes
-                  </label>
+                  <label class="mb-0 th-sell-form-input-label">Yes</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
@@ -457,16 +427,215 @@ class StepTwo extends Component {
                     type="radio"
                     name="inline-radio-6"
                     required
-                    id=" Device has undergone repairs"
+                    id="ans6"
                     value="No"
                     onClick={this.toggleChange}
                   />
-                  <label
-                    class="mb-0 th-sell-form-input-label mr-1"
-                    for="inlineRadio2"
-                  >
-                    No
+                  <label class="mb-0 th-sell-form-input-label mr-1">No</label>
+                </div>
+              </div>
+            </div>
+            {/* question 7 */}
+            <div className="mt-lg-3 mb-lg-3">
+              <div className="mb-lg-2 th-sell-form-qna-ques">
+                Q) Does your device have any functional issues?
+              </div>
+              <div className="ml-4">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-7"
+                    required
+                    id="ans7"
+                    value="Yes"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-7"
+                    required
+                    id="ans7"
+                    value="No"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">No</label>
+                </div>
+              </div>
+            </div>
+            {/* question 8 */}
+            <div className="mt-lg-3 mb-lg-3">
+              <div className="mb-lg-2 th-sell-form-qna-ques">
+                Q) Select the available accessories
+              </div>
+              <div className="ml-4">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-8"
+                    required
+                    id="ans8"
+                    value=" Earphones"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label">
+                    Earphones.
                   </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-8"
+                    required
+                    id="ans8"
+                    value="Box with same imei"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">
+                    Box with same imei.
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-8"
+                    required
+                    id="ans8"
+                    value="Original charger"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">
+                    Original charger.
+                  </label>
+                </div>
+              </div>
+            </div>
+            {/* question 9 */}
+            <div className="mt-lg-3 mb-lg-3">
+              <div className="mb-lg-2 th-sell-form-qna-ques">
+                Q) OEN/ Brand Warranty utilized
+              </div>
+              <div className="ml-4">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-9"
+                    required
+                    id="ans9"
+                    value="0 to 3 month"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label">
+                    0 to 3 month
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-9"
+                    required
+                    id="ans9"
+                    value="3 to 10 month"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">
+                    3 to 10 month
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-9"
+                    required
+                    id="ans9"
+                    value="more than 10 month"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">
+                    more than 10 month
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-9"
+                    required
+                    id="ans9"
+                    value="Not available"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">
+                    Not available
+                  </label>
+                </div>
+              </div>
+            </div>
+            {/* question 10 */}
+            <div className="mt-lg-3 mb-lg-3">
+              <div className="mb-lg-2 th-sell-form-qna-ques">
+                Q) Silver Frame / Bezel (Around Screen)?
+              </div>
+              <div className="ml-4">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-10"
+                    required
+                    id="ans10"
+                    value="Discolored"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label">
+                    Discolored
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-10"
+                    required
+                    id="ans10"
+                    value="Dented"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label">Dented</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-10"
+                    required
+                    id="ans10"
+                    value="Broken"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label">Broken</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inline-radio-10"
+                    required
+                    id="ans10"
+                    value="Okay"
+                    onClick={this.toggleChange}
+                  />
+                  <label class="mb-0 th-sell-form-input-label mr-1">Okay</label>
                 </div>
               </div>
             </div>
@@ -497,8 +666,8 @@ class StepTwo extends Component {
                 placeholder="Choose your answer(s) and type here"
                 className="th-sell-form-textarea"
                 onChange={this.handleChange}
-                name="faults"
-                value={this.state.faults}
+                name="ans11"
+                value={this.state.ans11}
               />
             </Form.Group>
           </div>
@@ -507,10 +676,23 @@ class StepTwo extends Component {
         <div className="th-sell-form-item-wraper">
           <div className="th-sell-form-item-header">Upload Product Images</div>
           <div className="d-flex align-items-center mt-lg-4">
-            <div className="th-sell-form-image-box mr-4"></div>
+            <div className="th-sell-form-image-box mr-4">
+              <img
+                id="output"
+                alt=""
+                style={{ width: this.state.width < 780 ? "160px" : "200px" }}
+              />
+            </div>
             <div className="th-sell-from-img-upload-btn">
-              <span className="th-sell-from-img-upload-circle"> + </span>
-              <Form.File lang="en" custom required />
+              <span className="th-sell-from-img-upload-circle">+</span>
+              <input
+                type="file"
+                // name="image"
+                onChange={this.onFileChange}
+                required
+                style={{ width: "60px" }}
+                accept="image*/"
+              />
             </div>
           </div>
         </div>
@@ -521,7 +703,7 @@ class StepTwo extends Component {
             <Form.Group className="d-flex">
               <span className="th-sell-form-input-label mr-4">Enter Price</span>
               <Form.Control
-                type="text"
+                type="number"
                 placeholder="₹"
                 className="th-sell-form-input-price"
                 onChange={this.handleChange}
@@ -545,4 +727,12 @@ class StepTwo extends Component {
   }
 }
 
-export default StepTwo;
+StepTwo.propTypes = {
+  user: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps)(StepTwo);
