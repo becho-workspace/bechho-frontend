@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import CategoryCard from "../Cards/CategoryCard";
+import axios from "axios";
+import { API } from "../../../../backend";
 
 const data = [
   {
@@ -57,8 +59,27 @@ class CategoryTop extends Component {
     super(props);
     this.state = {
       width: window.innerWidth,
+      data: [],
     };
   }
+
+  componentDidMount() {
+    this.fetch_products();
+  }
+
+  fetch_products = () => {
+    axios
+      .get(`${API}/products/`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          data: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
@@ -67,11 +88,13 @@ class CategoryTop extends Component {
         <div className="mt-lg-3">
           <div class="row">
             <div class="col-12 d-flex flex-wrap justify-content-between">
-              {data.map((item, index) => {
+              {this.state.data.map((item, index) => {
                 return (
                   <CategoryCard
-                    src={item.src}
-                    title={item.title}
+                    src={item.photo.path}
+                    title={
+                      item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                    }
                     description={item.description}
                   />
                 );

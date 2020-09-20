@@ -3,6 +3,7 @@ import ProdsCard from "../Cards/productsCard";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { API } from "../../../../backend";
 
@@ -80,7 +81,9 @@ class NewProducts extends Component {
       <div className="mb-5">
         <div className="d-flex justify-content-between mb-2 mt-4">
           <span className="pl-md-1 th-new-product-header">Latest Products</span>
-          <span className="th-new-product-all-btn">See All</span>
+          <Link to="/category" className="th-new-product-all-btn">
+            See All
+          </Link>
         </div>
         <Slider {...settings} className="px-0 th-slider-margin">
           {this.state.data.slice(start, end).map((item, index) => {
@@ -94,6 +97,7 @@ class NewProducts extends Component {
                 }
                 price={item.price}
                 // key={index}
+                slug={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
               />
             );
           })}
