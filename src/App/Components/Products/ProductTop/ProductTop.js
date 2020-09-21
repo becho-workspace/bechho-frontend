@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,10 +8,14 @@ import { MapPin } from "react-feather";
 import PopUp from "../Popup/popup";
 
 class ProductTop extends Component {
-  state = {
-    width: window.innerWidth,
-    show: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: window.innerWidth,
+      show: false,
+      products: [],
+    };
+  }
 
   handleShowModal = () => {
     this.setState({
@@ -30,26 +34,28 @@ class ProductTop extends Component {
       <div>
         <Container>
           <Row>
-            <Col lg={8}>
-              <div className="d-flex">
+            <Col lg={6}>
+              <div className="d-flex justify-content-center">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1468083684825-012f39547b23?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                    src={this.props.src}
                     alt=""
                     className="th-prod-right-img"
                   />
                 </div>
               </div>
             </Col>
-            <Col lg={4}>
+            <Col lg={6}>
               <div className="th-prod-box">
-                <p className="th-prod-title">Sample Product</p>
+                <p className="th-prod-title">{this.props.name}</p>
                 <div className="mb-2 d-flex align-items-center th-prod-price-location-box">
                   <div className="d-flex align-items-center">
-                    <div className="mr-3 th-prod-price">2999</div>
+                    <div className="mr-3 th-prod-price">
+                      ₹ {this.props.price}
+                    </div>
                     <div className="d-flex align-items-center">
                       <MapPin className="mr-2" size={20} color="#332a7c" />
-                      <div className="th-prod-location"> Delhi</div>
+                      <div className="th-prod-location">{this.props.city} </div>
                     </div>
                   </div>
                   {/* for mobile screen */}
@@ -63,15 +69,7 @@ class ProductTop extends Component {
                   {/*  */}
                 </div>
                 <div className="th-prod-description">
-                  <span className="mr-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Quae quam eum odit sequi officia illo laboriosam laborum
-                    facilis non dignissimos vero quo ipsum quis in nihil quia,
-                    consectetur nisi totam. Lorem ipsum dolor sit.
-                  </span>
-                  <span style={{ color: "#63AFFF", cursor: "pointer" }}>
-                    See More
-                  </span>
+                  <span className="mr-2">{this.props.description}</span>
                 </div>
                 {/* for laptop/tabs */}
                 {this.state.width > 780 ? (
@@ -103,3 +101,5 @@ class ProductTop extends Component {
 }
 
 export default ProductTop;
+
+// export default withRouter(ProductTop);

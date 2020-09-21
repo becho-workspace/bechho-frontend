@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class ProductsCard extends Component {
   state = {
     width: window.innerWidth,
+  };
+
+  handleProductId = (productid) => {
+    // console.log(productid);
+    // this.props.setCurrentClickedProduct(productid);
+    // this.props.history.push("/products");
   };
 
   render() {
@@ -12,11 +20,12 @@ class ProductsCard extends Component {
     return (
       <div>
         <Card className="th-brands-card border-0" key={this.props.key}>
-          <Link to={`/products/${this.props.slug}`}>
+          <Link to={`/products`}>
             <Card.Img
               variant="top"
               src={this.props.src}
               className="th-prods-card-image"
+              onClick={this.handleProductId(this.props.productid)}
             />
           </Link>
           <div className="pt-2 th-card-box">
@@ -35,11 +44,25 @@ class ProductsCard extends Component {
             </div>
             {/* ) : null} */}
           </div>
-          <p>{this.props.prod_id}</p>
         </Card>
       </div>
     );
   }
 }
+
+ProductsCard.propTypes = {
+  setCurrentClickedProduct: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  prod_id: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  prod_id: state.product.prod_id,
+  user: state.auth.user,
+});
+
+// export default connect(mapStateToProps, {
+//   setCurrentClickedProduct,
+// })(ProductsCard);
 
 export default ProductsCard;

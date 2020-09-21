@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import ProdsCard from "../Cards/productsCard";
+import Card from "react-bootstrap/Card";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { API } from "../../../../backend";
 
@@ -51,7 +53,7 @@ class NewProducts extends Component {
 
   fetch_products = () => {
     axios
-      .get(`${API}/products/`)
+      .get(`${API}/products/${this.props.city}`)
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -76,7 +78,13 @@ class NewProducts extends Component {
       end = this.state.data.length;
     }
 
-    console.log(this.state.data.length, this.state.total, start, end);
+    console.log(
+      this.state.data.length,
+      this.state.total,
+      start,
+      end,
+      this.props.city
+    );
     return (
       <div className="mb-5">
         <div className="d-flex justify-content-between mb-2 mt-4">
@@ -88,17 +96,31 @@ class NewProducts extends Component {
         <Slider {...settings} className="px-0 th-slider-margin">
           {this.state.data.slice(start, end).map((item, index) => {
             return (
-              <ProdsCard
-                src={item.photo.path}
-                title={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                description={item.description}
-                location={
-                  item.city.charAt(0).toUpperCase() + item.city.slice(1)
-                }
-                price={item.price}
-                // key={index}
-                slug={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-              />
+              <div>
+                <Card className="th-brands-card border-0" key={index}>
+                  <Link to={`/products/${item._id}`}>
+                    <Card.Img
+                      variant="top"
+                      src={item.photo.path}
+                      className="th-prods-card-image"
+                    />
+                  </Link>
+                  <div className="pt-2 th-card-box">
+                    <Card.Text className="mb-md-1 th-prods-title">
+                      {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                    </Card.Text>
+                    <Card.Text className="mb-md-1 th-prods-description">
+                      {item.description}
+                    </Card.Text>
+                    <div className="d-flex justify-content-between">
+                      <span className="th-prods-location">
+                        {item.city.charAt(0).toUpperCase() + item.city.slice(1)}
+                      </span>
+                      <span className="th-prods-price">₹ {item.price} </span>
+                    </div>
+                  </div>
+                </Card>
+              </div>
             );
           })}
         </Slider>
@@ -107,4 +129,12 @@ class NewProducts extends Component {
   }
 }
 
-export default NewProducts;
+NewProducts.propTypes = {
+  city: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  city: state.location.city,
+});
+
+export default connect(mapStateToProps)(NewProducts);

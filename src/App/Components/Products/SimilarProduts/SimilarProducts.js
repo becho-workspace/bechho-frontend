@@ -3,89 +3,8 @@ import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
 import ProductCard from "../../Home/Cards/productsCard";
-
-const data = [
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool Tshirt- Best quality",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-    location: "Locations",
-    price: "₹ 599",
-  },
-];
+import axios from "axios";
+import { API } from "../../../../backend";
 
 const settings = {
   slidesToShow: 2.8,
@@ -121,6 +40,31 @@ const settings = {
 };
 
 class SimilarProducts extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    };
+  }
+
+  componentDidMount() {
+    this.fetchProducts();
+  }
+
+  fetchProducts = () => {
+    axios
+      .get(`${API}/products`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          products: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className="mb-5 container ">
@@ -129,13 +73,15 @@ class SimilarProducts extends Component {
         </div>
         <div className="th-similar-prod-box">
           <Slider {...settings} className="px-0">
-            {data.map((item, index) => {
+            {this.state.products.map((item, index) => {
               return (
                 <ProductCard
-                  src={item.src}
-                  title={item.title}
+                  src={item.photo.path}
+                  title={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
                   description={item.description}
-                  location={item.location}
+                  location={
+                    item.city.charAt(0).toUpperCase() + item.city.slice(1)
+                  }
                   price={item.price}
                 />
               );

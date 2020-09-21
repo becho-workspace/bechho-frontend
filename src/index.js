@@ -14,6 +14,7 @@ import "./App/Assets/css/products.css";
 import "./App/Assets/css/category.css";
 import "./App/Assets/css/MyAccount.css";
 import "./App/Assets/css/testimonials.css";
+import "./App/Assets/css/team.css";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
