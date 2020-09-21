@@ -312,6 +312,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .th-myitems-card-image {
+    width: 320px;
+  }
   .th-myitems-ask-price,
   .th-myitems-price,
   .th-myitems-price,

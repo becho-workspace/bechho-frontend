@@ -91,7 +91,11 @@ class ProductTop extends Component {
         {/* Modal */}
         <Modal show={this.state.show} size="lg" onHide={this.handleCloseModal}>
           <Modal.Body className="shadow bg-white p-0 rounded">
-            <PopUp show={this.state.show} closed={this.handleCloseModal} />
+            <PopUp
+              show={this.state.show}
+              closed={this.handleCloseModal}
+              prodId={this.props.prodId}
+            />
           </Modal.Body>
         </Modal>
         {/*  */}

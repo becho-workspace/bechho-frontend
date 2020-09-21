@@ -81,6 +81,7 @@ class ProductHome extends Component {
           price={this.state.price}
           city={this.state.city}
           description={this.state.description}
+          prodId={this.props.match.params.id}
         />
         <Description
           answer1={this.state.ans1}

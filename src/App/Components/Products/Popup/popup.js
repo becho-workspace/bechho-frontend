@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Cancel from "../../../Assets/Images/Products/Cancel.png";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { API } from "../../../../backend";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 class Popup extends Component {
   constructor(props) {
@@ -32,6 +39,19 @@ class Popup extends Component {
     e.preventDefault();
     console.log(this.state.price);
     console.log(this.state.checked);
+    axios
+      .patch(`${API}/product/bid/${this.props.prodId}/${this.props.user._id}`, {
+        price: this.state.price,
+        status: "pending",
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          toast("Successfully Sent Bid", { type: "success" });
+        }
+      })
+      .catch((err) => {
+        toast(err.response.data.error, { type: "warning" });
+      });
   };
 
   render() {
@@ -61,6 +81,7 @@ class Popup extends Component {
                 onChange={this.handleChange}
                 id="price"
                 value={this.state.price}
+                required
               />
             </Form.Group>
             <div className="">
@@ -82,7 +103,6 @@ class Popup extends Component {
                 </div>
               </div>
             </div>
-
             <Form.Group className="d-flex mb-md-5 th-prod-mob-checkbox">
               <Form.Check
                 type="checkbox"
@@ -108,4 +128,12 @@ class Popup extends Component {
   }
 }
 
-export default Popup;
+Popup.propTypes = {
+  user: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps)(Popup);

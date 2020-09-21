@@ -3,7 +3,7 @@ import {
   SET_CURRENT_CITY_BY_USER,
 } from "../actions/types";
 const initialState = {
-  city: DELHI,
+  city: "",
 };
 
 export default function (state = initialState, action) {
