@@ -102,7 +102,7 @@ class App extends Component {
             <Route exact path="/affiliate" component={Affiliate} />
             <Route exact path="/become-partner" component={BecomePartner} />
             <Route exact path="/products/:id" component={Products} />
-            <Route exact path="products-offer" component={ProductOffer} />
+            <Route exact path="/products-offer" component={ProductOffer} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/categorylist" component={CategoryListMobile} />
             {/* private routes */}

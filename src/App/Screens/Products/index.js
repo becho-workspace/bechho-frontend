@@ -80,7 +80,6 @@ class ProductHome extends Component {
           src={this.state.img_url}
           price={this.state.price}
           city={this.state.city}
-          status={this.state.status}
           description={this.state.description}
         />
         <Description
@@ -96,7 +95,7 @@ class ProductHome extends Component {
           answer10={this.state.ans10}
           answer11={this.state.ans11}
         />
-        <SimilarProduct />
+        <SimilarProduct city={this.state.city} />
       </div>
     );
   }

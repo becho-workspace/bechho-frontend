@@ -22,9 +22,9 @@ class MyItems extends Component {
     axios
       .get(`${API}/product/getuserproducts/${this.props.user._id}`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.products[0].photo.path);
         this.setState({
-          // myItems:res.data
+          myItems: res.data.products,
         });
       })
       .catch((err) => {
@@ -40,13 +40,15 @@ class MyItems extends Component {
           <p className="th-myitems-header">My Items</p>
           <div className="row">
             <div className="col-12 d-flex flex-wrap justify-content-md-between th-mybids-col">
-              {data.map((item, index) => {
+              {this.state.myItems.map((item, index) => {
                 return (
                   <MyItemsCard
-                    src={item.src}
-                    title={item.title}
-                    askPrice={item.askPrice}
-                    BidList={item.bids}
+                    src={item.photo.path}
+                    title={
+                      item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                    }
+                    askPrice={item.price}
+                    BidList={item.bid}
                   />
                 );
               })}

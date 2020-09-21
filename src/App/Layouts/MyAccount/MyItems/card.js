@@ -80,7 +80,7 @@ class MyItemsCard extends Component {
               className="d-flex align-items-center justify-content-between"
               style={{ flexWrap: mobile ? "wrap" : "null" }}
             >
-              <div className="mb-md-1 th-myitems-title">{this.props.title}</div>
+              <div className="mb-md-1 th-myitems-title">{this.props.name}</div>
               <div className="mb-md-1">
                 <span className="th-myitems-ask-price">Ask Price:</span>
                 <span className="th-myitems-price ">{this.props.askPrice}</span>
@@ -88,19 +88,19 @@ class MyItemsCard extends Component {
             </div>
             <div className="th-myitems-bids-offerd mb-2">Bids Offered</div>
             <div className="th-myitems-bidlist">
-              {BidList.map((item, index) => {
+              {this.props.BidList.map((item, index) => {
                 return (
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <div className="d-lg-flex align-items-lg-center">
                       <p className="th-myitems-offered-price mr-md-2 ml-md-2 mb-0">
-                        ₹ {item.offeredPrice}
+                        ₹ {item.price}
                       </p>
                       <p className="th-myitems-bidder mr-md-2 ml-md-2 mb-0">
                         {item.bidder}
                       </p>
                       <p
                         className="th-myitems-bid-details ml-md-2 mb-0"
-                        onClick={() => this.handleBids(item.offeredPrice)}
+                        onClick={() => this.handleBids(item.price)}
                         style={{ cursor: "pointer" }}
                       >
                         View details
@@ -111,7 +111,7 @@ class MyItemsCard extends Component {
                       style={{ flexDirection: mobile ? "column" : "null" }}
                     >
                       <button
-                        type="submit "
+                        type="submit"
                         className="mr-lg-4 th-myitems-bid-approve"
                       >
                         Approve

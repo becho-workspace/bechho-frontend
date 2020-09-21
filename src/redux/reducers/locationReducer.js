@@ -3,22 +3,56 @@ import {
   SET_CURRENT_CITY_BY_USER,
 } from "../actions/types";
 const initialState = {
-  city: "",
+  city: DELHI,
 };
 
 export default function (state = initialState, action) {
-  console.log(action.type);
   switch (action.type) {
     case SET_CURRENT_CITY_FROM_USER_AUTH:
-      return {
-        ...state,
-        city: action.payload,
-      };
+      if (action.payload === "DELHI") {
+        return {
+          ...state,
+          city: "DELHI",
+        };
+      } else if (action.payload === "NOIDA") {
+        return {
+          ...state,
+          city: "NOIDA",
+        };
+      } else if (action.payload === "BANGALORE") {
+        return {
+          ...state,
+          city: "BANGALORE",
+        };
+      } else if (action.payload === "GURUGRAM") {
+        return {
+          ...state,
+          city: "GURUGRAM",
+        };
+      }
+
     case SET_CURRENT_CITY_BY_USER:
-      return {
-        ...state,
-        city: action.payload,
-      };
+      if (action.payload === "DELHI") {
+        return {
+          ...state,
+          city: "DELHI",
+        };
+      } else if (action.payload === "NOIDA") {
+        return {
+          ...state,
+          city: "NOIDA",
+        };
+      } else if (action.payload === "BANGALORE") {
+        return {
+          ...state,
+          city: "BANGALORE",
+        };
+      } else if (action.payload === "GURUGRAM") {
+        return {
+          ...state,
+          city: "GURUGRAM",
+        };
+      }
     default:
       return state;
   }

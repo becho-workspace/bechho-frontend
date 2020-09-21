@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import CategoryTop from "../../Components/Category/CategoryTop/CategoryTop";
 // import Other from "../../Components/Category/OtherCategory/OtherCategories";/
+import { withRouter } from "react-router-dom";
+import axios from "axios";
+import { API } from "../../../backend";
 
 class CategoryHome extends Component {
   render() {
@@ -13,4 +16,4 @@ class CategoryHome extends Component {
   }
 }
 
-export default CategoryHome;
+export default withRouter(CategoryHome);

@@ -2,57 +2,7 @@ import React, { Component } from "react";
 import CategoryCard from "../Cards/CategoryCard";
 import axios from "axios";
 import { API } from "../../../../backend";
-
-const data = [
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "1",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "2",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "3",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "4",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "5",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "6",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "7",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "8",
-    description:
-      "Super Cool Tshirt- Best quality cotton fabric starting from ₹ 500 ",
-  },
-];
+import { connect } from "react-redux";
 
 class CategoryTop extends Component {
   constructor(props) {
@@ -63,13 +13,17 @@ class CategoryTop extends Component {
     };
   }
 
+  // componentDidUpdate() {
+  //   this.fetch_products();
+  // }
+
   componentDidMount() {
     this.fetch_products();
   }
 
   fetch_products = () => {
     axios
-      .get(`${API}/products/`)
+      .get(`${API}/products/${this.props.city}`)
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -82,6 +36,7 @@ class CategoryTop extends Component {
   };
 
   render() {
+    console.log(this.props.city);
     return (
       <div>
         <div className="th-category-title">Mobile and Laptops</div>
@@ -96,6 +51,11 @@ class CategoryTop extends Component {
                       item.name.charAt(0).toUpperCase() + item.name.slice(1)
                     }
                     description={item.description}
+                    location={
+                      item.city.charAt(0).toUpperCase() + item.city.slice(1)
+                    }
+                    price={item.price}
+                    id={item._id}
                   />
                 );
               })}
@@ -107,4 +67,8 @@ class CategoryTop extends Component {
   }
 }
 
-export default CategoryTop;
+const mapStateToProps = (state) => ({
+  city: state.location.city,
+});
+
+export default connect(mapStateToProps)(CategoryTop);

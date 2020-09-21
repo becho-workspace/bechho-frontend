@@ -32,7 +32,7 @@ const settings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        arrows: false,
+        arrows: true,
         dots: false,
       },
     },
@@ -52,8 +52,9 @@ class SimilarProducts extends Component {
   }
 
   fetchProducts = () => {
+    console.log(this.props.city);
     axios
-      .get(`${API}/products`)
+      .get(`${API}/products${this.props.city}`)
       .then((res) => {
         console.log(res.data);
         this.setState({
