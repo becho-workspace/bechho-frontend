@@ -46,17 +46,26 @@ const settings = {
 };
 
 class NewProducts extends Component {
-  state = {
-    data: [],
-  };
-
-  componentDidMount() {
-    this.fetch_products();
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
   }
 
-  fetch_products = () => {
+  componentDidMount() {
+    this.fetchProducts();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.city !== this.props.city) {
+      this.fetchProducts();
+    }
+  }
+
+  fetchProducts = () => {
     axios
-      .get(`${API}/products`)
+      .get(`${API}/products/${this.props.city}`)
       .then((res) => {
         // console.log(res.data);
         this.setState({
@@ -64,8 +73,7 @@ class NewProducts extends Component {
         });
       })
       .catch((err) => {
-        // console.log(err);
-        toast(err.response.data.error, { type: "warning" });
+        toast("Product can not be fetched ", { type: "warning" });
       });
   };
 
@@ -82,13 +90,6 @@ class NewProducts extends Component {
       end = this.state.data.length;
     }
 
-    console.log(
-      this.state.data.length,
-      this.state.total,
-      start,
-      end,
-      this.props.city
-    );
     return (
       <div className="mb-5">
         <div className="d-flex justify-content-between mb-2 mt-4">
@@ -97,9 +98,9 @@ class NewProducts extends Component {
             See All
           </Link>
         </div>
-        <Slider {...settings} className="px-0 th-slider-margin">
-          {this.state.data.length > 0 &&
-            this.state.data.slice(start, end).map((item, index) => {
+        {this.state.data.length > 0 && (
+          <Slider {...settings} className="px-0 th-slider-margin">
+            {this.state.data.slice(start, end).map((item, index) => {
               return (
                 <div key={index}>
                   <Card className="th-brands-card border-0">
@@ -117,19 +118,20 @@ class NewProducts extends Component {
                       <Card.Text className="mb-md-1 th-prods-description">
                         {item.description}
                       </Card.Text>
-                      <div className="d-flex justify-content-between">
-                        <span className="th-prods-location">
+                      <div className="d-lg-flex justify-content-lg-between">
+                        <p className="th-prods-location mb-0">
                           {item.city.charAt(0).toUpperCase() +
                             item.city.slice(1)}
-                        </span>
-                        <span className="th-prods-price">₹ {item.price} </span>
+                        </p>
+                        <p className="th-prods-price mb-0">₹ {item.price} </p>
                       </div>
                     </div>
                   </Card>
                 </div>
               );
             })}
-        </Slider>
+          </Slider>
+        )}
       </div>
     );
   }

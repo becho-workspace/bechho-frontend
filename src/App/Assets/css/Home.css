@@ -306,7 +306,8 @@
 @media only screen and (max-width: 768px) {
   .th-brands-card,
   .th-products-card {
-    width: 44vw;
+    width: 40vw;
+    margin-top: 16px;
   }
 
   .th-card-box {

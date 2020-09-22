@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { API } from "../../../../backend";
 import { toast } from "react-toastify";
@@ -44,18 +46,26 @@ const settings = {
 };
 
 class OldProducts extends Component {
-  state = {
-    data: [],
-    total: null,
-  };
-
-  componentDidMount() {
-    this.fetch_products();
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
   }
 
-  fetch_products = () => {
+  componentDidMount() {
+    this.fetchProducts();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.city !== this.props.city) {
+      this.fetchProducts();
+    }
+  }
+
+  fetchProducts = () => {
     axios
-      .get(`${API}/products/`)
+      .get(`${API}/products/${this.props.city}`)
       .then((res) => {
         // console.log(res.data);
         this.setState({
@@ -64,7 +74,7 @@ class OldProducts extends Component {
       })
       .catch((err) => {
         // console.log(err);
-        toast(err.response.data.error, { type: "warning" });
+        toast("Product can not be fetched", { type: "warning" });
       });
   };
 
@@ -94,9 +104,9 @@ class OldProducts extends Component {
             See All
           </Link>
         </div>
-        <Slider {...settings} className="px-0 th-slider-margin">
-          {this.state.data.length > 0 &&
-            this.state.data.slice(start, end).map((item, index) => {
+        {this.state.data.length > 0 && (
+          <Slider {...settings} className="px-0 th-slider-margin">
+            {this.state.data.slice(start, end).map((item, index) => {
               return (
                 <div key={index}>
                   <Card className="th-brands-card border-0">
@@ -114,22 +124,31 @@ class OldProducts extends Component {
                       <Card.Text className="mb-md-1 th-prods-description">
                         {item.description}
                       </Card.Text>
-                      <div className="d-flex justify-content-between">
-                        <span className="th-prods-location">
+                      <div className="d-lg-flex justify-content-lg-between">
+                        <p className="th-prods-location mb-0">
                           {item.city.charAt(0).toUpperCase() +
                             item.city.slice(1)}
-                        </span>
-                        <span className="th-prods-price">₹ {item.price} </span>
+                        </p>
+                        <p className="th-prods-price mb-0">₹ {item.price} </p>
                       </div>
                     </div>
                   </Card>
                 </div>
               );
             })}
-        </Slider>
+          </Slider>
+        )}
       </div>
     );
   }
 }
 
-export default OldProducts;
+OldProducts.propTypes = {
+  city: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  city: state.location.city,
+});
+
+export default connect(mapStateToProps)(OldProducts);

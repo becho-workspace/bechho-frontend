@@ -59,13 +59,6 @@ class BidCard extends Component {
   };
 
   handleBidAccept = (status) => {
-    // console.log(
-    //   status,
-    //   this.props.price,
-    //   this.props.prodId,
-    //   this.props.bidderId
-    // );
-
     axios
       .patch(
         `${API}/product/changestatus/${this.props.prodId}/${this.props.bidderId}`,
@@ -74,14 +67,14 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        // console.log(res.data.status);
+        console.log(res.data.status);
         this.setState({
           bid_status: res.data.status,
         });
         toast("Successfully Updated", { type: "success" });
       })
       .catch((err) => {
-        toast(err.response.data.error, { type: "warning" });
+        toast("can not update status", { type: "warning" });
       });
 
     this.setState({
@@ -90,13 +83,6 @@ class BidCard extends Component {
   };
 
   handleBidReject = (status) => {
-    // console.log(
-    //   status,
-    //   this.props.price,
-    //   this.props.prodId,
-    //   this.props.bidderId
-    // );
-
     axios
       .patch(
         `${API}/product/changestatus/${this.props.prodId}/${this.props.bidderId}`,
@@ -121,7 +107,6 @@ class BidCard extends Component {
   };
 
   render() {
-    // console.log(this.state.bid_status);
     let bidStatus;
     if (
       this.state.bid_status === "Accepted" ||
@@ -158,16 +143,14 @@ class BidCard extends Component {
               }}
             >
               <button
-                //   type="submit"
                 className="mr-lg-4 th-myitems-bid-approve"
                 onClick={() => this.handleBidAccept("Accepted")}
               >
                 Approve
               </button>
               <button
-                //   type="submit"
                 className="th-myitems-bid-decline"
-                onClick={() => this.handleBidRe("Rejected")}
+                onClick={() => this.handleBidReject("Rejected")}
               >
                 Decline
               </button>

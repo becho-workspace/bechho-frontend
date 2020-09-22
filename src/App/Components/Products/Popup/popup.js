@@ -37,8 +37,8 @@ class Popup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(this.state.price);
-    // console.log(this.state.checked);
+    console.log(this.state.price);
+    console.log(this.state.checked);
     axios
       .patch(`${API}/product/bid/${this.props.prodId}/${this.props.user._id}`, {
         offeredprice: this.state.price,
@@ -52,7 +52,8 @@ class Popup extends Component {
         this.props.closed();
       })
       .catch((err) => {
-        toast(err.response.data.error, { type: "warning" });
+        console.log(err);
+        toast("Can't send Bid, something went wrong", { type: "warning" });
         this.props.closed();
       });
   };

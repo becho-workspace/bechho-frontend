@@ -71,7 +71,7 @@ class ProductHome extends Component {
       })
       .catch((err) => {
         // console.log(err);
-        toast(err.response.data.error, { type: "warning" });
+        toast("Something went wrong,product not found", { type: "warning" });
       });
   };
 

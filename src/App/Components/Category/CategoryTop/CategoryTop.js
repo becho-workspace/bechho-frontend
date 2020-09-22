@@ -17,10 +17,16 @@ class CategoryTop extends Component {
   }
 
   componentDidMount() {
-    this.fetch_products();
+    this.fetchProducts();
   }
 
-  fetch_products = () => {
+  componentDidUpdate(prevProps) {
+    if (prevProps.city !== this.props.city) {
+      this.fetchProducts();
+    }
+  }
+
+  fetchProducts = () => {
     axios
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
@@ -31,7 +37,7 @@ class CategoryTop extends Component {
       })
       .catch((err) => {
         // console.log(err);
-        toast(err.data.response.error, { type: "warning" });
+        toast("Something went wrong:/", { type: "warning" });
       });
   };
 

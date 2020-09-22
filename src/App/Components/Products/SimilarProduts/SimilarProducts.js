@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
 import Card from "react-bootstrap/Card";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { API } from "../../../../backend";
 import { toast } from "react-toastify";
@@ -55,10 +57,16 @@ class SimilarProducts extends Component {
     this.fetchProducts();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.city !== this.props.city) {
+      this.fetchProducts();
+    }
+  }
+
   fetchProducts = () => {
     // console.log(this.props.city);
     axios
-      .get(`${API}/products${this.props.city}`)
+      .get(`${API}/products/${this.props.city}`)
       .then((res) => {
         // console.log(res.data);
         this.setState({
@@ -67,7 +75,7 @@ class SimilarProducts extends Component {
       })
       .catch((err) => {
         // console.log(err);
-        toast(err.response.data.error, { type: "warning" });
+        toast("something went wrong", { type: "warning" });
       });
   };
 
@@ -78,9 +86,9 @@ class SimilarProducts extends Component {
           <span className="th-similar-product-title">Similar Products</span>
         </div>
         <div className="th-similar-prod-box">
-          <Slider {...settings} className="px-0">
-            {this.state.products &&
-              this.state.products.map((item, index) => {
+          {this.state.products.length > 0 && (
+            <Slider {...settings} className="px-0">
+              {this.state.products.map((item, index) => {
                 return (
                   <Card className="th-brands-card border-0" key={index}>
                     <Link to={`/products/${item._id}`}>
@@ -106,11 +114,22 @@ class SimilarProducts extends Component {
                   </Card>
                 );
               })}
-          </Slider>
+            </Slider>
+          )}
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(SimilarProducts);
+SimilarProducts.propTypes = {
+  city: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  city: state.location.city,
+});
+
+export default withRouter(connect(mapStateToProps)(SimilarProducts));
+
+// export default withRouter(SimilarProducts);

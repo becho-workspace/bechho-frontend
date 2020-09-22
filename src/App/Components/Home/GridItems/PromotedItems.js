@@ -52,7 +52,7 @@ class PromotedItems extends Component {
       })
       .catch((err) => {
         // console.log(err);
-        toast(err.response.data.error, { type: "warning" });
+        toast("Something wrong occured", { type: "warning" });
       });
   };
 
@@ -64,7 +64,6 @@ class PromotedItems extends Component {
     } else {
       start = end = 6;
     }
-    console.log(this.state.data);
     return (
       <div>
         {/* displays only for > 768px */}

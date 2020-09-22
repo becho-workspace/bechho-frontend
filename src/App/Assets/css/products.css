@@ -122,7 +122,7 @@
 }
 
 .th-prod-description-box {
-  max-height: 360px;
+  max-height: 348px;
   overflow-y: scroll;
   -ms-overflow-style: none;
 }

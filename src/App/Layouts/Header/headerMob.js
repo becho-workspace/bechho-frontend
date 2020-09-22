@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Logo from "../../Assets/Images/Header/Logo.png";
+import { Link } from "react-router-dom";
 import { Menu, MapPin } from "react-feather";
 import SideDrawer from "../Sidedrawer/Sidedrawer";
 import BackDrop from "../Sidedrawer/Backdrop";
@@ -13,7 +14,6 @@ import { setCurrentCityByUser } from "../../../redux/actions/locationActions";
 import PropTypes from "prop-types";
 import { API } from "../../../backend";
 import axios from "axios";
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
@@ -50,12 +50,9 @@ class HeaderMobile extends Component {
             user_name:
               res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
           });
-          // console.log(
-          //   res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)
-          // );
         })
         .catch((err) => {
-          toast(err.response.data.error, { type: "warning" });
+          toast(err.response.data.err, { type: "warning" });
         });
     }
   };
@@ -99,7 +96,6 @@ class HeaderMobile extends Component {
     if (this.state.sideDrawerOpen) {
       backdrop = <BackDrop click={this.backdropClickhandler} />;
     }
-    // console.log(this.props.city, this.props.user._id);
     return (
       <div>
         <div className="pr-3 pl-3 pt-2 pb-2 shadow-sm th-mob-header">
@@ -109,7 +105,9 @@ class HeaderMobile extends Component {
               className="mr-4"
               onClick={this.drawerToggleClickHandler}
             />
-            <img src={Logo} alt="logo" style={{ width: "100px" }} />
+            <Link to="/">
+              <img src={Logo} alt="logo" style={{ width: "100px" }} />
+            </Link>
             <div className="d-flex align-items-center">
               <span className="mr-2" style={{ color: "#332c7a" }}>
                 {this.props.city}

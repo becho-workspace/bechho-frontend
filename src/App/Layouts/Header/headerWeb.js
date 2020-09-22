@@ -97,7 +97,9 @@ class Header extends Component {
         <Navbar className="shadow">
           <Navbar.Collapse className="mr-lg-4 ml-lg-5">
             <Nav.Item className="ml-lg-4 mr-lg-4">
-              <img src={Logo} alt="Logo" style={{ width: "180px" }} />
+              <Link to="/">
+                <img src={Logo} alt="Logo" style={{ width: "180px" }} />{" "}
+              </Link>
             </Nav.Item>
             <Link to="/" style={{ color: "#332a7c" }}>
               <Nav.Item className="mr-lg-4">Buy</Nav.Item>

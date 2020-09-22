@@ -37,7 +37,7 @@ class MyItems extends Component {
       })
       .catch((err) => {
         this.setState({ loading: false });
-        toast(err.response.data.error, { type: "warning" });
+        toast("Something went wrong, Product not found!", { type: "warning" });
       });
   };
 

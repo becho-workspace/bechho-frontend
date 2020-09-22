@@ -115,10 +115,10 @@ class SideDrawer extends Component {
             <Link to="/sell" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Sell a product</p>
             </Link>
-            <Link to="my-bids" onClick={this.props.clicked}>
+            <Link to="/my-bids" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">My Bids</p>
             </Link>
-            <Link to="my-items" onClick={this.props.clicked}>
+            <Link to="/my-items" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">My Items</p>
             </Link>
             {/* show only if user is authenticated */}

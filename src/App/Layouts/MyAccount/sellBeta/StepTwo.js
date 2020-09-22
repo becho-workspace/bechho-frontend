@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Loader from "../../../Loader/spinner";
 import Form from "react-bootstrap/Form";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -95,14 +96,14 @@ class StepTwo extends Component {
           body: JSON.stringify(formData),
         })
         .then((response) => {
-          if (response.status === 201) {
+          if (response.status === 200) {
             toast("Successfully Submitted", { type: "success" });
           }
           this.setState({ loading: false });
         })
         .catch((err) => {
           this.setState({ loading: false });
-          toast(err.response.data.error, { type: "warning" });
+          toast("Please include all fields", { type: "warning" });
         });
     }
   };
@@ -136,7 +137,6 @@ class StepTwo extends Component {
                         class="form-check-input "
                         type="radio"
                         name="inline-radio-1"
-                        required
                         id="ans1"
                         value="on"
                         onClick={this.toggleChange}
@@ -148,7 +148,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-1"
-                        required
                         id="ans1"
                         value="off"
                         onClick={this.toggleChange}
@@ -170,7 +169,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-2"
-                        required
                         id="ans2"
                         value="Flawless"
                         onClick={this.toggleChange}
@@ -184,7 +182,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-2"
-                        required
                         id="ans2"
                         value="Moinor scratches"
                         onClick={this.toggleChange}
@@ -198,7 +195,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-2"
-                        required
                         id="ans2"
                         value="Shaded / white dots"
                         onClick={this.toggleChange}
@@ -212,7 +208,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-2"
-                        required
                         id="ans2"
                         value="Broken dead or does not work properly"
                         onClick={this.toggleChange}
@@ -234,7 +229,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-3"
-                        required
                         id="ans3"
                         value="	Flawless"
                         onClick={this.toggleChange}
@@ -248,7 +242,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-3"
-                        required
                         id="ans3"
                         value="Scratched"
                         onClick={this.toggleChange}
@@ -262,7 +255,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-3"
-                        required
                         id="ans3"
                         value="Cracked"
                         onClick={this.toggleChange}
@@ -276,7 +268,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-3"
-                        required
                         id="ans3"
                         value="Broken"
                         onClick={this.toggleChange}
@@ -298,7 +289,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-4"
-                        required
                         id="ans4"
                         value="Flawless"
                         onClick={this.toggleChange}
@@ -312,7 +302,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-4"
-                        required
                         id="ans4"
                         value="Scratched"
                         onClick={this.toggleChange}
@@ -324,7 +313,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-4"
-                        required
                         id="ans4"
                         value="Blur"
                         onClick={this.toggleChange}
@@ -336,7 +324,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-4"
-                        required
                         id="ans4"
                         value="Cracked"
                         onClick={this.toggleChange}
@@ -350,7 +337,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-4"
-                        required
                         id="ans4"
                         value="Broken"
                         onClick={this.toggleChange}
@@ -372,7 +358,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-5"
-                        required
                         id="ans5"
                         value="0-3 months"
                         onClick={this.toggleChange}
@@ -386,7 +371,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-5"
-                        required
                         id="ans5"
                         value="3-6 months"
                         onClick={this.toggleChange}
@@ -400,7 +384,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-5"
-                        required
                         id="ans5"
                         value="6-9 months"
                         onClick={this.toggleChange}
@@ -414,7 +397,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-5"
-                        required
                         id="ans5"
                         value="9-12 months or more"
                         onClick={this.toggleChange}
@@ -436,7 +418,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-6"
-                        required
                         id="ans6"
                         value="Yes"
                         onClick={this.toggleChange}
@@ -448,7 +429,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-6"
-                        required
                         id="ans6"
                         value="No"
                         onClick={this.toggleChange}
@@ -470,7 +450,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-7"
-                        required
                         id="ans7"
                         value="Yes"
                         onClick={this.toggleChange}
@@ -482,7 +461,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-7"
-                        required
                         id="ans7"
                         value="No"
                         onClick={this.toggleChange}
@@ -504,7 +482,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-8"
-                        required
                         id="ans8"
                         value=" Earphones"
                         onClick={this.toggleChange}
@@ -518,7 +495,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-8"
-                        required
                         id="ans8"
                         value="Box with same imei"
                         onClick={this.toggleChange}
@@ -532,7 +508,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-8"
-                        required
                         id="ans8"
                         value="Original charger"
                         onClick={this.toggleChange}
@@ -554,7 +529,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-9"
-                        required
                         id="ans9"
                         value="0 to 3 month"
                         onClick={this.toggleChange}
@@ -568,7 +542,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-9"
-                        required
                         id="ans9"
                         value="3 to 10 month"
                         onClick={this.toggleChange}
@@ -582,7 +555,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-9"
-                        required
                         id="ans9"
                         value="more than 10 month"
                         onClick={this.toggleChange}
@@ -596,7 +568,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-9"
-                        required
                         id="ans9"
                         value="Not available"
                         onClick={this.toggleChange}
@@ -618,7 +589,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-10"
-                        required
                         id="ans10"
                         value="Discolored"
                         onClick={this.toggleChange}
@@ -632,7 +602,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-10"
-                        required
                         id="ans10"
                         value="Dented"
                         onClick={this.toggleChange}
@@ -646,7 +615,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-10"
-                        required
                         id="ans10"
                         value="Broken"
                         onClick={this.toggleChange}
@@ -660,7 +628,6 @@ class StepTwo extends Component {
                         class="form-check-input"
                         type="radio"
                         name="inline-radio-10"
-                        required
                         id="ans10"
                         value="Okay"
                         onClick={this.toggleChange}
@@ -723,7 +690,6 @@ class StepTwo extends Component {
                   <span className="th-sell-from-img-upload-circle">+</span>
                   <input
                     type="file"
-                    // name="image"
                     onChange={this.onFileChange}
                     required
                     style={{ width: "60px" }}
@@ -775,4 +741,4 @@ const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-export default connect(mapStateToProps)(StepTwo);
+export default withRouter(connect(mapStateToProps)(StepTwo));

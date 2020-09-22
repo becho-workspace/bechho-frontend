@@ -37,7 +37,7 @@ class MyBids extends Component {
       })
       .catch((err) => {
         this.setState({ loading: false });
-        toast(err.response.data.error, { type: "warning" });
+        toast("something went wrong", { type: "warning" });
       });
   };
 
