@@ -37,6 +37,7 @@ class MyItemsCard extends Component {
                     status={item.status}
                     prodId={this.props.prodId}
                     bidderId={item.userBidding}
+                    bidder={item.name}
                   />
                 );
               })}

@@ -17,6 +17,7 @@ class BidCard extends Component {
       bid_offered: 0,
       sell_price: 0,
       s_charge: 0,
+      bid_status: "Pending",
     };
     this.handleBids = this.handleBids.bind(this);
   }
@@ -65,7 +66,36 @@ class BidCard extends Component {
       this.props.bidderId
     );
 
-    // this one is for bidding a product
+    axios
+      .patch(
+        `${API}/product/changestatus/${this.props.prodId}/${this.props.bidderId}`,
+        {
+          status: status,
+        }
+      )
+      .then((res) => {
+        console.log(res.data.status);
+        this.setState({
+          bid_status: res.data.status,
+        });
+        toast("Successfully Updated", { type: "success" });
+      })
+      .catch((err) => {
+        toast(err.response.data.error, { type: "warning" });
+      });
+
+    this.setState({
+      show_bids_modal: false,
+    });
+  };
+
+  handleBidReject = (status) => {
+    console.log(
+      status,
+      this.props.price,
+      this.props.prodId,
+      this.props.bidderId
+    );
 
     axios
       .patch(
@@ -75,14 +105,14 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        if (res.status === 200) {
-          toast("Successfully Updated", { type: "success" });
-          console.log("successs");
-        }
+        console.log(res.data.status);
+        this.setState({
+          bid_status: res.data.status,
+        });
+        toast("Successfully Updated", { type: "success" });
       })
       .catch((err) => {
         toast(err.response.data.error, { type: "warning" });
-        console.log(err.response.data.error);
       });
 
     this.setState({
@@ -91,46 +121,60 @@ class BidCard extends Component {
   };
 
   render() {
+    console.log(this.state.bid_status);
+    let bidStatus;
+    if (
+      this.state.bid_status === "Accepted" ||
+      this.state.bid_status === "Rejected"
+    ) {
+      bidStatus = 0;
+    } else {
+      bidStatus = 1;
+    }
+
     return (
       <div>
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="d-lg-flex align-items-lg-center">
-            <p className="th-myitems-offered-price mr-md-2 ml-md-2 mb-0">
-              ₹ {this.props.price}
-            </p>
-            <p className="th-myitems-bidder mr-md-2 ml-md-2 mb-0">
-              {this.props.bidder}
-            </p>
-            <p
-              className="th-myitems-bid-details ml-md-2 mb-0"
-              onClick={() => this.handleBids(this.props.price)}
-              style={{ cursor: "pointer" }}
+        {bidStatus ? (
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <div className="d-lg-flex align-items-lg-center">
+              <p className="th-myitems-offered-price mr-md-2 ml-md-2 mb-0">
+                ₹ {this.props.price}
+              </p>
+              <p className="th-myitems-bidder mr-md-2 ml-md-2 mb-0">
+                {this.props.bidder}
+              </p>
+              <p
+                className="th-myitems-bid-details ml-md-2 mb-0"
+                onClick={() => this.handleBids(this.props.price)}
+                style={{ cursor: "pointer" }}
+              >
+                View details
+              </p>
+            </div>
+            <div
+              className="d-flex"
+              style={{
+                flexDirection: this.state.width < 780 ? "column" : "null",
+              }}
             >
-              View details
-            </p>
+              <button
+                //   type="submit"
+                className="mr-lg-4 th-myitems-bid-approve"
+                onClick={() => this.handleBidAccept("Accepted")}
+              >
+                Approve
+              </button>
+              <button
+                //   type="submit"
+                className="th-myitems-bid-decline"
+                onClick={() => this.handleBidReject("Rejected")}
+              >
+                Decline
+              </button>
+            </div>
           </div>
-          <div
-            className="d-flex"
-            style={{
-              flexDirection: this.state.width < 780 ? "column" : "null",
-            }}
-          >
-            <button
-              //   type="submit"
-              className="mr-lg-4 th-myitems-bid-approve"
-              onClick={() => this.handleBidAccept("Accepted")}
-            >
-              Approve
-            </button>
-            <button
-              //   type="submit"
-              className="th-myitems-bid-decline"
-              onClick={() => this.handleBidAccept("Rejected")}
-            >
-              Decline
-            </button>
-          </div>
-        </div>
+        ) : null}
+
         <Modal
           size="lg"
           show={this.state.show_bids_modal}
@@ -176,16 +220,14 @@ class BidCard extends Component {
                 }}
               >
                 <button
-                  //   type="submit"
                   className="mr-lg-4 th-myitems-bid-approve"
                   onClick={() => this.handleBidAccept("Accepted")}
                 >
                   Approve
                 </button>
                 <button
-                  //   type="submit"
                   className="th-myitems-bid-decline"
-                  onClick={() => this.handleBidAccept("Rejected")}
+                  onClick={() => this.handleBidReject("Rejected")}
                 >
                   Decline
                 </button>

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
-import ProductCard from "../../Home/Cards/productsCard";
+import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { API } from "../../../../backend";
 
@@ -30,7 +31,7 @@ const settings = {
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         dots: false,
@@ -76,15 +77,32 @@ class SimilarProducts extends Component {
           <Slider {...settings} className="px-0">
             {this.state.products.map((item, index) => {
               return (
-                <ProductCard
-                  src={item.photo.path}
-                  title={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                  description={item.description}
-                  location={
-                    item.city.charAt(0).toUpperCase() + item.city.slice(1)
-                  }
-                  price={item.price}
-                />
+                <Card className="th-brands-card border-0" key={index}>
+                  <Link to={`/products/${item._id}`}>
+                    {/* <Card.Img
+                      variant="top"
+                      
+                      className="th-prods-card-image"
+                    /> */}
+                    <div className="d-flex justify-content-center th-prods-card-image">
+                      <img src={item.photo.path} alt="" />
+                    </div>
+                  </Link>
+                  <div className="pt-2 th-card-box">
+                    <Card.Text className="mb-md-1 th-prods-title">
+                      {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                    </Card.Text>
+                    <Card.Text className="mb-md-1 th-prods-description">
+                      {item.description}
+                    </Card.Text>
+                    <div className="d-flex justify-content-between">
+                      <span className="th-prods-location">
+                        {item.city.charAt(0).toUpperCase() + item.city.slice(1)}
+                      </span>
+                      <span className="th-prods-price">₹ {item.price}</span>
+                    </div>
+                  </div>
+                </Card>
               );
             })}
           </Slider>
@@ -94,4 +112,4 @@ class SimilarProducts extends Component {
   }
 }
 
-export default SimilarProducts;
+export default withRouter(SimilarProducts);

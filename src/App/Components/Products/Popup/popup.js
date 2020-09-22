@@ -39,18 +39,22 @@ class Popup extends Component {
     e.preventDefault();
     console.log(this.state.price);
     console.log(this.state.checked);
+    let width = window.innerWidth;
     axios
       .patch(`${API}/product/bid/${this.props.prodId}/${this.props.user._id}`, {
-        price: this.state.price,
-        status: "pending",
+        offeredprice: this.state.price,
+        askedprice: this.props.askedPrice,
+        status: "Pending",
       })
       .then((res) => {
         if (res.status === 200) {
           toast("Successfully Sent Bid", { type: "success" });
         }
+        this.props.closed();
       })
       .catch((err) => {
         toast(err.response.data.error, { type: "warning" });
+        this.props.closed();
       });
   };
 
@@ -91,14 +95,15 @@ class Popup extends Component {
                 max="10"
                 value="10"
                 class="th-prod-range-slider"
+                required
               />
               <div className="d-flex justify-content-between mt-3 mb-md-5">
                 <div>
-                  <p className="m-0 th-prod-min-price">₹ 599</p>
+                  <p className="m-0 th-prod-min-price">₹ 0</p>
                   <p className="ml-3 th-prod-min-price-tag">MIN</p>
                 </div>
                 <div>
-                  <p className="m-0 th-prod-max-price">₹ 5999</p>
+                  <p className="m-0 th-prod-max-price">₹ 35000</p>
                   <p className="ml-3 th-prod-max-price-tag">MAX</p>
                 </div>
               </div>

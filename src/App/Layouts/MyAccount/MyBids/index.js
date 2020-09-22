@@ -9,53 +9,6 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
-const data = [
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool T-Shirt-Best Qaulity",
-    askPrice: "₹ 2999",
-    offerPrice: "₹ 1599",
-    status: false,
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool T-Shirt-Best Qaulity",
-    askPrice: "₹ 2999",
-    offerPrice: "₹ 1599",
-    status: false,
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool T-Shirt-Best Qaulity",
-    askPrice: "₹ 2999",
-    offerPrice: "₹ 1599",
-    status: true,
-  },
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool T-Shirt-Best Qaulity",
-    askPrice: "₹ 2999",
-    offerPrice: "₹ 1599",
-    status: false,
-  },
-
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool T-Shirt-Best Qaulity",
-    askPrice: "₹ 2999",
-    offerPrice: "₹ 1599",
-    status: true,
-  },
-
-  {
-    src: "https://circleofcricket.com/post_image/post_image_f2b3264.jpg",
-    title: "Super Cool T-Shirt-Best Qaulity",
-    askPrice: "₹ 2999",
-    offerPrice: "₹ 1599",
-    status: false,
-  },
-];
-
 class MyBids extends Component {
   constructor(props) {
     super(props);
@@ -76,9 +29,9 @@ class MyBids extends Component {
     axios
       .get(`${API}/product/getbids/${this.props.user._id}`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.bid);
         this.setState({
-          // myBids: res.data.products,
+          myBids: res.data.bid,
           loading: false,
         });
       })
@@ -98,14 +51,15 @@ class MyBids extends Component {
             <p className="th-mybids-header">Used Products Bids</p>
             <div className="">
               <div className=" d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
-                {data.map((item, index) => {
+                {this.state.myBids.map((item, index) => {
                   return (
                     <MyBidsCard
-                      src={item.src}
+                      key={index}
                       title={item.title}
-                      askPrice={item.askPrice}
-                      offerPrice={item.offerPrice}
+                      askPrice={item.askedprice}
+                      offerPrice={item.bidOffer}
                       status={item.status}
+                      prodId={item.productId}
                     />
                   );
                 })}

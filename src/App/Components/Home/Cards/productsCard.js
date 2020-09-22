@@ -16,7 +16,7 @@ class ProductsCard extends Component {
   };
 
   render() {
-    // log(this.props.prod_id)
+    log(this.props.prod_id);
     return (
       <div>
         <Card className="th-brands-card border-0" key={this.props.key}>

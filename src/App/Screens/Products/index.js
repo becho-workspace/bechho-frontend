@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import ProductTop from "../../Components/Products/ProductTop/ProductTop";
 import Description from "../../Components/Products/Description/Description";
 import SimilarProduct from "../../Components/Products/SimilarProduts/SimilarProducts";

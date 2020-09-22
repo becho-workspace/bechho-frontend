@@ -60,11 +60,12 @@ class ProductTop extends Component {
                   </div>
                   {/* for mobile screen */}
                   {this.state.width < 780 ? (
-                    <Link to={"/products-offer"}>
-                      <div className="th-prod-offer text-center">
-                        Make an offer
-                      </div>
-                    </Link>
+                    <div
+                      className="th-prod-offer text-center"
+                      onClick={this.handleShowModal}
+                    >
+                      Make an offer
+                    </div>
                   ) : null}
                   {/*  */}
                 </div>
@@ -95,6 +96,7 @@ class ProductTop extends Component {
               show={this.state.show}
               closed={this.handleCloseModal}
               prodId={this.props.prodId}
+              askedPrice={this.props.price}
             />
           </Modal.Body>
         </Modal>

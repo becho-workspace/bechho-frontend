@@ -27,9 +27,8 @@ class Footer extends Component {
                   </Link>
 
                   <p className="mt-lg-2 th-beccho-about">
-                    Lorem ipsum dolor sit amet, consecteturstas nulla sapien
-                    laoreet id ac quam. Leo sapien eu quisque at feugiat platea
-                    convallis. Duirna quam.
+                    Bechho is India's first ecommerce and recommerce O2O
+                    platform founded by students.
                   </p>
                 </Col>
                 <Col
