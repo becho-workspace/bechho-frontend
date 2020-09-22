@@ -74,8 +74,8 @@ class SimilarProducts extends Component {
         });
       })
       .catch((err) => {
-        // console.log(err);
-        toast("something went wrong", { type: "warning" });
+        // console.log(err.response.data.error);
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 

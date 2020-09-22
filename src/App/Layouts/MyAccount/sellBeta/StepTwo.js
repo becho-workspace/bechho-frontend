@@ -102,8 +102,9 @@ class StepTwo extends Component {
           this.setState({ loading: false });
         })
         .catch((err) => {
+          // console.log(err.response.data);
           this.setState({ loading: false });
-          toast("Please include all fields", { type: "warning" });
+          toast(err.response.data.error, { type: "warning" });
         });
     }
   };

@@ -52,8 +52,8 @@ class Popup extends Component {
         this.props.closed();
       })
       .catch((err) => {
-        console.log(err);
-        toast("Can't send Bid, something went wrong", { type: "warning" });
+        // console.log(err.response.data);
+        toast(err.response.data.error, { type: "warning" });
         this.props.closed();
       });
   };

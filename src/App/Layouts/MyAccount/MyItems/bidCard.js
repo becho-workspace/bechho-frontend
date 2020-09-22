@@ -74,7 +74,7 @@ class BidCard extends Component {
         toast("Successfully Updated", { type: "success" });
       })
       .catch((err) => {
-        toast("can not update status", { type: "warning" });
+        toast(err.response.data, { type: "warning" });
       });
 
     this.setState({

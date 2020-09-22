@@ -74,7 +74,7 @@ class Header extends Component {
           this.props.setCurrentCityFromUserAuth(res.data.city.toUpperCase());
         })
         .catch((err) => {
-          // console.log(err);
+          // console.log(err.response.data);
           toast(err.response.data.error, { type: "warning" });
         });
     }

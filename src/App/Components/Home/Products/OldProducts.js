@@ -73,8 +73,7 @@ class OldProducts extends Component {
         });
       })
       .catch((err) => {
-        // console.log(err);
-        toast("Product can not be fetched", { type: "warning" });
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 

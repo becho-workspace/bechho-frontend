@@ -73,7 +73,7 @@ class NewProducts extends Component {
         });
       })
       .catch((err) => {
-        toast("Product can not be fetched ", { type: "warning" });
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 

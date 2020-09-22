@@ -30,6 +30,7 @@ class MyBidsCard extends Component {
         });
       })
       .catch((err) => {
+        console.log(err.response.data);
         toast("something went wrong", { type: "warning" });
         // console.log(err);
       });

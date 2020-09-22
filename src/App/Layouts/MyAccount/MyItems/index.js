@@ -36,8 +36,9 @@ class MyItems extends Component {
         });
       })
       .catch((err) => {
+        console.log(err.response.data.error);
         this.setState({ loading: false });
-        toast("Something went wrong, Product not found!", { type: "warning" });
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 

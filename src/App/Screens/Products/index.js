@@ -70,8 +70,10 @@ class ProductHome extends Component {
         });
       })
       .catch((err) => {
-        // console.log(err);
-        toast("Something went wrong,product not found", { type: "warning" });
+        // console.log(err.response.data);
+        toast("UnauthorizedError: No authorization token was found", {
+          type: "warning",
+        });
       });
   };
 
