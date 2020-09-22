@@ -95,35 +95,37 @@ class OldProducts extends Component {
           </Link>
         </div>
         <Slider {...settings} className="px-0 th-slider-margin">
-          {this.state.data.slice(start, end).map((item, index) => {
-            return (
-              <div key={index}>
-                <Card className="th-brands-card border-0">
-                  <Link to={`/products/${item._id}`}>
-                    <Card.Img
-                      variant="top"
-                      src={item.photo.path}
-                      className="th-prods-card-image"
-                    />
-                  </Link>
-                  <div className="pt-2 th-card-box">
-                    <Card.Text className="mb-md-1 th-prods-title">
-                      {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                    </Card.Text>
-                    <Card.Text className="mb-md-1 th-prods-description">
-                      {item.description}
-                    </Card.Text>
-                    <div className="d-flex justify-content-between">
-                      <span className="th-prods-location">
-                        {item.city.charAt(0).toUpperCase() + item.city.slice(1)}
-                      </span>
-                      <span className="th-prods-price">₹ {item.price} </span>
+          {this.state.data.length > 0 &&
+            this.state.data.slice(start, end).map((item, index) => {
+              return (
+                <div key={index}>
+                  <Card className="th-brands-card border-0">
+                    <Link to={`/products/${item._id}`}>
+                      <Card.Img
+                        variant="top"
+                        src={item.photo.path}
+                        className="th-prods-card-image"
+                      />
+                    </Link>
+                    <div className="pt-2 th-card-box">
+                      <Card.Text className="mb-md-1 th-prods-title">
+                        {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                      </Card.Text>
+                      <Card.Text className="mb-md-1 th-prods-description">
+                        {item.description}
+                      </Card.Text>
+                      <div className="d-flex justify-content-between">
+                        <span className="th-prods-location">
+                          {item.city.charAt(0).toUpperCase() +
+                            item.city.slice(1)}
+                        </span>
+                        <span className="th-prods-price">₹ {item.price} </span>
+                      </div>
                     </div>
-                  </div>
-                </Card>
-              </div>
-            );
-          })}
+                  </Card>
+                </div>
+              );
+            })}
         </Slider>
       </div>
     );

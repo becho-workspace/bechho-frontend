@@ -43,22 +43,23 @@ class CategoryTop extends Component {
         <div className="mt-lg-3">
           <div class="row">
             <div class="col-12 d-flex flex-wrap justify-content-between">
-              {this.state.data.map((item, index) => {
-                return (
-                  <CategoryCard
-                    src={item.photo.path}
-                    title={
-                      item.name.charAt(0).toUpperCase() + item.name.slice(1)
-                    }
-                    description={item.description}
-                    location={
-                      item.city.charAt(0).toUpperCase() + item.city.slice(1)
-                    }
-                    price={item.price}
-                    id={item._id}
-                  />
-                );
-              })}
+              {this.state.data &&
+                this.state.data.map((item, index) => {
+                  return (
+                    <CategoryCard
+                      src={item.photo.path}
+                      title={
+                        item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                      }
+                      description={item.description}
+                      location={
+                        item.city.charAt(0).toUpperCase() + item.city.slice(1)
+                      }
+                      price={item.price}
+                      id={item._id}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

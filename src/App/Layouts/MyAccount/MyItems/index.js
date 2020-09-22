@@ -50,19 +50,20 @@ class MyItems extends Component {
           <div className="container mt-4 th-my-items-mob">
             <p className="th-myitems-header">My Items</p>
             <div className="d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
-              {this.state.myItems.map((item, index) => {
-                return (
-                  <MyItemsCard
-                    src={item.photo.path}
-                    name={
-                      item.name.charAt(0).toUpperCase() + item.name.slice(1)
-                    }
-                    askPrice={item.price}
-                    BidList={item.bid}
-                    prodId={item._id}
-                  />
-                );
-              })}
+              {this.state.myItems &&
+                this.state.myItems.map((item, index) => {
+                  return (
+                    <MyItemsCard
+                      src={item.photo.path}
+                      name={
+                        item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                      }
+                      askPrice={item.price}
+                      BidList={item.bid}
+                      prodId={item._id}
+                    />
+                  );
+                })}
             </div>
           </div>
         )}

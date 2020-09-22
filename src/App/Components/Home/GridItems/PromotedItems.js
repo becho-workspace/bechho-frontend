@@ -64,6 +64,7 @@ class PromotedItems extends Component {
     } else {
       start = end = 6;
     }
+    console.log(this.state.data);
     return (
       <div>
         {/* displays only for > 768px */}
@@ -74,21 +75,22 @@ class PromotedItems extends Component {
         )}
         <div className="mb-4">
           <Slider {...Settings} className="th-promote-slider-container">
-            {this.state.data.slice(start, end).map((item, index) => {
-              return (
-                <Card className="border-0" key={index}>
-                  <Card.Img
-                    variant="top"
-                    src={item.photo.path}
-                    style={{
-                      height: this.state.width < 768 ? "16rem" : "22.75rem",
-                    }}
-                    className="rounded"
-                  />
-                  {/* <p>{item.name}</p> */}
-                </Card>
-              );
-            })}
+            {this.state.data.length > 0 &&
+              this.state.data.slice(start, end).map((item, index) => {
+                return (
+                  <Card className="border-0" key={index}>
+                    <Card.Img
+                      variant="top"
+                      src={item.photo.path}
+                      style={{
+                        height: this.state.width < 768 ? "16rem" : "22.75rem",
+                      }}
+                      className="rounded"
+                    />
+                    {/* <p>{item.name}</p> */}
+                  </Card>
+                );
+              })}
           </Slider>
         </div>
       </div>

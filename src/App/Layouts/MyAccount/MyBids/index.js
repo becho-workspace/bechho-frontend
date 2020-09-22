@@ -51,18 +51,19 @@ class MyBids extends Component {
             <p className="th-mybids-header">Used Products Bids</p>
             <div className="">
               <div className=" d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
-                {this.state.myBids.map((item, index) => {
-                  return (
-                    <MyBidsCard
-                      key={index}
-                      title={item.title}
-                      askPrice={item.askedprice}
-                      offerPrice={item.bidOffer}
-                      status={item.status}
-                      prodId={item.productId}
-                    />
-                  );
-                })}
+                {this.state.myBids &&
+                  this.state.myBids.map((item, index) => {
+                    return (
+                      <MyBidsCard
+                        key={index}
+                        title={item.title}
+                        askPrice={item.askedprice}
+                        offerPrice={item.bidOffer}
+                        status={item.status}
+                        prodId={item.productId}
+                      />
+                    );
+                  })}
               </div>
             </div>
           </div>

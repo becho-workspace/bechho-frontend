@@ -30,17 +30,18 @@ class MyItemsCard extends Component {
             </div>
             <div className="th-myitems-bids-offerd mb-2">Bids Offered</div>
             <div className="th-myitems-bidlist">
-              {this.props.BidList.map((item, index) => {
-                return (
-                  <BidCard
-                    price={item.price}
-                    status={item.status}
-                    prodId={this.props.prodId}
-                    bidderId={item.userBidding}
-                    bidder={item.name}
-                  />
-                );
-              })}
+              {this.props.BidList &&
+                this.props.BidList.map((item, index) => {
+                  return (
+                    <BidCard
+                      price={item.price}
+                      status={item.status}
+                      prodId={this.props.prodId}
+                      bidderId={item.userBidding}
+                      bidder={item.name}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>
