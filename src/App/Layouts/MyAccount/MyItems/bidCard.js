@@ -59,12 +59,12 @@ class BidCard extends Component {
   };
 
   handleBidAccept = (status) => {
-    console.log(
-      status,
-      this.props.price,
-      this.props.prodId,
-      this.props.bidderId
-    );
+    // console.log(
+    //   status,
+    //   this.props.price,
+    //   this.props.prodId,
+    //   this.props.bidderId
+    // );
 
     axios
       .patch(
@@ -74,7 +74,7 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        console.log(res.data.status);
+        // console.log(res.data.status);
         this.setState({
           bid_status: res.data.status,
         });
@@ -90,12 +90,12 @@ class BidCard extends Component {
   };
 
   handleBidReject = (status) => {
-    console.log(
-      status,
-      this.props.price,
-      this.props.prodId,
-      this.props.bidderId
-    );
+    // console.log(
+    //   status,
+    //   this.props.price,
+    //   this.props.prodId,
+    //   this.props.bidderId
+    // );
 
     axios
       .patch(
@@ -105,7 +105,7 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        console.log(res.data.status);
+        // console.log(res.data.status);
         this.setState({
           bid_status: res.data.status,
         });
@@ -121,7 +121,7 @@ class BidCard extends Component {
   };
 
   render() {
-    console.log(this.state.bid_status);
+    // console.log(this.state.bid_status);
     let bidStatus;
     if (
       this.state.bid_status === "Accepted" ||
@@ -167,7 +167,7 @@ class BidCard extends Component {
               <button
                 //   type="submit"
                 className="th-myitems-bid-decline"
-                onClick={() => this.handleBidReject("Rejected")}
+                onClick={() => this.handleBidRe("Rejected")}
               >
                 Decline
               </button>

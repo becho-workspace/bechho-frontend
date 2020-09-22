@@ -26,13 +26,13 @@ class SideDrawer extends Component {
   };
 
   render() {
-    console.log(this.props.auth.isAuthenticated);
+    // console.log(this.props.auth.isAuthenticated);
     // console.log(this.props.user._id, this.props.user.name);
     let drawerClasses = "th-side_drawer";
     if (this.props.show) {
       drawerClasses = "th-side_drawer open";
     }
-    console.log(this.props.user_name);
+    // console.log(this.props.user_name);
     return (
       <div>
         <nav className={drawerClasses}>

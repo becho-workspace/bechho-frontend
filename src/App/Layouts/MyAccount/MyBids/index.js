@@ -29,7 +29,7 @@ class MyBids extends Component {
     axios
       .get(`${API}/product/getbids/${this.props.user._id}`)
       .then((res) => {
-        console.log(res.data.bid);
+        // console.log(res.data.bid);
         this.setState({
           myBids: res.data.bid,
           loading: false,

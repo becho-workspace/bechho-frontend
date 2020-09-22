@@ -17,6 +17,9 @@ import {
 } from "../../../redux/actions/locationActions";
 import { API } from "../../../backend";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const cities = [
   { city: "DELHI" },
@@ -40,7 +43,7 @@ class Header extends Component {
     });
     // setting city name based on user input in the store whether logged in or not
     this.props.setCurrentCityByUser(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   handleLogout = (e) => {
@@ -67,11 +70,12 @@ class Header extends Component {
           this.setState({
             city: res.data.city,
           });
-          console.log(res.data.city);
+          // console.log(res.data.city);
           this.props.setCurrentCityFromUserAuth(res.data.city.toUpperCase());
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
+          toast(err.response.data.error, { type: "warning" });
         });
     }
   };

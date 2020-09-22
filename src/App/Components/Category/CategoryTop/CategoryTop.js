@@ -3,6 +3,9 @@ import CategoryCard from "../Cards/CategoryCard";
 import axios from "axios";
 import { API } from "../../../../backend";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 class CategoryTop extends Component {
   constructor(props) {
@@ -13,10 +16,6 @@ class CategoryTop extends Component {
     };
   }
 
-  // componentDidUpdate() {
-  //   this.fetch_products();
-  // }
-
   componentDidMount() {
     this.fetch_products();
   }
@@ -25,18 +24,19 @@ class CategoryTop extends Component {
     axios
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           data: res.data,
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        toast(err.data.response.error, { type: "warning" });
       });
   };
 
   render() {
-    console.log(this.props.city);
+    // console.log(this.props.city);
     return (
       <div>
         <div className="th-category-title">Mobile and Laptops</div>

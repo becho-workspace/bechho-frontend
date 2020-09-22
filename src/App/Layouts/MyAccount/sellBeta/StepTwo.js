@@ -112,7 +112,7 @@ class StepTwo extends Component {
       return null;
     }
 
-    console.log(this.props.user._id);
+    // console.log(this.props.user._id);
 
     return (
       <div>

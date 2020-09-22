@@ -5,6 +5,9 @@ import axios from "axios";
 import { API } from "../../../../backend";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 class MyProfile extends Component {
   constructor(props) {
@@ -47,13 +50,14 @@ class MyProfile extends Component {
           });
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
+          toast(err.response.data.error, { type: "warning" });
         });
     }
   };
 
   render() {
-    console.log(this.props.user);
+    // console.log(this.props.user);
     return (
       <div className="mt-5 mb-5 container th-my-profile-mob">
         <div className="d-flex justify-content-center">

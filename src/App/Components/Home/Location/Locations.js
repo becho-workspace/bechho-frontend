@@ -15,12 +15,12 @@ class Locations extends Component {
   };
 
   handleLocation = (city) => {
-    console.log(city);
+    // console.log(city);
     this.props.setCurrentCityByUser(city.toUpperCase());
   };
 
   render() {
-    console.log(this.props.city);
+    // console.log(this.props.city);
     return (
       <div>
         {this.state.width > 768 ? (

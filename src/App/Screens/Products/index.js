@@ -5,6 +5,9 @@ import Description from "../../Components/Products/Description/Description";
 import SimilarProduct from "../../Components/Products/SimilarProduts/SimilarProducts";
 import axios from "axios";
 import { API } from "../../../backend";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 class ProductHome extends Component {
   constructor(props) {
@@ -44,7 +47,7 @@ class ProductHome extends Component {
         params: { ...params },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           product_name:
             res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
@@ -67,12 +70,13 @@ class ProductHome extends Component {
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 
   render() {
-    console.log(this.props.match.params.id);
+    // console.log(this.props.match.params.id);
     return (
       <div className="mt-lg-5 mb-5 th-products-container">
         <ProductTop

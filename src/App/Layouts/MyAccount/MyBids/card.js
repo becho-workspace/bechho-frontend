@@ -24,14 +24,14 @@ class MyBidsCard extends Component {
         params: { ...params },
       })
       .then((res) => {
-        console.log(res.data.photo);
+        // console.log(res.data.photo);
         this.setState({
           prod_image: res.data.photo,
         });
       })
       .catch((err) => {
         toast(err.response.data.error, { type: "warning" });
-        console.log(err);
+        // console.log(err);
       });
   };
 

@@ -89,7 +89,7 @@ class BlogMob extends Component {
             </div>
 
             <div className="th-blogmob-img-card">
-              <Link to="/">
+              <Link to="#">
                 <div className="th-blogs-effect-img-card">
                   <img
                     src={DisruptingSecondHandRetail}

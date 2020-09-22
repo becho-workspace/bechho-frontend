@@ -4,16 +4,20 @@ import Logo from "../../Assets/Images/Header/Logo.png";
 import { Menu, MapPin } from "react-feather";
 import SideDrawer from "../Sidedrawer/Sidedrawer";
 import BackDrop from "../Sidedrawer/Backdrop";
+import Delhi from "../../Assets/Images/Home/Delhi.png";
+import Noida from "../../Assets/Images/Home/Noida.png";
+import Gurgaon from "../../Assets/Images/Home/Gurgaon.png";
+import Bangalore from "../../Assets/Images/Home/Bangalore.png";
 import { connect } from "react-redux";
 import { setCurrentCityByUser } from "../../../redux/actions/locationActions";
 import PropTypes from "prop-types";
 import { API } from "../../../backend";
 import axios from "axios";
 
-import Delhi from "../../Assets/Images/Home/Delhi.png";
-import Noida from "../../Assets/Images/Home/Noida.png";
-import Gurgaon from "../../Assets/Images/Home/Gurgaon.png";
-import Bangalore from "../../Assets/Images/Home/Bangalore.png";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
 // import Pune from "../../Assets/Images/Home/Pune.png";
 // import Kolkata from "../../Assets/Images/Home/Kolkata.png";
 
@@ -46,12 +50,12 @@ class HeaderMobile extends Component {
             user_name:
               res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
           });
-          console.log(
-            res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)
-          );
+          // console.log(
+          //   res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)
+          // );
         })
         .catch((err) => {
-          console.log(err);
+          toast(err.response.data.error, { type: "warning" });
         });
     }
   };
@@ -83,7 +87,7 @@ class HeaderMobile extends Component {
   };
 
   handleLocation = (city) => {
-    console.log(city);
+    // console.log(city);
     this.props.setCurrentCityByUser(city.toUpperCase());
     this.setState({
       show_modal: !this.state.show_modal,
@@ -95,7 +99,7 @@ class HeaderMobile extends Component {
     if (this.state.sideDrawerOpen) {
       backdrop = <BackDrop click={this.backdropClickhandler} />;
     }
-    console.log(this.props.city, this.props.user._id);
+    // console.log(this.props.city, this.props.user._id);
     return (
       <div>
         <div className="pr-3 pl-3 pt-2 pb-2 shadow-sm th-mob-header">

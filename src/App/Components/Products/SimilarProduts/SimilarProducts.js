@@ -6,6 +6,9 @@ import RightArrow from "../../Slider/RightArrow";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { API } from "../../../../backend";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const settings = {
   slidesToShow: 2.8,
@@ -53,17 +56,18 @@ class SimilarProducts extends Component {
   }
 
   fetchProducts = () => {
-    console.log(this.props.city);
+    // console.log(this.props.city);
     axios
       .get(`${API}/products${this.props.city}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           products: res.data,
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 

@@ -3,6 +3,9 @@ import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { API } from "../../../../backend";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const Settings = {
   dots: true,
@@ -42,13 +45,14 @@ class PromotedItems extends Component {
     axios
       .get(`${API}/products`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           data: res.data,
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        toast(err.response.data.error, { type: "warning" });
       });
   };
 

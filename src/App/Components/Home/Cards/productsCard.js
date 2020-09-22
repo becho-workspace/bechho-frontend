@@ -9,12 +9,6 @@ class ProductsCard extends Component {
     width: window.innerWidth,
   };
 
-  handleProductId = (productid) => {
-    // console.log(productid);
-    // this.props.setCurrentClickedProduct(productid);
-    // this.props.history.push("/products");
-  };
-
   render() {
     log(this.props.prod_id);
     return (
