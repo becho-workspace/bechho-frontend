@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { API } from "../../../../backend";
 
@@ -93,8 +93,8 @@ class OldProducts extends Component {
         <Slider {...settings} className="px-0 th-slider-margin">
           {this.state.data.slice(start, end).map((item, index) => {
             return (
-              <div>
-                <Card className="th-brands-card border-0" key={index}>
+              <div key={index}>
+                <Card className="th-brands-card border-0">
                   <Link to={`/products/${item._id}`}>
                     <Card.Img
                       variant="top"

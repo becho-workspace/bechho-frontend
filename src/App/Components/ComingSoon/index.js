@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ComingSoonImg from "../../Assets/Images/Coming-Soon.png";
-import Modal from "react-bootstrap/Modal";
+// import Modal from "react-bootstrap/Modal";
 class CommingSoon extends Component {
   state = { width: window.innerWidth };
   render() {

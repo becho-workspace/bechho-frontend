@@ -158,14 +158,17 @@ class Header extends Component {
                   <User size={20} />
                 </Nav.Item>
                 {/* dropdown elements */}
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <Link class="dropdown-item" to="/my-profile">
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <Link className="dropdown-item" to="/my-profile">
                     My Address
                   </Link>
-                  <Link class="dropdown-item" to="/my-items">
+                  <Link className="dropdown-item" to="/my-items">
                     My Items
                   </Link>
-                  <Link class="dropdown-item" to="/my-bids">
+                  <Link className="dropdown-item" to="/my-bids">
                     My Bids
                   </Link>
                 </div>

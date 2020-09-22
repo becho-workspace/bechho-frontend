@@ -39,7 +39,6 @@ class Popup extends Component {
     e.preventDefault();
     console.log(this.state.price);
     console.log(this.state.checked);
-    let width = window.innerWidth;
     axios
       .patch(`${API}/product/bid/${this.props.prodId}/${this.props.user._id}`, {
         offeredprice: this.state.price,

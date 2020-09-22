@@ -96,8 +96,8 @@ class NewProducts extends Component {
         <Slider {...settings} className="px-0 th-slider-margin">
           {this.state.data.slice(start, end).map((item, index) => {
             return (
-              <div>
-                <Card className="th-brands-card border-0" key={index}>
+              <div key={index}>
+                <Card className="th-brands-card border-0">
                   <Link to={`/products/${item._id}`}>
                     <Card.Img
                       variant="top"

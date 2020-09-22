@@ -30,7 +30,7 @@ export default function (state = initialState, action) {
           city: "GURUGRAM",
         };
       }
-
+      break;
     case SET_CURRENT_CITY_BY_USER:
       if (action.payload === "DELHI") {
         return {
@@ -53,6 +53,7 @@ export default function (state = initialState, action) {
           city: "GURUGRAM",
         };
       }
+      break;
     default:
       return state;
   }
