@@ -140,6 +140,7 @@ class StepTwo extends Component {
                         name="inline-radio-1"
                         id="ans1"
                         value="on"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label ">On</label>
@@ -151,6 +152,7 @@ class StepTwo extends Component {
                         name="inline-radio-1"
                         id="ans1"
                         value="off"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -172,6 +174,7 @@ class StepTwo extends Component {
                         name="inline-radio-2"
                         id="ans2"
                         value="Flawless"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class=" mb-0 th-sell-form-input-label">
@@ -185,6 +188,7 @@ class StepTwo extends Component {
                         name="inline-radio-2"
                         id="ans2"
                         value="Moinor scratches"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -198,6 +202,7 @@ class StepTwo extends Component {
                         name="inline-radio-2"
                         id="ans2"
                         value="Shaded / white dots"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -211,6 +216,7 @@ class StepTwo extends Component {
                         name="inline-radio-2"
                         id="ans2"
                         value="Broken dead or does not work properly"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -232,6 +238,7 @@ class StepTwo extends Component {
                         name="inline-radio-3"
                         id="ans3"
                         value="	Flawless"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -245,6 +252,7 @@ class StepTwo extends Component {
                         name="inline-radio-3"
                         id="ans3"
                         value="Scratched"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -258,6 +266,7 @@ class StepTwo extends Component {
                         name="inline-radio-3"
                         id="ans3"
                         value="Cracked"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -271,6 +280,7 @@ class StepTwo extends Component {
                         name="inline-radio-3"
                         id="ans3"
                         value="Broken"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -292,6 +302,7 @@ class StepTwo extends Component {
                         name="inline-radio-4"
                         id="ans4"
                         value="Flawless"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -305,6 +316,7 @@ class StepTwo extends Component {
                         name="inline-radio-4"
                         id="ans4"
                         value="Scratched"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -316,6 +328,7 @@ class StepTwo extends Component {
                         name="inline-radio-4"
                         id="ans4"
                         value="Blur"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">Blur</label>
@@ -327,6 +340,7 @@ class StepTwo extends Component {
                         name="inline-radio-4"
                         id="ans4"
                         value="Cracked"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -340,6 +354,7 @@ class StepTwo extends Component {
                         name="inline-radio-4"
                         id="ans4"
                         value="Broken"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -361,6 +376,7 @@ class StepTwo extends Component {
                         name="inline-radio-5"
                         id="ans5"
                         value="0-3 months"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -374,6 +390,7 @@ class StepTwo extends Component {
                         name="inline-radio-5"
                         id="ans5"
                         value="3-6 months"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -387,6 +404,7 @@ class StepTwo extends Component {
                         name="inline-radio-5"
                         id="ans5"
                         value="6-9 months"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -400,6 +418,7 @@ class StepTwo extends Component {
                         name="inline-radio-5"
                         id="ans5"
                         value="9-12 months or more"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -421,6 +440,7 @@ class StepTwo extends Component {
                         name="inline-radio-6"
                         id="ans6"
                         value="Yes"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">Yes</label>
@@ -432,6 +452,7 @@ class StepTwo extends Component {
                         name="inline-radio-6"
                         id="ans6"
                         value="No"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -453,6 +474,7 @@ class StepTwo extends Component {
                         name="inline-radio-7"
                         id="ans7"
                         value="Yes"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">Yes</label>
@@ -464,6 +486,7 @@ class StepTwo extends Component {
                         name="inline-radio-7"
                         id="ans7"
                         value="No"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -485,6 +508,7 @@ class StepTwo extends Component {
                         name="inline-radio-8"
                         id="ans8"
                         value=" Earphones"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -498,6 +522,7 @@ class StepTwo extends Component {
                         name="inline-radio-8"
                         id="ans8"
                         value="Box with same imei"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -511,6 +536,7 @@ class StepTwo extends Component {
                         name="inline-radio-8"
                         id="ans8"
                         value="Original charger"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -532,6 +558,7 @@ class StepTwo extends Component {
                         name="inline-radio-9"
                         id="ans9"
                         value="0 to 3 month"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -545,6 +572,7 @@ class StepTwo extends Component {
                         name="inline-radio-9"
                         id="ans9"
                         value="3 to 10 month"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -558,6 +586,7 @@ class StepTwo extends Component {
                         name="inline-radio-9"
                         id="ans9"
                         value="more than 10 month"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -571,6 +600,7 @@ class StepTwo extends Component {
                         name="inline-radio-9"
                         id="ans9"
                         value="Not available"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
@@ -592,6 +622,7 @@ class StepTwo extends Component {
                         name="inline-radio-10"
                         id="ans10"
                         value="Discolored"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -605,6 +636,7 @@ class StepTwo extends Component {
                         name="inline-radio-10"
                         id="ans10"
                         value="Dented"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -618,6 +650,7 @@ class StepTwo extends Component {
                         name="inline-radio-10"
                         id="ans10"
                         value="Broken"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label">
@@ -631,6 +664,7 @@ class StepTwo extends Component {
                         name="inline-radio-10"
                         id="ans10"
                         value="Okay"
+                        required
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
