@@ -13,6 +13,7 @@ class Signup extends Component {
       name: "",
       contact: "",
       city: "",
+      address: "",
       email: "",
       password: "",
       show_modal: true,
@@ -48,13 +49,14 @@ class Signup extends Component {
       password: this.state.password,
       contact: this.state.contact,
       city: this.state.city,
+      address: this.state.address,
     };
 
     this.props.registerUser(newUser, this.props.history);
   };
 
   render() {
-    const { name, contact, city, email, password } = this.state;
+    const { name, contact, city, email, password, address } = this.state;
 
     return (
       <div>
@@ -119,6 +121,16 @@ class Signup extends Component {
                       value={city}
                       onChange={this.handleChange}
                     />
+                    <input
+                      className="input-item mb-4"
+                      type="text"
+                      maxLength={50}
+                      placeholder="Your Address"
+                      name="address"
+                      value={address}
+                      onChange={this.handleChange}
+                    />
+
                     <input
                       className="input-item mb-4"
                       type="email"

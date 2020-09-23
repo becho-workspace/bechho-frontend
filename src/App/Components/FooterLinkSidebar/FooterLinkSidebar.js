@@ -59,6 +59,10 @@ class FooterLinkSidebar extends Component {
             <NavLink className="th-links-list-item" to="/advertise">
               <p>Advertise with Bechho</p>
             </NavLink>
+
+            <NavLink className="th-links-list-item" to="/team">
+              <p>Team</p>
+            </NavLink>
           </div>
         </div>
       </div>

@@ -58,7 +58,30 @@ class BidCard extends Component {
     });
   };
 
-  handleBidAccept = (status) => {
+  handleBidAccept = (status, price) => {
+    // console.log(price);
+    let sellPrice, sCharge;
+    if (price < 1000) {
+      sCharge = 75;
+      sellPrice = price - sCharge;
+    } else if (price < 2000 && price >= 1000) {
+      sCharge = 100;
+      sellPrice = price - sCharge;
+    } else if (price < 3000 && price >= 2000) {
+      sCharge = 150;
+      sellPrice = price - sCharge;
+    } else if (price < 4000 && price >= 3000) {
+      sCharge = 200;
+      sellPrice = price - sCharge;
+    } else if (price < 5000 && price >= 4000) {
+      sCharge = 250;
+      sellPrice = price - sCharge;
+    } else if (price >= 5000) {
+      sCharge = 300;
+      sellPrice = price - sCharge;
+    }
+
+    // to update status
     axios
       .patch(
         `${API}/product/changestatus/${this.props.prodId}/${this.props.bidderId}`,
@@ -72,16 +95,51 @@ class BidCard extends Component {
           bid_status: res.data.status,
         });
         toast("Successfully Updated", { type: "success" });
+        this.setState({
+          show_bids_modal: false,
+        });
       })
       .catch((err) => {
         toast(err.response.data, { type: "warning" });
+        this.setState({
+          show_bids_modal: false,
+        });
       });
 
-    this.setState({
-      show_bids_modal: false,
-    });
+    // to send data
+    console.log(price, sellPrice, sCharge);
+    axios
+      .post(
+        `${API}/addtrans/${this.props.user._id}/${this.props.bidderId}/${this.props.prodId}`,
+        {
+          bidAmount: price,
+          payToCustomer: sellPrice,
+          commission: sCharge,
+          date: this.createDate(new Date()),
+        }
+      )
+      .then((res) => {
+        toast("Successfully Sent", { type: "success" });
+      })
+      .catch((err) => {
+        toast(err.response.respponseText, { type: "warning" });
+      });
   };
 
+  // creating dynamic dates
+  createDate = (date) => {
+    var year = date.getFullYear();
+
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : "0" + month;
+
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : "0" + day;
+
+    return day + "/" + month + "/" + year;
+  };
+
+  // to handle reject
   handleBidReject = (status) => {
     axios
       .patch(
@@ -144,7 +202,9 @@ class BidCard extends Component {
             >
               <button
                 className="mr-lg-4 th-myitems-bid-approve"
-                onClick={() => this.handleBidAccept("Accepted")}
+                onClick={() =>
+                  this.handleBidAccept("Accepted", this.props.price)
+                }
               >
                 Approve
               </button>
@@ -204,7 +264,9 @@ class BidCard extends Component {
               >
                 <button
                   className="mr-lg-4 th-myitems-bid-approve"
-                  onClick={() => this.handleBidAccept("Accepted")}
+                  onClick={() =>
+                    this.handleBidAccept("Accepted", this.props.price)
+                  }
                 >
                   Approve
                 </button>

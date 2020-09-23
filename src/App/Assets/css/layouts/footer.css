@@ -1,5 +1,8 @@
 .th-footer-container {
   background: #332a7c;
+  /* bottom: 0;
+  position: relative;
+  width: 100%; */
 }
 
 .th-footer-list-title {

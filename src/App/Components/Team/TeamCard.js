@@ -1,36 +1,40 @@
 import React from "react";
-import classes from "./TeamCard.module.css";
-import { Facebook, Instagram, LinkedIn } from "@material-ui/icons";
+import { Instagram, Linkedin, GitHub } from "react-feather";
 
 const TeamCard = (props) => {
   return (
-    <div className={classes.card}>
-      <div className={classes.box}>
-        <ul className={classes.iconList}>
-          <li className={classes.listItem}>
-            <a href={props.socialHandleLink.facebook} target="blank">
-              {" "}
-              <Facebook className={classes.icon} />
+    <div
+      className="d-flex justify-content-center align-items-center"
+      style={{ position: "relative" }}
+    >
+      <div className="th-team-box">
+        <ul className="th-team-icon-list">
+          <li className="th-team-list-item">
+            <a href={props.socialHandleLink.github} target="blank">
+              <GitHub className="th-team-social-icon" />
             </a>
           </li>
-          <li className={classes.listItem}>
+          <li className="th-team-list-item">
             <a href={props.socialHandleLink.linkedin} target="blank">
-              {" "}
-              <LinkedIn className={classes.icon} />
+              <Linkedin className="th-team-social-icon" />
             </a>
           </li>
-          <li className={classes.listItem}>
+          <li className="th-team-list-item">
             <a href={props.socialHandleLink.instagram} target="blank">
-              {" "}
-              <Instagram className={classes.icon} />
+              <Instagram className="th-team-social-icon" />
             </a>
           </li>
         </ul>
 
-        <img alt="" src={props.src} className={classes.image}></img>
-        <div className={classes.content}>
-          <p className={classes.name}>{props.name}</p>
-          <p className={classes.post}>{props.post}</p>
+        <img
+          alt=""
+          src={props.src}
+          className="th-team-member-img"
+          style={{ height: props.height }}
+        ></img>
+        <div className="th-team-member-content">
+          <p className="th-team-member-name mb-1">{props.name}</p>
+          <p className="th-team-member-post ">{props.post}</p>
         </div>
       </div>
     </div>

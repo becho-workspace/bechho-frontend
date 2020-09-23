@@ -51,7 +51,7 @@ class PromotedItems extends Component {
         });
       })
       .catch((err) => {
-        console.log(err.response.statusText);
+        // console.log(err.response.statusText);
         toast("Something went wrong", { type: "warning" });
       });
   };

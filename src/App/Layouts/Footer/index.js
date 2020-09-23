@@ -14,7 +14,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="th-footer-container">
-        <Container className="mt-2 text-center">
+        <Container className="text-center">
           <div className="pt-lg-4 pb-lg-5">
             {this.state.width > 780 ? (
               <Row className="pt-lg-2">
@@ -91,7 +91,11 @@ class Footer extends Component {
                     </Link>
 
                     <Link className="th-footer-list" to="/terms">
-                      <li>Terms and Conditionss</li>
+                      <li>Terms and Conditions</li>
+                    </Link>
+
+                    <Link className="th-footer-list" to="/team">
+                      <li>Team</li>
                     </Link>
                   </div>
                 </Col>
@@ -127,7 +131,7 @@ class Footer extends Component {
                 </Col>
               </Row>
             ) : (
-              <div className="mb-5">
+              <div style={{ marginBottom: "3.6rem" }}>
                 <Row className="pt-2 th-footer-mob-col">
                   <div className="th-footer-col mt-2" sm={3}>
                     <Link to="/">
@@ -194,7 +198,11 @@ class Footer extends Component {
                       </Link>
 
                       <Link className="th-footer-list" to="/terms">
-                        <li>Terms and Conditionss</li>
+                        <li>Terms and Conditions</li>
+                      </Link>
+
+                      <Link className="th-footer-list" to="/team">
+                        <li>Team</li>
                       </Link>
                     </div>
                   </Col>

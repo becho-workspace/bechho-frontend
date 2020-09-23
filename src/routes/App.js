@@ -50,6 +50,7 @@ import RecomSectorAnalysis from "../App/Components/KnowMore/blogs/blogpages/reco
 import MarketingInEcom from "../App/Components/KnowMore/blogs/blogpages/marketinginecom";
 import Signin from "../App/Components/Auth/signin/index";
 import Signup from "../App/Components/Auth/signup/index";
+import Team from "../App/Screens/Team/index";
 import Loader from "../App/Loader/index";
 import ComingSoon from "../App/Components/ComingSoon/index";
 import PageNotFound from "../App/Components/404/404";
@@ -134,6 +135,7 @@ class App extends Component {
 
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact="/team" component={Team} />
             <Route exact path="/comingsoon" component={ComingSoon} />
             {/* last route */}
             <Route component={Page404} />

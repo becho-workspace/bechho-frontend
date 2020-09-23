@@ -1,358 +1,198 @@
+import Ekaans from "../../Assets/Images/team/Ekaans.jpeg";
+import Mohit from "../../Assets/Images/team/Mohit.jpg";
+import Arnab from "../../Assets/Images/team/Arnab.jpg";
+import Prajwal from "../../Assets/Images/team/Prajwal.jpg";
+import Aman from "../../Assets/Images/team/Amaan.jpg";
+import Mansoor from "../../Assets/Images/team/Mansoor.jpg";
+import Tanish from "../../Assets/Images/team/Tanish.jpg";
+import Karan from "../../Assets/Images/team/Karan.jpg";
+import Akshat from "../../Assets/Images/team/Akshat.jpg";
+import Mayuresh from "../../Assets/Images/team/Mayuresh.jpg";
+import Pranish from "../../Assets/Images/team/Pranish.jpg";
+import Shakti from "../../Assets/Images/team/Shakti.JPG";
+import Shreya from "../../Assets/Images/team/Shreya.jpg";
+import Siddharth from "../../Assets/Images/team/Siddharth.jpg";
+
 const team = [
   {
-    header: "Convenor",
     array: [
       {
-        name: "Yash Agarwal",
-        post: "Convenor",
-        src: "./Images/team/Yash.jpg",
+        name: "Ekaans Mohanty",
+        post: "Founder",
+        src: Ekaans,
+        height: "252px",
         socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
+          github: null,
+          linkedin: "https://www.linkedin.com/in/ekaans-mohanty-990689176/",
+          instagram: "https://instagram.com/e.kaans?igshid=w78tgonvx46z",
         },
       },
       {
-        name: "Parag Mittal",
-        post: "Convenor",
-        src: "./Images/team/Parag.jpg",
+        name: "Mohit Rakhade",
+        post: "Founder",
+        src: Mohit,
+        height: "252px",
         socialHandleLink: {
-          facebook: "https://www.facebook.com/parag.mittal.165",
-          linkedin: "https://www.linkedin.com/in/parag-mittal-26ba05184",
-          instagram: "https://www.instagram.com/pmittal_120/",
+          github: "https://git.io/devmohit",
+          linkedin: "https://www.linkedin.com/in/mohit-rakhade",
+          instagram: "https://www.instagram.com/mohit_._2020/",
         },
       },
     ],
   },
   {
-    header: "Co-Convenor",
-    array: [
-      {
-        name: "Akshay Meena",
-        post: "Co-Convenor",
-        src: "./Images/team/Akshay.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Ankit Garg",
-        post: "Co-Convenor",
-        src: "./Images/team/Ankit.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Sanskar Chordiya",
-        post: "Co-Convenor",
-        src: "./Images/team/Sanskar.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: "www.linkedin.com/in/sanskar-chordiya-455692148",
-          instagram: null,
-        },
-      },
-    ],
-  },
-  {
-    header: "Technical Head",
-    array: [
-      {
-        name: "Siddharth Varshney",
-        post: "Technical Head",
-        src: "./Images/team/Siddharth.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/siddharth.98varshney",
-          linkedin: "https://www.linkedin.com/in/siddharth-varshney-ab4b70151/",
-          instagram: "https://www.instagram.com/sid_bit/",
-        },
-      },
-    ],
-  },
-  {
-    header: "team Operations",
-    array: [
-      {
-        name: "Subhendu Biswas",
-        post: "Manager",
-        src: "./Images/team/Subhendu.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/subhendu.biswas.33886",
-          linkedin: "https://www.linkedin.com/in/subhendu-biswas-31b841198/",
-          instagram: "https://www.instagram.com/savy00007/",
-        },
-      },
-      {
-        name: "Ayush Shrivastava",
-        post: "Manager",
-        src: "./Images/team/Ayush.jpg",
-        socialHandleLink: {
-          facebook:
-            "https://m.facebook.com/ayush.shrivastava.3382?ref=bookmarks",
-          linkedin: "https://www.linkedin.com/mwlite/me",
-          instagram: "https://www.instagram.com/ayushshrivastava2901/?hl=en",
-        },
-      },
-      {
-        name: "Heeralal Yadav",
-        post: "Manager",
-        src: "./Images/team/Hiralal.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/heeralal.yadav.18062533",
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Jitendra Kumar",
-        post: "Manager",
-        src: "./Images/team/Jitendra.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/profile.php?id=100026832823343",
-          linkedin: "https://instagram.com/jitendra99singh1chandel",
-          instagram: "https://www.linkedin.com/in/jitendra-kumar-2ab700184",
-        },
-      },
-      {
-        name: "Dixit Panwar",
-        post: "Manager",
-        src: "./Images/team/Dixit.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/dev.panwar.940098",
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Shyam Tiwari",
-        post: "Manager",
-        src: "./Images/team/Shyam.jpg",
-        socialHandleLink: {
-          facebook: "https://m.facebook.com/shyam.tiwari833?ref=bookmarks",
-          linkedin: "https://www.linkedin.com/in/shyam-tiwari-b8018a173",
-          instagram: "https://www.instagram.com/_tiwari.shyam_/",
-        },
-      },
-    ],
-  },
-  {
-    header: "team Events",
-    array: [
-      {
-        name: "Yash Aggarwal",
-        post: "Manager",
-        src: "./Images/team/Aggarwal.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Aditi Singhal",
-        post: "Manager",
-        src: "./Images/team/Aditi.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Shrey Shukla",
-        post: "Manager",
-        src: "./Images/team/Shrey.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Ujjval Singh",
-        post: "Manager",
-        src: "./Images/team/Ujjval.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/ujjval.singh.925",
-          linkedin: null,
-          instagram:
-            "https://instagram.com/ujjval.singh.925?igshid=19t4mvs3vvhih",
-        },
-      },
-      {
-        name: "Arpit Shrivastava",
-        post: "Manager",
-        src: "./Images/team/Arpit.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/arpit.shrivastava.92",
-          linkedin: "https://www.linkedin.com/in/arpit-shrivastava-0b11b4194",
-          instagram: "https://www.instagram.com/arpit05shri?r=nametag",
-        },
-      },
-    ],
-  },
-  {
-    header: "team Promotions",
-    array: [
-      {
-        name: "Vibhu Chhawchharia",
-        post: "Manager",
-        src: "./Images/team/Vibhu.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/vibhu.chhawchharia",
-          linkedin: "https://www.linkedin.com/in/vibhu-chhawchharia-21377b172",
-          instagram: "https://www.instagram.com/vibhu.chhawchharia/?hl=en",
-        },
-      },
-      {
-        name: "Ankit Ranjan",
-        post: "Manager",
-        src: "./Images/team/Ranjan.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Gaurav Kasat",
-        post: "Manager",
-        src: "./Images/team/Kasat.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Adarsh Dubey",
-        post: "Manager",
-        src: "./Images/team/Dubey.jpg",
-        socialHandleLink: {
-          facebook: "https://m.facebook.com/adarsh.dubey.77",
-          linkedin: null,
-          instagram: "https://www.instagram.com/i_adarshdubey/",
-        },
-      },
-      {
-        name: "Rakshit Raj",
-        post: "Manager",
-        src: "./Images/team/Rakshit.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/rakshit.raj.507027",
-          linkedin: "https://www.linkedin.com/in/rakshit-raj-31ba65176",
-          instagram: null,
-        },
-      },
-      {
-        name: "Deepak Chauhan",
-        post: "Manager",
-        src: "./Images/team/Deepak.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/profile.php?id=100027684902408",
-          linkedin: null,
-          instagram: null,
-        },
-      },
-    ],
-  },
-  {
-    header: "team Relations",
-    array: [
-      {
-        name: "Jaskaran Sethi",
-        post: "Manager",
-        src: "./Images/team/Jaskaran.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/justkaran",
-          linkedin: "https://in.linkedin.com/in/jaskaran-sethy-2377bb173",
-          instagram: "https://www.instagram.com/sethyrical/",
-        },
-      },
-      {
-        name: "Enagandula Sindhu",
-        post: "Manager",
-        src: "./Images/team/Sindhu.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-
-      {
-        name: "Mohammad Zaryab",
-        post: "Manager",
-        src: "./Images/team/Zaryab.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/zaryab.mohammad.37201",
-          linkedin: "https://www.linkedin.com/in/mohammad-zaryab-52a190173/",
-          instagram: "https://www.instagram.com/mohdzaryab/",
-        },
-      },
-      {
-        name: "Arjun Aryan",
-        post: "Manager",
-        src: "./Images/team/Arjun.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: "https://www.linkedin.com/in/arjun-aryan-69642a178/",
-          instagram: null,
-        },
-      },
-      {
-        name: "Priyansh Garg",
-        post: "Manager ",
-        src: "./Images/team/Priyansh.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/priyansh26",
-          linkedin: "https://www.instagram.com/gargpriyansh",
-          instagram: "https://www.linkedin.com/in/priyansh-garg-058334171/",
-        },
-      },
-    ],
-  },
-  {
-    header: "team Design",
-    array: [
-      {
-        name: "Sankalp Jha",
-        post: "Manager",
-        src: "./Images/team/Sankalp.jpg",
-        socialHandleLink: {
-          facebook: null,
-          linkedin: null,
-          instagram: null,
-        },
-      },
-      {
-        name: "Mayank Parnami",
-        post: "Manager ",
-        src: "./Images/team/Mayank.jpg",
-        socialHandleLink: {
-          facebook: "https://www.facebook.com/mayank.parnami.7",
-          linkedin: "https://www.linkedin.com/in/mayank-parnami-906a2216b/",
-          instagram: "https://www.instagram.com/high.barbarian/",
-        },
-      },
-    ],
-  },
-  {
-    header: "Developer",
     array: [
       {
         name: "Arnab Das",
-        post: "Manager",
-        src: "./Images/team/Arnab.jpg",
+        post: "Front-end Developer",
+        src: Arnab,
         socialHandleLink: {
-          facebook: "https://www.facebook.com/profile.php?id=100005661644663",
+          github: "https://github.com/IamArnab01",
           linkedin: "https://www.linkedin.com/in/arnab-das-2a5039182/",
-          instagram: "https://www.instagram.com/i_am_arnab01/",
+          instagram: "https://www.instagram.com/iamarnab_01/",
+        },
+      },
+      {
+        name: "Akshat Shrivastava",
+        post: "Designer",
+        src: Akshat,
+        height: "228px",
+        socialHandleLink: {
+          github: null,
+          linkedin: "https://www.linkedin.com/in/akshatsrivastava19/",
+          instagram: "https://www.instagram.com/the.visual.narrator_/",
+        },
+      },
+    ],
+  },
+  {
+    array: [
+      {
+        name: "Prajwal Ghate",
+        post: "Backend Developer",
+        src: Prajwal,
+        height: "248px",
+        socialHandleLink: {
+          github: "https://github.com/prajwalghate",
+          linkedin: "https://www.linkedin.com/in/prajwal-ghate-599a62152",
+          instagram:
+            "https://instagram.com/_prajwal_ghate_?igshid=kkms64jzgznt",
+        },
+      },
+      {
+        name: "Tanish Dhingra",
+        post: "Backend and Flutter",
+        src: Tanish,
+        height: "240px",
+        socialHandleLink: {
+          github: "https://github.com/TanishD",
+          linkedin: "https://www.linkedin.com/in/tanish-dhingra-b833b31b4/",
+          instagram: "https://www.instagram.com/tanishdhingr4/",
+        },
+      },
+    ],
+  },
+  {
+    array: [
+      {
+        name: "Pranish Ramteke",
+        post: "Flutter Developer",
+        src: Pranish,
+        height: "252px",
+        socialHandleLink: {
+          github: "https://github.com/pranish-ramteke",
+          linkedin: "https://www.linkedin.com/in/pranish-ramteke-9b3052175",
+          instagram: "https://www.instagram.com/curly_bawa/",
+        },
+      },
+      {
+        name: "Karan Kharode",
+        post: "Flutter Developer",
+        src: Karan,
+        height: "252px",
+        socialHandleLink: {
+          github: "https://github.com/karankharode",
+          linkedin: "https://www.linkedin.com/in/karan-kharode-b78688179",
+          instagram: "https://www.instagram.com/_karankharode_/",
+        },
+      },
+    ],
+  },
+  {
+    array: [
+      {
+        name: "Amaan Ali",
+        post: "Technical Intern",
+        src: Aman,
+        height: "252px",
+        socialHandleLink: {
+          github: "https://github.com/VenomFate-619",
+          linkedin: "https://www.linkedin.com/in/amaan-ali-26b72b19b",
+          instagram: null,
+        },
+      },
+      {
+        name: "Mansoor Shakir",
+        post: "Technical Intern",
+        src: Mansoor,
+        height: "252px",
+        socialHandleLink: {
+          github: "https://github.com/mansoor4",
+          linkedin: "https://www.linkedin.com/in/mansoor-shakir-4b024218b/",
+          instagram: "https://www.instagram.com/mansoorshaki/",
+        },
+      },
+    ],
+  },
+  {
+    array: [
+      {
+        name: "Mayuresh Musale",
+        post: "Business Development",
+        src: Mayuresh,
+        height: "252px",
+        socialHandleLink: {
+          github: null,
+          linkedin: "https://www.linkedin.com/in/mayuresh-musale-05a113188",
+          instagram: "https://instagram.com/immayuresh1?igshid=r7yxislg6i3c",
+        },
+      },
+      {
+        name: "Shreya Deshmukh",
+        post: "Intern",
+        src: Shreya,
+        height: "252px",
+        socialHandleLink: {
+          github: null,
+          linkedin: "https://www.linkedin.com/in/shreya-deshmukh-5b9443191",
+          instagram: "https://www.instagram.com/6_shreya_13",
+        },
+      },
+    ],
+  },
+  {
+    array: [
+      {
+        name: "Shakti Gill",
+        post: "Intern",
+        src: Shakti,
+        height: "240px",
+        socialHandleLink: {
+          github: null,
+          linkedin: "https://www.linkedin.com/in/shakti-gill-a82330194/",
+          instagram: "https://www.instagram.com/shaktiamritpalgill/",
+        },
+      },
+      {
+        name: "Siddharth Baghel",
+        post: "Intern ",
+        src: Siddharth,
+        height: "240px",
+        socialHandleLink: {
+          github: null,
+          linkedin:
+            "https://www.linkedin.com/in/siddharth-singh-baghel-9144b119b/",
+          instagram: "https://www.instagram.com/sid_baghel282/",
         },
       },
     ],
