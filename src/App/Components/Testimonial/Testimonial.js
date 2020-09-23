@@ -5,7 +5,7 @@ import Akshat from "../../Assets/Images/team/Akshat.jpg";
 import Mayuresh from "../../Assets/Images/team/Mayuresh.jpg";
 import Prajwal from "../../Assets/Images/team/Prajwal.jpg";
 import Pranish from "../../Assets/Images/team/Pranish.jpg";
-import Shakti from "../../Assets/Images/team/Shakti.JPG";
+import Shakti from "../../Assets/Images/team/Shakti.jpg";
 import Shreya from "../../Assets/Images/team/Shreya.jpg";
 import Siddharth from "../../Assets/Images/team/Siddharth.jpg";
 
