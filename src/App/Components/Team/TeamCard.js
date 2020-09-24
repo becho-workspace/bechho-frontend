@@ -26,12 +26,7 @@ const TeamCard = (props) => {
           </li>
         </ul>
 
-        <img
-          alt=""
-          src={props.src}
-          className="th-team-member-img"
-          style={{ height: props.height }}
-        ></img>
+        <img alt="" src={props.src} className="th-team-member-img"></img>
         <div className="th-team-member-content">
           <p className="th-team-member-name mb-1">{props.name}</p>
           <p className="th-team-member-post ">{props.post}</p>

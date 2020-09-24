@@ -1,6 +1,7 @@
 import {
   SET_CURRENT_CITY_FROM_USER_AUTH,
   SET_CURRENT_CITY_BY_USER,
+  RESET_CITY_ON_LOGOUT,
 } from "../actions/types";
 const initialState = {
   city: "",
@@ -9,51 +10,40 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_CURRENT_CITY_FROM_USER_AUTH:
-      if (action.payload === "DELHI") {
-        return {
-          ...state,
-          city: "DELHI",
-        };
-      } else if (action.payload === "NOIDA") {
-        return {
-          ...state,
-          city: "NOIDA",
-        };
-      } else if (action.payload === "BANGALORE") {
-        return {
-          ...state,
-          city: "BANGALORE",
-        };
-      } else if (action.payload === "GURUGRAM") {
-        return {
-          ...state,
-          city: "GURUGRAM",
-        };
-      }
-      break;
+      return {
+        ...state,
+        city: action.payload,
+      };
     case SET_CURRENT_CITY_BY_USER:
-      if (action.payload === "DELHI") {
+      if (action.payload === "Delhi") {
         return {
           ...state,
-          city: "DELHI",
+          city: "Delhi",
         };
-      } else if (action.payload === "NOIDA") {
+      } else if (action.payload === "Noida") {
         return {
           ...state,
-          city: "NOIDA",
+          city: "Noida",
         };
-      } else if (action.payload === "BANGALORE") {
+      } else if (action.payload === "Bangalore") {
         return {
           ...state,
-          city: "BANGALORE",
+          city: "Bangalore",
         };
-      } else if (action.payload === "GURUGRAM") {
+      } else if (action.payload === "Gurugram") {
         return {
           ...state,
-          city: "GURUGRAM",
+          city: "Gurugram",
+        };
+      } else {
+        return {
+          ...state,
         };
       }
-      break;
+    case RESET_CITY_ON_LOGOUT:
+      return {
+        ...state,
+      };
     default:
       return state;
   }

@@ -24,7 +24,6 @@ class MyBidsCard extends Component {
         params: { ...params },
       })
       .then((res) => {
-        // console.log(res.data.photo);
         this.setState({
           prod_image: res.data.photo,
         });
@@ -32,26 +31,28 @@ class MyBidsCard extends Component {
       .catch((err) => {
         console.log(err.response.data);
         toast("something went wrong", { type: "warning" });
-        // console.log(err);
       });
   };
 
   render() {
     return (
       <div>
-        <div className="th-mybids-card border-0 d-flex">
-          <div className="p-lg-4 p-3 th-mybids-img-div">
+        <div className="th-myitems-card border-0 ">
+          <div
+            className="pt-3 th-mybids-img-div d-flex justify-content-center"
+            style={{ height: "350px" }}
+          >
             <img
               src={this.state.prod_image.path}
               alt=""
               style={{ maxWidth: this.state.width > 780 ? "500px" : "320px" }}
             />
           </div>
-          <div className="th-mybids-card-box">
+          <div className="th-myitems-card-box">
             <div className="mb-md-1 th-mybids-title">{this.props.title}</div>
             <div className="mb-md-1">
               <span className="th-ask-price">Ask Price:</span>
-              <span className="th-mybids-price ">₹ {this.props.askPrice}</span>
+              <span className="th-mybids-price">₹ {this.props.askPrice}</span>
             </div>
             <div className="mb-md-1">
               <span className="th-offered-price">Offer Price:</span>
@@ -84,11 +85,6 @@ class MyBidsCard extends Component {
                   </span>
                 )}
               </div>
-              {/* {this.props.status ? (
-                <div className="th-paynow-btn">
-                  <span className="th-paynow">Done</span>
-                </div>
-              ) : null} */}
             </div>
           </div>
         </div>

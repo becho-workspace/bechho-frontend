@@ -30,43 +30,38 @@ class CategoryTop extends Component {
     axios
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
-        // console.log(res.data);
         this.setState({
           data: res.data,
         });
       })
       .catch((err) => {
-        // console.log(err.response.data.error);
         toast(err.response.data.error, { type: "warning" });
       });
   };
 
   render() {
-    // console.log(this.props.city);
     return (
       <div>
         <div className="th-category-title">Mobile and Laptops</div>
         <div className="mt-lg-3">
-          <div class="row">
-            <div class="col-12 d-flex flex-wrap justify-content-between">
-              {this.state.data &&
-                this.state.data.map((item, index) => {
-                  return (
-                    <CategoryCard
-                      src={item.photo.path}
-                      title={
-                        item.name.charAt(0).toUpperCase() + item.name.slice(1)
-                      }
-                      description={item.description}
-                      location={
-                        item.city.charAt(0).toUpperCase() + item.city.slice(1)
-                      }
-                      price={item.price}
-                      id={item._id}
-                    />
-                  );
-                })}
-            </div>
+          <div class="d-flex flex-wrap justify-content-between">
+            {this.state.data &&
+              this.state.data.map((item, index) => {
+                return (
+                  <CategoryCard
+                    src={item.photo.path}
+                    title={
+                      item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                    }
+                    description={item.description}
+                    location={
+                      item.city.charAt(0).toUpperCase() + item.city.slice(1)
+                    }
+                    price={item.price}
+                    id={item._id}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

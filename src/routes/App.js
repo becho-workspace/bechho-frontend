@@ -29,7 +29,6 @@ import BecomePartner from "../App/Screens/MakeMoney/BecomePartner";
 
 // products
 import Products from "../App//Screens/Products/index";
-import ProductOffer from "../App/Components/Products/Popup/popup";
 
 // categories
 import Category from "../App/Screens/Category/index";
@@ -103,7 +102,6 @@ class App extends Component {
             <Route exact path="/affiliate" component={Affiliate} />
             <Route exact path="/become-partner" component={BecomePartner} />
             <Route exact path="/products/:id" component={Products} />
-            <Route exact path="/products-offer" component={ProductOffer} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/categorylist" component={CategoryListMobile} />
             {/* private routes */}

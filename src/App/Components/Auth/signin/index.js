@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Modal from "react-bootstrap/Modal";
+import Logo from "../../../Assets/Images/Logo.png";
 import {
   loginUser,
   setUserLoading,
 } from "../../../../redux/actions/authActions";
-import Cross from "../../../Assets/Images/Auth/cross.png";
+import { XCircle } from "react-feather";
 
 class Signin extends Component {
   constructor(props) {
@@ -75,19 +76,19 @@ class Signin extends Component {
             {/* signin starts */}
             <div className="d-flex justify-content-center th-auth-container">
               <div className="left-box">
-                <p className="text-center mt-lg-2 mb-0 left-box-header">
+                <p className="text-center mt-lg-5 mb-0 left-box-header">
                   Welcome
                 </p>
+                {this.state.width > 780 ? (
+                  <div className="text-center">
+                    <img src={Logo} alt="" style={{ width: "200px" }} />
+                  </div>
+                ) : null}
               </div>
               <div className="right-box">
                 {this.state.width > 780 ? (
                   <div className="float-right mt-2 mr-3">
-                    <img
-                      src={Cross}
-                      alt=""
-                      style={{ width: "20px" }}
-                      onClick={this.handleCloseModal}
-                    />
+                    <XCircle size={20} onClick={this.handleCloseModal} />
                   </div>
                 ) : null}
                 <div className="wraper">

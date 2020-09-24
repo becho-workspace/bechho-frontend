@@ -5,7 +5,7 @@ import Bags from "../../../Assets/Images/Categories/Bags.png";
 import Eateries from "../../../Assets/Images/Categories/Eateries.png";
 import Electronics from "../../../Assets/Images/Categories/Electronics.png";
 import Fashion from "../../../Assets/Images/Categories/Fashion.png";
-import Gifts from "../../../Assets/Images/Categories/Gifts.png";
+import Gifts from "../../../Assets/Images/Categories/Gift.png";
 import Shoe from "../../../Assets/Images/Categories/Shoe.png";
 
 import {
@@ -26,8 +26,8 @@ class CategoryListMob extends Component {
     return (
       <div>
         {this.state.width < 760 ? (
-          <div className="th-mob-category-list">
-            <div className="container th-mob-category-list-header ml-2">
+          <div className="container th-mob-category-list">
+            <div className=" th-mob-category-list-header ml-2">
               Shop By Category
             </div>
             <div className="th-mob-category-list-wraper pt-3 pb-3 pl-5 pr-5">

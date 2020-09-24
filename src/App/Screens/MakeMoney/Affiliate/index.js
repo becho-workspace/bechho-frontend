@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -12,6 +13,8 @@ class AffiliateHome extends Component {
   render() {
     return (
       <div>
+        <Helmet titleTemplate="Bechho | %s" title="Affiliate" />
+
         {this.state.width > 800 ? (
           <Container>
             <Row>

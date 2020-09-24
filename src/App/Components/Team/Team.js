@@ -20,7 +20,6 @@ export default function TeamHeads() {
                   name={person.name}
                   post={person.post}
                   socialHandleLink={person.socialHandleLink}
-                  height={person.height}
                 />
               </Col>
             );

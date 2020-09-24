@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import MyBidsCard from "./card";
 import Loader from "../../../Loader/spinner";
 import axios from "axios";
@@ -29,7 +30,6 @@ class MyBids extends Component {
     axios
       .get(`${API}/product/getbids/${this.props.user._id}`)
       .then((res) => {
-        // console.log(res.data.bid);
         this.setState({
           myBids: res.data.bid,
           loading: false,
@@ -44,27 +44,27 @@ class MyBids extends Component {
   render() {
     return (
       <div>
+        <Helmet titleTemplate="Bechho | %s" title="My Bids" />
+
         {this.state.loading ? (
           <Loader />
         ) : (
-          <div className="container mt-4 th-my-mids-mob">
+          <div className="container mt-4 th-my-items-mob">
             <p className="th-mybids-header">Used Products Bids</p>
-            <div className="">
-              <div className=" d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
-                {this.state.myBids &&
-                  this.state.myBids.map((item, index) => {
-                    return (
-                      <MyBidsCard
-                        key={index}
-                        title={item.title}
-                        askPrice={item.askedprice}
-                        offerPrice={item.bidOffer}
-                        status={item.status}
-                        prodId={item.productId}
-                      />
-                    );
-                  })}
-              </div>
+            <div className="d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
+              {this.state.myBids &&
+                this.state.myBids.map((item, index) => {
+                  return (
+                    <MyBidsCard
+                      key={index}
+                      title={item.title}
+                      askPrice={item.askedprice}
+                      offerPrice={item.bidOffer}
+                      status={item.status}
+                      prodId={item.productId}
+                    />
+                  );
+                })}
             </div>
           </div>
         )}

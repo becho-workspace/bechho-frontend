@@ -130,7 +130,7 @@ class StepTwo extends Component {
               <div className="th-sell-form-qna-list">
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Does your device switch on?
+                    Q1. Does your device switch on?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -164,7 +164,7 @@ class StepTwo extends Component {
                 {/* question 2 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Display and touch screen status?
+                    Q2. Display and touch screen status?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -228,7 +228,7 @@ class StepTwo extends Component {
                 {/* question 3 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Device Body (Back Panel / Cover) status?
+                    Q3. Device Body (Back Panel / Cover) status?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -292,7 +292,7 @@ class StepTwo extends Component {
                 {/* question 4 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Main Camera (Camera Glass) status?
+                    Q4. Main Camera (Camera Glass) status?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -366,7 +366,7 @@ class StepTwo extends Component {
                 {/* question 5 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Age of the phone ?
+                    Q5. Age of the phone ?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -430,7 +430,7 @@ class StepTwo extends Component {
                 {/* question 6 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Device has undergone repairs?
+                    Q6. Device has undergone repairs?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -464,7 +464,7 @@ class StepTwo extends Component {
                 {/* question 7 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Does your device have any functional issues?
+                    Q7. Does your device have any functional issues?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -498,7 +498,7 @@ class StepTwo extends Component {
                 {/* question 8 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Select the available accessories
+                    Q8. Select the available accessories
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -548,7 +548,7 @@ class StepTwo extends Component {
                 {/* question 9 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) OEN/ Brand Warranty utilized
+                    Q9. OEN/ Brand Warranty utilized
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">
@@ -612,7 +612,7 @@ class StepTwo extends Component {
                 {/* question 10 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q) Silver Frame / Bezel (Around Screen)?
+                    Q10. Silver Frame / Bezel (Around Screen)?
                   </div>
                   <div className="ml-4">
                     <div class="form-check form-check-inline">

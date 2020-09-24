@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import MyItemsCard from "./card";
 import Loader from "../../../Loader/spinner";
 import axios from "axios";
@@ -45,6 +46,7 @@ class MyItems extends Component {
   render() {
     return (
       <div>
+        <Helmet titleTemplate="Bechho | %s" title="My Items" />
         {this.state.loading ? (
           <Loader />
         ) : (

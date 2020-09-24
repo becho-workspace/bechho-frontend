@@ -275,19 +275,23 @@
   color: #000;
 }
 
+.th-prods-price {
+  margin-right: 48px;
+}
+
 @media only screen and (min-width: 1284px) {
-  .th-brands-card,
+  /* .th-brands-card,
   .th-products-card {
     width: 290px;
-  }
+  } */
 }
 
 /* card withs for MDPI scrrens */
 @media only screen and (min-width: 1120px) and (max-width: 1282px) {
-  .th-brands-card,
+  /* .th-brands-card,
   .th-products-card {
     width: 280px;
-  }
+  } */
 }
 
 @media only screen and (min-width: 1120px) {
@@ -299,15 +303,15 @@
 
   .th-brands-card-image,
   .th-prods-card-image {
-    max-width: 100%;
+    max-width: 92%;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .th-brands-card,
   .th-products-card {
-    width: 40vw;
-    margin-top: 16px;
+    /* width: 40vw; */
+    margin-top: 12px;
   }
 
   .th-card-box {

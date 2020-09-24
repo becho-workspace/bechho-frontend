@@ -3,8 +3,9 @@ import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../../../redux/actions/authActions";
-import Cross from "../../../Assets/Images/Auth/cross.png";
+import { XCircle } from "react-feather";
 import Modal from "react-bootstrap/Modal";
+import Logo from "../../../Assets/Images/Logo.png";
 
 class Signup extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class Signup extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+    console.log(event.target.value);
   };
 
   handleSubmit = (e) => {
@@ -71,19 +73,19 @@ class Signup extends Component {
             {/* signup starts */}
             <div className="d-flex justify-content-center th-auth-container">
               <div className="left-box">
-                <p className="text-center mt-lg-2 mb-0 left-box-header">
+                <p className="text-center mt-lg-5 mb-0 left-box-header">
                   Welcome
                 </p>
+                {this.state.width > 780 ? (
+                  <div className="text-center" style={{ marginTop: "4.8rem" }}>
+                    <img src={Logo} alt="" style={{ width: "240px" }} />
+                  </div>
+                ) : null}
               </div>
               <div className="right-box">
                 {this.state.width > 780 ? (
                   <div className="float-right mt-2 mr-3">
-                    <img
-                      src={Cross}
-                      alt=""
-                      style={{ width: "20px" }}
-                      onClick={this.handleCloseModal}
-                    />
+                    <XCircle size={20} onClick={this.handleCloseModal} />
                   </div>
                 ) : null}
                 <div className="wraper">
@@ -98,6 +100,7 @@ class Signup extends Component {
                     <input
                       className="input-item mb-4"
                       type="text"
+                      required
                       placeholder="Your Name"
                       name="name"
                       value={name}
@@ -106,24 +109,33 @@ class Signup extends Component {
                     <input
                       className="input-item mb-4"
                       type="text"
+                      required
                       maxLength={10}
                       placeholder="Contact"
                       name="contact"
                       value={contact}
                       onChange={this.handleChange}
                     />
-                    <input
+                    <select
                       className="input-item mb-4"
-                      type="text"
-                      maxLength={16}
+                      // type="text"
+                      required
+                      // maxLength={16}
                       placeholder="City"
                       name="city"
                       value={city}
                       onChange={this.handleChange}
-                    />
+                      style={{ background: "#fff" }}
+                    >
+                      <option value="Delhi">Delhi</option>
+                      <option value="Noida">Noida </option>
+                      <option value="Gurgram">Gurgram</option>
+                      <option value="Bangalore">Bangalore</option>
+                    </select>
                     <input
                       className="input-item mb-4"
                       type="text"
+                      required
                       maxLength={50}
                       placeholder="Your Address"
                       name="address"
@@ -134,6 +146,7 @@ class Signup extends Component {
                     <input
                       className="input-item mb-4"
                       type="email"
+                      required
                       maxLength={36}
                       placeholder="Email"
                       name="email"
@@ -142,6 +155,7 @@ class Signup extends Component {
                     />
                     <input
                       className="input-item mb-4"
+                      required
                       type="password"
                       placeholder="Password"
                       name="password"

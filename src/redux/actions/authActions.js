@@ -9,6 +9,8 @@ import {
   USER_LOADED,
 } from "./types";
 
+import { resetCityOnLogout } from "./locationActions";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
@@ -91,6 +93,8 @@ export const logoutUser = (history) => (dispatch) => {
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+  dispatch(resetCityOnLogout());
+  // window.location.reload(false);
   // this.props.history.push("/");
   toast("Logged out Successfully", { type: "warning" });
 };

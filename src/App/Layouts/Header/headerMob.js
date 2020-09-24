@@ -10,7 +10,11 @@ import Noida from "../../Assets/Images/Home/Noida.png";
 import Gurgaon from "../../Assets/Images/Home/Gurgaon.png";
 import Bangalore from "../../Assets/Images/Home/Bangalore.png";
 import { connect } from "react-redux";
-import { setCurrentCityByUser } from "../../../redux/actions/locationActions";
+import {
+  setCurrentCityByUser,
+  setCurrentCityFromUserAuth,
+  // resetCityOnLogout,
+} from "../../../redux/actions/locationActions";
 import PropTypes from "prop-types";
 import { API } from "../../../backend";
 import axios from "axios";
@@ -32,6 +36,10 @@ class HeaderMobile extends Component {
     };
   }
 
+  // componentDidUpdate() {
+  //   this.props.resetCityOnLogout();
+  // }
+
   componentDidMount = () => {
     this.fetchUser();
   };
@@ -47,9 +55,9 @@ class HeaderMobile extends Component {
         })
         .then((res) => {
           this.setState({
-            user_name:
-              res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
+            user_name: res.data.name,
           });
+          this.props.setCurrentCityFromUserAuth(res.data.city);
         })
         .catch((err) => {
           toast(err.response.data.err, { type: "warning" });
@@ -85,7 +93,7 @@ class HeaderMobile extends Component {
 
   handleLocation = (city) => {
     // console.log(city);
-    this.props.setCurrentCityByUser(city.toUpperCase());
+    this.props.setCurrentCityByUser(city);
     this.setState({
       show_modal: !this.state.show_modal,
     });
@@ -212,6 +220,8 @@ class HeaderMobile extends Component {
 
 HeaderMobile.propTypes = {
   setCurrentCityByUser: PropTypes.func.isRequired,
+  setCurrentCityFromUserAuth: PropTypes.func.isRequired,
+  // resetCityOnLogout: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   city: PropTypes.object.isRequired,
 };
@@ -223,4 +233,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   setCurrentCityByUser,
+  setCurrentCityFromUserAuth,
+  // resetCityOnLogout,
 })(HeaderMobile);

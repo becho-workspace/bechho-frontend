@@ -7,13 +7,6 @@
   color: #fff !important;
 }
 
-.slick-slide,
-.slick-current,
-.slick-active {
-  display: flex !important;
-  justify-content: center !important;
-}
-
 .th-arrow-slider-right,
 .th-arrow-slider-left {
   line-height: 15px !important;

@@ -22,17 +22,17 @@ import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
 const cities = [
-  { city: "DELHI" },
-  { city: "NOIDA" },
-  { city: "BANGALORE" },
-  { city: "GURUGRAM" },
+  { city: "Delhi" },
+  { city: "Noida" },
+  { city: "Bangalore" },
+  { city: "Gurugram" },
 ];
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "DELHI",
+      city: "Delhi",
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,7 +43,6 @@ class Header extends Component {
     });
     // setting city name based on user input in the store whether logged in or not
     this.props.setCurrentCityByUser(e.target.value);
-    // console.log(e.target.value);
   };
 
   handleLogout = (e) => {
@@ -70,12 +69,12 @@ class Header extends Component {
           this.setState({
             city: res.data.city,
           });
-          // console.log(res.data.city);
-          this.props.setCurrentCityFromUserAuth(res.data.city.toUpperCase());
+          this.props.setCurrentCityFromUserAuth(res.data.city);
         })
         .catch((err) => {
-          // console.log(err.response.data);
-          toast(err.response.data.error, { type: "warning" });
+          toast("Something went wrong ", {
+            type: "warning",
+          });
         });
     }
   };
@@ -169,7 +168,7 @@ class Header extends Component {
                   aria-labelledby="dropdownMenuButton"
                 >
                   <Link className="dropdown-item" to="/my-profile">
-                    My Address
+                    My Profile
                   </Link>
                   <Link className="dropdown-item" to="/my-items">
                     My Items

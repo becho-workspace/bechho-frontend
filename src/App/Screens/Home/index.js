@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import Container from "react-bootstrap/Container";
 import HomeTop from "../../Components/Home/HomeTop/HomeTop";
 import GridItems from "../../Components/Home/GridItems";
@@ -16,6 +17,7 @@ class HomeMain extends Component {
   render() {
     return (
       <div>
+        <Helmet titleTemplate="Bechho | %s" title="Home" />
         <div>
           <HomeTop />
           <Locations />

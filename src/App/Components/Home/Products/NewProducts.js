@@ -36,7 +36,7 @@ const settings = {
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         dots: false,
@@ -67,13 +67,14 @@ class NewProducts extends Component {
     axios
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
-        // console.log(res.data);
         this.setState({
           data: res.data,
         });
       })
       .catch((err) => {
-        toast(err.response.data.error, { type: "warning" });
+        toast("No products found in" + " " + this.props.city, {
+          type: "warning",
+        });
       });
   };
 
@@ -104,7 +105,10 @@ class NewProducts extends Component {
               return (
                 <div key={index}>
                   <Card className="th-brands-card border-0">
-                    <Link to={`/products/${item._id}`}>
+                    <Link
+                      to={`/products/${item._id}`}
+                      style={{ textDecoration: "none" }}
+                    >
                       <div
                         style={{ height: "350px" }}
                         className="d-flex justify-content-center"
@@ -115,22 +119,24 @@ class NewProducts extends Component {
                           className="th-prods-card-image"
                         />
                       </div>
-                    </Link>
-                    <div className="pt-2 th-card-box">
-                      <Card.Text className="mb-md-1 th-prods-title">
-                        {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                      </Card.Text>
-                      <Card.Text className="mb-md-1 th-prods-description">
-                        {item.description}
-                      </Card.Text>
-                      <div className="d-lg-flex justify-content-lg-between">
-                        <p className="th-prods-location mb-0">
-                          {item.city.charAt(0).toUpperCase() +
-                            item.city.slice(1)}
-                        </p>
-                        <p className="th-prods-price mb-0">₹ {item.price} </p>
+                      <div className="pt-2 th-card-box">
+                        <Card.Text className="mb-md-1 th-prods-title">
+                          {item.name.charAt(0).toUpperCase() +
+                            item.name.slice(1)}
+                        </Card.Text>
+                        <Card.Text className="mb-md-1 th-prods-description">
+                          {item.description.slice(0, 120)}
+                          <span style={{ fontSize: "18px" }}>...</span>
+                        </Card.Text>
+                        <div className="d-flex justify-content-between">
+                          <p className="th-prods-location mb-0">
+                            {item.city.charAt(0).toUpperCase() +
+                              item.city.slice(1)}
+                          </p>
+                          <p className="th-prods-price mb-0">₹ {item.price} </p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </Card>
                 </div>
               );

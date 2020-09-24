@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-// import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MapPin } from "react-feather";
 import PopUp from "../Popup/popup";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class ProductTop extends Component {
   constructor(props) {
@@ -13,7 +15,6 @@ class ProductTop extends Component {
     this.state = {
       width: window.innerWidth,
       show: false,
-      products: [],
     };
   }
 
@@ -35,14 +36,15 @@ class ProductTop extends Component {
         <Container>
           <Row>
             <Col lg={6}>
-              <div className="d-flex justify-content-center">
-                <div>
-                  <img
-                    src={this.props.src}
-                    alt=""
-                    className="th-prod-right-img"
-                  />
-                </div>
+              <div
+                className="d-flex justify-content-center"
+                style={{ maxHeight: "500px" }}
+              >
+                <img
+                  src={this.props.src}
+                  alt=""
+                  className="th-prod-right-img"
+                />
               </div>
             </Col>
             <Col lg={6}>
@@ -60,12 +62,13 @@ class ProductTop extends Component {
                   </div>
                   {/* for mobile screen */}
                   {this.state.width < 780 ? (
-                    <div
+                    <button
                       className="th-prod-offer text-center"
                       onClick={this.handleShowModal}
+                      disabled={!this.props.user._id ? "true" : null}
                     >
                       Make an offer
-                    </div>
+                    </button>
                   ) : null}
                   {/*  */}
                 </div>
@@ -75,12 +78,13 @@ class ProductTop extends Component {
                 {/* for laptop/tabs */}
                 {this.state.width > 780 ? (
                   <div className="d-flex justify-content-center mt-5">
-                    <div
+                    <button
                       className="th-prod-offer text-center"
                       onClick={this.handleShowModal}
+                      disabled={!this.props.user._id ? "true" : null}
                     >
                       Make an offer
-                    </div>
+                    </button>
                   </div>
                 ) : null}
                 {/*  */}
@@ -106,6 +110,12 @@ class ProductTop extends Component {
   }
 }
 
-export default ProductTop;
+ProductTop.propTypes = {
+  user: PropTypes.object.isRequired,
+};
 
-// export default withRouter(ProductTop);
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps)(ProductTop);

@@ -257,7 +257,7 @@
 
 .th-myitems-bidlist {
   overflow-y: scroll;
-  max-height: 100px;
+  height: 90px;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -304,6 +304,13 @@
   color: #ca4646;
   border: 1px solid #ca4646;
   background: #ffffff;
+}
+
+.th-bidlist-empty-msg {
+  font-size: 24px;
+  color: #ca4646;
+  font-family: "Poppins";
+  line-height: 20px;
 }
 
 @media only screen and (min-width: 760px) and (max-width: 1024px) {
@@ -439,7 +446,7 @@
 .th-sell-form-textarea {
   background: rgba(51, 42, 124, 0.2);
   border-radius: 10px;
-  padding: 10px;
+  /* padding: 10px; */
   color: #332a7c;
 }
 

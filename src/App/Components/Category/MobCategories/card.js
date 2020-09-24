@@ -24,8 +24,11 @@ class CategoryList extends Component {
       <div className="mb-3">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <div>
-            <img src={this.props.img} alt="Fashion" />
-            <span className="ml-4 th-mob-category-list-item">
+            <img src={this.props.img} alt="Fashion" style={{ width: "28px" }} />
+            <span
+              className="ml-4 th-mob-category-list-item"
+              onClick={this.handleShow}
+            >
               {this.props.category}{" "}
             </span>
           </div>

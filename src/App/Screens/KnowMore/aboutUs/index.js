@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,6 +12,7 @@ class AboutUsHome extends Component {
   render() {
     return (
       <div>
+        <Helmet titleTemplate="Bechho | %s" title="About Us" />
         {this.state.width > 800 ? (
           <Container>
             <Row>

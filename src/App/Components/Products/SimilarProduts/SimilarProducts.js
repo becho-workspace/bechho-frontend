@@ -53,6 +53,10 @@ class SimilarProducts extends Component {
     };
   }
 
+  refreshPage = () => {
+    window.location.reload();
+  };
+
   componentDidMount() {
     this.fetchProducts();
   }
@@ -64,18 +68,17 @@ class SimilarProducts extends Component {
   }
 
   fetchProducts = () => {
-    // console.log(this.props.city);
     axios
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
-        // console.log(res.data);
         this.setState({
           products: res.data,
         });
       })
       .catch((err) => {
-        // console.log(err.response.data.error);
-        toast(err.response.data.error, { type: "warning" });
+        toast("No products found in" + " " + this.props.city, {
+          type: "warning",
+        });
       });
   };
 
@@ -90,9 +93,16 @@ class SimilarProducts extends Component {
             <Slider {...settings} className="px-0">
               {this.state.products.map((item, index) => {
                 return (
-                  <div key={index}>
-                    <Card className="th-brands-card border-0">
-                      <Link to={`/products/${item._id}`}>
+                  <div>
+                    <Card
+                      className="th-brands-card border-0"
+                      key={index}
+                      onClick={this.refreshPage}
+                    >
+                      <Link
+                        to={`/products/${item._id}`}
+                        style={{ textDecoration: "none" }}
+                      >
                         <div
                           style={{ height: "350px" }}
                           className="d-flex justify-content-center"
@@ -103,23 +113,27 @@ class SimilarProducts extends Component {
                             className="th-prods-card-image"
                           />
                         </div>
-                      </Link>
-                      <div className="pt-2 th-card-box">
-                        <Card.Text className="mb-md-1 th-prods-title">
-                          {item.name.charAt(0).toUpperCase() +
-                            item.name.slice(1)}
-                        </Card.Text>
-                        <Card.Text className="mb-md-1 th-prods-description">
-                          {item.description}
-                        </Card.Text>
-                        <div className="d-flex justify-content-between">
-                          <span className="th-prods-location">
-                            {item.city.charAt(0).toUpperCase() +
-                              item.city.slice(1)}
-                          </span>
-                          <span className="th-prods-price">₹ {item.price}</span>
+
+                        <div className="pt-2 th-card-box">
+                          <Card.Text className="mb-md-1 th-prods-title">
+                            {item.name.charAt(0).toUpperCase() +
+                              item.name.slice(1)}
+                          </Card.Text>
+                          <Card.Text className="mb-md-1 th-prods-description">
+                            {item.description.slice(0, 120)}
+                            <span style={{ fontSize: "18px" }}>...</span>
+                          </Card.Text>
+                          <div className="d-flex justify-content-between">
+                            <span className="th-prods-location">
+                              {item.city.charAt(0).toUpperCase() +
+                                item.city.slice(1)}
+                            </span>
+                            <span className="th-prods-price">
+                              ₹ {item.price}
+                            </span>
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                     </Card>
                   </div>
                 );
@@ -141,5 +155,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default withRouter(connect(mapStateToProps)(SimilarProducts));
-
-// export default withRouter(SimilarProducts);

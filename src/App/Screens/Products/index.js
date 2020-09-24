@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import ProductTop from "../../Components/Products/ProductTop/ProductTop";
 import Description from "../../Components/Products/Description/Description";
 import SimilarProduct from "../../Components/Products/SimilarProduts/SimilarProducts";
@@ -37,17 +38,12 @@ class ProductHome extends Component {
     this.fetchProductData({ id: this.props.match.params.id });
   }
 
-  componentWillReceiveProps(props) {
-    this.fetchProductData({ id: props.match.params.id });
-  }
-
   fetchProductData = (params = {}) => {
     axios
       .get(`${API}/product`, {
         params: { ...params },
       })
       .then((res) => {
-        // console.log(res.data);
         this.setState({
           product_name:
             res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
@@ -71,38 +67,40 @@ class ProductHome extends Component {
       })
       .catch((err) => {
         // console.log(err.response.data);
-        toast("UnauthorizedError: No authorization token was found", {
+        toast("Please signin to view the product", {
           type: "warning",
         });
       });
   };
 
   render() {
-    // console.log(this.props.match.params.id);
     return (
-      <div className="mt-lg-5 mb-5 th-products-container">
-        <ProductTop
-          name={this.state.product_name}
-          src={this.state.img_url}
-          price={this.state.price}
-          city={this.state.city}
-          description={this.state.description}
-          prodId={this.props.match.params.id}
-        />
-        <Description
-          answer1={this.state.ans1}
-          answer2={this.state.ans2}
-          answer3={this.state.ans3}
-          answer4={this.state.ans4}
-          answer5={this.state.ans5}
-          answer6={this.state.ans6}
-          answer7={this.state.ans7}
-          answer8={this.state.ans8}
-          answer9={this.state.ans9}
-          answer10={this.state.ans10}
-          answer11={this.state.ans11}
-        />
-        <SimilarProduct city={this.state.city} />
+      <div>
+        <Helmet titleTemplate="Bechho | %s" title={this.state.product_name} />
+        <div className="mt-lg-5 mb-5 th-products-container">
+          <ProductTop
+            name={this.state.product_name}
+            src={this.state.img_url}
+            price={this.state.price}
+            city={this.state.city}
+            description={this.state.description}
+            prodId={this.props.match.params.id}
+          />
+          <Description
+            answer1={this.state.ans1}
+            answer2={this.state.ans2}
+            answer3={this.state.ans3}
+            answer4={this.state.ans4}
+            answer5={this.state.ans5}
+            answer6={this.state.ans6}
+            answer7={this.state.ans7}
+            answer8={this.state.ans8}
+            answer9={this.state.ans9}
+            answer10={this.state.ans10}
+            answer11={this.state.ans11}
+          />
+          <SimilarProduct city={this.state.city} />
+        </div>
       </div>
     );
   }
