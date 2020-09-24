@@ -90,28 +90,38 @@ class SimilarProducts extends Component {
             <Slider {...settings} className="px-0">
               {this.state.products.map((item, index) => {
                 return (
-                  <Card className="th-brands-card border-0" key={index}>
-                    <Link to={`/products/${item._id}`}>
-                      <div className="d-flex justify-content-center th-prods-card-image">
-                        <img src={item.photo.path} alt="" />
+                  <div key={index}>
+                    <Card className="th-brands-card border-0">
+                      <Link to={`/products/${item._id}`}>
+                        <div
+                          style={{ height: "350px" }}
+                          className="d-flex justify-content-center"
+                        >
+                          <img
+                            src={item.photo.path}
+                            alt=""
+                            className="th-prods-card-image"
+                          />
+                        </div>
+                      </Link>
+                      <div className="pt-2 th-card-box">
+                        <Card.Text className="mb-md-1 th-prods-title">
+                          {item.name.charAt(0).toUpperCase() +
+                            item.name.slice(1)}
+                        </Card.Text>
+                        <Card.Text className="mb-md-1 th-prods-description">
+                          {item.description}
+                        </Card.Text>
+                        <div className="d-flex justify-content-between">
+                          <span className="th-prods-location">
+                            {item.city.charAt(0).toUpperCase() +
+                              item.city.slice(1)}
+                          </span>
+                          <span className="th-prods-price">₹ {item.price}</span>
+                        </div>
                       </div>
-                    </Link>
-                    <div className="pt-2 th-card-box">
-                      <Card.Text className="mb-md-1 th-prods-title">
-                        {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                      </Card.Text>
-                      <Card.Text className="mb-md-1 th-prods-description">
-                        {item.description}
-                      </Card.Text>
-                      <div className="d-flex justify-content-between">
-                        <span className="th-prods-location">
-                          {item.city.charAt(0).toUpperCase() +
-                            item.city.slice(1)}
-                        </span>
-                        <span className="th-prods-price">₹ {item.price}</span>
-                      </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </div>
                 );
               })}
             </Slider>

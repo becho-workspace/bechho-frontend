@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
 const settings = {
-  slidesToShow: 3.5,
+  slidesToShow: 3,
   slidesToScroll: 2,
   autoplay: false,
   autoplaySpeed: 4000,
@@ -110,11 +110,16 @@ class OldProducts extends Component {
                 <div key={index}>
                   <Card className="th-brands-card border-0">
                     <Link to={`/products/${item._id}`}>
-                      <Card.Img
-                        variant="top"
-                        src={item.photo.path}
-                        className="th-prods-card-image"
-                      />
+                      <div
+                        style={{ height: "350px" }}
+                        className="d-flex justify-content-center"
+                      >
+                        <img
+                          src={item.photo.path}
+                          alt=""
+                          className="th-prods-card-image"
+                        />
+                      </div>
                     </Link>
                     <div className="pt-2 th-card-box">
                       <Card.Text className="mb-md-1 th-prods-title">
