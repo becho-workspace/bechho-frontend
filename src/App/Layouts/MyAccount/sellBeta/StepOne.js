@@ -184,7 +184,7 @@ class StepOne extends Component {
                       <option value="">Select City</option>
                       <option value="Delhi">Delhi</option>
                       <option value="Noida">Noida </option>
-                      <option value="Gurgram">Gurgram</option>
+                      <option value="Gurgram">Gurugram</option>
                       <option value="Bangalore">Bangalore</option>
                     </Form.Control>
                   </Form.Group>

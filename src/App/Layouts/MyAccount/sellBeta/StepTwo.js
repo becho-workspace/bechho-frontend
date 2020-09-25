@@ -237,7 +237,7 @@ class StepTwo extends Component {
                         type="radio"
                         name="inline-radio-3"
                         id="ans3"
-                        value="	Flawless"
+                        value="Flawless"
                         required
                         onClick={this.toggleChange}
                       />
