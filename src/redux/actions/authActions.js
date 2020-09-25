@@ -19,7 +19,10 @@ toast.configure();
 export const registerUser = (userData, history) => (dispatch) => {
   axios
     .post(`${API}/signup`, userData)
-    .then((res) => history.push("/signin")) // re-direct to login on successful register
+    .then((res) => {
+      toast("Successfully Registered", { type: "success" });
+      history.push("/signin"); // re-direct to login on successful register
+    })
     .catch((err) =>
       // dispatch({
       //   type: GET_ERRORS,

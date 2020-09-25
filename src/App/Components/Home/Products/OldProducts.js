@@ -72,7 +72,7 @@ class OldProducts extends Component {
         });
       })
       .catch((err) => {
-        toast("No products found in" + " " + this.props.city, {
+        toast("No products found in ".concat(this.props.city), {
           type: "warning",
         });
       });

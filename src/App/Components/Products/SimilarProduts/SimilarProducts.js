@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+// import Loader from "../../../Loader/spinner";
 import Slider from "react-slick";
 import LeftArrow from "../../Slider/LeftArrow";
 import RightArrow from "../../Slider/RightArrow";
@@ -65,6 +66,8 @@ class SimilarProducts extends Component {
     if (prevProps.city !== this.props.city) {
       this.fetchProducts();
     }
+    // go to top upon update
+    window.scrollTo(0, 0);
   }
 
   fetchProducts = () => {
@@ -76,7 +79,7 @@ class SimilarProducts extends Component {
         });
       })
       .catch((err) => {
-        toast("No products found in" + " " + this.props.city, {
+        toast("No products found in ".concat(this.props.city), {
           type: "warning",
         });
       });
@@ -85,61 +88,63 @@ class SimilarProducts extends Component {
   render() {
     return (
       <div className="mb-5 container ">
-        <div className="mb-3 mt-5">
-          <span className="th-similar-product-title">Similar Products</span>
-        </div>
-        <div className="th-similar-prod-box">
-          {this.state.products.length > 0 && (
-            <Slider {...settings} className="px-0">
-              {this.state.products.map((item, index) => {
-                return (
-                  <div>
-                    <Card
-                      className="th-brands-card border-0"
-                      key={index}
-                      onClick={this.refreshPage}
-                    >
-                      <Link
-                        to={`/products/${item._id}`}
-                        style={{ textDecoration: "none" }}
+        <div>
+          <div className="mb-3 mt-5">
+            <span className="th-similar-product-title">Similar Products</span>
+          </div>
+          <div className="th-similar-prod-box">
+            {this.state.products.length > 0 && (
+              <Slider {...settings} className="px-0">
+                {this.state.products.map((item, index) => {
+                  return (
+                    <div>
+                      <Card
+                        className="th-brands-card border-0"
+                        key={index}
+                        onClick={this.refreshPage}
                       >
-                        <div
-                          style={{ height: "350px" }}
-                          className="d-flex justify-content-center"
+                        <Link
+                          to={`/products/${item._id}`}
+                          style={{ textDecoration: "none" }}
                         >
-                          <img
-                            src={item.photo.path}
-                            alt=""
-                            className="th-prods-card-image"
-                          />
-                        </div>
-
-                        <div className="pt-2 th-card-box">
-                          <Card.Text className="mb-md-1 th-prods-title">
-                            {item.name.charAt(0).toUpperCase() +
-                              item.name.slice(1)}
-                          </Card.Text>
-                          <Card.Text className="mb-md-1 th-prods-description">
-                            {item.description.slice(0, 120)}
-                            <span style={{ fontSize: "18px" }}>...</span>
-                          </Card.Text>
-                          <div className="d-flex justify-content-between">
-                            <span className="th-prods-location">
-                              {item.city.charAt(0).toUpperCase() +
-                                item.city.slice(1)}
-                            </span>
-                            <span className="th-prods-price">
-                              ₹ {item.price}
-                            </span>
+                          <div
+                            style={{ height: "350px" }}
+                            className="d-flex justify-content-center"
+                          >
+                            <img
+                              src={item.photo.path}
+                              alt=""
+                              className="th-prods-card-image"
+                            />
                           </div>
-                        </div>
-                      </Link>
-                    </Card>
-                  </div>
-                );
-              })}
-            </Slider>
-          )}
+
+                          <div className="pt-2 th-card-box">
+                            <Card.Text className="mb-md-1 th-prods-title">
+                              {item.name.charAt(0).toUpperCase() +
+                                item.name.slice(1)}
+                            </Card.Text>
+                            <Card.Text className="mb-md-1 th-prods-description">
+                              {item.description.slice(0, 120)}
+                              <span style={{ fontSize: "18px" }}>...</span>
+                            </Card.Text>
+                            <div className="d-flex justify-content-between">
+                              <span className="th-prods-location">
+                                {item.city.charAt(0).toUpperCase() +
+                                  item.city.slice(1)}
+                              </span>
+                              <span className="th-prods-price">
+                                ₹ {item.price}
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
+                      </Card>
+                    </div>
+                  );
+                })}
+              </Slider>
+            )}
+          </div>
         </div>
       </div>
     );

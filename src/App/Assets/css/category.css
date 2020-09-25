@@ -24,8 +24,19 @@
 }
 
 .th-category-all-card {
-  max-width: 350px;
+  max-width: 348px;
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1120px) {
+  .th-category-card-box {
+    background-color: #fff;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .th-category-prods-card-image {
+    max-width: 100%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -40,6 +51,18 @@
   .th-other-category {
     font-size: 14px;
     line-height: 20px;
+  }
+
+  .th-category-all-card {
+    max-width: 160px;
+  }
+  .th-category-prods-card-image {
+    max-width: 95%;
+    max-height: 95%;
+  }
+  .th-category-card-box {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 }
 

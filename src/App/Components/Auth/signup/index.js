@@ -127,6 +127,7 @@ class Signup extends Component {
                       onChange={this.handleChange}
                       style={{ background: "#fff" }}
                     >
+                      <option value="">Select Your City</option>
                       <option value="Delhi">Delhi</option>
                       <option value="Noida">Noida </option>
                       <option value="Gurgram">Gurgram</option>

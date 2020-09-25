@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -40,11 +40,7 @@ class ProductTop extends Component {
                 className="d-flex justify-content-center"
                 style={{ maxHeight: "500px" }}
               >
-                <img
-                  src={this.props.src}
-                  alt=""
-                  className="th-prod-right-img"
-                />
+                <img src={this.props.src} alt="" />
               </div>
             </Col>
             <Col lg={6}>

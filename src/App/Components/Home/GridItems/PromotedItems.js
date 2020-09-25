@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import Card from "react-bootstrap/Card";
+import "./slick-grid.css";
 import axios from "axios";
 import { API } from "../../../../backend";
 import { toast } from "react-toastify";
@@ -68,30 +68,53 @@ class PromotedItems extends Component {
       <div>
         {/* displays only for > 768px */}
         {this.state.width > 780 ? (
-          <div className="th-grid-items-header mb-1 mt-2">Promoted Items</div>
+          <div>
+            <div className="th-grid-items-header mb-1 mt-2">Promoted Items</div>
+            <div className="mb-4">
+              <Slider {...Settings}>
+                {this.state.data.length > 0 &&
+                  this.state.data.slice(start, end).map((item, index) => {
+                    return (
+                      <div
+                        style={{
+                          height: "22.5rem",
+                        }}
+                      >
+                        <div
+                          className="d-flex justify-content-center"
+                          key={index}
+                        >
+                          <img src={item.photo.path} alt="" />
+                        </div>
+                      </div>
+                    );
+                  })}
+              </Slider>
+            </div>
+          </div>
         ) : (
-          <div className="mb-1 mt-4"></div>
+          <div className="mb-1 mt-2">
+            <div className="th-grid-items-header">Promoted Items</div>
+            <div className="mb-4">
+              <Slider {...Settings}>
+                {this.state.data.length > 0 &&
+                  this.state.data.slice(start, end).map((item, index) => {
+                    return (
+                      <div style={{ height: "300px" }} key={index}>
+                        <div className="d-flex justify-content-center">
+                          <img
+                            src={item.photo.path}
+                            alt=""
+                            style={{ width: "180px" }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+              </Slider>
+            </div>
+          </div>
         )}
-        <div className="mb-4">
-          <Slider {...Settings} className="th-promote-slider-container">
-            {this.state.data.length > 0 &&
-              this.state.data.slice(start, end).map((item, index) => {
-                return (
-                  <Card className="border-0" key={index}>
-                    <Card.Img
-                      variant="top"
-                      src={item.photo.path}
-                      style={{
-                        height: this.state.width < 768 ? "16rem" : "22.75rem",
-                      }}
-                      className="rounded"
-                    />
-                    {/* <p>{item.name}</p> */}
-                  </Card>
-                );
-              })}
-          </Slider>
-        </div>
       </div>
     );
   }

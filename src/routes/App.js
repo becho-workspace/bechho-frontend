@@ -133,8 +133,8 @@ class App extends Component {
 
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact="/team" component={Team} />
             <Route exact path="/comingsoon" component={ComingSoon} />
+            <Route exact path="/team" component={Team} />
             {/* last route */}
             <Route component={Page404} />
           </Switch>

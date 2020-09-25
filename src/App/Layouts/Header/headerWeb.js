@@ -22,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
 const cities = [
+  { city: "Select a City" },
   { city: "Delhi" },
   { city: "Noida" },
   { city: "Bangalore" },
@@ -41,6 +42,7 @@ class Header extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    console.log(e.target.value);
     // setting city name based on user input in the store whether logged in or not
     this.props.setCurrentCityByUser(e.target.value);
   };
@@ -132,7 +134,7 @@ class Header extends Component {
               style={{ marginLeft: "2rem" }}
             >
               <span className="mr-2" style={{ color: "#332a7c" }}>
-                Select a City
+                Select Your City
               </span>
               <Form.Control
                 as="select"

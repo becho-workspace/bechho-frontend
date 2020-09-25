@@ -36,6 +36,7 @@ class ProductHome extends Component {
 
   componentDidMount() {
     this.fetchProductData({ id: this.props.match.params.id });
+    window.scrollTo(0, 0);
   }
 
   fetchProductData = (params = {}) => {
@@ -66,7 +67,6 @@ class ProductHome extends Component {
         });
       })
       .catch((err) => {
-        // console.log(err.response.data);
         toast("Please signin to view the product", {
           type: "warning",
         });
