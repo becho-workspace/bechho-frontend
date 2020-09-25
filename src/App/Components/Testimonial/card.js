@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
+import { Helmet } from "react-helmet";
 class Card extends Component {
   render() {
     return (
       <div>
+        <Helmet titleTemplate="Bechho | %s" title="Testimonial" />
         <div className="d-flex justify-content-center">
           <div
             style={{

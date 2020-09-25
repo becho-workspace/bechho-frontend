@@ -29,7 +29,10 @@ const TeamCard = (props) => {
         <img alt="" src={props.src} className="th-team-member-img"></img>
         <div className="th-team-member-content">
           <p className="th-team-member-name mb-1">{props.name}</p>
-          <p className="th-team-member-post ">{props.post}</p>
+          <p className="th-team-member-post ">{props.post} </p>
+          {props.post2 && (
+            <p className="th-team-member-post mt-0">{props.post2}</p>
+          )}
         </div>
       </div>
     </div>

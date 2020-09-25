@@ -17,7 +17,10 @@ class HomeMain extends Component {
   render() {
     return (
       <div>
-        <Helmet titleTemplate="Bechho | %s" title="Home" />
+        <Helmet
+          titleTemplate="Bechho | %s"
+          title="Sell Second hand items instantly, Free Classifieds in India, Mobiles and Tablets "
+        />
         <div>
           <HomeTop />
           <Locations />
