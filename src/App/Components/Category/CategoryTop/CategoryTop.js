@@ -15,7 +15,6 @@ class CategoryTop extends Component {
       width: window.innerWidth,
       data: [],
       loading: false,
-      width: window.innerWidth,
     };
   }
 

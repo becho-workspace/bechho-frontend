@@ -75,16 +75,22 @@ class PromotedItems extends Component {
                 {this.state.data.length > 0 &&
                   this.state.data.slice(start, end).map((item, index) => {
                     return (
-                      <div
-                        style={{
-                          height: "22.5rem",
-                        }}
-                      >
+                      <div key={index}>
                         <div
                           className="d-flex justify-content-center"
-                          key={index}
+                          style={{
+                            height: "22.5rem",
+                            width: "30rem",
+                          }}
                         >
-                          <img src={item.photo.path} alt="" />
+                          <img
+                            src={item.photo.path}
+                            alt=""
+                            style={{
+                              height: "100%",
+                              maxWidth: "95%",
+                            }}
+                          />
                         </div>
                       </div>
                     );
