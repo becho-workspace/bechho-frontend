@@ -40,7 +40,13 @@ class ProductTop extends Component {
                 className="d-flex justify-content-center"
                 style={{ maxHeight: "500px" }}
               >
-                <img src={this.props.src} alt="" />
+                <img
+                  src={this.props.src}
+                  alt=""
+                  style={{
+                    maxWidth: this.state.width > 780 ? "500px" : "280px",
+                  }}
+                />
               </div>
             </Col>
             <Col lg={6}>

@@ -91,7 +91,8 @@ class OldProducts extends Component {
       end = this.state.length;
       start = this.state.data.length - 4;
     } else {
-      start = end = this.state.data.length;
+      start = 0;
+      end = this.state.data.length;
     }
 
     return (

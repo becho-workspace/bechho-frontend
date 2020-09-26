@@ -35,6 +35,10 @@ class StepTwo extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   toggleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
@@ -711,6 +715,7 @@ class StepTwo extends Component {
               <div className="th-sell-form-item-header">
                 Upload Product Images
               </div>
+              <span style={{ color: "#3327ac" }}>(Max size 500kb)</span>
               <div className="d-flex align-items-center mt-lg-4">
                 <div className="th-sell-form-image-box mr-4">
                   <img
@@ -728,7 +733,7 @@ class StepTwo extends Component {
                     onChange={this.onFileChange}
                     required
                     style={{ width: "60px" }}
-                    accept="image*/"
+                    accept=".png, .jpg, .jpeg"
                   />
                 </div>
               </div>

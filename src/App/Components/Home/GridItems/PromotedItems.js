@@ -45,13 +45,11 @@ class PromotedItems extends Component {
     axios
       .get(`${API}/products`)
       .then((res) => {
-        // console.log(res.data);
         this.setState({
           data: res.data,
         });
       })
       .catch((err) => {
-        // console.log(err.response.statusText);
         toast("Something went wrong", { type: "warning" });
       });
   };
@@ -62,7 +60,8 @@ class PromotedItems extends Component {
       start = this.state.data.length - 6;
       end = this.state.data.length;
     } else {
-      start = end = 6;
+      start = 0;
+      end = 6;
     }
     return (
       <div>
