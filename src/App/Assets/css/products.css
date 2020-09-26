@@ -119,13 +119,33 @@
 }
 
 .th-prod-description-box {
-  max-height: 348px;
+  max-height: 408px;
   overflow-y: scroll;
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
 }
-.th-prod-description-box::-webkit-scrollbar {
+/* .th-prod-description-box::-webkit-scrollbar {
   display: none;
+} */
+
+/* custom scrollbar */
+/* width */
+.th-prod-description-box::-webkit-scrollbar {
+  width: 12px;
 }
+
+/* Track */
+.th-prod-description-box::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
+/* Handle */
+.th-prod-description-box::-webkit-scrollbar-thumb {
+  background: #332a7c;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+/* custom scrollbar ends*/
 
 .th-description-list {
   list-style: none !important;

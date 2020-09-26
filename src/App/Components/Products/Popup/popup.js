@@ -14,7 +14,7 @@ class Popup extends Component {
     super(props);
     this.state = {
       width: window.innerWidth,
-      price: "",
+      price: null,
       checked: false,
     };
 
@@ -37,8 +37,12 @@ class Popup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.price);
-    console.log(this.state.checked);
+    // console.log(this.state.price);
+    // console.log(this.state.checked);
+    // console.log(this.state.price);
+
+    console.log(this.props.user._id);
+
     axios
       .patch(`${API}/product/bid/${this.props.prodId}/${this.props.user._id}`, {
         offeredprice: this.state.price,
@@ -52,7 +56,7 @@ class Popup extends Component {
         this.props.closed();
       })
       .catch((err) => {
-        // console.log(err.response.data);
+        console.log(err.response.data);
         toast(err.response.data.error, { type: "warning" });
         this.props.closed();
       });
@@ -78,10 +82,10 @@ class Popup extends Component {
         <div className="th-prod-content-box d-lg-flex justify-content-lg-center">
           <Form onSubmit={this.handleSubmit}>
             <Form.Group className="mb-4">
-              <Form.Control
-                type="text"
+              <input
+                type="number"
                 placeholder="Your offer price"
-                className="th-prod-offer-price"
+                className="th-prod-offer-price form-control"
                 onChange={this.handleChange}
                 id="price"
                 value={this.state.price}
@@ -95,7 +99,6 @@ class Popup extends Component {
                 max="10"
                 value="10"
                 class="th-prod-range-slider"
-                required
               />
               <div className="d-flex justify-content-between mt-3 mb-md-5">
                 <div>
@@ -108,13 +111,14 @@ class Popup extends Component {
                 </div>
               </div>
             </div>
-            <Form.Group className="d-flex mb-md-5 th-prod-mob-checkbox">
-              <Form.Check
+            <Form.Group className="d-flex mb-md-5 th-prod-mob-checkbox align-items-center">
+              <input
                 type="checkbox"
-                className="mr-2"
+                className="mr-2 form-group"
                 onClick={this.handleClick}
                 id="checked"
                 value={this.state.checked}
+                required
               />
               <div className="th-prod-check-terms">
                 <p className="m-0"> By clicking the button, you agree to our</p>

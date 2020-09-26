@@ -67,7 +67,6 @@ class NewProducts extends Component {
     axios
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
-        console.log(res.data[0].photo.path);
         this.setState({
           data: res.data,
         });

@@ -29,23 +29,56 @@ class StepTwo extends Component {
       price: null,
       width: window.innerWidth,
       loading: false,
+      // for error
+      // error: {
+      //   ans1: "",
+      //   ans2: "",
+      //   ans3: "",
+      //   ans4: "",
+      //   ans5: "",
+      //   ans6: "",
+      //   ans7: "",
+      //   ans8: "",
+      //   ans9: "",
+      //   ans10: "",
+      //   ans11: "",
+      //   photo: null,
+      //   price: null,
+      //   category: "",
+      //   sub_category: "",
+      //   product_name: "",
+      //   description: "",
+      //   address: "",
+      //   city: "",
+      // },
     };
     this.handleChange = this.handleChange.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleChange = this.toggleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
+  handleFocus = (event) => {
+    event.target.setAttribute("autocomplete", "off");
+    // console.log(event.target.autocomplete);
+  };
+
   toggleChange = (e) => {
+    console.log(e.target.id, e.target.value);
+
     this.setState({
       [e.target.id]: e.target.value,
     });
   };
 
   handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -68,6 +101,7 @@ class StepTwo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     this.setState({ loading: true });
     let formData = new FormData();
 
@@ -102,13 +136,13 @@ class StepTwo extends Component {
         .then((response) => {
           if (response.status === 200) {
             toast("Successfully Submitted", { type: "success" });
+            this.setState({ loading: false });
           }
-          this.setState({ loading: false });
+          this.props.history.push("/");
         })
         .catch((err) => {
-          // console.log(err.response.data);
           this.setState({ loading: false });
-          toast(err.response.data.error, { type: "warning" });
+          toast("Something went wrong, please try again", { type: "warning" });
         });
     }
   };
@@ -117,9 +151,6 @@ class StepTwo extends Component {
     if (this.props.currentStep !== 2) {
       return null;
     }
-
-    // console.log(this.props.user._id);
-
     return (
       <div>
         {this.state.loading ? (
@@ -698,14 +729,15 @@ class StepTwo extends Component {
               </ul>
               <div className="mt-lg-3">
                 <Form.Group className="d-flex">
-                  <Form.Control
-                    as="textarea"
+                  <textarea
                     rows="4"
                     placeholder="Choose your answer(s) and type here"
-                    className="th-sell-form-textarea"
+                    className="th-sell-form-textarea form-control"
                     onChange={this.handleChange}
+                    onFocus={this.handleFocus}
                     name="ans11"
                     value={this.state.ans11}
+                    required
                   />
                 </Form.Group>
               </div>
@@ -746,11 +778,12 @@ class StepTwo extends Component {
                   <span className="th-sell-form-input-label mr-4">
                     Enter Price
                   </span>
-                  <Form.Control
+                  <input
                     type="number"
                     placeholder="₹"
-                    className="th-sell-form-input-price"
+                    className="th-sell-form-input-price form-control"
                     onChange={this.handleChange}
+                    onFocus={this.handleFocus}
                     name="price"
                     value={this.state.price}
                   />

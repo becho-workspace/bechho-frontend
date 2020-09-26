@@ -22,6 +22,7 @@ class Signup extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   handleCloseModal = () => {
@@ -29,6 +30,11 @@ class Signup extends Component {
       show_modal: !this.state.show_modal,
     });
     this.props.history.push("/");
+  };
+
+  handleFocus = (event) => {
+    event.target.setAttribute("autocomplete", "off");
+    // console.log(event.target.autocomplete);
   };
 
   componentDidMount() {
@@ -40,7 +46,6 @@ class Signup extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.value);
   };
 
   handleSubmit = (e) => {
@@ -105,6 +110,7 @@ class Signup extends Component {
                       name="name"
                       value={name}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                     />
                     <input
                       className="input-item mb-4"
@@ -115,16 +121,16 @@ class Signup extends Component {
                       name="contact"
                       value={contact}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                     />
                     <select
                       className="input-item mb-4"
-                      // type="text"
                       required
-                      // maxLength={16}
                       placeholder="City"
                       name="city"
                       value={city}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       style={{ background: "#fff" }}
                     >
                       <option value="">Select Your City</option>
@@ -142,6 +148,7 @@ class Signup extends Component {
                       name="address"
                       value={address}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                     />
 
                     <input
@@ -153,6 +160,7 @@ class Signup extends Component {
                       name="email"
                       value={email}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                     />
                     <input
                       className="input-item mb-4"
@@ -162,6 +170,7 @@ class Signup extends Component {
                       name="password"
                       value={password}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                     />
                     <button className="btn submit" type="submit">
                       Continue

@@ -17,12 +17,22 @@ class StepOne extends Component {
       city: "",
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    if (e.target.value.category) {
+      console.log("ss");
+    }
     this.setState({
       [e.target.name]: e.target.value,
     });
+  };
+
+  handleFocus = (event) => {
+    event.target.setAttribute("autocomplete", "off");
+    // console.log(event.target.autocomplete);
   };
 
   _next = () => {
@@ -88,32 +98,34 @@ class StepOne extends Component {
                     <span className="th-sell-form-input-label mr-3 mr-lg-4">
                       Category
                     </span>
-                    <Form.Control
-                      as="select"
-                      className="th-sell-form-input"
+                    <select
+                      // as="select"
+                      className="th-sell-form-input form-control"
                       name="category"
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       required
                     >
                       <option value="">Select Category</option>
                       <option value="electronics">Electronics</option>
-                    </Form.Control>
+                    </select>
                   </Form.Group>
                   <Form.Group className="form-group d-flex align-items-center">
                     <span className="th-sell-form-input-label mr-4">
                       Product
                     </span>
-                    <Form.Control
-                      as="select"
-                      className="th-sell-form-input"
+                    <select
+                      // as="select"
+                      className="th-sell-form-input form-control"
                       name="sub_category"
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       required
                     >
                       <option value="">Select Product</option>
                       <option value="mobile">Mobile</option>
                       <option value="tablet">Tablet</option>
-                    </Form.Control>
+                    </select>
                   </Form.Group>
                 </div>
               </div>
@@ -122,10 +134,11 @@ class StepOne extends Component {
                 <div className="th-sell-form-item-header">Product Name</div>
                 <div className="mt-lg-3">
                   <Form.Group className="form-group d-flex">
-                    <Form.Control
+                    <input
                       type="text"
-                      className="th-sell-form-textarea"
+                      className="th-sell-form-textarea form-control"
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       name="product_name"
                       value={this.state.product_name}
                       required
@@ -140,12 +153,13 @@ class StepOne extends Component {
                 </div>
                 <div className="mt-lg-3">
                   <Form.Group>
-                    <Form.Control
-                      as="textarea"
+                    <textarea
+                      // as="textarea"
                       rows="4"
-                      className="th-sell-form-textarea"
+                      className="th-sell-form-textarea form-control"
                       placeholder="Start typing..."
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       name="description"
                       value={this.state.description}
                       required
@@ -157,12 +171,13 @@ class StepOne extends Component {
                 <div className="th-sell-form-item-header">Your Address</div>
                 <div className="mt-lg-3">
                   <Form.Group>
-                    <Form.Control
-                      as="textarea"
+                    <textarea
+                      // as="textarea"
                       rows="4"
-                      className="th-sell-form-textarea"
+                      className="th-sell-form-textarea form-control"
                       placeholder="Start typing..."
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       name="address"
                       value={this.state.address}
                       required
@@ -174,11 +189,12 @@ class StepOne extends Component {
                 <div className="th-sell-form-item-header">Enter Your City</div>
                 <div className="mt-lg-3">
                   <Form.Group>
-                    <Form.Control
-                      as="select"
-                      className="th-sell-form-textarea"
+                    <select
+                      // as="select"
+                      className="th-sell-form-textarea form-control"
                       name="city"
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       required
                     >
                       <option value="">Select City</option>
@@ -186,7 +202,7 @@ class StepOne extends Component {
                       <option value="Noida">Noida </option>
                       <option value="Gurgram">Gurugram</option>
                       <option value="Bangalore">Bangalore</option>
-                    </Form.Control>
+                    </select>
                   </Form.Group>
                 </div>
               </div>

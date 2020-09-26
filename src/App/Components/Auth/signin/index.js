@@ -21,6 +21,7 @@ class Signin extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   handleCloseModal = () => {
@@ -28,6 +29,11 @@ class Signin extends Component {
       show_modal: !this.state.show_modal,
     });
     this.props.history.push("/");
+  };
+
+  handleFocus = (event) => {
+    event.target.setAttribute("autocomplete", "off");
+    // console.log(event.target.autocomplete);
   };
 
   componentDidMount() {
@@ -61,10 +67,8 @@ class Signin extends Component {
   };
 
   render() {
-    // console.log(this.props.auth.loading);
-
     return (
-      <div className="">
+      <div>
         <Modal
           size="lg"
           show={this.state.show_modal}
@@ -106,10 +110,9 @@ class Signin extends Component {
                       name="email"
                       value={this.state.email}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       required
                     />
-                    {/* {this.props.errors.error &&
-                      toast(errors.error, { type: "error" })} */}
                     <input
                       className="input-item mb-4"
                       type="password"
@@ -117,6 +120,7 @@ class Signin extends Component {
                       name="password"
                       value={this.state.password}
                       onChange={this.handleChange}
+                      onFocus={this.handleFocus}
                       required
                     />
                     <button className="btn submit" type="submit">
