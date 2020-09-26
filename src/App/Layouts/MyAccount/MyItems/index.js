@@ -30,14 +30,13 @@ class MyItems extends Component {
     axios
       .get(`${API}/product/getuserproducts/${this.props.user._id}`)
       .then((res) => {
-        // console.log(res.data.products);
         this.setState({
           myItems: res.data.products,
           loading: false,
         });
       })
       .catch((err) => {
-        console.log(err.response.data.error);
+        // console.log(err.response.data.error);
         this.setState({ loading: false });
         toast(err.response.data.error, { type: "warning" });
       });

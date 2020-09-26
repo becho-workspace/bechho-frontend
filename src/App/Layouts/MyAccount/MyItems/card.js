@@ -50,7 +50,7 @@ class MyItemsCard extends Component {
                     this.props.BidList.map((item, index) => {
                       return (
                         <BidCard
-                          price={item.price}
+                          price={item.offeredprice}
                           status={item.status}
                           prodId={this.props.prodId}
                           bidderId={item.userBidding}

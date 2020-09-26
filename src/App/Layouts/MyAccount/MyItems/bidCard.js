@@ -175,6 +175,10 @@ class BidCard extends Component {
       bidStatus = 1;
     }
 
+    let { bidder } = this.props;
+    let nameArray = bidder.split(" ");
+    let bidderName = nameArray[0];
+
     return (
       <div>
         {bidStatus ? (
@@ -184,7 +188,7 @@ class BidCard extends Component {
                 ₹ {this.props.price}
               </p>
               <p className="th-myitems-bidder mr-md-2 ml-md-2 mb-0">
-                {this.props.bidder}
+                {bidderName}
               </p>
               <p
                 className="th-myitems-bid-details ml-md-2 mb-0"

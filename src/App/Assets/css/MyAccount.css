@@ -267,11 +267,11 @@
 }
 
 .th-myitems-offered-price {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .th-myitems-bidder {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .th-myitems-bid-details {
@@ -288,19 +288,19 @@
   font-family: Nunito Sans;
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 22px;
   border-radius: 4px;
 }
 .th-myitems-bid-approve {
-  padding: 5px 15px;
+  padding: 4px 15px;
   color: #ffffff;
   border: 1px solid #39ac45;
   background: #39ac45;
 }
 
 .th-myitems-bid-decline {
-  padding: 5px 20px;
+  padding: 4px 15px;
   color: #ca4646;
   border: 1px solid #ca4646;
   background: #ffffff;
@@ -334,7 +334,7 @@
   .th-myitems-price,
   .th-myitems-offered-price,
   .th-myitems-bidder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 25px;
   }
 
