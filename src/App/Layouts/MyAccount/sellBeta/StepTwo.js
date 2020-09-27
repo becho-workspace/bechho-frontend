@@ -30,27 +30,7 @@ class StepTwo extends Component {
       width: window.innerWidth,
       loading: false,
       // for error
-      // error: {
-      //   ans1: "",
-      //   ans2: "",
-      //   ans3: "",
-      //   ans4: "",
-      //   ans5: "",
-      //   ans6: "",
-      //   ans7: "",
-      //   ans8: "",
-      //   ans9: "",
-      //   ans10: "",
-      //   ans11: "",
-      //   photo: null,
-      //   price: null,
-      //   category: "",
-      //   sub_category: "",
-      //   product_name: "",
-      //   description: "",
-      //   address: "",
-      //   city: "",
-      // },
+      photoError: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
@@ -65,7 +45,6 @@ class StepTwo extends Component {
 
   handleFocus = (event) => {
     event.target.setAttribute("autocomplete", "off");
-    // console.log(event.target.autocomplete);
   };
 
   toggleChange = (e) => {
@@ -86,7 +65,13 @@ class StepTwo extends Component {
 
   onFileChange = (e) => {
     // Update the state
-    this.setState({ photo: e.target.files[0] });
+    if (e.target.files[0].size > 500000) {
+      this.setState({
+        photoError: "Image can not be more than 500KB",
+      });
+    } else {
+      this.setState({ photo: e.target.files[0], photoError: "" });
+    }
 
     // for showing the image
     var input = e.target;
@@ -98,6 +83,8 @@ class StepTwo extends Component {
     };
     reader.readAsDataURL(input.files[0]);
   };
+
+  handleValidaiton = () => {};
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -768,6 +755,19 @@ class StepTwo extends Component {
                     accept=".png, .jpg, .jpeg"
                   />
                 </div>
+              </div>
+              <div>
+                {this.state.photoError && (
+                  <span
+                    style={{
+                      color: "red",
+                      fontSize: "20px",
+                      fontFamily: "cursive",
+                    }}
+                  >
+                    {this.state.photoError}
+                  </span>
+                )}
               </div>
             </div>
 

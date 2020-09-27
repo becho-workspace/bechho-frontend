@@ -6,6 +6,9 @@ import { registerUser } from "../../../../redux/actions/authActions";
 import { XCircle } from "react-feather";
 import Modal from "react-bootstrap/Modal";
 import Logo from "../../../Assets/Images/Logo.png";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 class Signup extends Component {
   constructor(props) {
@@ -19,6 +22,7 @@ class Signup extends Component {
       password: "",
       show_modal: true,
       width: window.innerWidth,
+      errors: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,18 +52,90 @@ class Signup extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  // validation
+  handleValidation() {
+    let { name, contact, email, address, password } = this.state;
+
+    let errors = {};
+    let formIsValid = true;
+
+    //Name
+    if (name.length < 4) {
+      formIsValid = false;
+      errors["name"] = "Name must contain atleast 4 letters";
+    }
+    if (typeof name !== "undefined") {
+      if (!name.match(/^[a-zA-Z][a-zA-Z ]+[a-zA-Z]+$/)) {
+        formIsValid = false;
+        errors["name"] = "Only letters";
+      }
+    }
+
+    // contact
+    if (contact.length < 10) {
+      formIsValid = false;
+      errors["contact"] = "Must be of 10 digits";
+    }
+    if (typeof contact !== "undefined") {
+      if (!contact.match(/^[0-9]+$/)) {
+        formIsValid = false;
+        errors["contact"] = "Only digits";
+      }
+    }
+
+    //Address
+    if (address.length > 30) {
+      formIsValid = false;
+      errors["address"] = "Address cannot conatain more than 30 letters";
+    }
+
+    //Email
+    if (typeof email !== "undefined") {
+      let lastAtPos = email.lastIndexOf("@");
+      let lastDotPos = email.lastIndexOf(".");
+
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          email.indexOf("@@") == -1 &&
+          lastDotPos > 2 &&
+          email.length - lastDotPos > 2
+        )
+      ) {
+        formIsValid = false;
+        errors["email"] = "Email is not valid";
+      }
+    }
+
+    // password
+    if (password.length < 4) {
+      formIsValid = false;
+      errors["password"] = "Password is too small";
+    }
+
+    this.setState({ errors: errors });
+    return formIsValid;
+  }
+  // validation ends
+
   handleSubmit = (e) => {
     e.preventDefault();
-    const newUser = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      contact: this.state.contact,
-      city: this.state.city,
-      address: this.state.address,
-    };
-
-    this.props.registerUser(newUser, this.props.history);
+    if (this.handleValidation()) {
+      const newUser = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        contact: this.state.contact,
+        city: this.state.city,
+        address: this.state.address,
+      };
+      this.props.registerUser(newUser, this.props.history);
+    } else {
+      toast("Cannot register user with invalid details, please try again", {
+        type: "warning",
+      });
+    }
   };
 
   render() {
@@ -102,27 +178,55 @@ class Signup extends Component {
                     className="d-flex flex-column"
                     onSubmit={this.handleSubmit}
                   >
-                    <input
-                      className="input-item mb-4"
-                      type="text"
-                      required
-                      placeholder="Your Name"
-                      name="name"
-                      value={name}
-                      onChange={this.handleChange}
-                      onFocus={this.handleFocus}
-                    />
-                    <input
-                      className="input-item mb-4"
-                      type="text"
-                      required
-                      maxLength={10}
-                      placeholder="Contact"
-                      name="contact"
-                      value={contact}
-                      onChange={this.handleChange}
-                      onFocus={this.handleFocus}
-                    />
+                    <div className="mb-4 d-flex flex-column">
+                      <input
+                        className="input-item"
+                        type="text"
+                        required
+                        placeholder="Your Name"
+                        name="name"
+                        value={name}
+                        onChange={this.handleChange}
+                        onFocus={this.handleFocus}
+                      />
+                      {this.state.errors.name && (
+                        <span
+                          style={{
+                            color: "red",
+                            fontSize: "16px",
+                            fontFamily: "merriweather",
+                          }}
+                        >
+                          {this.state.errors.name}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="mb-4 d-flex flex-column">
+                      <input
+                        className="input-item"
+                        type="text"
+                        required
+                        maxLength={10}
+                        placeholder="Contact"
+                        name="contact"
+                        value={contact}
+                        onChange={this.handleChange}
+                        onFocus={this.handleFocus}
+                      />
+                      {this.state.errors.contact && (
+                        <span
+                          style={{
+                            color: "red",
+                            fontSize: "16px",
+                            fontFamily: "merriweather",
+                          }}
+                        >
+                          {this.state.errors.contact}
+                        </span>
+                      )}
+                    </div>
+
                     <select
                       className="input-item mb-4"
                       required
@@ -139,39 +243,81 @@ class Signup extends Component {
                       <option value="Gurgram">Gurgram</option>
                       <option value="Bangalore">Bangalore</option>
                     </select>
-                    <input
-                      className="input-item mb-4"
-                      type="text"
-                      required
-                      maxLength={50}
-                      placeholder="Your Address"
-                      name="address"
-                      value={address}
-                      onChange={this.handleChange}
-                      onFocus={this.handleFocus}
-                    />
 
-                    <input
-                      className="input-item mb-4"
-                      type="email"
-                      required
-                      maxLength={36}
-                      placeholder="Email"
-                      name="email"
-                      value={email}
-                      onChange={this.handleChange}
-                      onFocus={this.handleFocus}
-                    />
-                    <input
-                      className="input-item mb-4"
-                      required
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      value={password}
-                      onChange={this.handleChange}
-                      onFocus={this.handleFocus}
-                    />
+                    <div className="mb-4 d-flex flex-column">
+                      <input
+                        className="input-item"
+                        type="text"
+                        required
+                        maxLength={50}
+                        placeholder="Your Address"
+                        name="address"
+                        value={address}
+                        onChange={this.handleChange}
+                        onFocus={this.handleFocus}
+                      />
+                      {this.state.errors.address && (
+                        <span
+                          style={{
+                            color: "red",
+                            fontSize: "16px",
+                            fontFamily: "merriweather",
+                          }}
+                        >
+                          {this.state.errors.address}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="mb-4 d-flex flex-column">
+                      <input
+                        className="input-item"
+                        type="email"
+                        required
+                        maxLength={36}
+                        placeholder="Email"
+                        name="email"
+                        value={email}
+                        onChange={this.handleChange}
+                        onFocus={this.handleFocus}
+                      />
+                      {this.state.errors.email && (
+                        <span
+                          style={{
+                            color: "red",
+                            fontSize: "16px",
+                            fontFamily: "merriweather",
+                          }}
+                        >
+                          {this.state.errors.email}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="mb-4 d-flex flex-column">
+                      <input
+                        className="input-item "
+                        required
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={password}
+                        onChange={this.handleChange}
+                        onFocus={this.handleFocus}
+                      />
+                      {this.state.errors.password && (
+                        <span
+                          style={{
+                            color: "red",
+                            fontSize: "16px",
+                            fontFamily: "merriweather",
+                          }}
+                        >
+                          {this.state.errors.password}
+                        </span>
+                      )}
+                    </div>
+
                     <button className="btn submit" type="submit">
                       Continue
                     </button>
