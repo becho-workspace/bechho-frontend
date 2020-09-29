@@ -9,13 +9,10 @@ class CategoryCard extends Component {
 
   render() {
     return (
-      <div>
-        <div className="th-category-all-card border-0 ">
+      <div className="pl-lg-2 pr-lg-2">
+        <Card className="th-category-all-card">
           <Link to={`/products/${this.props.id}`}>
-            <div
-              style={{ height: this.state.width > 780 ? "350px" : "160px" }}
-              className="d-flex justify-content-center"
-            >
+            <div className="d-flex justify-content-center th-category-all-img-div">
               <img
                 src={this.props.src}
                 alt=""
@@ -32,15 +29,15 @@ class CategoryCard extends Component {
                 <span>{this.props.location} </span>
               </Card.Text>
             </div>
-            <Card.Text className="mb-md-1 th-brands-title ">
+            <Card.Text className="mb-md-1 th-brands-title">
               {this.props.title}
             </Card.Text>
             <Card.Text className="mb-md-1 th-brands-description">
-              {this.props.description.slice(0, 100)}{" "}
+              {this.props.description.slice(0, 50)}{" "}
               <span style={{ fontSize: "20px" }}> ...</span>
             </Card.Text>
           </div>
-        </div>
+        </Card>
       </div>
     );
   }

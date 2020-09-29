@@ -72,7 +72,8 @@ class SimilarProducts extends Component {
 
   fetchProducts = () => {
     axios
-      .get(`${API}/products/${this.props.city}`)
+      // .get(`${API}/products/${this.props.city}`)
+      .get(`${API}/products`)
       .then((res) => {
         this.setState({
           products: res.data,
@@ -97,9 +98,9 @@ class SimilarProducts extends Component {
               <Slider {...settings} className="px-0">
                 {this.state.products.map((item, index) => {
                   return (
-                    <div>
+                    <div key={index} className="pl-4 pr-4">
                       <Card
-                        className="th-brands-card border-0"
+                        className="th-prods-card border-0"
                         key={index}
                         onClick={this.refreshPage}
                       >
@@ -107,10 +108,7 @@ class SimilarProducts extends Component {
                           to={`/products/${item._id}`}
                           style={{ textDecoration: "none" }}
                         >
-                          <div
-                            style={{ height: "350px" }}
-                            className="d-flex justify-content-center"
-                          >
+                          <div className="d-flex justify-content-center th-oldprods-img-div">
                             <img
                               src={item.photo.path}
                               alt=""
@@ -124,7 +122,7 @@ class SimilarProducts extends Component {
                                 item.name.slice(1)}
                             </Card.Text>
                             <Card.Text className="mb-md-1 th-prods-description">
-                              {item.description.slice(0, 120)}
+                              {item.description.slice(0, 30)}
                               <span style={{ fontSize: "18px" }}>...</span>
                             </Card.Text>
                             <div className="d-flex justify-content-between">

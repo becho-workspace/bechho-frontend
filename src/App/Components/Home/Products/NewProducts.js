@@ -103,16 +103,13 @@ class NewProducts extends Component {
           <Slider {...settings} className="px-0 th-slider-margin">
             {this.state.data.slice(start, end).map((item, index) => {
               return (
-                <div key={index}>
-                  <Card className="th-brands-card border-0">
+                <div key={index} className="pl-3 pr-3">
+                  <Card className="th-prods-card border-0">
                     <Link
                       to={`/products/${item._id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <div
-                        style={{ height: "350px" }}
-                        className="d-flex justify-content-center"
-                      >
+                      <div className="d-flex justify-content-center th-newprods-img-div">
                         <img
                           src={item.photo.path}
                           alt=""
@@ -125,7 +122,7 @@ class NewProducts extends Component {
                             item.name.slice(1)}
                         </Card.Text>
                         <Card.Text className="mb-md-1 th-prods-description">
-                          {item.description.slice(0, 120)}
+                          {item.description.slice(0, 30)}
                           <span style={{ fontSize: "18px" }}>...</span>
                         </Card.Text>
                         <div className="d-flex justify-content-between">

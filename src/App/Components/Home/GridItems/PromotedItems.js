@@ -65,61 +65,27 @@ class PromotedItems extends Component {
     }
     return (
       <div>
-        {/* displays only for > 768px */}
-        {this.state.width > 780 ? (
-          <div>
-            <div className="th-grid-items-header mb-1 mt-2">Promoted Items</div>
-            <div className="mb-4">
-              <Slider {...Settings}>
-                {this.state.data.length > 0 &&
-                  this.state.data.slice(start, end).map((item, index) => {
-                    return (
-                      <div key={index}>
-                        <div
-                          className="d-flex justify-content-center"
-                          style={{
-                            height: "22.5rem",
-                            width: "30rem",
-                          }}
-                        >
-                          <img
-                            src={item.photo.path}
-                            alt=""
-                            style={{
-                              height: "100%",
-                              maxWidth: "95%",
-                            }}
-                          />
-                        </div>
+        <div className="th-grid-items-header mb-3 mt-2">Promoted Items</div>
+        <div className="mb-4">
+          <Slider {...Settings}>
+            {this.state.data.length > 0 &&
+              this.state.data.slice(start, end).map((item, index) => {
+                return (
+                  <div key={index}>
+                    <div className="th-promoted-items-card">
+                      <div className="d-flex justify-content-center th-promoted-items-img-div">
+                        <img
+                          src={item.photo.path}
+                          alt=""
+                          className="th-prods-card-image"
+                        />
                       </div>
-                    );
-                  })}
-              </Slider>
-            </div>
-          </div>
-        ) : (
-          <div className="mb-1 mt-2">
-            <div className="th-grid-items-header">Promoted Items</div>
-            <div className="mb-4">
-              <Slider {...Settings}>
-                {this.state.data.length > 0 &&
-                  this.state.data.slice(start, end).map((item, index) => {
-                    return (
-                      <div style={{ height: "300px" }} key={index}>
-                        <div className="d-flex justify-content-center">
-                          <img
-                            src={item.photo.path}
-                            alt=""
-                            style={{ width: "180px" }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-              </Slider>
-            </div>
-          </div>
-        )}
+                    </div>
+                  </div>
+                );
+              })}
+          </Slider>
+        </div>
       </div>
     );
   }

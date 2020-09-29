@@ -4,6 +4,7 @@ import Loader from "../../../Loader/spinner";
 import axios from "axios";
 import { API } from "../../../../backend";
 import { connect } from "react-redux";
+import { Search } from "react-feather";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
@@ -13,7 +14,8 @@ class CategoryTop extends Component {
     super(props);
     this.state = {
       width: window.innerWidth,
-      data: [],
+      prodList: [],
+      search: "",
       loading: false,
     };
   }
@@ -34,7 +36,7 @@ class CategoryTop extends Component {
       .get(`${API}/products/${this.props.city}`)
       .then((res) => {
         this.setState({
-          data: res.data,
+          prodList: res.data,
           loading: false,
         });
       })
@@ -46,24 +48,51 @@ class CategoryTop extends Component {
       });
   };
 
+  handleChange = (e) => {
+    this.setState({
+      search: e.target.value,
+    });
+    console.log(e.target.value);
+  };
+
   render() {
+    const products = this.state.prodList.filter((data) => {
+      if (this.state.search == "") return data;
+      else if (
+        data.name.toLowerCase().includes(this.state.search.toLowerCase()) ||
+        data.city.toLowerCase().includes(this.state.search.toLowerCase())
+      ) {
+        return data;
+      }
+    });
+
     return (
       <div>
         {this.state.loading ? (
           <Loader />
         ) : (
           <div>
-            <div className="th-category-title">Mobile and Laptops</div>
+            <div className="d-lg-flex justify-content-lg-between">
+              <div className="th-category-title">Mobile and Laptops</div>
+              {/* search filter */}
+              <form action="">
+                <div class="input-group">
+                  <input
+                    type="search"
+                    class="form-control"
+                    placeholder="Search a product..."
+                    onChange={this.handleChange}
+                  />
+                  <div class="input-group-append th-category-prod-search-icon align-items-center btn-primary">
+                    <Search size={24} />
+                  </div>
+                </div>
+              </form>
+            </div>
             <div className="mt-3">
-              <div
-                class="d-flex flex-wrap"
-                style={{
-                  justifyContent:
-                    this.state.width < 768 ? "center" : "space-between",
-                }}
-              >
-                {this.state.data &&
-                  this.state.data.map((item, index) => {
+              <div class="d-flex flex-wrap justify-content-between">
+                {products &&
+                  products.map((item, index) => {
                     return (
                       <CategoryCard
                         src={item.photo.path}
