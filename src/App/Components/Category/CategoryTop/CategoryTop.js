@@ -57,7 +57,7 @@ class CategoryTop extends Component {
 
   render() {
     const products = this.state.prodList.filter((data) => {
-      if (this.state.search == "") return data;
+      if (this.state.search === "") return data;
       else if (
         data.name.toLowerCase().includes(this.state.search.toLowerCase()) ||
         data.city.toLowerCase().includes(this.state.search.toLowerCase())

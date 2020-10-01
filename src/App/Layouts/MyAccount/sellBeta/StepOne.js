@@ -154,7 +154,6 @@ class StepOne extends Component {
                 <div className="mt-lg-3">
                   <Form.Group>
                     <textarea
-                      // as="textarea"
                       rows="4"
                       className="th-sell-form-textarea form-control"
                       placeholder="Start typing..."
@@ -172,7 +171,6 @@ class StepOne extends Component {
                 <div className="mt-lg-3">
                   <Form.Group>
                     <textarea
-                      // as="textarea"
                       rows="4"
                       className="th-sell-form-textarea form-control"
                       placeholder="Start typing..."
@@ -190,7 +188,6 @@ class StepOne extends Component {
                 <div className="mt-lg-3">
                   <Form.Group>
                     <select
-                      // as="select"
                       className="th-sell-form-textarea form-control"
                       name="city"
                       onChange={this.handleChange}
@@ -202,6 +199,7 @@ class StepOne extends Component {
                       <option value="Noida">Noida </option>
                       <option value="Gurgram">Gurugram</option>
                       <option value="Bangalore">Bangalore</option>
+                      <option value="Pune">Pune</option>
                     </select>
                   </Form.Group>
                 </div>

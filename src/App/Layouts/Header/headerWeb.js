@@ -27,6 +27,7 @@ const cities = [
   { city: "Noida" },
   { city: "Bangalore" },
   { city: "Gurugram" },
+  { city: "Pune" },
 ];
 
 class Header extends Component {
@@ -42,7 +43,7 @@ class Header extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.value);
+    // console.log(e.target.value);
     // setting city name based on user input in the store whether logged in or not
     this.props.setCurrentCityByUser(e.target.value);
   };

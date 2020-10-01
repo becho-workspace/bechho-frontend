@@ -9,6 +9,8 @@ import Delhi from "../../Assets/Images/Home/Delhi.png";
 import Noida from "../../Assets/Images/Home/Noida.png";
 import Gurgaon from "../../Assets/Images/Home/Gurgaon.png";
 import Bangalore from "../../Assets/Images/Home/Bangalore.png";
+import Pune from "../../Assets/Images/Home/Pune.png";
+// import Kolkata from "../../Assets/Images/Home/Kolkata.png";
 import { connect } from "react-redux";
 import {
   setCurrentCityByUser,
@@ -21,9 +23,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
-
-// import Pune from "../../Assets/Images/Home/Pune.png";
-// import Kolkata from "../../Assets/Images/Home/Kolkata.png";
 
 class HeaderMobile extends Component {
   constructor(props) {
@@ -92,7 +91,7 @@ class HeaderMobile extends Component {
   };
 
   handleLocation = (city) => {
-    // console.log(city);
+    console.log(city);
     this.props.setCurrentCityByUser(city);
     this.setState({
       show_modal: !this.state.show_modal,
@@ -199,11 +198,14 @@ class HeaderMobile extends Component {
                       </div>
                     </div>
                   </div>
+                  <div
+                    className="col-4 text-center"
+                    onClick={() => this.handleLocation("Pune")}
+                  >
+                    <img src={Pune} alt="" className="th-location-mob-circle" />
+                    <p className="mt-2 th-mob-location-city ">Pune</p>
+                  </div>
                   {/* <div className="col-4 text-center">
-              <img src={Pune} alt="" className="th-location-mob-circle" />
-              <p className="mt-2 th-mob-location-city ">Pune</p>
-            </div>
-            <div className="col-4 text-center">
               <img src={Kolkata} alt="" className="th-location-mob-circle" />
               <p className="mt-2 th-mob-location-city ">Kolkata</p>
             </div> */}

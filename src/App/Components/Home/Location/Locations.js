@@ -6,7 +6,7 @@ import Delhi from "../../../Assets/Images/Home/Delhi.png";
 import Noida from "../../../Assets/Images/Home/Noida.png";
 import Gurgaon from "../../../Assets/Images/Home/Gurgaon.png";
 import Bangalore from "../../../Assets/Images/Home/Bangalore.png";
-// import Pune from "../../../Assets/Images/Home/Pune.png";
+import Pune from "../../../Assets/Images/Home/Pune.png";
 // import Kolkata from "../../../Assets/Images/Home/Kolkata.png";
 
 class Locations extends Component {
@@ -16,6 +16,7 @@ class Locations extends Component {
 
   handleLocation = (city) => {
     this.props.setCurrentCityByUser(city);
+    console.log(city);
   };
 
   render() {
@@ -52,11 +53,14 @@ class Locations extends Component {
               <img src={Bangalore} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Bangalore</p>
             </div>
-            {/* <div className=" text-center">
+            <div
+              className=" text-center"
+              onClick={() => this.handleLocation("Pune")}
+            >
               <img src={Pune} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Pune</p>
             </div>
-            <div className=" text-center">
+            {/* <div className=" text-center">
               <img src={Kolkata} alt="" className="th-locations-circle" />
               <p className="mt-md-2 th-location-city">Kolkata</p>
             </div> */}

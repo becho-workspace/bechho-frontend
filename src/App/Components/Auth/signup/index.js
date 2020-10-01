@@ -242,6 +242,7 @@ class Signup extends Component {
                       <option value="Noida">Noida </option>
                       <option value="Gurgram">Gurgram</option>
                       <option value="Bangalore">Bangalore</option>
+                      <option value="Pune">Pune</option>
                     </select>
 
                     <div className="mb-4 d-flex flex-column">

@@ -35,6 +35,11 @@ export default function (state = initialState, action) {
           ...state,
           city: "Gurugram",
         };
+      } else if (action.payload === "Pune") {
+        return {
+          ...state,
+          city: "Pune",
+        };
       } else {
         return {
           ...state,
