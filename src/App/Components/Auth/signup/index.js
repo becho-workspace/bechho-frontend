@@ -62,12 +62,11 @@ class Signup extends Component {
     //Name
     if (name.length < 4) {
       formIsValid = false;
-      errors["name"] = "Name must contain atleast 4 letters";
-    }
-    if (typeof name !== "undefined") {
+      errors["name"] = "Name must be of atleast 4 letters";
+    } else if (typeof name !== "undefined") {
       if (!name.match(/^[a-zA-Z][a-zA-Z ]+[a-zA-Z]+$/)) {
         formIsValid = false;
-        errors["name"] = "Only letters";
+        errors["name"] = "Only letters are allowed";
       }
     }
 
@@ -75,18 +74,17 @@ class Signup extends Component {
     if (contact.length < 10) {
       formIsValid = false;
       errors["contact"] = "Must be of 10 digits";
-    }
-    if (typeof contact !== "undefined") {
+    } else if (typeof contact !== "undefined") {
       if (!contact.match(/^[0-9]+$/)) {
         formIsValid = false;
-        errors["contact"] = "Only digits";
+        errors["contact"] = "Only digits are allowed";
       }
     }
 
     //Address
     if (address.length > 30) {
       formIsValid = false;
-      errors["address"] = "Address cannot conatain more than 30 letters";
+      errors["address"] = "Address cannot contain more than 30 letters";
     }
 
     //Email

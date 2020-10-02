@@ -49,7 +49,6 @@ class StepTwo extends Component {
 
   toggleChange = (e) => {
     console.log(e.target.id, e.target.value);
-
     this.setState({
       [e.target.id]: e.target.value,
     });
@@ -57,7 +56,6 @@ class StepTwo extends Component {
 
   handleChange = (e) => {
     console.log(e.target.name, e.target.value);
-
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -129,7 +127,7 @@ class StepTwo extends Component {
         })
         .catch((err) => {
           this.setState({ loading: false });
-          toast("Something went wrong, please try again", { type: "warning" });
+          toast(err.response.data.error, { type: "warning" });
         });
     }
   };
@@ -214,7 +212,7 @@ class StepTwo extends Component {
                         onClick={this.toggleChange}
                       />
                       <label class="mb-0 th-sell-form-input-label mr-1">
-                        Moinor scratches
+                        Minor scratches
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -388,65 +386,19 @@ class StepTwo extends Component {
                 {/* question 5 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q5. Age of the phone ?
+                    Q5. Year of purchase ?
                   </div>
-                  <div className="ml-4">
-                    <div class="form-check form-check-inline">
+                  <div className="mt-lg-2">
+                    <Form.Group>
                       <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-5"
-                        id="ans5"
-                        value="0-3 months"
+                        typ="text"
+                        className="th-sell-form-textarea form-control"
+                        onChange={this.handleChange}
+                        name="ans5"
+                        value={this.state.ans5}
                         required
-                        onClick={this.toggleChange}
                       />
-                      <label class="mb-0 th-sell-form-input-label mr-1">
-                        0-3 months
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-5"
-                        id="ans5"
-                        value="3-6 months"
-                        required
-                        onClick={this.toggleChange}
-                      />
-                      <label class="mb-0 th-sell-form-input-label mr-1">
-                        3-6 months
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-5"
-                        id="ans5"
-                        value="6-9 months"
-                        required
-                        onClick={this.toggleChange}
-                      />
-                      <label class="mb-0 th-sell-form-input-label">
-                        6-9 months
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-5"
-                        id="ans5"
-                        value="9-12 months or more"
-                        required
-                        onClick={this.toggleChange}
-                      />
-                      <label class="mb-0 th-sell-form-input-label mr-1">
-                        9-12 months or more
-                      </label>
-                    </div>
+                    </Form.Group>
                   </div>
                 </div>
                 {/* question 6 */}
@@ -520,51 +472,24 @@ class StepTwo extends Component {
                 {/* question 8 */}
                 <div className="mt-lg-3 mb-lg-3">
                   <div className="mb-lg-2 th-sell-form-qna-ques">
-                    Q8. Select the available accessories
+                    Q8. Which of these do you have ?
                   </div>
-                  <div className="ml-4">
-                    <div class="form-check form-check-inline">
+                  <ul className="th-sell-form-item-list">
+                    <li>Original Earphone.</li>
+                    <li>Original box with same IMEI number.</li>
+                    <li>Original charger.</li>
+                  </ul>
+                  <div className="mt-lg-2">
+                    <Form.Group>
                       <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-8"
-                        id="ans8"
-                        value=" Earphones"
+                        typ="text"
+                        className="th-sell-form-textarea form-control"
+                        onChange={this.handleChange}
+                        name="ans8"
+                        value={this.state.ans8}
                         required
-                        onClick={this.toggleChange}
                       />
-                      <label class="mb-0 th-sell-form-input-label">
-                        Earphones.
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-8"
-                        id="ans8"
-                        value="Box with same imei"
-                        required
-                        onClick={this.toggleChange}
-                      />
-                      <label class="mb-0 th-sell-form-input-label mr-1">
-                        Box with same imei.
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inline-radio-8"
-                        id="ans8"
-                        value="Original charger"
-                        required
-                        onClick={this.toggleChange}
-                      />
-                      <label class="mb-0 th-sell-form-input-label mr-1">
-                        Original charger.
-                      </label>
-                    </div>
+                    </Form.Group>
                   </div>
                 </div>
                 {/* question 9 */}
@@ -696,6 +621,7 @@ class StepTwo extends Component {
                   </div>
                 </div>
               </div>
+              {/*  */}
             </div>
             {/* mcq ends */}
 
@@ -718,7 +644,7 @@ class StepTwo extends Component {
                 <Form.Group className="d-flex">
                   <textarea
                     rows="4"
-                    placeholder="Choose your answer(s) and type here"
+                    placeholder="Choose the faults present in your product from above."
                     className="th-sell-form-textarea form-control"
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}

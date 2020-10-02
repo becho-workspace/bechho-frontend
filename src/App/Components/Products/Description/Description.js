@@ -12,7 +12,7 @@ class Description extends Component {
               <li className="th-list-item-ques">
                 Q) Does your device switch on?
               </li>
-              <li className="th-list-item-ans "> {this.props.answer1} </li>
+              <li className="th-list-item-ans"> {this.props.answer1} </li>
             </ul>
             <ul className="th-description-list">
               <li className="th-list-item-ques">
@@ -33,7 +33,7 @@ class Description extends Component {
               <li className="th-list-item-ans "> {this.props.answer4} </li>
             </ul>
             <ul className="th-description-list">
-              <li className="th-list-item-ques">Q) Age of the phone ?</li>
+              <li className="th-list-item-ques">Q) Year of purchase ?</li>
               <li className="th-list-item-ans "> {this.props.answer5} </li>
             </ul>
             <ul className="th-description-list">
@@ -50,7 +50,7 @@ class Description extends Component {
             </ul>
             <ul className="th-description-list">
               <li className="th-list-item-ques">
-                Q) Select the available accessories
+                Q) Accessories available with the product?
               </li>
               <li className="th-list-item-ans "> {this.props.answer8} </li>
             </ul>

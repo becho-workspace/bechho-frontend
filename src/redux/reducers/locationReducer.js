@@ -40,14 +40,11 @@ export default function (state = initialState, action) {
           ...state,
           city: "Pune",
         };
-      } else {
-        return {
-          ...state,
-        };
       }
+      break;
     case RESET_CITY_ON_LOGOUT:
       return {
-        ...state,
+        city: "",
       };
     default:
       return state;

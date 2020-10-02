@@ -14,6 +14,7 @@ import { logoutUser } from "../../../redux/actions/authActions";
 import {
   setCurrentCityFromUserAuth,
   setCurrentCityByUser,
+  resetCityOnLogout,
 } from "../../../redux/actions/locationActions";
 import { API } from "../../../backend";
 import axios from "axios";
@@ -50,6 +51,8 @@ class Header extends Component {
 
   handleLogout = (e) => {
     e.preventDefault();
+    // reseting city name
+    this.props.resetCityOnLogout();
     this.props.logoutUser();
   };
 
@@ -60,7 +63,7 @@ class Header extends Component {
   fetchUser = () => {
     // fetching this data only if user is logged in
     // setting city name based on user input in the store
-    if (this.props.auth.user._id) {
+    if (this.props.isAuthenticated) {
       axios
         .get(`${API}/user/${this.props.auth.user._id}`, {
           headers: {
@@ -69,9 +72,6 @@ class Header extends Component {
           },
         })
         .then((res) => {
-          this.setState({
-            city: res.data.city,
-          });
           this.props.setCurrentCityFromUserAuth(res.data.city);
         })
         .catch((err) => {
@@ -147,15 +147,9 @@ class Header extends Component {
                 {city_list}
               </Form.Control>
             </Form>
-            {/* <InputGroup.Append>
-              <span style={{ left: "-135%", position: "relative" }}>
-                <img src={Search} alt="" />
-              </span>
-            </InputGroup.Append> */}
-            {/* search location ends */}
           </Navbar.Collapse>
           {/* based on user authnetication display changes */}
-          {user._id ? (
+          {this.props.isAuthenticated ? (
             <Navbar.Collapse>
               <div className="dropdown">
                 <Nav.Item
@@ -217,11 +211,14 @@ Header.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   setCurrentCityFromUserAuth: PropTypes.func.isRequired,
   setCurrentCityByUser: PropTypes.func.isRequired,
+  resetCityOnLogout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  isAuthenticated: state.auth.isAuthenticated,
   city: state.location.city,
 });
 
@@ -229,4 +226,5 @@ export default connect(mapStateToProps, {
   logoutUser,
   setCurrentCityFromUserAuth,
   setCurrentCityByUser,
+  resetCityOnLogout,
 })(Header);

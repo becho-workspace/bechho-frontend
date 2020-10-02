@@ -149,14 +149,14 @@ class StepOne extends Component {
               {/* <hr /> */}
               <div className="th-sell-form-item-wraper">
                 <div className="th-sell-form-item-header">
-                  Breif Description
+                  Brief Description
                 </div>
                 <div className="mt-lg-3">
                   <Form.Group>
                     <textarea
                       rows="4"
                       className="th-sell-form-textarea form-control"
-                      placeholder="Start typing..."
+                      placeholder="Write a brief description of the product."
                       onChange={this.handleChange}
                       onFocus={this.handleFocus}
                       name="description"
@@ -197,7 +197,7 @@ class StepOne extends Component {
                       <option value="">Select City</option>
                       <option value="Delhi">Delhi</option>
                       <option value="Noida">Noida </option>
-                      <option value="Gurgram">Gurugram</option>
+                      <option value="Gurugram">Gurugram</option>
                       <option value="Bangalore">Bangalore</option>
                       <option value="Pune">Pune</option>
                     </select>

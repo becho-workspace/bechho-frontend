@@ -10,11 +10,13 @@ class MyItemsCard extends Component {
   }
   render() {
     let flag;
-    if (this.props.BidList.length > 0) {
+    if (this.props.BidList.length > 1) {
       flag = 1;
     } else {
       flag = 0;
     }
+
+    console.log(this.props.BidList);
     return (
       <div>
         <div className="th-myitems-card border-0 pt-3">
@@ -60,8 +62,16 @@ class MyItemsCard extends Component {
                     })}
                 </div>
               ) : (
-                <div className="th-bidlist-empty-msg d-flex justify-content-center align-items-center mt-4">
-                  No current bids available for this product
+                <div className="d-flex justify-content-center align-items-center mt-4">
+                  {/* {this.props.BidList[0].status ? (
+                    <span className="th-bidlist-accept-msg ">
+                      {this.props.BidList[0].status}{" "}
+                    </span>
+                  ) : ( */}
+                  <span className="th-bidlist-empty-msg">
+                    No current bids available
+                  </span>
+                  {/* )} */}
                 </div>
               )}
             </div>

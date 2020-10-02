@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../redux/actions/authActions";
+import { resetCityOnLogout } from "../../../redux/actions/locationActions";
 
 class SideDrawer extends Component {
   state = {
@@ -21,6 +22,8 @@ class SideDrawer extends Component {
 
   handleLogout = (e) => {
     e.preventDefault();
+    // reseting city name
+    this.props.resetCityOnLogout();
     this.props.logoutUser();
     this.props.clicked();
   };
@@ -123,7 +126,7 @@ class SideDrawer extends Component {
             </Link>
             {/* show only if user is authenticated */}
             <Link to="/career" onClick={this.props.clicked}>
-              <p className="th-sidebar-list-item">Carrers</p>
+              <p className="th-sidebar-list-item">Careers</p>
             </Link>
             <Link to="/blogs" onClick={this.props.clicked}>
               <p className="th-sidebar-list-item">Blogs</p>
@@ -132,7 +135,7 @@ class SideDrawer extends Component {
               <p className="th-sidebar-list-item">Testimonials</p>
             </Link>
             <Link to="/faq" onClick={this.props.clicked}>
-              <p className="th-sidebar-list-item">Faq</p>
+              <p className="th-sidebar-list-item">FAQ's</p>
             </Link>
           </div>
           <hr className="th-sidebar-hr" />
@@ -170,6 +173,7 @@ class SideDrawer extends Component {
 
 SideDrawer.propTypes = {
   logoutUser: PropTypes.func.isRequired,
+  resetCityOnLogout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
@@ -177,4 +181,7 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(SideDrawer);
+export default connect(mapStateToProps, {
+  logoutUser,
+  resetCityOnLogout,
+})(SideDrawer);

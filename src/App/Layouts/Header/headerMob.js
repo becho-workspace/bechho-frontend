@@ -15,7 +15,6 @@ import { connect } from "react-redux";
 import {
   setCurrentCityByUser,
   setCurrentCityFromUserAuth,
-  // resetCityOnLogout,
 } from "../../../redux/actions/locationActions";
 import PropTypes from "prop-types";
 import { API } from "../../../backend";
@@ -35,16 +34,12 @@ class HeaderMobile extends Component {
     };
   }
 
-  // componentDidUpdate() {
-  //   this.props.resetCityOnLogout();
-  // }
-
   componentDidMount = () => {
     this.fetchUser();
   };
 
   fetchUser = () => {
-    if (this.props.user._id) {
+    if (this.props.isAuthenticated) {
       axios
         .get(`${API}/user/${this.props.user._id}`, {
           headers: {
@@ -91,7 +86,6 @@ class HeaderMobile extends Component {
   };
 
   handleLocation = (city) => {
-    console.log(city);
     this.props.setCurrentCityByUser(city);
     this.setState({
       show_modal: !this.state.show_modal,
@@ -223,18 +217,18 @@ class HeaderMobile extends Component {
 HeaderMobile.propTypes = {
   setCurrentCityByUser: PropTypes.func.isRequired,
   setCurrentCityFromUserAuth: PropTypes.func.isRequired,
-  // resetCityOnLogout: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   city: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   city: state.location.city,
+  isAuthenticated: state.auth.isAuthenticated,
   user: state.auth.user,
 });
 
 export default connect(mapStateToProps, {
   setCurrentCityByUser,
   setCurrentCityFromUserAuth,
-  // resetCityOnLogout,
 })(HeaderMobile);

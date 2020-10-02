@@ -75,7 +75,7 @@ class Footer extends Component {
                     </Link>
 
                     <Link className="th-footer-list" to="/faq">
-                      <li>Faq's</li>
+                      <li>FAQ's</li>
                     </Link>
 
                     <Link className="th-footer-list" to="/career">
@@ -83,11 +83,11 @@ class Footer extends Component {
                     </Link>
 
                     <Link className="th-footer-list" to="/privacy-policy">
-                      <li>Privacy Poliicy</li>
+                      <li>Privacy Policy</li>
                     </Link>
 
                     <Link className="th-footer-list" to="/return-policy">
-                      <li>Return Poliicy</li>
+                      <li>Return Policy</li>
                     </Link>
 
                     <Link className="th-footer-list" to="/terms">
@@ -182,7 +182,7 @@ class Footer extends Component {
                       </Link>
 
                       <Link className="th-footer-list" to="/faq">
-                        <li>Faq's</li>
+                        <li>FAQ's</li>
                       </Link>
 
                       <Link className="th-footer-list" to="/career">
@@ -190,11 +190,11 @@ class Footer extends Component {
                       </Link>
 
                       <Link className="th-footer-list" to="/privacy-policy">
-                        <li>Privacy Poliicy</li>
+                        <li>Privacy Policy</li>
                       </Link>
 
                       <Link className="th-footer-list" to="/return-policy">
-                        <li>Return Poliicy</li>
+                        <li>Return Policy</li>
                       </Link>
 
                       <Link className="th-footer-list" to="/terms">

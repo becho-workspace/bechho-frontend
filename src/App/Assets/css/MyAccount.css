@@ -307,8 +307,15 @@
 }
 
 .th-bidlist-empty-msg {
-  font-size: 24px;
+  font-size: 20px;
   color: #ca4646;
+  font-family: "Poppins";
+  line-height: 20px;
+}
+
+.th-bidlist-accept-msg {
+  font-size: 20px;
+  color: #39ac45;
   font-family: "Poppins";
   line-height: 20px;
 }

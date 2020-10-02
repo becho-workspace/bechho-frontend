@@ -9,7 +9,7 @@ import {
   USER_LOADED,
 } from "./types";
 
-import { resetCityOnLogout } from "./locationActions";
+import { setCurrentCityFromUserAuth } from "./locationActions";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,10 +24,6 @@ export const registerUser = (userData, history) => (dispatch) => {
       history.push("/signin"); // re-direct to login on successful register
     })
     .catch((err) =>
-      // dispatch({
-      //   type: GET_ERRORS,
-      //   payload: err.response.data,
-      // })
       // error message
       toast(err.response.data.error, { type: "warning" })
     );
@@ -38,7 +34,7 @@ export const loginUser = (userData) => (dispatch) => {
   axios
     .post(`${API}/signin`, userData)
     .then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
       // Save to localStorage
       // Set token to localStorage
       const { token } = res.data;
@@ -50,16 +46,14 @@ export const loginUser = (userData) => (dispatch) => {
       // console.log(decoded);
       // Set current user
       dispatch(setCurrentUser(decoded));
+      // dispatch city name from user
+      dispatch(setCurrentCityFromUserAuth(res.data.user.city));
       // login messag on succes
       toast("Logged in Successfully", { type: "success" });
       // set loading to false
       dispatch(setUserLoaded());
     })
     .catch((err) => {
-      // dispatch({
-      //   type: GET_ERRORS,
-      //   payload: err.response.data,
-      // });
       // error message
       toast(err.response.data.error, { type: "error" });
       dispatch(setUserLoaded());
@@ -96,8 +90,5 @@ export const logoutUser = (history) => (dispatch) => {
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
-  dispatch(resetCityOnLogout());
-  // window.location.reload(false);
-  // this.props.history.push("/");
   toast("Logged out Successfully", { type: "warning" });
 };
