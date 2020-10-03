@@ -36,7 +36,6 @@ class MyItems extends Component {
         });
       })
       .catch((err) => {
-        // console.log(err.response.data.error);
         this.setState({ loading: false });
         toast(err.response.data.error, { type: "warning" });
       });
@@ -52,7 +51,7 @@ class MyItems extends Component {
           <div className="container mt-4 th-my-items-mob">
             <p className="th-myitems-header">My Items</p>
             <div className="d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
-              {this.state.myItems &&
+              {this.state.myItems.length > 0 ? (
                 this.state.myItems.map((item, index) => {
                   return (
                     <MyItemsCard
@@ -65,7 +64,10 @@ class MyItems extends Component {
                       prodId={item._id}
                     />
                   );
-                })}
+                })
+              ) : (
+                <div>No products uploaded yet</div>
+              )}
             </div>
           </div>
         )}

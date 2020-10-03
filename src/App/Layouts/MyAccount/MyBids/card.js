@@ -10,6 +10,7 @@ class MyBidsCard extends Component {
     super(props);
     this.state = {
       prod_image: "",
+      prod_name: "",
       width: window.innerWidth,
     };
   }
@@ -26,11 +27,15 @@ class MyBidsCard extends Component {
       .then((res) => {
         this.setState({
           prod_image: res.data.photo,
+          prod_name: res.data.name,
         });
       })
       .catch((err) => {
-        console.log(err.response.data);
-        toast("something went wrong", { type: "warning" });
+        toast(
+          err.response.data.error,
+          // .concat(" By the name", this.state.prod_name),
+          { type: "warning" }
+        );
       });
   };
 

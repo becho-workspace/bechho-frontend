@@ -37,7 +37,7 @@ class MyBids extends Component {
       })
       .catch((err) => {
         this.setState({ loading: false });
-        toast(err.response.statusText, { type: "warning" });
+        toast(err.error, { type: "warning" });
       });
   };
 
@@ -52,7 +52,7 @@ class MyBids extends Component {
           <div className="container mt-4 th-my-items-mob">
             <p className="th-mybids-header">Used Products Bids</p>
             <div className="d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
-              {this.state.myBids &&
+              {this.state.myBids.length > 0 ? (
                 this.state.myBids.map((item, index) => {
                   return (
                     <MyBidsCard
@@ -64,7 +64,10 @@ class MyBids extends Component {
                       prodId={item.productId}
                     />
                   );
-                })}
+                })
+              ) : (
+                <div>No bids yet</div>
+              )}
             </div>
           </div>
         )}
