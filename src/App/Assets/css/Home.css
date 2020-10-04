@@ -1,30 +1,30 @@
 /* Home index file container */
 @media only screen and (min-width: 1284px) {
-  .th-container {
+  .th-home-container {
     max-width: 1252px !important;
   }
 }
 
 @media only screen and (min-width: 1020px) and (max-width: 1284px) {
-  .th-container {
+  .th-home-container {
     max-width: 1204px !important;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1020px) {
-  .th-container {
+  .th-home-container {
     max-width: 960px !important;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  .th-container {
+  .th-home-container {
     max-width: 720px !important;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .th-container {
+@media only screen and (max-width: 760px) {
+  .th-home-container {
     max-width: 520px !important;
   }
 }

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import MyBidsCard from "./card";
 import Loader from "../../../Loader/spinner";
+import NoBidsWeb from "../../../Assets/Images/Profile/NoBidsWeb.png";
+import NoBidsMob from "../../../Assets/Images/Profile/NoBidsMob.png";
 import axios from "axios";
 import { API } from "../../../../backend";
 import { connect } from "react-redux";
@@ -16,6 +18,7 @@ class MyBids extends Component {
     this.state = {
       myBids: [],
       loading: false,
+      width: window.innerWidth,
     };
   }
 
@@ -30,6 +33,7 @@ class MyBids extends Component {
     axios
       .get(`${API}/product/getbids/${this.props.user._id}`)
       .then((res) => {
+        console.log(res.data);
         this.setState({
           myBids: res.data.bid,
           loading: false,
@@ -49,7 +53,7 @@ class MyBids extends Component {
         {this.state.loading ? (
           <Loader />
         ) : (
-          <div className="container mt-4 th-my-items-mob">
+          <div className="container mt-5 mb-4 th-my-items-mob">
             <p className="th-mybids-header">Used Products Bids</p>
             <div className="d-lg-flex flex-wrap justify-content-lg-between th-mybids-col">
               {this.state.myBids.length > 0 ? (
@@ -66,7 +70,13 @@ class MyBids extends Component {
                   );
                 })
               ) : (
-                <div>No bids yet</div>
+                <div className="mt-3 mb-5">
+                  {this.state.width > 780 ? (
+                    <img src={NoBidsWeb} alt="" style={{ width: "100%" }} />
+                  ) : (
+                    <img src={NoBidsMob} alt="" style={{ width: "100%" }} />
+                  )}
+                </div>
               )}
             </div>
           </div>

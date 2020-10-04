@@ -27,7 +27,7 @@ class Category extends Component {
                   src={Mobile}
                   alt=""
                   style={{
-                    width: this.state.width > 780 ? "84px" : "56px",
+                    width: this.state.width > 760 ? "84px" : "56px",
                   }}
                   className="th-category-img-mob"
                 />

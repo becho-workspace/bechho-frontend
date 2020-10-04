@@ -24,7 +24,7 @@ class HomeMain extends Component {
         <div>
           <HomeTop />
           <Locations />
-          <Container className="th-container">
+          <Container className="th-home-container">
             <GridItems />
             {/* <Brands /> */}
             <NewProducts />

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import TopImgMob from "../../../Assets/Images/Home/TopImageMob.png";
-import StepOne from "../../../Assets/Images/Home/step1.png";
-import StepTwo from "../../../Assets/Images/Home/step2.png";
-import StepThree from "../../../Assets/Images/Home/step3.png";
+import StepOne from "../../../Assets/Images/Home/StepOne.png";
+import StepTwo from "../../../Assets/Images/Home/StepTwo.png";
+import StepThree from "../../../Assets/Images/Home/StepThree.png";
 
 const data = [
   {
@@ -45,15 +45,15 @@ class HomeTopMob extends Component {
     return (
       <div className="th-hometop-mob-div">
         <div className="">
-          <div className="mb-3 d-flex justify-content-center">
-            <img src={TopImgMob} alt="" />
+          <div className="mb-4 d-flex justify-content-center">
+            <img src={TopImgMob} alt="" style={{ width: "272px" }} />
           </div>
           <Slider {...settings} className="th-testimonial-mainSlider">
             {data.map((item) => {
               return (
                 <div className="d-flex justify-content-center">
                   <div>
-                    <img src={item.src} alt="" />
+                    <img src={item.src} alt="" style={{ width: "260px" }} />
                   </div>
                 </div>
               );

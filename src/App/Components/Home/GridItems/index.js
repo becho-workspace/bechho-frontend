@@ -11,10 +11,10 @@ export class GridComponents extends Component {
     return (
       <div className="mt-md-4 mt-sm-2 mb-md-5 mb-sm-2">
         <Row className="text-center">
-          <Col md={5}>
+          <Col lg={5}>
             <PromotedItems />
           </Col>
-          <Col md={7}>
+          <Col lg={7}>
             <Category />
           </Col>
         </Row>
