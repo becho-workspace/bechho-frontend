@@ -45,7 +45,7 @@ class MyBidsCard extends Component {
         <div className="th-myitems-card border-0 ">
           <div
             className="pt-3 th-mybids-img-div d-flex justify-content-center"
-            style={{ height: "350px" }}
+            style={{ height: this.state.width > 780 ? "350px" : "" }}
           >
             <img
               src={this.state.prod_image.path}

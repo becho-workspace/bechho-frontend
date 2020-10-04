@@ -21,9 +21,7 @@ class MyItemsCard extends Component {
         <div className="th-myitems-card border-0 pt-3">
           <div
             className="d-flex justify-content-center"
-            style={{
-              height: "352px",
-            }}
+            style={{ height: this.state.width > 780 ? "352px" : "" }}
           >
             <img
               src={this.props.src}
