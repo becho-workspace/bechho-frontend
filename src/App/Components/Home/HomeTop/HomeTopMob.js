@@ -46,14 +46,14 @@ class HomeTopMob extends Component {
       <div className="th-hometop-mob-div">
         <div className="">
           <div className="mb-4 d-flex justify-content-center">
-            <img src={TopImgMob} alt="" style={{ width: "272px" }} />
+            <img src={TopImgMob} alt="" style={{ width: "100%" }} />
           </div>
           <Slider {...settings} className="th-testimonial-mainSlider">
             {data.map((item) => {
               return (
                 <div className="d-flex justify-content-center">
                   <div>
-                    <img src={item.src} alt="" style={{ width: "260px" }} />
+                    <img src={item.src} alt="" style={{ width: "100%" }} />
                   </div>
                 </div>
               );

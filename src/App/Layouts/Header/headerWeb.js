@@ -83,9 +83,6 @@ class Header extends Component {
   };
 
   render() {
-    // calling user from store
-    const { user } = this.props.auth;
-
     const city_list = cities.map((item, index) => {
       return (
         <option key={index} value={item.city}>

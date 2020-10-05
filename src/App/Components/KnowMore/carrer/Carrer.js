@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import CAPoster from "../../../Assets/Images/Bechho-CA-Poster.jpeg";
+import CAPoster from "../../../Assets/Images/Bechho-CA-Poster.png";
 
 class Carrers extends Component {
   state = { width: window.innerWidth };
@@ -39,7 +39,7 @@ class Carrers extends Component {
             and represent us on your campus!
           </p>
           <p className="mb-0 mt-2 th-carrers-content">
-            Location: <b>Delhi, Noida, Gurugram, Bengaluru</b>
+            Location: <b>Delhi, Noida, Gurugram, Bengaluru,Pune</b>
           </p>
           <p className="mb-0 mt-2 th-carrers-content">
             Registration Link: {this.state.width < 768 ? <br /> : null}

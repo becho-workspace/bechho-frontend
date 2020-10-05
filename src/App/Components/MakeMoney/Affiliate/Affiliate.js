@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import CAPoster from "../../../Assets/Images/Bechho-CA-Poster.jpeg";
+import CAPoster from "../../../Assets/Images/Bechho-CA-Poster.png";
 
 class Afiiliate extends Component {
   state = { width: window.innerWidth };
@@ -58,7 +58,7 @@ class Afiiliate extends Component {
             and represent us on your campus!
           </p>
           <p className="mb-2 mt-2 th-affiliate-content">
-            Location: <b>Delhi, Noida, Gurugram, Bengaluru</b>{" "}
+            Location: <b>Delhi, Noida, Gurugram, Bengaluru,Pune</b>{" "}
           </p>
           <p className="mb-2 mt-2 th-affiliate-content">
             Registration Link: {this.state.width < 768 ? <br /> : null}

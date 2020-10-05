@@ -64,6 +64,7 @@ class CategoryTop extends Component {
       ) {
         return data;
       }
+      return data;
     });
 
     return (
