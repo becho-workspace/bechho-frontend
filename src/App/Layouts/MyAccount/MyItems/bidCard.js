@@ -59,7 +59,7 @@ class BidCard extends Component {
   };
 
   handleBidAccept = (status, price) => {
-    // console.log(price);
+    // console.log(status);
     let sellPrice, sCharge;
     if (price < 1000) {
       sCharge = 75;
@@ -90,17 +90,17 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        console.log(res.data.status);
+        // console.log(res.data.status);
         this.setState({
           bid_status: res.data.status,
         });
-        toast("Successfully Updated", { type: "success" });
+        toast("Successfully Accepted the Bid", { type: "success" });
         this.setState({
           show_bids_modal: false,
         });
       })
       .catch((err) => {
-        toast(err.response.data, { type: "warning" });
+        toast(err.response.data.error, { type: "warning" });
         this.setState({
           show_bids_modal: false,
         });
@@ -119,7 +119,7 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        toast("Successfully Sent", { type: "success" });
+        toast("Bid Sent Successfully", { type: "success" });
       })
       .catch((err) => {
         toast(err.response.respponseText, { type: "warning" });
@@ -153,7 +153,7 @@ class BidCard extends Component {
         this.setState({
           bid_status: res.data.status,
         });
-        toast("Successfully Updated", { type: "success" });
+        toast("Successfully Rejected the Bid", { type: "warning" });
       })
       .catch((err) => {
         toast(err.response.data.error, { type: "warning" });
@@ -201,7 +201,7 @@ class BidCard extends Component {
               }}
             >
               <button
-                className="mr-lg-4 th-myitems-bid-approve"
+                className="mr-lg-2 th-myitems-bid-approve"
                 onClick={() =>
                   this.handleBidAccept("Accepted", this.props.price)
                 }
@@ -263,7 +263,7 @@ class BidCard extends Component {
                 }}
               >
                 <button
-                  className="mr-lg-4 th-myitems-bid-approve"
+                  className="mr-lg-2 th-myitems-bid-approve"
                   onClick={() =>
                     this.handleBidAccept("Accepted", this.props.price)
                   }

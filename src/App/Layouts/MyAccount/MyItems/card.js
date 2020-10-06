@@ -10,11 +10,23 @@ class MyItemsCard extends Component {
   }
   render() {
     let flag;
-    if (this.props.BidList.length > 1) {
+    if (
+      this.props.BidList.length >= 1 &&
+      this.props.BidList[0].status == "Pending"
+    ) {
       flag = 1;
-    } else {
+    } else if (
+      this.props.BidList.length === 1 &&
+      this.props.BidList[0].status === "Accepted"
+    ) {
       flag = 0;
     }
+
+    // if (this.props.BidList.length >= 1) {
+    //   flag = 1;
+    // } else {
+    //   flag = 0;
+    // }
 
     return (
       <div>
@@ -59,8 +71,10 @@ class MyItemsCard extends Component {
                     })}
                 </div>
               ) : (
+                // handling if bid array has 1 elem or 0 elem
                 <div className="d-flex justify-content-center align-items-center mt-4">
-                  {this.props.BidList[0].status === "Accepted" ? (
+                  {this.props.BidList.length > 0 &&
+                  this.props.BidList[0].status === "Accepted" ? (
                     <span className="th-bidlist-accept-msg ">
                       You have accepted a bid for this item.
                     </span>

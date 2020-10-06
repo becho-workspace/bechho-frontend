@@ -48,7 +48,7 @@ class StepTwo extends Component {
   };
 
   toggleChange = (e) => {
-    console.log(e.target.id, e.target.value);
+    // console.log(e.target.id, e.target.value);
     this.setState({
       [e.target.id]: e.target.value,
     });

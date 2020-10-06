@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class Description extends Component {
   state = { width: window.innerWidth };
   render() {
+    console.log(this.props.answer9);
     return (
       <div>
         <div className="container mt-5 mb-4">
@@ -52,13 +53,13 @@ class Description extends Component {
               <li className="th-list-item-ques">
                 Q) Accessories available with the product?
               </li>
-              <li className="th-list-item-ans "> {this.props.answer8} </li>
+              <li className="th-list-item-ans"> {this.props.answer8} </li>
             </ul>
             <ul className="th-description-list">
               <li className="th-list-item-ques">
                 Q) OEN/ Brand Warranty utilized ?
               </li>
-              <li className="th-list-item-ans "> {this.props.answer9} </li>
+              <li className="th-list-item-ans">{this.props.answer9} </li>
             </ul>
             <ul className="th-description-list">
               <li className="th-list-item-ques">
