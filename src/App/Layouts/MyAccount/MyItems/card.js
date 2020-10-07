@@ -12,7 +12,7 @@ class MyItemsCard extends Component {
     let flag;
     if (
       this.props.BidList.length >= 1 &&
-      this.props.BidList[0].status == "Pending"
+      this.props.BidList[0].status === "Pending"
     ) {
       flag = 1;
     } else if (
@@ -22,24 +22,12 @@ class MyItemsCard extends Component {
       flag = 0;
     }
 
-    // if (this.props.BidList.length >= 1) {
-    //   flag = 1;
-    // } else {
-    //   flag = 0;
-    // }
-
+    console.log(this.props.BidList);
     return (
       <div>
-        <div className="th-myitems-card border-0 pt-3">
-          <div
-            className="d-flex justify-content-center"
-            style={{ height: this.state.width > 780 ? "352px" : "" }}
-          >
-            <img
-              src={this.props.src}
-              alt=""
-              style={{ maxWidth: this.state.width > 780 ? "500px" : "320px" }}
-            />
+        <div className="th-myitems-card border-0 ">
+          <div className="d-flex justify-content-center p-3">
+            <img src={this.props.src} alt="" style={{ width: "100%" }} />
           </div>
 
           <div className="th-myitems-card-box">
@@ -59,6 +47,7 @@ class MyItemsCard extends Component {
                 <div>
                   {this.props.BidList &&
                     this.props.BidList.map((item, index) => {
+                      // console.log(item.status);
                       return (
                         <BidCard
                           price={item.offeredprice}

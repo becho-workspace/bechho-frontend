@@ -238,7 +238,7 @@ class Signup extends Component {
                       <option value="">Select Your City</option>
                       <option value="Delhi">Delhi</option>
                       <option value="Noida">Noida </option>
-                      <option value="Gurgram">Gurgram</option>
+                      <option value="Gurugram">Gurugram</option>
                       <option value="Bangalore">Bangalore</option>
                       <option value="Pune">Pune</option>
                     </select>

@@ -271,10 +271,16 @@ class BidCard extends Component {
                   Approve
                 </button>
                 <button
-                  className="th-myitems-bid-decline"
+                  className="mr-lg-2 th-myitems-bid-decline"
                   onClick={() => this.handleBidReject("Rejected")}
                 >
                   Decline
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={this.handleCloseModal}
+                >
+                  Cancel
                 </button>
               </div>
             </div>
