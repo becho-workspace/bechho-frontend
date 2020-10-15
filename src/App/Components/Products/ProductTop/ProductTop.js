@@ -36,17 +36,16 @@ class ProductTop extends Component {
         <Container>
           <Row>
             <Col lg={6}>
-              <div
-                className="d-flex justify-content-center"
-                style={{ maxHeight: "500px" }}
-              >
-                <img
-                  src={this.props.src}
-                  alt=""
-                  style={{
-                    maxWidth: this.state.width > 780 ? "500px" : "280px",
-                  }}
-                />
+              <div>
+                <div className="d-flex justify-content-center">
+                  <img
+                    src={this.props.src}
+                    alt=""
+                    style={{
+                      width: "100%",
+                    }}
+                  />
+                </div>
               </div>
             </Col>
             <Col lg={6}>

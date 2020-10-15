@@ -45,7 +45,7 @@ class ProductHome extends Component {
         params: { ...params },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           product_name:
             res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),

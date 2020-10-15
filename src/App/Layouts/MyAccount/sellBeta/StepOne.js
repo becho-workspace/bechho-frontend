@@ -21,7 +21,7 @@ class StepOne extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
+    // console.log(e.target.name, e.target.value);
     if (e.target.value.category) {
       console.log("ss");
     }

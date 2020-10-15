@@ -20,6 +20,9 @@ class BidCard extends Component {
       bid_status: "Pending",
     };
     this.handleBids = this.handleBids.bind(this);
+    this.handleBidAccept = this.handleBidAccept.bind(this);
+    this.handleBidReject = this.handleBidReject.bind(this);
+    this.sendBid = this.sendBid.bind(this);
   }
 
   handleBids = (price) => {
@@ -90,14 +93,16 @@ class BidCard extends Component {
         }
       )
       .then((res) => {
-        // console.log(res.data.status);
-        this.setState({
-          bid_status: res.data.status,
-        });
-        toast("Successfully Accepted the Bid", { type: "success" });
-        this.setState({
-          show_bids_modal: false,
-        });
+        if (res.status === 200) {
+          this.sendBid(price, sellPrice, sCharge);
+          this.setState({
+            bid_status: res.data.status,
+          });
+          toast("Successfully Accepted the Bid", { type: "success" });
+          this.setState({
+            show_bids_modal: false,
+          });
+        }
       })
       .catch((err) => {
         toast(err.response.data.error, { type: "warning" });
@@ -105,9 +110,10 @@ class BidCard extends Component {
           show_bids_modal: false,
         });
       });
+  };
 
-    // to send data
-    console.log(price, sellPrice, sCharge);
+  // to send bid data
+  sendBid = (price, sellPrice, sCharge) => {
     axios
       .post(
         `${API}/addtrans/${this.props.user._id}/${this.props.bidderId}/${this.props.prodId}`,

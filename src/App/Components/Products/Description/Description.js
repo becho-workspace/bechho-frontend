@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class Description extends Component {
   state = { width: window.innerWidth };
   render() {
-    console.log(this.props.answer9);
     return (
       <div>
         <div className="container mt-5 mb-4">

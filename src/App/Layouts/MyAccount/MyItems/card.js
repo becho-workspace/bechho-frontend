@@ -22,12 +22,18 @@ class MyItemsCard extends Component {
       flag = 0;
     }
 
-    console.log(this.props.BidList);
     return (
       <div>
         <div className="th-myitems-card border-0 ">
-          <div className="d-flex justify-content-center p-3">
-            <img src={this.props.src} alt="" style={{ width: "100%" }} />
+          <div
+            className="d-flex justify-content-center p-3"
+            style={{ height: "400px" }}
+          >
+            <img
+              src={this.props.src}
+              alt=""
+              style={{ maxWidth: "100%", maxHeight: "100%" }}
+            />
           </div>
 
           <div className="th-myitems-card-box">

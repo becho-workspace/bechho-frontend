@@ -37,11 +37,6 @@ class Popup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(this.state.price);
-    // console.log(this.state.checked);
-    // console.log(this.state.price);
-
-    console.log(this.props.user._id);
 
     axios
       .patch(`${API}/product/bid/${this.props.prodId}/${this.props.user._id}`, {

@@ -55,7 +55,7 @@ class StepTwo extends Component {
   };
 
   handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
+    // console.log(e.target.name, e.target.value);
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -120,7 +120,7 @@ class StepTwo extends Component {
         })
         .then((response) => {
           if (response.status === 200) {
-            toast("Successfully Submitted", { type: "success" });
+            toast("Successfully Uploaded the Product", { type: "success" });
             this.setState({ loading: false });
           }
           this.props.history.push("/");
