@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Navbar from "../App/Layouts/Header/index";
 import Footer from "../App/Layouts/Footer/index";
 import BottomNav from "../App/Layouts/BottomNav/BottomNav";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { HashRouter, Link, Route, Switch } from "react-router-dom";
+import history from "../history";
 import Modal from "react-bootstrap/Modal";
 // import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
@@ -83,7 +84,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <HashRouter history={history}>
           <Loader />
           <Navbar />
           <BottomNav />
@@ -139,7 +140,7 @@ class App extends Component {
             <Route component={Page404} />
           </Switch>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </div>
     );
   }
